@@ -1,0 +1,94 @@
+---
+title: "Part 9: Decrease Size"
+sidebar_position: 11
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Decrease Size
+
+<details>
+    <summary>**Prerequisites: Before you dive in!**</summary>
+
+    **1. Intro**
+
+    **2. Setup**
+
+    **3. Creating a Gamepass**
+</details>
+
+## Objective 🧐🗿
+
+We are going to create a script that allows players to purchase a size decrease for their character in Roblox using a Developer Product.
+
+## Description 📖🪶 
+
+Here's what we want to accomplish: 
+
+**1. Purchase Size Decrease:**
+
+Players can buy a size decrease for their character using a Developer Product. 
+
+**2. Decrease Character Size:**
+
+When purchased, the character's size will decrease temporarily. 
+
+**3. Restore Original Size:**
+
+After a short duration, the character's size will return to normal. 
+
+**By doing this, we will create a dynamic gameplay feature where players can temporarily shrink their character's size through in-game purchases.** 
+
+## Instructions and Code Logic 📝📚
+
+### Step 1 - Get the Necessary Services
+
+- Get the `MarketplaceService` from the game. 
+
+- Get the `Players` service from the game. 
+
+### Step 2 - Set Up Developer Product ID
+
+- Define the Developer Product ID for the size decrease purchase (`DEV_PRODUCT_SIZE_DECREASE`). 
+
+### Step 3 - Create a Function to Handle Size Decrease
+
+- Define a function named `grantSizeDecrease` that takes a `player` as an argument. 
+
+- Inside the function, get the player's character. 
+
+- Store the original scales of the character's body parts. 
+
+- Decrease the scales of the body parts to half their original size. 
+
+- Wait for 5 seconds (the duration of the size decrease). 
+
+- Reset the scales of the body parts to their original sizes. 
+
+### Step 4 - Create a Function to Process Receipts
+
+- Define a function named `processReceipt` that takes `receiptInfo` as an argument. 
+
+- Inside the function, get the player from the receipt information. 
+
+- If the player is not found, return `Enum.ProductPurchaseDecision.NotProcessedYet`. 
+
+- Use a `pcall` to handle any errors during processing. 
+
+- If the `ProductId` matches the size decrease product, call the `grantSizeDecrease` function for the player. 
+
+- Return `Enum.ProductPurchaseDecision.PurchaseGranted` if successful, otherwise return `Enum.ProductPurchaseDecision.NotProcessedYet`. 
+
+### Step 5 - Set the Callback Function
+
+- Set `MarketplaceService.ProcessReceipt` to the `processReceipt` function to handle purchase processing. 
+
+## Putting It All Together 🔧🔩
+
+- Start by getting the necessary services and setting up the Developer Product ID. 
+
+- Define functions to handle size decrease and receipt processing. 
+
+- Set the callback function for processing receipts. 
+
+**By following these simple steps, you can create a script that allows players to purchase a size decrease for their character, with the size returning to normal after a short duration.** 

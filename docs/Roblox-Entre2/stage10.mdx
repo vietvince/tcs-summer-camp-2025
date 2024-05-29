@@ -1,0 +1,76 @@
+---
+title: "Part 10: Last Player Standing"
+sidebar_position: 12
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Last Player Standing
+
+<details>
+    <summary>**Prerequisites: Before you dive in!**</summary>
+
+    **1. Intro**
+
+    **2. Setup**
+
+    **3. Creating a Gamepass**
+</details>
+
+## Objective 🧐🗿
+
+We are going to create a script that knocks out (sets health to zero) all players in the game except one exempted player. 
+
+## Description 📖🪶
+
+Here's what we want to accomplish:
+
+**1. Identify Players:**
+
+Get a list of all players in the game. 
+
+**2. Exempt One Player:**
+
+Skip the player who is exempted. 
+
+**3. Knock Out Players:**
+
+Set the health of all other players to zero. 
+
+**By doing this, we can create a function that can selectively knock out all players except for a specified one.** 
+
+## Instructions and Code Logic 📝📚
+
+### Step 1 - Get Necessary Services
+
+- Get the `Players` service from the game. 
+
+### Step 2 - Create a Function to Knock Out Players
+
+- Define a function named `randomKnockout` that takes an `exemptedPlayer` as an argument. 
+
+- Inside the function, define another function named `makeDie` that takes a `player` as an argument. 
+
+- Inside `makeDie`, get the player's character and check if it has a `Humanoid` component. 
+
+- If the `Humanoid` component exists, set its health to zero. 
+
+### Step 3 - Iterate Through All Players
+
+- Use a loop to go through all players in the game. 
+
+- For each player, check if they are not the exempted player. 
+
+- If they are not the exempted player, call the `makeDie` function to knock them out. 
+
+## Putting It All Together 🔧🔩
+
+- Start by setting up the necessary services. 
+
+- Define the `randomKnockout` function to handle the logic of knocking out all players except one. 
+
+- Inside the function, define `makeDie` to set the player's health to zero. 
+
+- Iterate through all players and knock out those who are not exempted. 
+
+**By following these simple steps, you can create a script that knocks out all players except for one specified player.** 

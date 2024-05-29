@@ -1,0 +1,312 @@
+---
+title: "Stage 2: Sphere Stairs"
+sidebar_position: 4
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+import ReactPlayer from 'react-player'
+import MyVideoUrl from './video/Stage2.mp4';
+import MyVideoUrl2 from './video/entre2medium.mp4'
+import MyVideoUrl3 from './video/entre2hard.mp4'
+import ReactAudioPlayer from 'react-audio-player';
+import audioFile from './video/stage2meme.mp3';
+
+# Stage 2: Sphere Stairs
+
+<details>
+    <summary>**Prerequisites: Before You Dive In!**</summary>
+    
+    Before diving into this stage of coding awesomeness, let's make sure you've got all the skills from the previous challenges under your belt!
+    
+    **1. Intro**
+    
+    You've already embarked on this exciting journey into the world of Roblox Obby creation! You've learned what an Obby is and why it's so much fun. Now, get ready to put that knowledge into action!
+    
+    **2. Setup**
+    
+    You've set the stage for your Obby adventure by getting your Roblox environment all ready to go! From creating your account to setting up your workspace, you've got everything in place to unleash your creativity.
+
+    **3. Stage 1: Ascending Walls**
+
+    Congratulations! You've successfully conquered Stage 1 by creating a challenging staircase obstacle course! You've learned how to set up checkpoints, customize properties, and build obstacles like a pro.
+
+    **Now that you've mastered these prerequisites, it's time to level up and tackle the next challenge in your coding journey! Get ready to take your Obby game to new heights! 🌟**
+</details>
+
+<div align='center'>
+  <ReactPlayer controls url={MyVideoUrl}/>
+</div>
+
+## Objective 🧐🗿
+
+Welcome to the second stage of our thrilling Obby journey! Prepare to elevate your skills as we tackle the challenge of Sphere Stairs and ascend to greater heights!
+
+## Description 📖🪶
+
+Hey there, brave coders! Are you ready to take your Obby skills to the next stage? Get ready to navigate through a maze of strafing platforms and show off your coding prowess like never before!
+ 
+We are going to create a script that makes a part in Roblox move side to side between two points. Here's what we want to accomplish: 
+
+**1. Start at a Position:**
+
+The part will start at a certain position. 
+
+**2. Move Side to Side:**
+
+The part will move to one side up to a set distance, then move back to the starting position, and keep repeating this movement. 
+
+**3. Direction Change:**
+
+When the part reaches the set distance on one side, it will change direction and move back to the starting position. 
+
+**4. Smooth Movement:**
+
+The part will move smoothly using a tweening effect, pausing for a short time between movements. 
+
+**By doing this, the part will continuously move side to side in a loop, creating a smooth and continuous animation effect.**
+
+## Instructions and Code Logic 📝📚
+
+### Step 1 - Set Up Starting Variables
+
+- Create a variable to hold the part by setting it to the `Parent` of the script. 
+
+- Create a variable for how fast the part will move (`speed`). 
+
+- Create a variable for how far the part will move (`distance`). 
+
+- Make a variable to remember the starting position of the part. 
+
+- Create a variable to set the direction of movement using a vector (`direction`). 
+
+### Step 2 - Create a Function
+
+- Define a function named `moveSideToSide` to hold the moving logic. 
+
+### Step 3 - Make an Infinite Loop
+
+- Inside the function, use a loop that runs forever. In Lua, this is done with `while true do`. 
+
+### Step 4 - Calculate Goal Position
+
+- Calculate the position where the part should move by adding the `direction` multiplied by the `distance` to the starting position (`startPos`). 
+
+### Step 5 - Calculate Distance and Time
+
+- Calculate the distance from the current position to the goal position. 
+
+- Calculate the time it should take to move to the goal position by dividing the distance by the speed. 
+
+### Step 6 - Create a Tween
+
+- Create a `TweenInfo` object with the calculated time and set the easing style to `Linear`. 
+
+- Use the `TweenService` to create a tween that moves the part to the goal position. 
+
+### Step 7 - Play the Tween
+
+- Play the tween and wait for it to complete. 
+
+### Step 8 - Change Direction
+
+- After reaching the goal position, change the direction to the opposite by multiplying the `direction` by -1. 
+
+### Step 9 - Pause the Loop
+
+- Use the `wait` function to pause the loop for a short time, such as 1 second, before repeating the loop. 
+
+### Step 10 - Call the Function
+
+- Outside the function, call `moveSideToSide` to start the movement.
+
+## Putting It All Together 🔧🔩
+
+- Start by setting up your starting variables. 
+
+- Define a function named `moveSideToSide` to hold the moving logic. 
+
+- Inside the function, create an infinite loop using `while true do`. 
+
+- Calculate the goal position by adding the `direction` multiplied by the `distance` to the starting position. 
+
+- Calculate the distance to the goal position and the time it should take to move there. 
+
+- Create a `TweenInfo` object with the calculated time and set the easing style to `Linear`. 
+
+- Use the `TweenService` to create a tween that moves the part to the goal position. 
+
+- Play the tween and wait for it to complete. 
+
+- Change the direction to the opposite by multiplying the `direction` by -1. 
+
+- Use the `wait` function to pause the loop for a short time. 
+
+- Outside the function, call `moveSideToSide` to start the movement. 
+
+<details>
+    <summary>**Medium: Make the spheres go up and down!**</summary>
+
+    <div align='center'>
+        <ReactPlayer controls url={MyVideoUrl2}/>
+    </div>
+
+    <br  />
+
+    **Description 📖🪶** 
+
+    We are going to create a script that makes a part in Roblox move up and down continuously using tween animations. Here's what we want to accomplish: 
+
+    *1. Move Up and Down:*
+    
+    The part will move up to a certain distance and then move back down to its original position. 
+
+    *2. Smooth Movement:*
+    
+    The movement will be smooth and continuous using tweens. 
+
+    *By doing this, the part will create a smooth up and down animation effect.* 
+
+    <br  />
+
+    **Instructions and Code Logic 📝📚**
+
+    Step 1 - Set Up the Starting Variables
+
+    - Create a variable for the part by setting it to the `Parent` of the script. 
+
+    - Set the speed of the movement. 
+
+    - Set the distance the part will move up and down. 
+
+    - Store the starting position of the part. 
+
+    - Set the direction of movement to up and down. 
+
+    Step 2 - Create a Function
+
+    - Define a function named `moveUpAndDown`. 
+
+    - Inside the function, create a loop that runs forever using `while true do`. 
+
+    - Inside the loop, calculate the goal position by adding the direction times the distance to the starting position. 
+
+    - Calculate the distance to the goal position. 
+
+    - Calculate the time it should take to move to the goal position by dividing the distance by the speed. 
+
+    - Create `TweenInfo` to define the tween properties (time to move, easing style). 
+
+    - Create a tween to move the part to the goal position. 
+
+    - Play the tween. 
+
+    - Wait for the tween to complete. 
+
+    - Reverse the direction for the next move. 
+
+    - Use the `wait` function to pause the loop for 1 second before the next move. 
+
+    - Call the `moveUpAndDown` function to start the up and down movement. 
+
+    <br  />
+
+    **Putting It All Together 🔧🔩**
+
+    - Start by setting up your part and movement properties. 
+
+    - Define a function named `moveUpAndDown` to handle the continuous movement. 
+
+    - Inside the function, calculate the new positions and create tweens to move the part. 
+
+    - Use the `wait` function to pause the loop during each iteration. 
+
+    - Call the `moveUpAndDown` function to start the movement. 
+</details>
+
+<details>
+    <summary>**Hard: Spin the spheres in a circle!**</summary>
+    
+    <div align='center'>
+        <ReactPlayer controls url={MyVideoUrl3}/>
+    </div>
+
+    <br  />
+    
+    **Description 📖🪶** 
+
+    We are going to create a script that makes a part in Roblox move in a circular path. Here's what we want to accomplish: 
+
+    *1. Move in a Circle:*
+    
+    The part will move in a circular path around a central point. 
+
+    *2. Smooth Movement:*
+    
+    The movement will be smooth and continuous. 
+
+    *By doing this, the part will create a smooth circular motion.* 
+
+    <br  />
+
+    **Instructions and Code Logic 📝📚**
+
+    Step 1 - Set Up the Starting Variables
+
+    - Create a variable for the part by setting it to the `Parent` of the script. 
+
+    - Set the speed of the movement (in degrees per frame). 
+
+    - Set the radius of the circular path. 
+
+    - Store the starting position of the part. 
+
+    - Create a variable for the initial angle in radians (`angle`). 
+
+    Step 2 - Create a Function
+
+    - Define a function named `moveInCircle`. 
+
+    - Inside the function, create a loop that runs forever using `while true do`. 
+
+    - Inside the loop, calculate the new x and z positions based on the current angle using trigonometry (`math.cos` and `math.sin`). 
+
+    - Calculate the new position by adding the calculated x and z values to the starting position. 
+
+    - Move the part to the new calculated position. 
+
+    - Increment the angle for the next frame, converting speed from degrees to radians. 
+
+    - Use the `wait` function to pause the loop for a short time before the next frame. 
+
+    - Call the `moveInCircle` function to start the circular movement. 
+
+    <br  />
+
+    **Putting It All Together 🔧🔩**
+
+    - Start by setting up your part, speed, radius, starting position, and angle variables. 
+
+    - Define a function named `moveInCircle` to handle the circular movement. 
+
+    - Inside the function, calculate the new positions and move the part in a circular path. 
+
+    - Use the `wait` function to pause the loop during each iteration. 
+
+    - Call the `moveInCircle` function to start the movement. 
+</details>
+
+<br  />
+
+- [x] **Fantastic work! You've conquered Stage 2 like a true coding superstar! Now, let's gear up and prepare to tackle Stage 3 with even more enthusiasm and determination! Keep shining bright, Obby builders! 🌟**
+
+<div align='center'>
+    ![chickenNugget](./img/stage2meme.gif)
+</div>
+
+<div align='center'>
+    <ReactAudioPlayer
+        src={audioFile}
+        controls
+    />
+</div>

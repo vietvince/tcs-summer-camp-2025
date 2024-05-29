@@ -1,0 +1,88 @@
+---
+title: "Part 7: Stage Skipper"
+sidebar_position: 9
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Stage Skipper
+
+<details>
+    <summary>**Prerequisites: Before you dive in!**</summary>
+
+    **1. Intro**
+
+    **2. Setup**
+
+    **3. Creating a Gamepass**
+</details>
+
+## Objective 🧐🗿
+
+We are going to create a script that allows players to skip to the next level in Roblox by changing their team.
+
+## Description 📖🪶
+
+Here's what we want to accomplish:
+
+**1. Identify Current Team:**
+
+Check the player's current team. 
+
+**2. Extract Level Number:**
+
+Get the current level number from the team's name. 
+
+**3. Increment Level:**
+
+Move the player to the next level's team. 
+
+**4. Respawn Player:**
+
+Reset the player's character to reflect the team change. 
+
+**By doing this, the player will be able to progress to the next level by switching to the appropriate team.** 
+
+## Instructions and Code Logic 📝📚
+
+### Step 1 - Set Up Services and Teams
+
+- Get the `Teams` service from the game. 
+
+- Get the `Players` service from the game. 
+
+- Get the player's current team. 
+
+### Step 2 - Create a Function to Skip Levels
+
+- Define a function named `SkipLevel` that takes a `player` as an argument. 
+
+- Inside the function, check if the player has a team assigned. 
+
+- If the player has a team, extract the current level number from the team's name. 
+
+- Increment the level number to determine the next level. 
+
+- Find the next team by name. 
+
+- If the next team exists, assign the player to the next team and reset the player's character. 
+
+- If the next team does not exist, display a warning message. 
+
+- If the current team's name does not contain a level number, display a warning message. 
+
+- If the player does not have a team assigned, display a warning message. 
+
+## Putting It All Together 🔧🔩
+
+- Start by setting up the services and getting the player's current team. 
+
+- Define the `SkipLevel` function to handle the logic of moving the player to the next level. 
+
+- Inside the function, check if the player has a team, extract the level number, and find the next team. 
+
+- If the next team is found, move the player to the next team and reset the player's character. 
+
+- Display appropriate warning messages for any issues encountered. 
+
+**By following these simple steps, you can create a script that allows players to skip to the next level by changing their team.** 

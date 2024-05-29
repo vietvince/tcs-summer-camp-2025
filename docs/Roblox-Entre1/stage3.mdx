@@ -1,0 +1,278 @@
+---
+title: "Stage 3: Plank Walkway"
+sidebar_position: 5
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+import ReactPlayer from 'react-player'
+import MyVideoUrl from './video/Stage3.mp4';
+import MyVideoUrl2 from './video/entre3medium.mp4'
+import MyVideoUrl3 from './video/entre3hard.mp4'
+import ReactAudioPlayer from 'react-audio-player';
+import audioFile from './video/stage3meme.mp3';
+
+# Stage 3: Plank Walkway
+
+<details>
+    <summary>**Prerequisites: Before You Dive In!**</summary>
+    
+    Before diving into the thrilling challenges of Stage 3, make sure you've conquered these epic quests:
+    
+    **1. Intro**
+
+    You've embarked on this epic coding adventure with excitement and curiosity. Now, let's take it to the next stage!
+
+    **2. Setup**
+
+    You've set the stage for your Obby journey, ensuring everything's in place for your creative endeavors. Time to unleash your coding superpowers!
+
+    **3. Stage 1: Ascending Walls**
+
+    You've scaled the heights of Ascending Walls, mastering the basics of obstacle creation. Now, let's elevate your skills even further!
+
+    **4. Stage 2: Sphere Stairs**
+
+    You've bravely navigated the Sphere Stairs, showing off your building prowess. Get ready to build on that success and take on the next challenge!
+
+    **You're well-prepared and pumped up to tackle Stage 3 like a true coding hero! 🚀**
+</details>
+
+<div align="center">
+  <ReactPlayer controls url={MyVideoUrl}/>
+</div>
+
+## Objective 🧐🗿
+
+Welcome to the heart-pounding third stage of our Obby adventure! Get ready to tackle the daring challenge of creating the Plank Walkway.
+
+## Description 📖🪶
+
+Hey fearless adventurers! Stage 3 just got a whole lot trickier, but I know you're up for the challenge! Get ready to swap those planks and bring on the chaos – but remember, your Code Coach is always here to lend a hand if you need it. Let's dive in and see if you can tackle this challenge all on your own!
+
+We are going to create a script that makes three parts in Roblox swap positions randomly. Here's what we want to accomplish: 
+
+**1. Start with Three Parts:**
+
+We will have three parts in our game. 
+
+**2. Swap Positions**
+
+The parts will switch places with each other randomly. 
+
+**3. Keep Swapping:**
+
+The parts will keep swapping positions continuously, creating a fun effect. 
+
+**By doing this, the parts will keep moving to each other's positions randomly, making the game more interesting.** 
+
+## Instructions and Code Logic 📝📚
+
+### Step 1 - Set Up Starting Variables
+
+- Create variables for each of the three parts (`part1`, `part2`, and `part3`). 
+
+### Step 2 - Create a Function
+
+- Define a function named `swapPositions` that takes two parts (`partA` and `partB`) and swaps their positions. 
+
+### Step 3 - Make an Infinite Loop
+
+- Create a loop that runs forever using `while true do`. 
+
+### Step 4 - Choose a Random Swap
+
+- Inside the loop, choose a random number between 1 and 3. 
+
+### Step 5 - Swap Based on Random Choice
+
+- If the random number is 1, swap the positions of `part1` and `part2`. 
+
+- If the random number is 2, swap the positions of `part2` and `part3`. 
+
+- If the random number is 3, swap the positions of `part3` and `part1`. 
+
+### Step 6 - Pause the Loop
+
+- Use the `wait` function to pause the loop for a short time, such as 2 seconds, before repeating the loop. 
+
+## Putting It All Together 🔧🔩
+
+- Start by setting up your three parts. 
+
+- Define a function named `swapPositions` that swaps the positions of two parts. 
+
+- Create an infinite loop using `while true do`. 
+
+- Inside the loop, choose a random number between 1 and 3. 
+
+- Swap the positions of the parts based on the random number. 
+
+- Use the `wait` function to pause the loop for a short time. 
+
+- Repeat the loop to keep swapping the parts' positions randomly. 
+
+<details>
+    <summary>**Medium: Swap out the wrong planks with sneaky kill bricks!**</summary>
+
+    <div align='center'>
+        <ReactPlayer controls url={MyVideoUrl2}/>
+    </div>
+
+    <br  />
+
+    **Description 📖🪶** 
+
+    We are going to create a script that swaps the positions of three parts in Roblox and "kills" any player who touches specific parts. Here's what we want to accomplish: 
+
+    *1. Swap Positions:*
+    
+    Randomly swap the positions of three parts. 
+
+    *2. Detect Touch:*
+    
+    If a player touches specific parts, their health will be set to zero. 
+
+    *By doing this, we will create a dynamic environment where parts move around and affect players who touch them.* 
+
+    <br  />
+    
+    **Instructions and Code Logic 📝📚**
+
+    Step 1 - Set Up the Starting Variables
+
+    - Create variables for the parts by getting them from the `Workspace` (`part1`, `part2`, and `part3`). 
+
+    Step 2 - Create a Function to Swap Positions
+
+    - Define a function named `swapPositions` that takes two parts (`partA` and `partB`) as arguments. 
+
+    - Inside the function, swap the positions of the two parts. 
+
+    - Define a function named `onTouchKillBrick` that takes a part (`hit`) as an argument. 
+
+    - Inside the function, get the parent of the touched part (which should be a player's character). 
+
+    - Check if the parent has a `Humanoid` component. 
+
+    - If it does, set the `Humanoid`'s health to zero. 
+
+    - Connect the `onTouchKillBrick` function to the `Touched` event for the red and blue parts (`part2` and `part3`). 
+
+    Step 3 - Create an Infinite Loop
+
+    - Create a loop that runs forever using `while true do`. 
+
+    - Inside the loop, generate a random index between 1 and 3. 
+
+    - Use the random index to determine which parts to swap. 
+
+    - Use the `wait` function to pause the loop for a short time before swapping again. 
+
+    <br  />
+
+    **Putting It All Together 🔧🔩**
+
+    - Start by setting up your parts. 
+
+    - Define functions to swap positions and handle player touch. 
+
+    - Connect the touch function to the `Touched` event for the specified parts. 
+
+    - Create an infinite loop to keep swapping positions randomly. 
+</details>
+
+<details>
+    <summary>**Hard: Animate the planks to swap positions!**</summary>
+    
+    <div align='center'>
+        <ReactPlayer controls url={MyVideoUrl3}/>
+    </div>
+
+    <br  />
+
+    **Description 📖🪶** 
+
+    We are going to create a script that makes three parts in Roblox swap positions continuously with smooth tween animations. Here's what we want to accomplish: 
+
+    *1. Swap Positions:*
+    
+    The parts will switch places with each other randomly. 
+
+    *2. Smooth Movement:*
+    
+    The movement will be smooth using tween animations. 
+
+    *3. Continuous Loop:*
+    
+    The parts will keep swapping positions continuously. 
+
+    *By doing this, the parts will create a fun and dynamic effect by continuously moving to each other's positions with smooth animations.* 
+
+    <br  />
+
+    **Instructions and Code Logic 📝📚 **
+
+    Step 1 - Set up the Starting Variables
+
+    - Get the `TweenService` from the game services. 
+
+    - Create variables for three parts in the workspace (`part1`, `part2`, and `part3`). 
+
+    - Create a variable for the duration of the tween in seconds (`tweenTime`). 
+
+    Step 2 - Create a Function to Swap Positions with Tween
+
+    - Define a function named `swapPositionsWithTween` that takes two parts (`partA` and `partB`) as arguments. 
+
+    - Inside the function, store the position of `partA` temporarily. 
+
+    - Create `TweenInfo` to define the tween properties (duration, easing style, and easing direction). 
+
+    - Create a tween to move `partA` to the position of `partB`. 
+
+    - Create a tween to move `partB` to the position of `partA` (stored in `tempPosition`). 
+
+    - Play both tweens. 
+
+    - Wait for the tween for `partA` to complete before proceeding. 
+
+    Step 3 - Create an Infinite Loop to Swap Positions Continuously 
+
+    - Create a loop that runs forever using `while true do`. 
+
+    - Inside the loop, generate a random index between 1 and 3. 
+
+    - Based on the random index, swap positions of the parts using the `swapPositionsWithTween` function. 
+
+    - Use the `wait` function to pause the loop for 2 seconds before the next swap. 
+
+    - The loop will automatically start running and swapping the parts' positions. 
+
+    <br  />
+
+    **Putting It All Together 🔧🔩**
+
+    - Start by getting the `TweenService` and setting up the parts and tween duration. 
+
+    - Define a function named `swapPositionsWithTween` to handle the position swapping with tweens. 
+
+    - Create an infinite loop to keep swapping the parts' positions based on a random index. 
+
+    - Use the `wait` function to pause the loop for 2 seconds between swaps. 
+</details>
+
+<br  />
+
+- [x] **Congratulations! You've built Stage 3 like a true Obby master! Now, gear up and get ready to conquer Stage 4 with even more excitement and determination! Keep building, keep coding, and keep shining bright! 🌟**
+
+<div align='center'>
+    ![ermWhatTheSigma](./img/stage3meme.gif)
+</div>
+
+<div align='center'>
+    <ReactAudioPlayer
+        src={audioFile}
+        controls
+    />
+</div>

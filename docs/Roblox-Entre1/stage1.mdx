@@ -1,0 +1,296 @@
+---
+title: "Stage 1: Ascending Walls"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+import ReactPlayer from 'react-player'
+import MyVideoUrl from './video/Stage1.mp4';
+import MyVideoUrl2 from './video/entre1medium.mp4';
+import MyVideoUrl3 from './video/entre1hard.mp4';
+import ReactAudioPlayer from 'react-audio-player';
+import audioFile from './video/stage1meme.mp3';
+
+# Stage 1: Ascending Walls
+
+<details>
+    <summary>**Prerequisites: Before You Dive In!**</summary>
+
+    Before diving into the excitement of Stage 1, make sure you've completed these fun and essential steps!
+    
+    **1. Intro**
+    
+    Did you enjoy the grand introduction to Roblox Entrepreneur Part 1: Lua Coding and Game Scripting? We hope you're pumped up and ready to embark on this coding adventure!
+    
+    **2. Setup**
+    
+    Time to gear up! You've gone through the setup phase, getting everything ready for your Obby journey. From setting up your workspace to getting familiar with the tools, you're all set to unleash your creativity!
+
+    **Now, let's dive into Stage 1 and start building your very own Obby masterpiece! Are you ready? Let's do this! 🎉**
+</details>
+
+<div align='center'>
+  <ReactPlayer controls url={MyVideoUrl}/>
+</div>
+
+## Objective 🧐🗿
+
+Welcome to the first stage of our exciting Obby adventure! Get ready to climb to new heights as we conquer the Ascending Walls!
+
+## Description 📖🪶
+
+Hey there, fearless coders! Are you ready to take on the ultimate challenge and show off your coding prowess? Get ready to conquer the Ascending Walls like never before!
+
+We are going to create a script that makes a part in Roblox move up and down between two heights. Here's what we want to accomplish: 
+
+**1. Start at a Position:**
+
+The part will start at a certain position. 
+
+**2. Move Up and Down:**
+
+The part will move up to a maximum height, then move down to a minimum height, and keep repeating this movement. 
+
+**3. Direction Change:**
+
+When the part reaches the maximum height, it will change direction and start moving down. When it reaches the minimum height, it will change direction and start moving up again. 
+
+**4. Smooth Movement:**
+
+The part will move smoothly, pausing for a short time during each step of movement. 
+
+**By doing this, the part will continuously move up and down in a loop, creating a nice animation effect.** 
+
+## Instructions and Code Logic 📝📚
+
+### Step 1 - Set Up Starting Variables
+
+- Create a variable to hold the part by setting it to the `Parent` of the script. 
+
+- Make a variable to remember the starting position of the part. 
+
+- Create variables for the highest point (`maxHeight`), lowest point (`minHeight`), and how fast it moves (`speed`). 
+
+- Create a true/false variable (`goingUp`) to know if the part is moving up, starting with `true`. 
+
+### Step 2 - Make an Infinite Loop
+
+- Use a loop that runs forever. In Lua, this is done with `while true do`. 
+
+### Step 3 - Check the Direction
+
+- Inside the loop, use an `if` statement to see if the part is moving up. This is checked using the `goingUp` variable. 
+
+### Step 4 - Move the Part Up
+
+- If `goingUp` is `true`, change the part's position to move it up. Use a vector to do this. 
+
+- Specifically, add to the Y-coordinate by the speed value. 
+
+### Step 5 - Check Maximum Height
+
+- After moving the part up, check if the part's Y-coordinate has reached or gone above the `maxHeight`. 
+
+- If it has, set `goingUp` to `false` to start moving down. 
+
+### Step 6 - Move the Part Down
+
+- If `goingUp` is `false`, change the part's position to move it down. Use a vector to do this. 
+
+- Specifically, subtract from the Y-coordinate by the speed value. 
+
+### Step 7 - Check Minimum Height 
+
+- After moving the part down, check if the part's Y-coordinate has reached or gone below the `minHeight`. 
+
+- If it has, set `goingUp` to `true` to start moving up again. 
+
+### Step 8 - Pause the Loop
+
+- Use the `wait` function to pause the loop for a short time, like 0.1 seconds, before repeating the loop. 
+
+## Putting It All Together 🔧🔩
+
+- Start by setting up your starting variables. 
+
+- Create an infinite loop using `while true do`. 
+
+- Inside the loop, use an `if` statement to check the direction (`goingUp`). 
+
+- If `goingUp` is `true`, move the part up by adding to its Y-coordinate using a vector. 
+
+- Check if the part's Y position has reached the maximum height. If it has, set `goingUp` to `false`. 
+
+- If `goingUp` is `false`, move the part down by subtracting from its Y-coordinate using a vector. 
+
+- Check if the part's Y position has reached the minimum height. If it has, set `goingUp` to `true`. 
+
+- Use the `wait` function to pause the loop for a short time. 
+
+- Repeat the loop to keep the part moving up and down. 
+
+<details>
+    <summary>**Medium: Ride the walls up and down using cool functions!**</summary>
+
+    <div align='center'>
+        <ReactPlayer controls url={MyVideoUrl2}/>
+    </div>
+
+    <br  />
+
+    **Description 📖🪶**
+
+    We are going to create a script that makes a part in Roblox move up and down continuously.
+    
+    Here's what we want to accomplish: 
+
+    *1. Move Up and Down:*
+    
+    The part will move up to a maximum height and then move back down to a minimum height. 
+
+    *2. Smooth Movement:*
+    
+    The movement will be smooth and continuous. 
+
+    *By doing this, the part will create a smooth up and down animation effect.* 
+
+    <br  />
+
+    **Instructions and Code Logic 📝📚** 
+
+    Step 1 - Set Up the Starting Variables
+
+    - Create a variable for the part by setting it to the `Parent` of the script. 
+
+    - Set the maximum height the part will move up to (`maxHeight`). 
+
+    - Set the minimum height the part will move down to (`minHeight`). 
+
+    - Set the speed of the movement (`speed`). 
+
+    - Create a boolean variable (`goingUp`) to control the direction of movement. 
+    
+    Step 2 - Create the Functions
+
+    - Define a function named `moveUp`. 
+
+    - Inside the function, create a loop that runs while `goingUp` is true. 
+
+    - In each loop iteration, move the part up by adding to its Y-coordinate. 
+
+    - If the part's Y-coordinate reaches or exceeds `maxHeight`, set `goingUp` to false and call `moveDown`. 
+
+    - Use the `wait` function to pause the loop for a short time. 
+
+    - Define a function named `moveDown`. 
+
+    - Inside the function, create a loop that runs while `goingUp` is false. 
+
+    - In each loop iteration, move the part down by subtracting from its Y-coordinate. 
+
+    - If the part's Y-coordinate reaches or goes below `minHeight`, set `goingUp` to true and call `moveUp`. 
+
+    - Use the `wait` function to pause the loop for a short time. 
+
+    - Call the `moveUp` function to start the up and down movement. 
+
+    <br  />
+
+    **Putting It All Together 🔧🔩**
+
+    - Start by setting up your part and movement properties. 
+
+    - Define functions to handle the continuous up and down movement. 
+
+    - Use the `wait` function to pause the loop during each iteration. 
+
+    - Call the `moveUp` function to start the movement. 
+</details>
+
+<details>
+    <summary>**Hard: Smoothly animate the movement with a Roblox Service!**</summary>
+    
+    <div align='center'>
+        <ReactPlayer controls url={MyVideoUrl3}/>
+    </div>
+
+    <br  />
+
+    **Description 📖🪶** 
+
+    We are going to create a script that makes a part in Roblox move up and down continuously using tweens. Here's what we want to accomplish: 
+
+    *1. Move Up and Down:*
+    
+    The part will move up to a maximum height and then move back down to a minimum height. 
+
+    *2. Smooth Movement:*
+    
+    The movement will be smooth and continuous using tweens. 
+
+    *By doing this, the part will create a smooth up and down animation effect.* 
+
+    <br  />
+
+    **Instructions and Code Logic 📝📚**
+
+    Step 1 - Set Up the Starting Variables
+
+    - Get the `TweenService` from the game. 
+
+    - Create a variable for the part by setting it to the `Parent` of the script. 
+
+    - Set the maximum height the part will move up to (`maxHeight`). 
+
+    - Set the minimum height the part will move down to (`minHeight`). 
+
+    - Set the duration of the tween (`tweenTime`). 
+
+    Step 2 - Create the Functions
+
+    - Define a function named `createTween` that takes a target position as an argument. 
+
+    - Inside the function, set up the tween information (duration, easing style, direction). 
+
+    - Create and return the tween to move the part to the target position. 
+
+    - Define a function named `moveUpDown`. 
+
+    - Inside the function, create a tween to move the part up to the maximum height. 
+
+    - Play the tween. 
+
+    - Connect a function to the `Completed` event of the tween to create and play a tween that moves the part down to the minimum height. 
+
+    - Connect a function to the `Completed` event of the down tween to recursively call `moveUpDown` and continue the movement. 
+
+    - Call the `moveUpDown` function to start the up and down movement. 
+
+    <br  />
+
+    **Putting It All Together 🔧🔩**
+
+    - Start by setting up your part and movement properties. 
+
+    - Define functions to create tweens and handle continuous movement. 
+
+    - Use the `wait` function to pause the loop during each iteration. 
+
+    - Call the `moveUpDown` function to start the movement. 
+</details>
+
+<br  />
+
+- [x] **Congratulations! You've conquered Stage 1 like a true coding champion! Now, gear up for even more thrilling challenges as we dive into Stage 2! Let the coding adventure continue! 🚀🎉**
+
+<div align='center'>
+    ![baller](./img/stage1meme.gif)
+</div>
+
+<div align='center'>
+    <ReactAudioPlayer
+        src={audioFile}
+        controls
+    />
+</div>

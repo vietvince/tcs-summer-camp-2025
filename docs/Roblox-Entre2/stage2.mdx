@@ -1,0 +1,119 @@
+---
+title: "Part 2: Creating a Developer Product"
+sidebar_position: 4
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Creating a Developer Product 
+
+<details>
+    <summary>**Prerequisites: Before you dive in!**</summary>
+
+    **1. Intro**
+
+    **2. Setup**
+
+    **3. Creating a Gamepass**
+</details>
+
+## Objective 🧐🗿
+
+Creating a developer product in Roblox allows players to purchase in-game items, upgrades, or other features within your game.
+
+## Steps to Create a Developer Product 
+
+Follow these steps to create and monetize a developer product: 
+
+### Step 1 - Prepare Your Experience
+
+- Ensure your experience is published and accessible on the Roblox site. 
+
+### Step 2 - Create the Product
+
+- Go to your [Creator Dashboard](https://create.roblox.com/dashboard) and select your experience. 
+
+- In the **Monetization** menu, select **Developer Products** and click **Create a Developer Product**. 
+
+- Optionally, upload an image (512×512 pixels in .jpg, .png, or .bmp format). 
+
+- Fill in the **Name** and **Description** fields. 
+
+- Set the price in Robux. 
+
+- Click **Create**. 
+
+### Step 3 - Integrate the Product in Your Game
+
+- Open your game in Roblox Studio. 
+
+- Use the following Lua script to add a purchase button for the developer product: 
+
+```lua 
+local Players = game:GetService("Players") 
+local MarketplaceService = game:GetService("MarketplaceService") 
+local productId = YOUR_PRODUCT_ID -- Replace with your developer product ID
+
+local function onButtonClicked(player) 
+    MarketplaceService:PromptProductPurchase(player, productId) 
+end 
+
+local function onPlayerAdded(player) 
+    -- Assuming you have a ScreenGui with a TextButton in it 
+
+    local playerGui = player:WaitForChild("PlayerGui") 
+    local screenGui = playerGui:WaitForChild("ScreenGui") 
+    local purchaseButton = screenGui:WaitForChild("PurchaseButton") 
+
+    purchaseButton.MouseButton1Click:Connect(function() 
+        onButtonClicked(player) 
+    end) 
+end 
+
+Players.PlayerAdded:Connect(onPlayerAdded) 
+``` 
+
+### Step 4 - Handle Purchase Events
+
+- Add the following script to handle successful purchases: 
+
+```lua 
+local MarketplaceService = game:GetService("MarketplaceService") 
+local Players = game:GetService("Players") 
+
+local function onProductPurchase(receiptInfo) 
+    local player = Players:GetPlayerByUserId(receiptInfo.PlayerId) 
+
+    if not player then 
+        return Enum.ProductPurchaseDecision.NotProcessedYet 
+    end 
+
+    local productId = receiptInfo.ProductId 
+
+    -- Handle the purchased product here 
+
+    if productId == YOUR_PRODUCT_ID then 
+        -- Grant the item or benefit to the player 
+    end 
+
+    return Enum.ProductPurchaseDecision.PurchaseGranted 
+end 
+
+MarketplaceService.ProcessReceipt = onProductPurchase 
+``` 
+
+### Step 5 - Test Your Product
+
+- Use Roblox Studio's play mode to test the purchase functionality. 
+
+- Make sure the purchase process works smoothly and the benefits are correctly granted to the player. 
+
+### Step 6 - Publish Your Changes
+
+- Once everything is tested and working, publish your game updates. 
+
+- Your developer product is now live and ready for players to purchase. 
+
+**By following these steps, you can successfully create and monetize a developer product in Roblox, enhancing your game's monetization strategy and providing additional value to your players.** 
+
+ 

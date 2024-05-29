@@ -1,0 +1,323 @@
+---
+title: "Stage 10: Puzzle Room"
+sidebar_position: 12
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+import ReactPlayer from 'react-player'
+import MyVideoUrl from './video/Stage10.mp4';
+import MyVideoUrl2 from './video/entre10medium.mp4'
+
+# Stage 10: Puzzle Room
+
+<details>
+    <summary>**Prerequisites: Before You Dive In!**</summary>
+
+    Prepare yourself for the thrilling challenge of Stage 10: Puzzle Room! Make sure to reach these requirements before jumping in!
+
+    **1. Intro**
+
+    Get acquainted with the basics of Roblox Studio and Obby creation.
+
+    **2. Setup**
+
+    Learn how to set up your workspace and get ready for Obby building.
+
+    **3. Stage 1: Ascending Walls**
+
+    Conquer the heights by navigating ascending walls.
+
+    **4. Stage 2: Sphere Stairs**
+
+    Climb your way up through spheres arranged as stairs.
+
+    **5. Stage 3: Plank Walkway**
+
+    Balance your way across a precarious plank walkway.
+
+    **6. Stage 4: KillBrick Path**
+
+    Maneuver through a path filled with dangerous kill bricks.
+
+    **7. Stage 5: Fireball Footpath**
+
+    Dodge fireballs as you traverse through a fiery obstacle course.
+
+    **8. Stage 6: Military Minefield**
+
+    Navigate through a treacherous minefield, avoiding deadly explosives.
+
+    **9. Stage 7: Rolling Rocks**
+
+    Dodge rolling boulders as you make your way through rocky terrain.
+
+    **10. Stage 8: Spinning KillBricks**
+
+    Face the challenge of spinning kill bricks, testing your reflexes and agility.
+
+    **11. Stage 9: Kinetic KillWall**
+
+    Navigate through a wall of kinetic obstacles, requiring quick thinking and precise movements.
+
+    **Once you've conquered these stages, you'll be ready to tackle the mind-bending challenges of the Puzzle Room!🚀🌟**
+</details>
+
+<div align="center">
+  <ReactPlayer controls url={MyVideoUrl}/>
+</div>
+
+<br  />
+
+Congratulations on reaching this point, brave adventurer! The Puzzle Room awaits with its intricate challenges and thrilling puzzles. Prepare yourself for an unforgettable experience in the world of Roblox. Let the adventure continue!
+
+## Objective 🧐🗿
+
+Gear up for the ultimate adventure! You're about to embark on the final leg of our Obby journey! Brace yourselves as we dive into the exhilarating challenge of Stage 10: Puzzle Room!
+
+## Description 📖🪶
+
+Ready to tackle the ultimate challenge? Let’s dive into the mind-bending adventure of Stage 10: Puzzle Room! Prepare to push your limits as you solve clever puzzles and unlock the secrets of this tricky room. Are you up for the challenge?    
+
+We are going to create a script that makes buttons in Roblox follow a specific order. When the buttons are pressed in the correct order, a wall will be destroyed. Here's what we want to accomplish: 
+
+**1. Define Button Order:**
+
+The script will have a specific order in which buttons need to be pressed. 
+
+**2. Check Button Presses:**
+
+The script will check if the buttons are pressed in the correct order. 
+
+**3. Play Sounds:**
+
+The script will play a sound when the correct or incorrect button is pressed. 
+
+**4. Destroy Wall:**
+
+When all buttons are pressed in the correct order, a wall will be destroyed, and the buttons will be removed. 
+
+**By doing this, we will create a fun challenge for players to press the buttons in the correct order to destroy the wall.** 
+
+## Instructions and Code Logic 📝📚
+
+### Step 1 - Set Up Starting Variables
+
+- Create a variable for the order of button colors (`buttonOrder`). 
+
+- Create a variable to keep track of the current button index (`currentButtonIndex`). 
+
+- Create variables for the red, green, and blue buttons by setting them to their respective parents (`redButton`, `greenButton`, `blueButton`). 
+
+- Create a table to store references to all the buttons (`buttons`). 
+
+- Create variables for the correct and incorrect sounds (`correctSound`, `incorrectSound`). 
+
+### Step 2 - Create the Functions
+
+- Define a function named `checkButtonOrder` that takes a `buttonPressed` argument. 
+
+- Inside the function, check if the `buttonPressed` matches the current button in the order. 
+
+- If correct, play the correct sound and move to the next button in the order. 
+
+- If all buttons are pressed correctly, destroy the wall and remove the buttons. 
+
+- If incorrect, reset the button index and play the incorrect sound. 
+
+- Define a function named `buttonClicked` that takes a `color` argument. 
+
+- Return a function that calls `checkButtonOrder` with the given color. 
+
+- Connect the `buttonClicked` function to each button's `MouseClick` event, passing the respective color. 
+
+## Putting It All Together 🔧🔩
+
+- Start by setting up your button order, index, buttons, and sounds. 
+
+- Define a function named `checkButtonOrder` to handle checking the button presses. 
+
+- Define a function named `buttonClicked` to handle button clicks. 
+
+- Connect the `buttonClicked` function to each button's `MouseClick` event.
+
+<details>
+    <summary>**Medium: Have the buttons react to your presses in the chat!**</summary>
+
+    <div align='center'>
+        <ReactPlayer controls url={MyVideoUrl2}/>
+    </div>
+
+    <br  />
+    
+    **Description 📖🪶** 
+
+    We are going to create a script that handles a button sequence game in Roblox. The script will check if the buttons are clicked in the correct order, display a chat message when a button is correctly pressed, and play sounds based on the correctness of the button clicks. If the order is correct, a wall will be destroyed. Here's what we want to accomplish: 
+
+    *1. Check Button Order:*
+    
+    The script will check if the buttons are clicked in the correct order. 
+
+    *2. Display Chat Message:*
+    
+    Show a chat message when the correct button is pressed. 
+
+    *3. Play Sounds:*
+    
+    Correct and incorrect sounds will be played based on the button clicks. 
+
+    *4. Destroy Wall:*
+    
+    If the sequence is completed correctly, a wall will be destroyed. 
+
+    *By doing this, we will create an interactive game where players need to click buttons in the correct order to progress.*
+
+    <br  />    
+
+    **Instructions and Code Logic 📝📚**
+
+    Step 1 - Set Up the Starting Variables
+
+    - Define the order of the buttons to be clicked (`buttonOrder`). 
+
+    - Initialize the current button index (`currentButtonIndex`). 
+
+    - Create variables for the red, green, and blue buttons by setting them to the corresponding children of the script's parent. 
+
+    - Store the button references in a table (`buttons`). 
+
+    - Create variables for the correct and incorrect sounds from the workspace. 
+
+    Step 2 - Create a Function
+
+    - Define a function named `checkButtonOrder` that takes the button color as an argument. 
+
+    - Inside the function, check if the clicked button matches the current button in the sequence. 
+
+    - If correct, play the correct sound, show a chat message, and move to the next button in the sequence. 
+
+    - If the sequence is completed, destroy the wall and reset the buttons. 
+
+    - If incorrect, play the incorrect sound and reset the sequence. 
+
+    - Define a function named `buttonClicked` that takes the button color as an argument. 
+
+    - Inside the function, call `checkButtonOrder` with the button color. 
+
+    - Connect the `buttonClicked` function to the `MouseClick` event for each button. 
+
+    <br  />
+
+    **Putting It All Together 🔧🔩** 
+
+    - Start by setting up your buttons, sounds, and button order. 
+
+    - Define functions to check the button order, display chat messages, and handle button clicks. 
+
+    - Connect the functions to the appropriate button events. 
+</details>
+
+<details>
+    <summary>**Hard: Make the buttons move in and out like real buttons!**</summary>
+
+    **Description 📖🪶** 
+
+    We are going to create a script that handles a button sequence game in Roblox. The script will animate buttons when they are clicked and check if the clicks follow a specific order. If the order is correct, a wall will be destroyed, and if it's incorrect, the sequence will reset. Here's what we want to accomplish: 
+
+    *1. Animate Buttons:*
+    
+    Buttons will move slightly when clicked to provide feedback. 
+
+    *2. Check Button Order:*
+    
+    The script will check if the buttons are clicked in the correct order. 
+
+    *3. Play Sounds:*
+    
+    Correct and incorrect sounds will be played based on the button clicks. 
+
+    *4. Destroy Wall:*
+    
+    If the sequence is completed correctly, a wall will be destroyed. 
+
+    *By doing this, we will create an interactive game where players need to click buttons in the correct order to progress.* 
+
+    <br  />
+
+    **Instructions and Code Logic 📝📚**
+
+    Step 1 - Set Up the Starting Variables
+
+    - Get the `TweenService` from the game. 
+
+    - Define the order of the buttons to be clicked (`buttonOrder`). 
+
+    - Initialize the current button index (`currentButtonIndex`). 
+
+    - Create variables for the red, green, and blue buttons by setting them to the corresponding children of the script's parent. 
+
+    - Store the button references in a table (`buttons`). 
+
+    - Create variables for the correct and incorrect sounds from the workspace. 
+
+    Step 2 - Create a Function
+
+    - Define a function named `createButtonTween` to create a tween animation for a button. 
+
+    - Inside the function, set up the tween information (duration, easing style, direction, repeat count, reverse, delay). 
+
+    - Create a tween to move the button to the end position and return the tween. 
+
+    - Define a function named `animateButton` that takes a button as an argument. 
+
+    - Inside the function, get the original position of the button. 
+
+    - Calculate the end position by moving the button backward slightly. 
+
+    - Create and play the tween animation. 
+
+    - Define a function named `checkButtonOrder` that takes the button color as an argument. 
+
+    - Inside the function, check if the clicked button matches the current button in the sequence. 
+
+    - If correct, play the correct sound and move to the next button in the sequence. 
+
+    - If the sequence is completed, destroy the wall and reset the buttons. 
+
+    - If incorrect, play the incorrect sound and reset the sequence. 
+
+    - Define a function named `buttonClicked` that takes the button color as an argument. 
+
+    - Inside the function, animate the clicked button and check the button order. 
+
+    - Connect the `buttonClicked` function to the `MouseClick` event for each button. 
+
+    <br  />
+
+    **Putting It All Together 🔧🔩** 
+
+    - Start by setting up your buttons, sounds, and button order. 
+
+    - Define functions to animate button clicks, check the button order, and handle button clicks. 
+
+    - Connect the functions to the appropriate button events. 
+</details>
+
+## Congratulations! 🥳🎉
+
+You did it! The final piece of the puzzle is in place, and victory is within reach!
+
+### Have a Party!
+
+Now it's time to celebrate your triumph! Create a vibrant party area filled with:
+- Decorations,
+- Exciting rewards for the Player,
+- Let your imagination run wild as you design a space that reflects the excitement of completing the Obby.
+
+<br  />
+
+**Congratulations on conquering all 10 stages of the Obby! Now, it's time to share your creation with friends and family and see if they can rise to the challenge!**
+
+<div align='center'>
+    <iframe width="70%" height="400" src="https://www.youtube.com/embed/RLadrIPM3dM" title="[Five Nights at Freddy&#39;s] - 6 AM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>

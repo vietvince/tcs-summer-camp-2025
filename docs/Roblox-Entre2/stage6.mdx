@@ -1,0 +1,62 @@
+---
+title: "Part 6: Teleport"
+sidebar_position: 8
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Teleport
+
+<details>
+    <summary>**Prerequisites: Before you dive in!**</summary>
+
+    **1. Intro**
+
+    **2. Setup**
+
+    **3. Creating a Gamepass**
+</details>
+
+## Objective 🧐🗿
+
+We are going to create a script that teleports a player a small distance in Roblox.
+
+## Description 📖🪶
+
+We are going to create a script that teleports a player a small distance in Roblox. Here's what we want to accomplish:
+
+**1. Check Player Character:**
+
+Ensure the player has a character and a humanoid root part. 
+
+**2. Teleport Player:**
+
+Move the player's character by a small distance in the Z direction. 
+
+**By doing this, we can create a function that teleports a player slightly forward.** 
+
+## Instructions and Code Logic 📝📚
+
+### Step 1 - Create a Function to Teleport Players
+
+- Define a function named `smallTeleport` that takes a `player` as an argument. 
+
+- Inside the function, check if the player has a character and a `HumanoidRootPart`. 
+
+- If the player has a `HumanoidRootPart`, create a new CFrame offset by -10 units in the Z direction. 
+
+- Update the `HumanoidRootPart`'s CFrame to teleport the player. 
+
+- If the player does not have a valid character or `HumanoidRootPart`, display a warning message. 
+
+## Putting It All Together 🔧🔩 
+
+- Define the `smallTeleport` function to handle the logic of teleporting the player a small distance forward. 
+
+- Inside the function, check if the player has a character and a `HumanoidRootPart`. 
+
+- If valid, update the player's CFrame to teleport them. 
+
+- Display appropriate warning messages for any issues encountered. 
+
+**By following these simple steps, you can create a script that teleports a player a small distance forward.** 
