@@ -6,13 +6,13 @@ toc_max_heading_level: 3
 ---
 
 import ReactPlayer from 'react-player'
-import MyVideoUrl from './video/Stage4.mp4';
 import ReactAudioPlayer from 'react-audio-player';
-import audioFile from './video/giga-chad-theme.mp3';
+import audioFile from '../../static/audio/rblx1/giga-chad-theme.mp3';
 
 # Stage 4: KillBrick Path
 
-<details>
+:::info
+<details style={{border:'none'}}>
     <summary>**Prerequisites: Before You Dive In!**</summary>
 
     Before you dive into the excitement of Stage 4 and conquer the challenging Killbrick Path, make sure you've conquered these thrilling adventures:
@@ -39,10 +39,18 @@ import audioFile from './video/giga-chad-theme.mp3';
 
     **You're all set and pumped up to tackle Stage 4 like a true Obby champion! 🚀**
 </details>
+:::
 
-<div align="center">
-  <ReactPlayer controls url={MyVideoUrl}/>
-</div>
+<br  />
+
+<div dangerouslySetInnerHTML={{
+  __html: `
+    <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+      <iframe src="https://player.vimeo.com/video/952505927?h=33ab8efa5a" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Part 1 - Stage 4"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  `
+}} />
 
 ## Objective 🧐🗿
 
@@ -53,7 +61,7 @@ Welcome to the adrenaline-pumping fourth stage of our Obby! Get ready to unleash
 Hey there, Obby builders! Stage 4 is here, and we're kicking it off with a teamwork challenge! Let's work together to create a thrilling KillBrick Path. Remember, if you ever need a hand, your Code Coach is just a shout away!
 
 <div className='image-wrapper'>
-    ![stage4Easy](./img/stage4Easy.png)
+    ![stage4Easy](../../static/img/rblx1/stage4Easy.png)
 </div>
 
 ### 1.1 Building a Straight Pathway
@@ -74,7 +82,7 @@ Now, let's bring in the excitement!
     <summary>**Medium: Let your imagination run wild as you design your own killer path!**</summary>
 
     <div className='image-wrapper'>
-        ![stage4Medium](./img/stage4Medium.png)
+        ![stage4Medium](../../static/img/rblx1/stage4Medium.png)
     </div>
 
     <br  />
@@ -232,7 +240,7 @@ Let's spice things up with a new team addition in the Teams folder:
     width: '70%',
     height: 'auto',
 }}>
-    ![robloxGigaChad](./img/roblox-giga-chad.gif)
+    ![robloxGigaChad](../../static/img/rblx1/roblox-giga-chad.gif)
 </div>
 
 <div align='center'>

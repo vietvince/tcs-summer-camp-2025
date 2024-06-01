@@ -6,11 +6,11 @@ toc_max_heading_level: 3
 ---
 
 import ReactPlayer from 'react-player'
-import MyVideoUrl from './video/robloxVR8.mp4';
 
 # Stage 8: Spinning KillBricks
 
-<details>
+:::info
+<details style={{border:'none'}}>
     <summary>**Prerequisites: Before You Dive In!**</summary>
 
     Prepare yourselves, brave adventurers, as you stand on the brink of Stage 8! But first, ensure you've conquered the twists and turns of the preceding challenges in our thrilling VR journey.
@@ -53,10 +53,18 @@ import MyVideoUrl from './video/robloxVR8.mp4';
 
     **With each victory, you edge closer to the ultimate test: the Spinning KillBrick challenge! Get ready to face this thrilling obstacle with all the skills and experience you've gained in our VR adventure. Let’s continue our journey and push the boundaries of our virtual reality coding quest! 🚀🌟**
 </details>
+:::
 
-<div align="center">
-  <ReactPlayer controls url={MyVideoUrl}/>
-</div>
+<br  />
+
+<div dangerouslySetInnerHTML={{
+  __html: `
+    <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+      <iframe src="https://player.vimeo.com/video/952506280?h=d013ce2e01" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Part 2 - Stage 8"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  `
+}} />
 
 ## Objective 🧐🗿
 
@@ -67,7 +75,7 @@ Gear up for the heart-pounding adventure of Stage 8: Spinning Killbricks in our 
 Welcome to the electrifying Stage 8: Spinning KillBricks in our virtual reality adventure! Get ready to spin and weave your way through the obstacles in this immersive VR experience!
 
 <div className='image-wrapper'>
-    ![stage8Easy](./img/stage8Easy.png)
+    ![stage8Easy](../../static/img/rblx2/stage8Easy.png)
 </div>
 
 ### 1.1 Constructing the Walkway
@@ -87,7 +95,7 @@ Now, let's introduce the spinning kill brick into our virtual world:
     <summary>**Medium: Spin things up with an array of spinning blocks.**</summary>
 
     <div className='image-wrapper'>
-        ![stage8Medium](./img/stage8Medium.png)
+        ![stage8Medium](../../static/img/rblx2/stage8Medium.png)
     </div>
 
     <br  />
@@ -207,4 +215,4 @@ Take the next step! Add a new team to your Teams folder and keep growing!
 
 **Congratulations, brave explorers! You've triumphed over the whirlwind of challenges in Stage 8! Now, prepare to amplify your experience as we venture into the immersive virtual world of Stage 9! Get ready to don your VR headsets and dive deeper into the thrilling depths of coding adventure! 🌟**
 
-{/* <iframe width="900" height="500" src="https://www.youtube.com/embed/MCB_A8N1DNU" title="LeBron James, scream if you love Roblox" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
+<iframe width="900" height="500" src="https://www.youtube.com/embed/MCB_A8N1DNU" title="LeBron James, scream if you love Roblox" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

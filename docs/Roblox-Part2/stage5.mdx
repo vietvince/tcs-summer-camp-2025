@@ -6,13 +6,13 @@ toc_max_heading_level: 3
 ---
 
 import ReactPlayer from 'react-player'
-import MyVideoUrl from './video/robloxVR5.mp4';
-// import ReactAudioPlayer from 'react-audio-player';
-// import audioFile from './video/quandale-dingle.mp3';
+import ReactAudioPlayer from 'react-audio-player';
+import audioFile from '../../static/audio/rblx2/quandale-dingle.mp3';
 
 # Stage 5: Fireball Footpath
 
-<details>
+:::info
+<details style={{border:'none'}}>
     <summary>**Prerequisites: Before You Dive In!**</summary>
 
     To embark on the fiery adventure of Stage 5: Fireball Footpath, you'll need to complete a series of exciting challenges to prepare yourself! Here's what you need to master before diving into the flames:
@@ -43,10 +43,18 @@ import MyVideoUrl from './video/robloxVR5.mp4';
 
     **Once you've conquered these stages, you'll be ready to face the blazing inferno of Stage 5: Fireball Footpath! Are you prepared to dance through the flames and emerge victorious? Let's find out! 🌟🔥**
 </details>
+:::
 
-<div align="center">
-  <ReactPlayer controls url={MyVideoUrl}/>
-</div>
+<br  />
+
+<div dangerouslySetInnerHTML={{
+  __html: `
+    <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+      <iframe src="https://player.vimeo.com/video/952506259?h=128477a530" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Part 2 - Stage 5"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  `
+}} />
 
 ## Objective 🧐🗿
 
@@ -57,7 +65,7 @@ Welcome to the fiery challenge of Stage 5! Brace yourself as we venture into the
 Welcome to Stage 5: Fireball Footpath, where we'll ignite the virtual skies with our coding prowess! Are you ready for an eruption of fireball fun? Let's dive into the virtual realm and unleash our creativity!
 
 <div className='image-wrapper'>
-    ![stage5Easy](./img/stage5Easy.png)
+    ![stage5Easy](../../static/img/rblx2/stage5Easy.png)
 </div>
 
 ### 1.1 Crafting a Pathway
@@ -76,7 +84,7 @@ Now, it's time to add some sizzle!
     <summary>**Medium: Add some twists and turns to keep things exciting!**</summary>
 
     <div className='image-wrapper'>
-        ![stage5Medium](./img/stage5Medium.png)
+        ![stage5Medium](../../static/img/rblx2/stage5Medium.png)
     </div>
 
     <br  />
@@ -236,9 +244,11 @@ Add another Team to your Teams folder:
 
 **Congratulations! You've triumphed over the fiery challenges of Stage 5 and are now prepared to soar to even greater heights in Stage 6! Keep the adventure blazing in virtual reality! 🌟**
 
-{/* ![quandaleDingle](./img/quandale-dingle.jpg)
+<div align='center'>
+    ![quandaleDingle](../../static/img/rblx2/quandale-dingle.jpg)
 
-<ReactAudioPlayer
-    src={audioFile}
-    controls
-/> */}
+    <ReactAudioPlayer
+        src={audioFile}
+        controls
+    />
+</div>

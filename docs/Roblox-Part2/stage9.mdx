@@ -6,13 +6,13 @@ toc_max_heading_level: 3
 ---
 
 import ReactPlayer from 'react-player'
-import MyVideoUrl from './video/robloxVR9.mp4';
-// import ReactAudioPlayer from 'react-audio-player';
-// import audioFile from './video/griddy.mp3';
+import ReactAudioPlayer from 'react-audio-player';
+import audioFile from '../../static/audio/rblx2/griddy.mp3';
 
 # Stage 9: Kinetic KillWall
 
-<details>
+:::info
+<details style={{border:'none'}}>
     <summary>**Prerequisites: Before You Dive In!**</summary>
 
     Prepare yourselves for the next VR adventure! Before embarking on Stage 9's thrilling journey through the Kinetic KillWall in our virtual world, make sure you've conquered the following immersive challenges:
@@ -59,10 +59,18 @@ import MyVideoUrl from './video/robloxVR9.mp4';
 
     **Once you've triumphed over these immersive trials, you'll be ready to face the Kinetic KillWall head-on in our thrilling VR world! 🚀🌟**
 </details>
+:::
 
-<div align="center">
-  <ReactPlayer controls url={MyVideoUrl}/>
-</div>
+<br  />
+
+<div dangerouslySetInnerHTML={{
+  __html: `
+    <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+      <iframe src="https://player.vimeo.com/video/952506284?h=da0da42621" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Part 2 - Stage 9"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  `
+}} />
 
 ## Objective 🧐🗿
 
@@ -73,7 +81,7 @@ Get ready for the pulse-pounding excitement of Stage 9: Kinetic KillWall in the 
 Prepare to immerse yourself in the thrilling virtual reality world of Stage 9: Kinetic KillWall! Let's construct an exciting hallway that will keep you on the edge of your seat.
 
 <div className='image-wrapper'>
-    ![stage9Easy](./img/stage9Easy.png)
+    ![stage9Easy](../../static/img/rblx2/stage9Easy.png)
 </div>
 
 ### 1.1 Building the Hallway
@@ -103,7 +111,7 @@ Remember, if you get stuck, your Code Coach is here to help! Get ready to dive i
     <summary>**Medium: Construct a fun-filled walkway with lots of rooms to explore and keep you on the move!**</summary>
 
     <div className='image-wrapper'>
-        ![stage9Medium](./img/stage9Medium.png)
+        ![stage9Medium](../../static/img/rblx2/stage9Medium.png)
     </div>
 
     <br  />
@@ -237,9 +245,11 @@ Keep moving forward! Create a new team in your Teams folder and explore new poss
 
 **Hooray! By navigating the twists and turns of Stage 9: Kinetic KillWall, you've showcased incredible bravery and ingenuity! Now, brace yourselves as we journey onward to conquer even greater heights in Stage 10! New adventures eagerly await your arrival in the thrilling VR world! 🌟**
 
-{/* ![optimusPrimeGriddy](./img/optimus-prime-griddy.gif)
+<div align='center'>
+    ![optimusPrimeGriddy](../../static/img/rblx2/optimus-prime-griddy.gif)
 
-<ReactAudioPlayer
-    src={audioFile}
-    controls
-/> */}
+    <ReactAudioPlayer
+        src={audioFile}
+        controls
+    />
+</div>
