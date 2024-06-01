@@ -6,13 +6,13 @@ toc_max_heading_level: 3
 ---
 
 import ReactPlayer from 'react-player'
-import MyVideoUrl from './video/robloxVR2.mp4';
-// import ReactAudioPlayer from 'react-audio-player';
-// import audioFile from './video/gegagedigedagedago.mp3';
+import ReactAudioPlayer from 'react-audio-player';
+import audioFile from '../../static/audio/rblx2/gegagedigedagedago.mp3';
 
-# Stage 2: Sphere Stairs
+# Stage 2: Sphere Staircase
 
-<details>
+:::info
+<details style={{border:'none'}}>
     <summary>**Prerequisites: Before You Dive In!**</summary>
     
     Before diving into this stage of coding awesomeness, let's make sure you've got all the skills from the previous challenges under your belt!
@@ -31,10 +31,18 @@ import MyVideoUrl from './video/robloxVR2.mp4';
 
     **Now that you've mastered these prerequisites, it's time to level up and tackle the next challenge in your virtual coding journey! Get ready to take your Obby game to new heights in the exciting world of VR! 🌟**
 </details>
+:::
 
-<div align="center">
-  <ReactPlayer controls url={MyVideoUrl}/>
-</div>
+<br  />
+
+<div dangerouslySetInnerHTML={{
+  __html: `
+    <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+      <iframe src="https://player.vimeo.com/video/952506237?h=ef3c77a6c4" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Part 2 - Stage 2"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  `
+}} />
 
 ## Objective 🧐🗿
 
@@ -45,7 +53,7 @@ Welcome to the second stage of our thrilling Obby journey! Prepare to elevate yo
 Hey there, young coders! Are you ready to roll into the next stage of our Obby adventure in virtual reality? Get ready to build some stairways to success with a little bit of sphere magic in VR!
 
 <div className='image-wrapper'>
-    ![stage2Easy](./img/stage2Easy.png)
+    ![stage2Easy](../../static/img/rblx2/stage2Easy.png)
 </div>
 
 ### 1.1 Gather Your Spheres
@@ -72,7 +80,7 @@ So, let's roll into Stage 2 together and create some epic staircases! Your virtu
     <summary>**Medium: Get creative with different sizes and placements for your steps.**</summary>
 
     <div className='image-wrapper'>
-        ![stage2Medium](./img/stage2Medium.png)
+        ![stage2Medium](../../static/img/rblx2/stage2Medium.png)
     </div>
 
     <br  />
@@ -245,9 +253,11 @@ Head over to the Explorer tab and assemble your dream team in the Teams folder.
 
 - [x] **Fantastic work! You've conquered Stage 2 like a true coding superstar! Now, let's gear up and prepare to tackle Stage 3 with even more enthusiasm and determination! Keep shining bright, Obby builders! 🌟**
 
-{/* ![chickenNugget](./img/nugget-chicken.gif)
+<div align='center'>
+    ![chickenNugget](../../static/img/rblx2/nugget-chicken.gif)
 
-<ReactAudioPlayer
-    src={audioFile}
-    controls
-/> */}
+    <ReactAudioPlayer
+        src={audioFile}
+        controls
+    />
+</div>

@@ -1,0 +1,258 @@
+---
+title: "Lesson 1"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+import ReactAudioPlayer from 'react-audio-player';
+import audioFile from './video/py1sus.mp3';
+
+# Lesson 1: Intro to Python Turtle
+:::info
+<details style={{border:'none'}}>
+<summary>**Prerequisites: Before You Dive In!**</summary>    
+
+    **Python Libraries**
+    
+Before you start coding in Python, let's talk about what a "library" is. 
+
+Think of a library like a toolbox where you can borrow tools you need for a project. 
+In programming, a library is similar, but instead of physical tools, it gives us special functions that you can use to make coding easier and faster.
+    
+    **Getting to Know the Python turtle Library**
+    
+    The Python turtle library is a built-in tool that lets you create pictures and shapes by providing a virtual canvas. The tool you use to draw on this canvas is called the "turtle," and that's how the library gets its name.
+
+You can use it to draw all sorts of shapes and images. Here's an example of what you can do with the turtle:
+
+<div align="center">
+    ![nerdEmoji](./img/py1sus.gif)
+</div>
+<div align="center">
+    <ReactAudioPlayer
+        src={audioFile}
+        controls
+    />
+</div>
+
+Pretty neat, isn't it? This is just one example of the many things you can create using the turtle library.
+</details>
+:::
+## Objective 🧐🗿
+
+Dive into the world of Python programming by learning about libraries, variables, and basic turtle commands to start moving and positioning your turtle creatively!
+## Getting Started with Turtle 🚩🐢
+
+### Step 1. Import Turtle
+Open up our "My Turtle" file we made in our Setup section.
+
+To use the Python Turtle library, we first need to import it into our environment. Type this command in:
+``` python
+# main.py
+import turtle
+```
+
+Now that we have Turtle in our Python environment, we can begin programming with it.
+
+
+### Step 2. Making Our Own Turtle
+
+First, we need to set up the screen where your turtle will draw. Think of it like setting up a canvas for painting. Here’s how you do it:
+
+```python
+s = turtle.getscreen()
+```
+
+We use a short and sweet name s for the screen. Easy to type and easy to remember, right?
+
+**On Coordinates**
+
+Imagine the screen as a giant graph paper, divided into four quadrants. The center, where your turtle starts, is called Home and is at coordinates (0,0). 
+
+<div align="center">
+    ![nerdEmoji](./img/py1coords.png)
+</div>
+
+<figure align="center">
+  <figcaption>
+Understanding the coordinates helps move our turtle to any point on the screen using its x and y coordinates.
+ </figcaption>
+</figure>
+
+Next, let’s bring in our turtle. This turtle is going to be your artist, drawing cool stuff on the screen!
+
+``` python
+t = turtle.Turtle()
+```
+
+The turtle has changeable characteristics, like size, color, and speed. It always points in a specific direction and will move in that direction unless you tell it otherwise:
+- When it’s up, it means that no line will be drawn when it moves.
+- When it’s down, it means that a line will be drawn when it moves.
+
+We now have a screen and our turtle. The screen acts as a canvas, while the turtle acts like a pen. We can program the turtle to move around the screen. 
+
+:::info
+<details style={{border:'none'}}>
+<summary>**🗒️ What's a Variable?**</summary>
+
+A variable is like a box where you can store information to use later in your program. When you first put something in the box, that's called initializing the variable. 
+
+The cool thing about variables is that what's inside the box can change as your program runs. You can put new information in the box whenever you need to.
+
+    <summary>**🗒️  EXTRA CREDIT: Naming Variables!**</summary>
+
+When you're naming a variable in your code, think of a name that’s easy for anyone to understand just by looking at it.
+
+For example, a super long name like `my_turtle_screen_name` can be a pain to type over and over, and something like `Bob` might just confuse people because it’s too random.
+
+A better idea? Use a short and simple name like `s`. It’s quick to type, easy to remember, and if you tell your friends that `s` stands for the screen, everyone will get it right away!
+</details>
+:::
+**Our Turtle and Screen**
+<div align="center">
+    ![](./img/py1ts.png)
+</div>
+<figure align="center">
+  <figcaption>
+    The box highlighted in <span style={{ color: 'red' }}>red</span>
+    is called the screen. It’s where you can view the output of your code. The circle highlighted in <span style={{ color: 'green' }}>green</span> is called our turtle.
+  </figcaption>
+</figure>
+
+
+
+
+## Programming with Turtle ⌨️💚
+
+### Turtle Movement
+    There are four directions that a turtle can move in:
+- Forward
+- Backward
+- Left
+- Right
+
+<div align="center">
+    ![nerdEmoji](./img/py1direction.gif)
+</div>
+
+<figure align="center">
+  <figcaption>
+The turtle moves `.forward()` or `.backward()` in the direction that it’s facing. You can change this direction by turning it `.left()` or `.right()` by a certain degree. 
+ </figcaption>
+</figure>
+
+
+Let's start with some simple movements. Use the following commands to move your turtle around the screen:
+
+```python
+t.right(90)     # Turn right by 90 degrees
+t.forward(100)  # Move forward by 100 units
+t.left(90)     # Turn right by 90 degrees
+t.backward(100)  # Move backward by 100 units
+```
+
+When you run these commands, 
+- the turtle will turn right by ninety degrees, 
+- go forward by a hundred units, 
+- turn left by ninety degrees, 
+- and move backward by a hundred units. 
+
+:::info
+<details style={{border:'none'}}>
+    <summary>**Shorthand Notation**</summary>
+
+    To save some time, we can use shortened versions of the function names as well.
+``` python
+t.rt() # instead of t.right()
+t.fd() # instead of t.forward()
+t.lt() # instead of t.left()
+t.bk() # instead of t.backward()
+```
+
+</details>
+:::
+
+
+<details>
+    <summary>**CHALLENGE: Complete the Square 👉 🟩 👈**</summary>
+
+    The commands we just ran form half of a square. Your goal is to now complete the square. 
+    
+    You’ll want your turtle to point in the upwards direction, move forward, and turn right, move forward.
+
+    If you need help, click below for some help!
+
+    <details>
+            <summary>**HINT 🤫**</summary>
+
+        ```python
+        import turtle
+        t = turtle.Turtle()
+
+        t.forward(100)  # Move forward by 100 units
+        t.right(90)     # Turn right by 90 degrees
+        t.forward(100)  # Move forward by 100 units
+        t.right(90)     # Turn right by 90 degrees
+        t.forward(100)  # Move forward by 100 units
+        t.right(90)     # Turn right by 90 degrees
+        t.forward(100)  # Move forward by 100 units
+        t.right(90)     # Turn right by 90 degrees
+        ```
+    </details>
+</details>
+
+### Turtle Positioning
+
+With Python Turtle, you can not only move your turtle around but also precisely position it anywhere on the screen. Let's dive into the world of coordinates and discover how to navigate the Turtle's universe!
+
+**Moving Your Turtle**
+
+To move your turtle to a specific position, use the `.goto()` function and specify the x and y coordinates. For example, to move to the point (100,100), you would write:
+
+``` python
+t.goto(100, 100)
+```
+
+**Drawing Lines**
+
+You can also draw a line from your current position to another point on the screen using the `.goto()` function. This allows you to create intricate shapes and patterns with ease!
+
+After exploring and creating your masterpiece, you can always bring your turtle back to its home position using the `.home()` function. This resets the turtle's position to (0,0), ready for your next adventure!
+
+<details>
+    <summary>**CHALLENGE: Exploring ✨ Quadrants ✨**</summary>
+
+Have your turtle draw a line towards its original position, to quadrant one, to quadrant two, to quadrant three, and finally quadrant four.
+
+Check out the diagram below for some guidance:
+
+<div align="center">
+    ![nerdEmoji](./img/py1coords2.png)
+</div>
+
+
+
+    Click below if you need some help!
+
+    <details>
+                <summary>**HINT 🤫**</summary>
+
+You'll want to base your coordinates given to the ```
+python
+goto(x,y)
+```
+ function above according to the quadrant visiting. 
+```python
+t.goto(50, 50) # X and Y are positive. This is Quadrant One.
+t.goto(-50, 50) # X is negative, Y is positive. This is Quadrant Two.
+t.goto(-50, -50) # Both X and Y are negative. This is Quadrant Three.
+t.goto(50, -50) # X is positive, Y is negative. This is Quadrant Four.
+t.home() # Sending our turtle back home 
+```
+    </details>
+</details>
+
+<br  />
+- [x] **You've just embarked on an amazing coding journey, mastering the basics of turtle movement and positioning, setting the stage for more creative adventures!**
+<br  />

@@ -6,11 +6,11 @@ toc_max_heading_level: 3
 ---
 
 import ReactPlayer from 'react-player'
-import MyVideoUrl from './video/robloxVR10.mp4';
 
 # Stage 10: Puzzle Room
 
-<details>
+:::info
+<details style={{border:'none'}}>
     <summary>**Prerequisites: Before You Dive In!**</summary>
 
     Welcome to the heart-pounding excitement of Stage 10: Puzzle Room in our VR adventure! Get ready to immerse yourself in a virtual world where every move counts. But before diving in, make sure you've mastered the previous stages!
@@ -61,10 +61,18 @@ import MyVideoUrl from './video/robloxVR10.mp4';
     
     **Once you've conquered these stages, you'll be ready to tackle the mind-bending challenges of the Puzzle Room! 🚀🌟**
 </details>
+:::
 
-<div align="center">
-  <ReactPlayer controls url={MyVideoUrl}/>
-</div>
+<br  />
+
+<div dangerouslySetInnerHTML={{
+  __html: `
+    <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+      <iframe src="https://player.vimeo.com/video/952506294?h=ecd4fa4ea8" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Part 2 - Stage 10"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  `
+}} />
 
 <br  />
 
@@ -79,7 +87,7 @@ Gear up for the ultimate adventure in the virtual world! You're about to embark 
 In this stage, we'll be diving into the Puzzle Room, where your problem-solving skills will be put to the test in an immersive virtual reality environment!
 
 <div className='image-wrapper'>
-    ![stage10Easy](./img/stage10Easy.png)
+    ![stage10Easy](../../static/img/rblx2/stage10Easy.png)
 </div>
 
 ### 1.1 Crafting the Room
@@ -114,7 +122,7 @@ local wall = game.Workspace:FindFirstChild("**NAME OF YOUR PART**")
     <summary>**Medium: Give the puzzle some extra steps to tease the Player!**</summary>
 
     <div className='image-wrapper'>
-        ![stage10Medium](./img/stage10Medium.png)
+        ![stage10Medium](../../static/img/rblx2/stage10Medium.png)
     </div>
 
     <br  />
@@ -249,6 +257,6 @@ Now it's time to celebrate your triumph in the virtual world! Create a vibrant p
 
 **You've conquered all 10 stages of the Obby! Now, share your creation with friends and family and see if they can rise to the challenge. Your adventure in the virtual world of Roblox has only just begun, and the possibilities are endless!**
 
-{/* <div align='center'>
+<div align='center'>
     <iframe width="70%" height="400" src="https://www.youtube.com/embed/RLadrIPM3dM" title="[Five Nights at Freddy&#39;s] - 6 AM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div> */}
+</div>

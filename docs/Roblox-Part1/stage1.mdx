@@ -6,13 +6,13 @@ toc_max_heading_level: 3
 ---
 
 import ReactPlayer from 'react-player'
-import MyVideoUrl from './video/Stage1.mp4';
 import ReactAudioPlayer from 'react-audio-player';
-import audioFile from './video/baller-roblox.mp3';
+import audioFile from '../../static/audio/rblx1/baller-roblox.mp3';
 
 # Stage 1: Ascending Walls
 
-<details>
+:::info
+<details style={{border:'none'}}>
     <summary>**Prerequisites: Before You Dive In!**</summary>
 
     Before diving into the excitement of Stage 1, make sure you've completed these fun and essential steps!
@@ -27,10 +27,18 @@ import audioFile from './video/baller-roblox.mp3';
 
     **Now, let's dive into Stage 1 and start building your very own Obby masterpiece! Are you ready? Let's do this! 🎉**
 </details>
+:::
 
-<div align='center'>
-  <ReactPlayer controls url={MyVideoUrl}/>
-</div>
+<br  />
+
+<div dangerouslySetInnerHTML={{
+  __html: `
+    <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+      <iframe src="https://player.vimeo.com/video/952502252?h=f64bae7761" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Part 1 - Stage 1"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  `
+}} />
 
 ## Objective 🧐🗿
 
@@ -62,7 +70,7 @@ Head over to the Explorer tab and add a Team in the Teams folder.
 Hey there, future coding champs! Are you ready to kick off our Obby adventure with a climb to the top? Let's make coding magic happen together!
 
 <div className='image-wrapper'>
-    ![stage1Easy](./img/stage1Easy.png)
+    ![stage1Easy](../../static/img/rblx1/stage1Easy.png)
 </div>
 
 ### 2.1 Get Your Building Blocks Ready
@@ -92,7 +100,7 @@ So, let's climb together towards coding greatness, one block at a time! Your adv
     <summary>**Medium: Paint your walls with your favorite colors and patterns.**</summary>
 
     <div className='image-wrapper'>
-        ![stage1Medium](./img/stage1Medium.png)
+        ![stage1Medium](../../static/img/rblx1/stage1Medium.png)
     </div>
 
     <br  />
@@ -250,7 +258,7 @@ Don't forget to add another Team in the Teams folder.
 - [x] **Congratulations! You've conquered Stage 1 like a true coding champion! Now, gear up for even more thrilling challenges as we dive into Stage 2! Let the coding adventure continue! 🚀🎉**
 
 <div align='center'>
-    ![baller](./img/baller-roblox.gif)
+    ![baller](../../static/img/rblx1/baller-roblox.gif)
 </div>
 
 <div align='center'>

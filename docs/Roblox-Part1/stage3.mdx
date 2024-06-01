@@ -6,13 +6,13 @@ toc_max_heading_level: 3
 ---
 
 import ReactPlayer from 'react-player'
-import MyVideoUrl from './video/Stage3.mp4';
 import ReactAudioPlayer from 'react-audio-player';
-import audioFile from './video/erm-what-the-sigma.mp3';
+import audioFile from '../../static/audio/rblx1/erm-what-the-sigma.mp3';
 
 # Stage 3: Plank Walkway
 
-<details>
+:::info
+<details style={{border:'none'}}>
     <summary>**Prerequisites: Before You Dive In!**</summary>
     
     Before diving into the thrilling challenges of Stage 3, make sure you've conquered these epic quests:
@@ -35,10 +35,18 @@ import audioFile from './video/erm-what-the-sigma.mp3';
 
     **You're well-prepared and pumped up to tackle Stage 3 like a true coding hero! 🚀**
 </details>
+:::
 
-<div align="center">
-  <ReactPlayer controls url={MyVideoUrl}/>
-</div>
+<br  />
+
+<div dangerouslySetInnerHTML={{
+  __html: `
+    <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+      <iframe src="https://player.vimeo.com/video/952505925?h=f5e14aefc9" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Part 1 - Stage 3"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  `
+}} />
 
 ## Objective 🧐🗿
 
@@ -49,7 +57,7 @@ Welcome to the heart-pounding third stage of our Obby adventure! Get ready to ta
 Hey there, Obby builders! Ready to take it easy and breeze through Stage 3? Let's lay down those planks like pros, with a little help from your trusty Code Coach!
 
 <div className='image-wrapper'>
-    ![stage3Easy](./img/stage3Easy.png)
+    ![stage3Easy](../../static/img/rblx1/stage3Easy.png)
 </div>
 
 ### 1.1 Craft Your Planks
@@ -72,7 +80,7 @@ Now, let's lay down those planks and make this walkway a breeze! 🌟
     <summary>**Medium: Keep players guessing by tweaking the collision on your path.**</summary>
 
     <div className='image-wrapper'>
-        ![stage3Medium](./img/stage3Medium.png)
+        ![stage3Medium](../../static/img/rblx1/stage3Medium.png)
     </div>
 
     <br  />
@@ -206,7 +214,7 @@ Head to the Teams folder in the Explorer tab and add a Team to bring in a new te
 - [x] **Congratulations! You've built Stage 3 like a true Obby master! Now, gear up and get ready to conquer Stage 4 with even more excitement and determination! Keep building, keep coding, and keep shining bright! 🌟**
 
 <div align='center'>
-    ![ermWhatTheSigma](./img/erm-what-the-sigma-squidward.gif)
+    ![ermWhatTheSigma](../../static/img/rblx1/erm-what-the-sigma-squidward.gif)
 </div>
 
 <div align='center'>

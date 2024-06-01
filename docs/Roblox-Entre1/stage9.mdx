@@ -6,14 +6,13 @@ toc_max_heading_level: 3
 ---
 
 import ReactPlayer from 'react-player'
-import MyVideoUrl from './video/Stage9.mp4';
-import MyVideoUrl2 from './video/entre9medium.mp4'
 import ReactAudioPlayer from 'react-audio-player';
-import audioFile from './video/stage9meme.mp3';
+import audioFile from '../../static/audio/entre1/stage9meme.mp3';
 
 # Stage 9: Kinetic KillWall
 
-<details>
+:::info
+<details style={{border:'none'}}>
     <summary>**Prerequisites: Before You Dive In!**</summary>
 
     Prepare yourselves for the next adventure! Before embarking on Stage 9's thrilling journey through the Kinetic KillwWall, ensure you've conquered the following challenges:
@@ -60,10 +59,18 @@ import audioFile from './video/stage9meme.mp3';
 
     **Once you've triumphed over these trials, you'll be ready to face the Kinetic KillWall head-on!🚀🌟**
 </details>
+:::
 
-<div align="center">
-  <ReactPlayer controls url={MyVideoUrl}/>
-</div>
+<br  />
+
+<div dangerouslySetInnerHTML={{
+  __html: `
+    <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+      <iframe src="https://player.vimeo.com/video/952507588?h=f094da8ef1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 9 (Easy)"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  `
+}} />
 
 ## Objective 🧐🗿
 
@@ -132,9 +139,14 @@ The part will keep changing color and collision status in a loop.
 <details>
     <summary>**Medium: A moving kill wall that changes speed randomly!**</summary>
 
-    <div align='center'>
-        <ReactPlayer controls url={MyVideoUrl2}/>
-    </div>
+    <div dangerouslySetInnerHTML={{
+    __html: `
+        <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+        <iframe src="https://player.vimeo.com/video/952507607?h=87ca004dd5" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 9 (Medium)"></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+    `
+    }} />
 
     <br  />
     
@@ -211,6 +223,17 @@ The part will keep changing color and collision status in a loop.
 
 <details>
     <summary>**Hard: Add in some unpredictability with random pauses!**</summary>
+    
+    <div dangerouslySetInnerHTML={{
+    __html: `
+        <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+        <iframe src="https://player.vimeo.com/video/952507599?h=2c98696e8e" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 9 (Hard)"></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+    `
+    }} />
+
+    <br  />
 
     **Description 📖🪶** 
 
@@ -300,7 +323,7 @@ The part will keep changing color and collision status in a loop.
 **Hooray! By navigating the twists and turns of Stage 9: Kinetic KillWall, you've showcased incredible bravery and ingenuity! Onward to Stage 10, where new adventures eagerly await your arrival! 🌟**
 
 <div align='center'>
-    ![optimusPrimeGriddy](./img/stage9meme.gif)
+    ![optimusPrimeGriddy](../../static/img/entre1/stage9meme.gif)
 
     <ReactAudioPlayer
         src={audioFile}

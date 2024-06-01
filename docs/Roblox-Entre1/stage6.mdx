@@ -6,14 +6,13 @@ toc_max_heading_level: 3
 ---
 
 import ReactPlayer from 'react-player'
-import MyVideoUrl from './video/Stage6.mp4';
-import MyVideoUrl2 from './video/entre6medium.mp4'
 import ReactAudioPlayer from 'react-audio-player';
-import audioFile from './video/stage6meme.mp3';
+import audioFile from '../../static/audio/entre1/stage6meme.mp3';
 
 # Stage 6: Military Minefield
 
-<details>
+:::info
+<details style={{border:'none'}}>
     <summary>**Prerequisites: Before You Dive In!**</summary>
 
     Ready for the next adventure? Before diving into Stage 6: Military Minefield, make sure you've conquered the following challenges:
@@ -48,10 +47,18 @@ import audioFile from './video/stage6meme.mp3';
 
     **Once you've completed these challenges, you'll be primed and ready to tackle the thrilling world of Stage 6: Military Minefield! 💣💥**
 </details>
+:::
 
-<div align="center">
-  <ReactPlayer controls url={MyVideoUrl}/>
-</div>
+<br  />
+
+<div dangerouslySetInnerHTML={{
+  __html: `
+    <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+      <iframe src="https://player.vimeo.com/video/952507766?h=ba0b2bacdb" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 6 (Easy)"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  `
+}} />
 
 ## Objective 🧐🗿
 
@@ -110,9 +117,14 @@ The part will become fully visible when it explodes.
 <details>
     <summary>**Medium: Mines that blink on and off randomly!**</summary>
     
-    <div align='center'>
-        <ReactPlayer controls url={MyVideoUrl2}/>
-    </div>
+    <div dangerouslySetInnerHTML={{
+    __html: `
+        <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+        <iframe src="https://player.vimeo.com/video/952507777?h=359274efe2" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 6 (Medium)"></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+    `
+    }} />
 
     <br  />
     
@@ -161,7 +173,11 @@ The part will become fully visible when it explodes.
 
     - Inside the loop, set the part's transparency to 0 (fully opaque). 
 
-    - Use the `wait` function to pause the loop for a random time between 1 and 4 seconds. 
+    - Wait for a random time between 1 and 4 seconds. 
+
+    - Set the part's transparency to 1 (fully invisible). 
+
+    - Wait for a random time between 1 and 4 seconds. 
 
     - The loop will automatically start running and resetting the part's transparency. 
 
@@ -182,6 +198,17 @@ The part will become fully visible when it explodes.
 
 <details>
     <summary>**Hard: Randomly spawn the mines on your minefield!**</summary>
+
+    <div dangerouslySetInnerHTML={{
+    __html: `
+        <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+        <iframe src="https://player.vimeo.com/video/952507770?h=f3f0cc36b5" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 6 (Hard)"></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+    `
+    }} />
+
+    <br  />
     
     **Description 📖🪶**
 
@@ -255,7 +282,7 @@ The part will become fully visible when it explodes.
 **Hooray! By conquering Stage 6, you've proven your mettle amidst the challenges of the military minefield! Onward to Stage 7, where new adventures await! 🌟**
 
 <div align='center'>
-    ![happyCat](./img/stage6meme.gif)
+    ![happyCat](../../static/img/entre1/stage6meme.gif)
 </div>
 
 <div align='center'>

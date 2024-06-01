@@ -6,13 +6,13 @@ toc_max_heading_level: 3
 ---
 
 import ReactPlayer from 'react-player'
-import MyVideoUrl from './video/Stage9.mp4';
 import ReactAudioPlayer from 'react-audio-player';
-import audioFile from './video/griddy.mp3';
+import audioFile from '../../static/audio/rblx1/griddy.mp3';
 
 # Stage 9: Kinetic KillWall
 
-<details>
+:::info
+<details style={{border:'none'}}>
     <summary>**Prerequisites: Before You Dive In!**</summary>
 
     Prepare yourselves for the next adventure! Before embarking on Stage 9's thrilling journey through the Kinetic KillwWall, ensure you've conquered the following challenges:
@@ -59,10 +59,18 @@ import audioFile from './video/griddy.mp3';
 
     **Once you've triumphed over these trials, you'll be ready to face the Kinetic KillWall head-on!🚀🌟**
 </details>
+:::
 
-<div align="center">
-  <ReactPlayer controls url={MyVideoUrl}/>
-</div>
+<br  />
+
+<div dangerouslySetInnerHTML={{
+  __html: `
+    <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+      <iframe src="https://player.vimeo.com/video/952505980?h=f06472c96d" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Part 1 - Stage 9"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  `
+}} />
 
 ## Objective 🧐🗿
 
@@ -73,7 +81,7 @@ Get ready for the pulse-pounding excitement of Stage 9: Kinetic Killwall! Brace 
 Get ready for some thrilling adventures in Stage 9: Kinietic KillWall! Let's construct a hallway filled with excitement.
 
 <div className='image-wrapper'>
-    ![stage9Easy](./img/stage9Easy.png)
+    ![stage9Easy](../../static/img/rblx1/stage9Easy.png)
 </div>
 
 ### 1.1 Building the Hallway
@@ -103,7 +111,7 @@ Don't hesitate to ask your Code Coach for help if you're stuck!
     <summary>**Medium: Construct a fun-filled walkway with lots of rooms to explore and keep you on the move!**</summary>
 
     <div className='image-wrapper'>
-        ![stage9Medium](./img/stage9Medium.png)
+        ![stage9Medium](../../static/img/rblx1/stage9Medium.png)
     </div>
 
     <br  />
@@ -238,7 +246,7 @@ Keep moving forward! Create a new team in your Teams folder and explore new poss
 **Hooray! By navigating the twists and turns of Stage 9: Kinetic KillWall, you've showcased incredible bravery and ingenuity! Onward to Stage 10, where new adventures eagerly await your arrival! 🌟**
 
 <div align='center'>
-    ![optimusPrimeGriddy](./img/optimus-prime-griddy.gif)
+    ![optimusPrimeGriddy](../../static/img/rblx1/optimus-prime-griddy.gif)
 
     <ReactAudioPlayer
         src={audioFile}

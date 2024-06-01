@@ -5,14 +5,11 @@ toc_min_heading_level: 2
 toc_max_heading_level: 3
 ---
 
-<!-- import ReactPlayer from 'react-player'
-import MyVideoUrl from './video/Intro.mp4'; -->
+import ReactPlayer from 'react-player'
 
 Welcome to Roblox Part 2: Launch Your Own Obby Game in VR! Buckle up, young coders! Get ready to embark on an epic coding adventure in virtual reality! With your Code Coach by your side, you'll create an Obby game that's out of this world!
 
-<!-- <div align='center'>
-  <ReactPlayer controls url={MyVideoUrl}/>
-</div> -->
+<iframe style={{border: "3px solid #47c621"}} width="917" height="516" src="https://www.youtube.com/embed/t905DaqIzNM" title="Roblox Obby Intro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## What is VR?
 
@@ -48,7 +45,7 @@ Now, let's unleash your creativity as we craft an epic course step by step. Here
 
 <br  />
 
->Stage 2: Sphere Stairs
+>Stage 2: Sphere Staircase
 
 **Objective:** Construct a set of stairs using spheres as steps in VR!
 
