@@ -6,15 +6,13 @@ toc_max_heading_level: 3
 ---
 
 import ReactPlayer from 'react-player'
-import MyVideoUrl from './video/Stage4.mp4';
-import MyVideoUrl2 from './video/entre4medium.mp4'
-import MyVideoUrl3 from './video/entre4hard.mp4'
 import ReactAudioPlayer from 'react-audio-player';
-import audioFile from './video/stage4meme.mp3';
+import audioFile from '../../static/audio/entre1/stage4meme.mp3';
 
 # Stage 4: KillBrick Path
 
-<details>
+:::info
+<details style={{border:'none'}}>
     <summary>**Prerequisites: Before You Dive In!**</summary>
 
     Before you dive into the excitement of Stage 4 and conquer the challenging Killbrick Path, make sure you've conquered these thrilling adventures:
@@ -41,10 +39,18 @@ import audioFile from './video/stage4meme.mp3';
 
     **You're all set and pumped up to tackle Stage 4 like a true Obby champion! 🚀**
 </details>
+:::
 
-<div align="center">
-  <ReactPlayer controls url={MyVideoUrl}/>
-</div>
+<br  />
+
+<div dangerouslySetInnerHTML={{
+  __html: `
+    <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+      <iframe src="https://player.vimeo.com/video/952507711?h=9c8ddd89d9" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 4 (Easy)"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  `
+}} />
 
 ## Objective 🧐🗿
 
@@ -141,9 +147,14 @@ If a player touches the brick, their character will lose all health.
 <details>
     <summary>**Medium: A moving kill brick that bounces up and down, taking body parts with it!**</summary>
 
-    <div align='center'>
-        <ReactPlayer controls url={MyVideoUrl2}/>
-    </div>
+    <div dangerouslySetInnerHTML={{
+    __html: `
+        <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+        <iframe src="https://player.vimeo.com/video/952507724?h=850b73b8cf" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 4 (Medium)"></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+    `
+    }} />
 
     <br  />
     
@@ -221,9 +232,14 @@ If a player touches the brick, their character will lose all health.
 <details>
     <summary>**Hard: A swinging pendulum kill brick for extra thrills!**</summary>
     
-    <div align='center'>
-        <ReactPlayer controls url={MyVideoUrl3}/>
-    </div>
+    <div dangerouslySetInnerHTML={{
+    __html: `
+        <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+        <iframe src="https://player.vimeo.com/video/952507716?h=d1346718b9" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 4 (Hard)"></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+    `
+    }} />
 
     <br  />
 
@@ -303,7 +319,7 @@ If a player touches the brick, their character will lose all health.
     width: '70%',
     height: 'auto',
 }}>
-    ![robloxGigaChad](./img/stage4meme.gif)
+    ![robloxGigaChad](../../static/img/entre1/stage4meme.gif)
 </div>
 
 <div align='center'>

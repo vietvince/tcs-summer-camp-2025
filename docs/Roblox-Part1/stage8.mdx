@@ -6,11 +6,11 @@ toc_max_heading_level: 3
 ---
 
 import ReactPlayer from 'react-player'
-import MyVideoUrl from './video/Stage8.mp4';
 
 # Stage 8: Spinning KillBricks
 
-<details>
+:::info
+<details style={{border:'none'}}>
     <summary>**Prerequisites: Before You Dive In!**</summary>
 
     Prepare yourselves, brave adventurers, as you stand on the brink of Stage 8! But first, ensure you've conquered the twists and turns of the preceding challenges.
@@ -53,10 +53,18 @@ import MyVideoUrl from './video/Stage8.mp4';
 
     **With each victory, you edge closer to the ultimate test: the Spinning KillBrick challenge!🚀🌟**
 </details>
+:::
 
-<div align="center">
-  <ReactPlayer controls url={MyVideoUrl}/>
-</div>
+<br  />
+
+<div dangerouslySetInnerHTML={{
+  __html: `
+    <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+      <iframe src="https://player.vimeo.com/video/952505977?h=1808f5e862" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Part 1 - Stage 8"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  `
+}} />
 
 ## Objective 🧐🗿
 
@@ -67,7 +75,7 @@ Prepare to be swept into the heart-pounding chaos of Stage 8: Spinning Killbrick
 Let's dive into Stage 8: Spinning KillBricks! For an easy start, place a spinning kill brick and watch it go! Get ready for some fun as you navigate through the spinning obstacles!
 
 <div className='image-wrapper'>
-    ![stage8Easy](./img/stage8Easy.png)
+    ![stage8Easy](../../static/img/rblx1/stage8Easy.png)
 </div>
 
 ### 1.1 Constructing the Walkway
@@ -87,7 +95,7 @@ Lets add the spinning kill brick:
     <summary>**Medium: Spin things up with an array of spinning blocks.**</summary>
 
     <div className='image-wrapper'>
-        ![stage8Medium](./img/stage8Medium.png)
+        ![stage8Medium](../../static/img/rblx1/stage8Medium.png)
     </div>
 
     <br  />

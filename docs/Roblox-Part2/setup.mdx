@@ -5,10 +5,11 @@ toc_min_heading_level: 2
 toc_max_heading_level: 4
 ---
 
-{/* import ReactAudioPlayer from 'react-audio-player';
-import audioFile from './video/nerd-emoji-sound.mp3'; */}
+import ReactAudioPlayer from 'react-audio-player';
+import audioFile from '../../static/audio/rblx2/nerd-emoji-sound.mp3';
 
-<details>
+:::info
+<details style={{border:'none'}}>
     <summary>**Prerequisites - Before You Dive In!**</summary>
 
     Hey there, future coding champions! Before we dive into our epic Obby adventure, let's make sure we're all set with these fun and essential skills:
@@ -21,6 +22,7 @@ import audioFile from './video/nerd-emoji-sound.mp3'; */}
 
     So, gear up and get ready to embark on this exciting coding journey. With these skills under your belt, you'll be unstoppable! 🚀💻
 </details>
+:::
 
 ## Objective 🧐🗿
 
@@ -31,7 +33,7 @@ Hey there, future VR masters! Are you ready to kickstart our virtual reality adv
 Fire up Roblox Studio and select the first Baseplate template. It's like starting with a blank canvas, waiting for your coding masterpiece!
 
 <div className='image-wrapper'>
-    ![baseplate](./img/baseplate.png)
+    ![baseplate](../../static/img/rblx2/baseplate.png)
 </div>
 
 ### 1.2 Get Ready to Build in VR
@@ -43,7 +45,7 @@ One of the key challenges in our Obby is staying on course. To make things inter
 Take a look around - your workspace should now be clear and ready for action! It's like a blank canvas, just waiting for you to fill it with your coding dreams.
 
 <div className='image-wrapper'>
-    ![finishSetup](./img/finishSetup.png)
+    ![finishSetup](../../static/img/rblx2/finishSetup.png)
 </div>
 
 <br  />
@@ -52,9 +54,11 @@ Take a look around - your workspace should now be clear and ready for action! It
 
 <br  />
 
-{/* ![nerdEmoji](./img/nerd-emoji.gif)
+<div align='center'>
+    ![nerdEmoji](../../static/img/rblx2/nerd-emoji.gif)
 
-<ReactAudioPlayer
-    src={audioFile}
-    controls
-/> */}
+    <ReactAudioPlayer
+        src={audioFile}
+        controls
+    />
+</div>

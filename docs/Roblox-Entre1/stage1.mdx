@@ -6,15 +6,13 @@ toc_max_heading_level: 3
 ---
 
 import ReactPlayer from 'react-player'
-import MyVideoUrl from './video/Stage1.mp4';
-import MyVideoUrl2 from './video/entre1medium.mp4';
-import MyVideoUrl3 from './video/entre1hard.mp4';
 import ReactAudioPlayer from 'react-audio-player';
-import audioFile from './video/stage1meme.mp3';
+import audioFile from '../../static/audio/entre1/stage1meme.mp3';
 
 # Stage 1: Ascending Walls
 
-<details>
+:::info
+<details style={{border:'none'}}>
     <summary>**Prerequisites: Before You Dive In!**</summary>
 
     Before diving into the excitement of Stage 1, make sure you've completed these fun and essential steps!
@@ -29,10 +27,18 @@ import audioFile from './video/stage1meme.mp3';
 
     **Now, let's dive into Stage 1 and start building your very own Obby masterpiece! Are you ready? Let's do this! 🎉**
 </details>
+:::
 
-<div align='center'>
-  <ReactPlayer controls url={MyVideoUrl}/>
-</div>
+<br  />
+
+<div dangerouslySetInnerHTML={{
+  __html: `
+    <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+      <iframe src="https://player.vimeo.com/video/952507638?h=c7b21f8995" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 1 (Easy)"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  `
+}} />
 
 ## Objective 🧐🗿
 
@@ -133,9 +139,14 @@ The part will move smoothly, pausing for a short time during each step of moveme
 <details>
     <summary>**Medium: Ride the walls up and down using cool functions!**</summary>
 
-    <div align='center'>
-        <ReactPlayer controls url={MyVideoUrl2}/>
-    </div>
+    <div dangerouslySetInnerHTML={{
+    __html: `
+        <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+        <iframe src="https://player.vimeo.com/video/952507656?h=fe09375b92" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 1 (Medium)"></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+    `
+    }} />
 
     <br  />
 
@@ -211,9 +222,14 @@ The part will move smoothly, pausing for a short time during each step of moveme
 <details>
     <summary>**Hard: Smoothly animate the movement with a Roblox Service!**</summary>
     
-    <div align='center'>
-        <ReactPlayer controls url={MyVideoUrl3}/>
-    </div>
+    <div dangerouslySetInnerHTML={{
+    __html: `
+        <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+        <iframe src="https://player.vimeo.com/video/952507646?h=d31df17c05" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 1 (Hard)"></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+    `
+    }} />
 
     <br  />
 
@@ -285,7 +301,7 @@ The part will move smoothly, pausing for a short time during each step of moveme
 - [x] **Congratulations! You've conquered Stage 1 like a true coding champion! Now, gear up for even more thrilling challenges as we dive into Stage 2! Let the coding adventure continue! 🚀🎉**
 
 <div align='center'>
-    ![baller](./img/stage1meme.gif)
+    ![baller](../../static/img/entre1/stage1meme.gif)
 </div>
 
 <div align='center'>

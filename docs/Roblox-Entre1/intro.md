@@ -6,13 +6,10 @@ toc_max_heading_level: 3
 ---
 
 import ReactPlayer from 'react-player'
-import MyVideoUrl from './video/Intro.mp4';
 
 Welcome to Roblox Entrepreneur Part 1: Lua Coding and Game Scripting! Are you ready to embark on an incredible coding adventure? Let's dive in and create something truly awesome together!
 
-<div align='center'>
-  <ReactPlayer controls url={MyVideoUrl}/>
-</div>
+<iframe style={{border: "3px solid #47c621"}} width="917" height="516" src="https://www.youtube.com/embed/t905DaqIzNM" title="Roblox Obby Intro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## How this Tutorial is Designed
 
@@ -42,7 +39,7 @@ Now, let's unleash your creativity as we craft an epic course step by step. Here
 
 <br  />
 
->Stage 2: Sphere Stairs
+>Stage 2: Sphere Staircase
 
 **Objective:** Construct a set of stairs using spheres as steps.
 

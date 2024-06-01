@@ -6,13 +6,13 @@ toc_max_heading_level: 3
 ---
 
 import ReactPlayer from 'react-player'
-import MyVideoUrl from './video/Stage6.mp4';
 import ReactAudioPlayer from 'react-audio-player';
-import audioFile from './video/happy-happy-happy-song.mp3';
+import audioFile from '../../static/audio/rblx1/happy-happy-happy-song.mp3';
 
 # Stage 6: Military Minefield
 
-<details>
+:::info
+<details style={{border:'none'}}>
     <summary>**Prerequisites: Before You Dive In!**</summary>
 
     Ready for the next adventure? Before diving into Stage 6: Military Minefield, make sure you've conquered the following challenges:
@@ -47,10 +47,18 @@ import audioFile from './video/happy-happy-happy-song.mp3';
 
     **Once you've completed these challenges, you'll be primed and ready to tackle the thrilling world of Stage 6: Military Minefield! 💣💥**
 </details>
+:::
 
-<div align="center">
-  <ReactPlayer controls url={MyVideoUrl}/>
-</div>
+<br  />
+
+<div dangerouslySetInnerHTML={{
+  __html: `
+    <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+      <iframe src="https://player.vimeo.com/video/952505963?h=27154c9c7b" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Part 1 - Stage 6"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  `
+}} />
 
 ## Objective 🧐🗿
 
@@ -61,7 +69,7 @@ Welcome to the explosive adventure of Stage 6! Get ready to navigate the treache
 Let's embark on our mission through the military minefield, but fear not, as we'll mark out safe paths together! Here's how to navigate through:
 
 <div className='image-wrapper'>
-    ![stage6Easy](./img/stage6Easy.png)
+    ![stage6Easy](../../static/img/rblx1/stage6Easy.png)
 </div>
 
 ### 1.1 Plotting the Course
@@ -80,7 +88,7 @@ Lets scatter mines across the treacherous minefield!
     <summary>**Medium: Keep players on edge with some sneaky hidden mines.**</summary>
 
     <div className='image-wrapper'>
-        ![stage6Medium](./img/stage6Medium.png)
+        ![stage6Medium](../../static/img/rblx1/stage6Medium.png)
     </div>
 
     <br  />
@@ -196,7 +204,7 @@ Forge ahead by adding another Team to your Teams folder:
 **Hooray! By conquering Stage 6, you've proven your mettle amidst the challenges of the military minefield! Onward to Stage 7, where new adventures await! 🌟**
 
 <div align='center'>
-    ![happyCat](./img/happy-cat-happy-happy-cat.gif)
+    ![happyCat](../../static/img/rblx1/happy-cat-happy-happy-cat.gif)
 </div>
 
 <div align='center'>
