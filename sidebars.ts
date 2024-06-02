@@ -49,7 +49,7 @@ export const robloxSidebar = [
 
 export const pythonSidebar = [
   {
-    'Python Part 1: Python 101':  ['Python-Part1/intro', 'Python-Part1/setup', 'Python-Part1/section1', 'Python-Part1/section2', 'Python-Part1/section3', 'Python-Part1/section4', 'Python-Part1/section5', 'Python-Part1/section6']
+    'Python Part 1: Python 101':  ['Python-Part1/intro', 'Python-Part1/setup', 'Python-Part1/section1', 'Python-Part1/section2', 'Python-Part1/section3', 'Python-Part1/section4', 'Python-Part1/section5']
   },
 ];
 
