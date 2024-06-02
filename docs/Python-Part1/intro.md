@@ -5,7 +5,15 @@ toc_min_heading_level: 2
 toc_max_heading_level: 3
 ---
 
-Welcome to Python Part 1: Python 101! Are you ready to embark on an incredible coding adventure? Let's dive in and create something truly awesome together!
+<div className='image-wrapper2'>
+    ![snake](../../static/img/py1/snake.jpg)
+</div>
+
+Welcome to Python Part 1: Python 101! Are you ready to embark on an incredible coding adventure? 
+
+We'll start with the basics of programming libraries and turtle commands, then move on to drawing artistic shapes and playing with colors. After customizing your very own turtle, we'll tackle advanced techniques, and finally, we'll cap it all off with an exciting turtle race. 
+
+Let's dive in and create something truly awesome together!
 
 ## What's Python?
 
@@ -36,6 +44,7 @@ In these lessons, we’ll use a Python library called Turtle to help us grasp th
 - **Crafting shapes through precise turtle movements**: Draw perfect shapes every time.
 - **Experimenting with screen colors**: Change the colors of your canvas for extra flair.
 - **Adjusting pen width**: Go from thin lines to bold strokes with your turtle’s pen.
+- **Managing pen lifts to create discontinuous lines**: Learn how to pick up the pen to stop drawing.
 
 ## Lesson 3: Customizing Your Turtle 🌟
 
@@ -43,22 +52,18 @@ In these lessons, we’ll use a Python library called Turtle to help us grasp th
 - **Mixing and matching turtle and pen colors**: Dress up your turtle in cool colors.
 - **Employing color fills to enhance turtle drawings**: Fill in your drawings with beautiful colors.
 - **Optimizing turtle speed**: Speed it up or slow it down—it’s up to you!
-
-## Lesson 4: Advanced Turtle Techniques 🔧
-
-- **Managing pen lifts to create discontinuous lines**: Learn how to pick up the pen to stop drawing.
-- **Adapting to changes in project requirements**: Change your code like a pro as you need.
 - **Stamping with the turtle**: Make your mark with fun stamps.
 - **Cloning turtles for complex designs**: Create a bunch of turtles to work faster!
 
-## Lesson 5: Mastering Loops and Conditional Logic 🔁
+## Lesson 4: Mastering Loops and Conditional Logic 🔁
 
 - **Implementing 'For Loops'**: Repeat actions without writing them over and over.
 - **Utilizing 'While Loops'**: Keep things going as long as you need.
 - **Understanding indentations and code structuring**: Keep your code clean and easy to read.
 - **Executing conditional statements**: Make decisions in your code like choosing a path in a game.
+- **Adapting to changes in project requirements**: Change your code like a pro as you need.
 
-## Lesson 6: The Thrilling Python Turtle Race 🏁
+## Lesson 5: The Thrilling Python Turtle Race 🏁
 
 - **Configuring the racing environment**: Set up the race track.
 - **Integrating the Python Random module**: Add surprise elements to the race.
