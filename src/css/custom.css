@@ -64,7 +64,19 @@
   margin: 0 auto; /* adds horizontal margin and centers the wrapper */
 }
 
+.image-wrapper2 {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto; /* adds horizontal margin and centers the wrapper */
+}
+
+
 .image-wrapper img {
+  /* border-radius: 10px; rounds the edges of the image by 10px */
+  border: 3px solid #47c621; /* adds a 2px solid border with the color #2e8555 */
+}
+
+.image-wrapper2 img {
   /* border-radius: 10px; rounds the edges of the image by 10px */
   border: 3px solid #47c621; /* adds a 2px solid border with the color #2e8555 */
 }

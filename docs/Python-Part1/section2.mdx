@@ -5,7 +5,7 @@ toc_min_heading_level: 2
 toc_max_heading_level: 3
 ---
 import ReactAudioPlayer from 'react-audio-player';
-import audioFile from './video/wow.mp3';
+import audioFile from '../../static/audio/py1/wow.mp3';
 
 # Lesson 2: The Art of Drawing with Python Turtle
 
@@ -37,6 +37,14 @@ Get ready to turn code into art as we explore how to use functions and parameter
 Now that we know the movements of the turtle, we can move on to making actual shapes! 
 
 Let's start by drawing polygons since they all consist of straight lines connected at certain angles. 
+
+Open up your "My Turtle" Trinket and clear any code except for:
+``` python
+import turtle
+
+t = turtle.Turtle()
+s = t.getscreen()
+```
 ### Drawing a Square
 To draw a square, we need to move forward and turn right four times. Here's how you can do it:
 
@@ -135,8 +143,8 @@ s.bgcolor("blue")
 ```
 
 From the [turtle documentation](https://docs.python.org/3/library/turtle.html#turtle.bgcolor), we can see that the `bgcolor()` function will take in a **color string** or a **color’s hex code number**.
-<div align="center">
-    ![nerdEmoji](./img/py1bgc.png)
+<div className='image-wrapper2'>
+    ![py1bgc](../../static/img/py1/py1bgc.png)
 </div>
 
 **Screen Color Practice**
@@ -166,8 +174,8 @@ s.bgcolor((255, 0, 0))
 ## Pen Width 🖋️ 📐
 
 Sometimes we may need to increase or decrease the thickness of the pen. Turtle gives us the ability to do so. Check it out below!
-<div align="center">
-    ![nerdEmoji](./img/py1ps.gif)
+<div className='image-wrapper2'>
+    ![py1ps](../../static/img/py1/py1ps.gif)
 </div>
 <div align="center">
     <ReactAudioPlayer
@@ -192,8 +200,8 @@ t.forward(100)
  </figcaption>
 </figure>
 
-<div align="center">
-    ![nerdEmoji](./img/py1w.jpg)
+<div className='image-wrapper2'>
+    ![py1w](../../static/img/py1/py1w.jpg)
 </div>
 
 Go ahead and adjust our pen using `width()` and show your coach once complete!
@@ -211,6 +219,33 @@ t.forward(100)
 
 Now try it on your own, with your lucky number as the new width!
 </details>
+
+## Picking the Pen Up and Down ⬆️ ⬇️
+Open up your "My Turtle" Trinket and clear any code except for:
+``` python
+import turtle
+
+t = turtle.Turtle()
+s = t.getscreen()
+```
+
+Sometimes, you may want to move your turtle to another point on the screen without drawing anything on the screen itself. 
+
+To do this, you use `.penup()`. Then, when you want to start drawing again, you use `.pendown()`.
+
+```python
+t.fd(100)
+t.rt(90)
+t.penup()
+t.fd(100)
+t.rt(90)
+t.pendown()
+t.fd(100)
+t.rt(90)
+t.penup()
+t.fd(100)
+t.pendown()
+```
 
 <br  />
 - [x] **Well done! You've transformed lines of code into beautiful drawings and learned how to customize your canvas and turtle to bring your creative ideas to life!**
