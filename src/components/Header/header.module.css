@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-image: url("/img/banner.jpg");
+  background-size: cover;
+  height: 250px; /* originally 277 */
+  aspect-ratio: auto 1192 / 282;
+  background-color: hsl(0, 0%, 90%);
+  background-repeat: no-repeat;
+  background-position-x: 50%;
+  background-position-y: 50%;
+}
+
+.tcslogo {
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 170px;
+  height: 100px;
+  object-fit: contain;
+}
+.aatllogo {
+  margin-top: 10px;
+  margin-left: 20px;
+  width: 170px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.titlecontainer {
+  margin-left: 10px;
+}
+
+.header1 {
+  color: white;
+  margin: 0;
+  margin-left: 5px;
+  font-weight: 400;
+}
+.header2 {
+  color: white;
+  margin: 0;
+  margin-left: 5px;
+  font-weight: 200;
+}

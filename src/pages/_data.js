@@ -1,0 +1,58 @@
+const tutorials = [
+  {
+    id: "101",
+    title: "Roblox Part 1:",
+    desc: "Launch your Own Obby Game",
+    img: "https://firebasestorage.googleapis.com/v0/b/academy-content-hub.appspot.com/o/roblox-banner-300-150.webp?alt=media&token=8526712d-59a6-4710-bb39-66be5db50db7",
+    votes: 0,
+    href: "/docs/Roblox-Part1/intro",
+    alt: "Roblox Part 1",
+  },
+  {
+    id: "102",
+    title: "Python Part 1:",
+    desc: "Python 101",
+    img: "https://firebasestorage.googleapis.com/v0/b/academy-content-hub.appspot.com/o/roblox-banner-300-150.webp?alt=media&token=8526712d-59a6-4710-bb39-66be5db50db7",
+    votes: 0,
+    href: "/docs/Python-Part1/intro",
+    alt: "Python Part 1",
+  },
+  {
+    id: "103",
+    title: "Robotics Part 1:",
+    desc: "Robotics with Scratch and mBot",
+    img: "https://firebasestorage.googleapis.com/v0/b/academy-content-hub.appspot.com/o/roblox-banner-300-150.webp?alt=media&token=8526712d-59a6-4710-bb39-66be5db50db7",
+    votes: 0,
+    href: "/docs/Robotics-Part1/intro",
+    alt: "Robotics Part 1",
+  },
+  {
+    id: "104",
+    title: "Roblox Part 1:",
+    desc: "Launch your Own Obby Game",
+    img: "https://firebasestorage.googleapis.com/v0/b/academy-content-hub.appspot.com/o/roblox-banner-300-150.webp?alt=media&token=8526712d-59a6-4710-bb39-66be5db50db7",
+    votes: 0,
+    href: "/docs/Roblox-Part1/intro",
+    alt: "Roblox Part 1",
+  },
+  {
+    id: "105",
+    title: "Python Part 1:",
+    desc: "Python 101",
+    img: "https://firebasestorage.googleapis.com/v0/b/academy-content-hub.appspot.com/o/roblox-banner-300-150.webp?alt=media&token=8526712d-59a6-4710-bb39-66be5db50db7",
+    votes: 0,
+    href: "/docs/Python-Part1/intro",
+    alt: "Python Part 1",
+  },
+  {
+    id: "106",
+    title: "Robotics Part 1:",
+    desc: "Robotics with Scratch and mBot",
+    img: "https://firebasestorage.googleapis.com/v0/b/academy-content-hub.appspot.com/o/roblox-banner-300-150.webp?alt=media&token=8526712d-59a6-4710-bb39-66be5db50db7",
+    votes: 0,
+    href: "/docs/Robotics-Part1/intro",
+    alt: "Robotics Part 1",
+  },
+];
+
+export default tutorials;
