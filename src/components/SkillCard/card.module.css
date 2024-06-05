@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* KEYFRAMES */
+@keyframes fade-in-from-top {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+  outline: none; /* Make sure there is a visual indicator for focus state */
+}
+
+.card {
+  margin: auto;
+  width: 225px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.4s;
+  animation: fade-in-from-top 0.5s;
+}
+
+.cardcontainer {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.image {
+  width: 200px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+h6 {
+  margin: 0px;
+}
+
+.cardfooter {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.dd_toggle {
+  cursor: pointer;
+}
