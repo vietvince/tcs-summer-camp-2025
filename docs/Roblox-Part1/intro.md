@@ -9,7 +9,15 @@ import ReactPlayer from 'react-player'
 
 Welcome to Roblox Part 1: Launch Your Own Obby Game! Are you ready to embark on an incredible coding adventure? Let's dive in and create something truly awesome together!
 
-<iframe style={{border: "3px solid #47c621"}} width="917" height="516" src="https://www.youtube.com/embed/t905DaqIzNM" title="Roblox Obby Intro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div dangerouslySetInnerHTML={{
+    __html: `
+        <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+        <iframe src="https://player.vimeo.com/video/952911944?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Intro"></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+    `
+}} />
+
 
 ## How this Tutorial is Designed
 
