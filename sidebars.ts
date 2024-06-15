@@ -32,16 +32,25 @@ const sidebars: SidebarsConfig = {
   // ],
 };
 
-export const robloxSidebar = [
+export const robloxSidebar1 = [
   {
     'Roblox Part 1: Launch Your Own Obby Game': ['roblox-part1/intro', 'roblox-part1/setup', 'roblox-part1/stage1', 'roblox-part1/stage2', 'roblox-part1/stage3', 'roblox-part1/stage4', 'roblox-part1/stage5', 'roblox-part1/stage6', 'roblox-part1/stage7', 'roblox-part1/stage8', 'roblox-part1/stage9', 'roblox-part1/stage10', ],
   },
+];
+
+export const robloxSidebar2 = [
   {
     'Roblox Part 2: Launch Your Own Obby Game in VR': ['roblox-part2/intro', 'roblox-part2/setup', 'roblox-part2/stage1', 'roblox-part2/stage2', 'roblox-part2/stage3', 'roblox-part2/stage4', 'roblox-part2/stage5', 'roblox-part2/stage6', 'roblox-part2/stage7', 'roblox-part2/stage8', 'roblox-part2/stage9', 'roblox-part2/stage10', ],
   },
+];
+
+export const robloxSidebar3 = [
   {
     'Roblox Entrepreneur Part 1: Lua Coding and Game Scripting': ['roblox-entre1/intro', 'roblox-entre1/setup', 'roblox-entre1/stage1', 'roblox-entre1/stage2', 'roblox-entre1/stage3', 'roblox-entre1/stage4', 'roblox-entre1/stage5', 'roblox-entre1/stage6', 'roblox-entre1/stage7', 'roblox-entre1/stage8', 'roblox-entre1/stage9', 'roblox-entre1/stage10', ]
   },
+];
+
+export const robloxSidebar4 = [
   {
     'Roblox Entrepreneur Part 2: Imaginative Game Design': ['roblox-entre2/intro', 'roblox-entre2/setup', 'roblox-entre2/stage1', 'roblox-entre2/stage2', 'roblox-entre2/stage3', 'roblox-entre2/stage4', 'roblox-entre2/stage5', 'roblox-entre2/stage6', 'roblox-entre2/stage7', 'roblox-entre2/stage8', 'roblox-entre2/stage9', 'roblox-entre2/stage10', ]
   },
