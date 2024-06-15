@@ -103,9 +103,9 @@ const config: Config = {
         },
         {
           type: "docSidebar",
-          sidebarId: "roboticsSidebar",
+          sidebarId: "roboticsSidebar1",
           position: "left",
-          label: "Robotics",
+          label: "mBot-1",
         },
         {
           href: "https://github.com/vietvince/TCS-Website",

@@ -74,7 +74,7 @@ export const pythonSidebar2 = [
   },
 ];
 
-export const roboticsSidebar = [
+export const roboticsSidebar1 = [
   {
     'Robotics Part 1: With Scratch and mBot': ['robotics-part1/intro']
   },
