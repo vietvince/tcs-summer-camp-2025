@@ -91,9 +91,15 @@ const config: Config = {
         },
         {
           type: "docSidebar",
-          sidebarId: "pythonSidebar",
+          sidebarId: "pythonSidebar1",
           position: "left",
-          label: "Python",
+          label: "Py-1",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "pythonSidebar2",
+          position: "left",
+          label: "Py-2",
         },
         {
           type: "docSidebar",

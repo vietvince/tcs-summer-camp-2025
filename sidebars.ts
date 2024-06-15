@@ -62,9 +62,15 @@ export const robloxSidebar5 = [
   },
 ];
 
-export const pythonSidebar = [
+export const pythonSidebar1 = [
   {
     'Python Part 1: Python 101':  ['python-part1/intro', 'python-part1/setup', 'python-part1/section1', 'python-part1/section2', 'python-part1/section3', 'python-part1/section4', 'python-part1/section5']
+  },
+];
+
+export const pythonSidebar2 = [
+  {
+    'Python Part 2: Space Invaders':  ['python-part2/intro', 'python-part2/setup', 'python-part2/section1', 'python-part2/section2', 'python-part2/section3', 'python-part2/section4', 'python-part2/section5']
   },
 ];
 
