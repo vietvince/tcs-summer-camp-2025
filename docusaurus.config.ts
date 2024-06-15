@@ -61,9 +61,27 @@ const config: Config = {
       items: [
         {
           type: "docSidebar",
-          sidebarId: "robloxSidebar",
+          sidebarId: "robloxSidebar1",
           position: "left",
-          label: "Roblox",
+          label: "Rblx-1",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "robloxSidebar2",
+          position: "left",
+          label: "Rblx-2",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "robloxSidebar3",
+          position: "left",
+          label: "RblxEntre-1",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "robloxSidebar4",
+          position: "left",
+          label: "RblxEntre-2",
         },
         {
           type: "docSidebar",
