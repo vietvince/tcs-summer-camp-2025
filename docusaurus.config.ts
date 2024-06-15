@@ -85,6 +85,12 @@ const config: Config = {
         },
         {
           type: "docSidebar",
+          sidebarId: "robloxSidebar5",
+          position: "left",
+          label: "RblxEntre-3",
+        },
+        {
+          type: "docSidebar",
           sidebarId: "pythonSidebar",
           position: "left",
           label: "Python",

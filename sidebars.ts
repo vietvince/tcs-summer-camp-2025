@@ -40,7 +40,7 @@ export const robloxSidebar1 = [
 
 export const robloxSidebar2 = [
   {
-    'Roblox Part 2: Launch Your Own Obby Game in VR': ['roblox-part2/intro', 'roblox-part2/setup', 'roblox-part2/stage1', 'roblox-part2/stage2', 'roblox-part2/stage3', 'roblox-part2/stage4', 'roblox-part2/stage5', 'roblox-part2/stage6', 'roblox-part2/stage7', 'roblox-part2/stage8', 'roblox-part2/stage9', 'roblox-part2/stage10', ],
+    'Roblox Part 2: Virtual Reality, Launch Your Own Obby Game in VR': ['roblox-part2/intro', 'roblox-part2/setup', 'roblox-part2/stage1', 'roblox-part2/stage2', 'roblox-part2/stage3', 'roblox-part2/stage4', 'roblox-part2/stage5', 'roblox-part2/stage6', 'roblox-part2/stage7', 'roblox-part2/stage8', 'roblox-part2/stage9', 'roblox-part2/stage10', ],
   },
 ];
 
@@ -53,6 +53,12 @@ export const robloxSidebar3 = [
 export const robloxSidebar4 = [
   {
     'Roblox Entrepreneur Part 2: Imaginative Game Design': ['roblox-entre2/intro', 'roblox-entre2/setup', 'roblox-entre2/stage1', 'roblox-entre2/stage2', 'roblox-entre2/stage3', 'roblox-entre2/stage4', 'roblox-entre2/stage5', 'roblox-entre2/stage6', 'roblox-entre2/stage7', 'roblox-entre2/stage8', 'roblox-entre2/stage9', 'roblox-entre2/stage10', ]
+  },
+];
+
+export const robloxSidebar5 = [
+  {
+    'Roblox Entrepreneur Part 3: Virtual Reality, Launch Your Own Obby Game in VR': ['roblox-entre3/intro', 'roblox-entre3/setup', 'roblox-entre3/stage1', 'roblox-entre3/stage2', 'roblox-entre3/stage3', 'roblox-entre3/stage4', 'roblox-entre3/stage5', 'roblox-entre3/stage6', 'roblox-entre3/stage7', 'roblox-entre3/stage8', 'roblox-entre3/stage9', 'roblox-entre3/stage10', ]
   },
 ];
 
