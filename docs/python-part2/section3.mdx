@@ -1,1 +1,207 @@
-insert content
+---
+title: "Lesson 3"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+
+# Lesson 3: Introducing Enemies and Shooting Dynamics 👾🔫
+
+
+## Objective 🧐🗿
+
+Bring your game to life by introducing alien invaders! You'll create and animate these enemies, making them move across the screen. Plus, you'll program your lasers to blast them away, complete with epic collision effects.
+
+### Step 1. Remove Lasers That Leave the Screen 🧹✨
+Open up the file we made in our Setup section.
+
+We have a big problem! The lasers dont disappear when they leave the screen! To fix this we have to change our game loop.
+
+``` python
+# ...
+
+# Game loop
+while True:
+    # Move all lasers
+    for laser in lasers.copy():
+        move_laser(laser)
+        # Remove laser if it goes off screen
+        if laser.ycor() > TOP:
+            laser.clear()
+            laser.hideturtle()
+            lasers.remove(laser)
+            turtle.turtles().remove(laser)
+    window.update()
+
+turtle.done()
+```
+With this new if statement, we check if the y-coordinate of the laser is above the top of the screen. If true, it deletes the laser! 🚀🗑️
+
+### Step 2. Spawning Aliens 👽🛸
+
+Its time to make some Creepy Aliens!
+
+- Aliens will spawn every few seconds
+- Aliens will spawn at the top of the screen
+- Aliens will spawn in diffrent in colors
+
+
+```python
+import random
+import turtle
+
+# ...
+
+lasers = []
+aliens = []
+
+# ...
+
+def create_alien():
+    alien = turtle.Turtle()
+    alien.penup()
+    alien.turtlesize(1.5)
+    alien.setposition(
+        random.randint(
+            int(LEFT + GUTTER),
+            int(RIGHT - GUTTER),
+        ),
+        TOP,
+    )
+    alien.shape("turtle")
+    alien.setheading(-90)
+    alien.color(random.random(), random.random(), random.random())
+    aliens.append(alien)
+
+#  ...
+```
+
+We keep all the aliens in a list and we give them a random position in between the left and right gutters. We also give them a random color! 🌈
+
+Now we need to change how often they are going to spawn!
+
+```python
+import random
+import time
+import turtle
+
+CANNON_STEP = 10
+LASER_LENGTH = 20
+LASER_SPEED = 10
+ALIEN_SPAWN_INTERVAL = 1.2  # Seconds
+
+# ...
+
+# Game loop
+alien_timer = 0
+while True:
+    # ...
+
+    # Spawn new aliens when time interval elapsed
+    if time.time() - alien_timer > ALIEN_SPAWN_INTERVAL:
+        create_alien()
+        alien_timer = time.time()
+    window.update()
+
+turtle.done()
+```
+
+We used the time library to make the aliens spawn every 1.2 seconds! ⏱️👾
+
+### Step 3. Move the Aliens 🚶‍♂️👽
+
+Now we need to make the aliens fall just like the Space Invaders game!
+
+```python
+import random
+import time
+import turtle
+
+CANNON_STEP = 10
+LASER_LENGTH = 20
+LASER_SPEED = 10
+ALIEN_SPAWN_INTERVAL = 1.2  # Seconds
+ALIEN_SPEED = 2
+
+# ...
+
+# Game loop
+alien_timer = 0
+while True:
+    # ...
+
+    # Move all aliens
+    for alien in aliens:
+        alien.forward(ALIEN_SPEED)
+    window.update()
+
+turtle.done()
+```
+
+By changing our game loop we can make the turtles move forward!
+
+### Step 4. Collision Detection 💥🎯
+
+Time to zap those creepy aliens with collision detection! The code we will write will check when our laser hits an alien!
+
+```python
+# ...
+
+while True:
+    # Move all lasers
+    for laser in lasers.copy():
+        move_laser(laser)
+        # Remove laser if it goes off screen
+        if laser.ycor() > TOP:
+            laser.clear()
+            laser.hideturtle()
+            lasers.remove(laser)
+            turtle.turtles().remove(laser)
+        # Check for collision with aliens
+        for alien in aliens.copy():
+            if laser.distance(alien) < 20:
+                # TODO Remove alien and laser
+                ...
+
+# ...
+```
+
+With this if statement, we check if the distance between the alien and the laser is below 20. Now it's time to destroy the alien and the laser! 💣🛸
+
+```python
+# ...
+
+def remove_sprite(sprite, sprite_list):
+    sprite.clear()
+    sprite.hideturtle()
+    window.update()
+    sprite_list.remove(sprite)
+    turtle.turtles().remove(sprite)
+
+# ...
+
+# Game loop
+alien_timer = 0
+while True:
+    # Move all lasers
+    for laser in lasers.copy():
+        move_laser(laser)
+        # Remove laser if it goes off screen
+        if laser.ycor() > TOP:
+            remove_sprite(laser, lasers)
+            break
+        # Check for collision with aliens
+        for alien in aliens.copy():
+            if laser.distance(alien) < 20:
+                remove_sprite(laser, lasers)
+                remove_sprite(alien, aliens)
+                break
+
+    # ...
+```
+
+With this new function we are able to remove anything we want without copy and pasting the same lines of code.
+
+With that you have an epic laser cannon that can zap the aliens 🎉
+<br  />

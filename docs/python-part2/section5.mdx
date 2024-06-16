@@ -1,1 +1,105 @@
-insert content
+---
+title: "Lesson 5"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Lesson 5: Advanced Game Features and Customizations 
+
+
+## Objective 🧐🗿
+
+Get ready to boost the excitement in your game! We're adding some cool new features to make your game a real test of skill. You'll learn to create difficulty levels, control your laser ammo for extra challenge, and even make a cannon that spins instead of moving side to side. Let’s get your players hooked and wanting more!
+
+### 🚀 Step 1. Boost the Challenge with Difficulty Levels
+Open up the file we made in our Setup section.
+
+As you score more points, let's make the game keep up with your skills by making the aliens faster and more frequent. Here’s how you can make your game increasingly challenging:
+
+1. **Track Your Score**: You'll need to keep an eye on the player's score because the game's difficulty will depend on it.
+2. **Speed Up the Aliens**: Increase the `ALIEN_SPEED` variable as the score reaches certain milestones (like every 10 points).
+3. **Spawn Aliens Faster**: Decrease the `ALIEN_SPAWN_INTERVAL` as the score goes up to make the game more challenging.
+
+**Hint**: Consider using `if` statements within a function to check if the score has reached a threshold and then adjust the game settings accordingly.
+
+<details>
+<summary>**🔍 Code Snippet for Difficulty Adjustment**</summary>
+
+```python
+def update_difficulty(score):
+    global ALIEN_SPEED, ALIEN_SPAWN_INTERVAL
+    if score > 10:
+        ALIEN_SPEED = 5
+        ALIEN_SPAWN_INTERVAL = 1.0
+    if score > 20:
+        ALIEN_SPEED = 6.5
+        ALIEN_SPAWN_INTERVAL = 0.8
+```
+</details>
+
+### 🎯 Step 2. Manage Your Ammo: Limit the Number of Lasers
+
+What if lasers were a limited resource? Use them wisely to make each shot count. Here's how to implement this:
+
+-- Set a Maximum: Determine how many lasers can be in action at once.
+-- Check Before Shooting: Always verify if there are lasers left before firing.
+-- Plan for Restocking: Decide how players can earn more lasers, perhaps by scoring points or hitting milestones.
+
+Hint: Modify your laser creation function to check if you still have lasers available before creating a new one.
+
+<details>
+<summary>**🔍 Code Snippet for Managing Lasers**</summary>
+
+```python
+MAX_LASERS = 5
+available_lasers = MAX_LASERS
+
+def create_laser():
+    global available_lasers
+    if available_lasers > 0:
+        laser = turtle.Turtle()
+        laser.penup()
+        laser.color(1, 0, 0)
+        laser.hideturtle()
+        laser.setposition(cannon.xcor(), cannon.ycor() + 20)
+        laser.setheading(90)
+        laser.pensize(5)
+        lasers.append(laser)
+        available_lasers -= 1
+
+def restock_lasers():
+    global available_lasers
+    available_lasers = MAX_LASERS
+```
+</details>
+
+
+### 🔄 Step 3. Spin that Cannon!
+Adding a spinning cannon introduces a new layer of challenge. Here's how to set it up:
+
+Fix the Cannon's Position: Ensure your cannon stays put.
+Enable Rotation: Allow the cannon to turn left or right based on player inputs.
+Adjust Laser Emission: Lasers should still fire from the front of the cannon, even as it rotates.
+
+Hint: Update the cannon's orientation and modify the key bindings to rotate the cannon instead of moving it horizontally.
+
+<details>
+<summary>**🔍 Code Snippet for Rotating Cannon**</summary>
+``` python
+def rotate_cannon_left():
+    angle = cannon.heading()
+    cannon.setheading(angle + 10)
+
+def rotate_cannon_right():
+    angle = cannon.heading()
+    cannon.setheading(angle - 10)
+
+# Replace move_left and move_right with rotate_cannon_left and rotate_cannon_right in key bindings
+window.onkeypress(rotate_cannon_left, "Left")
+window.onkeypress(rotate_cannon_right, "Right")
+```
+</details>
+
+<br  />
+- [x] **You've just embarked on an amazing coding journey, mastering the basics of turtle movement and positioning, setting the stage for more creative adventures!** 🚀
