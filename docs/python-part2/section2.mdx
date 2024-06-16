@@ -1,1 +1,210 @@
-insert content
+---
+title: "Lesson 2"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+
+# Lesson 2: Mastering Cannon Control and Laser Deployment 🚀🛡️
+
+:::info
+<details style={{border:'none'}}>
+    <summary>**Prerequisites: Before You Dive In!**</summary>
+
+**Functions and Parameters**
+
+Before we dive deeper into using more Turtle functions, let's talk about what a function is. 
+
+A **function** is like a little machine in your program. You give it some information, it does something with that information, and then it might give something back. For example, in a game, you might have a function that calculates the score each time a player scores points. 
+
+**Parameters** are the bits of information you give to the function. Think of them as ingredients in a recipe. Just like you might need eggs, flour, and sugar to make a cake, a function needs parameters to do its job.
+
+Here's a simple example: 
+
+Imagine you have a function in Turtle that draws a square. The parameter might be the size of the sides of the square. You tell the function how long each side should be, and it uses that information to draw the square for you.
+
+Functions help you reuse code without having to write it over and over again. You can write the function once, and then use it many times with different parameters to do similar tasks. This makes your code cleaner, easier to read, and easier to manage.
+
+</details>
+:::
+
+## Objective 🧐🗿
+
+Learn how to control your laser cannon like a pro! You'll master the game screen, ensure your cannon stays in bounds, and unleash lasers to take down alien enemies. Get ready for some action-packed coding!
+
+## Create the Screen
+
+### Step 1: Control When Items Are Displayed 🎬✨
+Open up the file we made in our Setup section.
+
+When you're creating a game, you want everything to look awesome and run smoothly, right? That means you need to control when and how things are shown on the screen. Think of the Turtle screen as your game's stage. Here's how you can be the director of this stage:
+
+- **Stop the Flickering:** If you don't control when items are displayed, your game might look like it's flickering or glitching. That's no fun! By managing the updates, you make sure everything appears smoothly.
+
+- **Screen Update Mechanics:** The Turtle screen has a cool feature called `tracer()` and `update()`. It's like a "pause" and "play" button for your game.
+  - **`tracer(n)`:** Think of this as setting up a camera that takes a picture every `n` steps. If `n` is set to 0, it stops the automatic updating, so you can control when the screen refreshes.
+  - **`update()`:** This is your "play" button! When you're ready to show everything you've done, you call `update()` to refresh the screen and display all the changes at once.
+
+- At the start of your game setup, use `turtle.tracer(0)` to turn off automatic updates. After you've moved your cannon, aliens, and lasers where you want them, call `turtle.update()` to show everything at once. This makes the game look smooth and professional!
+
+Here's a fun little snippet to see it in action:
+
+```python
+import turtle
+
+# Set up the screen
+window = turtle.Screen()
+window.bgcolor("black")
+
+# Create a turtle for the cannon
+cannon = turtle.Turtle()
+cannon.shape("square")
+cannon.color("blue")
+cannon.penup()
+
+# Turn off automatic updates
+window.tracer(0)
+
+# Move the cannon
+cannon.setx(-100)
+
+# More moves and game logic here...
+
+# Update the screen to show all changes
+turtle.update()
+
+window.mainloop()
+```
+
+### Step 2: Prevent the Laser Cannon From Leaving the Screen 🚫🛸
+
+Before we move on to the lasers, we need to make sure our cannon does not go out of the screen.
+
+```python
+# ...
+
+LEFT = -window.window_width() / 2
+RIGHT = window.window_width() / 2
+TOP = window.window_height() / 2
+BOTTOM = -window.window_height() / 2
+FLOOR_LEVEL = 0.9 * BOTTOM
+GUTTER = 0.025 * window.window_width()
+
+# ...
+
+def move_left():
+    new_x = cannon.xcor() - CANNON_STEP
+    if new_x >= LEFT + GUTTER:
+        cannon.setx(new_x)
+        draw_cannon()
+
+def move_right():
+    new_x = cannon.xcor() + CANNON_STEP
+    if new_x <= RIGHT - GUTTER:
+        cannon.setx(new_x)
+        draw_cannon()
+
+# ...
+```
+
+In the newly changed functions, we put an if statement checking if the next step the cannon is going to take will be outside our gutter.
+
+### Step 3: Creating the Lasers 💥🔫
+
+We want our code to shoot the lasers just like in the space invaders game! We are going to use the space bar to shoot our lasers!
+
+```python
+# ...
+
+lasers = []
+
+def draw_cannon():
+    # ...
+
+def move_left():
+    # ...
+
+def move_right():
+    # ...
+
+def create_laser():
+    laser = turtle.Turtle()
+    laser.penup()
+    laser.color(1, 0, 0)
+    laser.hideturtle()
+    laser.setposition(cannon.xcor(), cannon.ycor())
+    laser.setheading(90)
+    # Move laser to just above cannon tip
+    laser.forward(20)
+    # Prepare to draw the laser
+    laser.pendown()
+    laser.pensize(5)
+
+    lasers.append(laser)
+
+# Key bindings
+window.onkeypress(move_left, "Left")
+window.onkeypress(move_right, "Right")
+window.onkeypress(create_laser, "space")
+window.onkeypress(turtle.bye, "q")
+window.listen()
+
+draw_cannon()
+
+turtle.done()
+```
+
+By creating a list we can keep track of the lasers on screen. We also position the laser right at the top of the cannon every time we press space so we can prepare the shot. Try changing the color of the laser!
+
+### Step 4: Create the Game Loop to Move the Lasers 🔄🚀
+
+Now all there is left is to handle the game loop!
+
+```python
+import turtle
+
+CANNON_STEP = 10
+LASER_LENGTH = 20
+LASER_SPEED = 10
+
+# ...
+
+def create_laser():
+    laser = turtle.Turtle()
+    laser.penup()
+    laser.color(1, 0, 0)
+    laser.hideturtle()
+    laser.setposition(cannon.xcor(), cannon.ycor())
+    laser.setheading(90)
+    # Move laser to just above cannon tip
+    laser.forward(20)
+    # Prepare to draw the laser
+    laser.pendown()
+    laser.pensize(5)
+
+    lasers.append(laser)
+
+def move_laser(laser):
+    laser.clear()
+    laser.forward(LASER_SPEED)
+    # Draw the laser
+    laser.forward(LASER_LENGTH)
+    laser.forward(-LASER_LENGTH)
+
+# ...
+
+# Game loop
+while True:
+    # Move all lasers
+    for laser in lasers:
+        move_laser(laser)
+    window.update()
+
+turtle.done()
+```
+
+We added two variables to control the laser speed and length. We then add a function to handle redrawing the laser to make it move. Lastly, we add a game loop that will update the lasers! 🎮🌟
+
+We now have a working laser cannon 🎉
+<br />
