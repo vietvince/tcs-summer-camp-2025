@@ -1,1 +1,313 @@
-insert content
+---
+title: "Stage 8: Spinning KillBricks"
+sidebar_position: 10
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+import ReactPlayer from 'react-player'
+
+# Stage 8: Spinning KillBricks
+
+:::info
+<details style={{border:'none'}}>
+    <summary>**Prerequisites: Before You Dive In!**</summary>
+
+    Prepare yourselves, brave adventurers, as you stand on the brink of Stage 8! But first, ensure you've conquered the twists and turns of the preceding challenges.
+
+    **1. Intro**
+
+    Lay the groundwork for your coding conquest.
+
+    **2. Setup**
+
+    Equip yourself with the necessary tools and knowledge.
+
+    **3. Stage 1: Ascending Walls**
+
+    Scale new heights and overcome obstacles.
+
+    **4. Stage 2: Sphere Stairs**
+
+    Navigate the spherical staircase with finesse.
+
+    **5. Stage 3: Plank Walkway**
+
+    Balance and coordination are key on this precarious path.
+
+    **6. Stage 4: KillBrick Path**
+
+    Dodge deadly obstacles in this challenging terrain.
+
+    **7. Stage 5: Fireball Footpath**
+
+    Brave the fiery path and emerge victorious.
+
+    **8. Stage 6: Military Minefield**
+
+    Navigate through hidden dangers and traps.
+
+    **9. Stage 7: Rolling Rocks**
+
+    Roll with the punches and conquer the rocky terrain.
+
+    **With each victory, you edge closer to the ultimate test: the Spinning KillBrick challenge!🚀🌟**
+</details>
+:::
+
+<br  />
+
+<div dangerouslySetInnerHTML={{
+  __html: `
+    <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+      <iframe src="https://player.vimeo.com/video/952507564?h=8eeda9b998" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 8 (Easy)"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  `
+}} />
+
+## Objective 🧐🗿
+
+Prepare to be swept into the heart-pounding chaos of Stage 8: Spinning Killbricks! Feel the rush as you plunge into a whirlwind of motion and strategy.
+
+## Description 📖🪶
+
+Ready to take on the ultimate challenge? Let's dive into the whirlwind of Stage 8: Spinning Killbricks! Prepare to push your limits as you experiment with different speeds and directions, navigating through a maze of spinning obstacles. Are you up for the challenge?
+
+We are going to create a script that makes a part in Roblox spin continuously and cause any player who touches it to lose all their health. Here's what we want to accomplish: 
+
+**1. Spin the Part:**
+
+The part will spin around smoothly. 
+
+**2. Detect Touch:**
+
+The script will detect when a player touches the spinning part. 
+
+**3. Affect the Player:**
+
+If a player touches the part, their health will be set to 0. 
+
+**By doing this, we will create a spinning part that creates a challenge for players in the game.** 
+
+## Instructions and Code Logic 📝📚
+
+### Step 1 - Set Up the Starting Variables
+
+- Create a variable for the part by setting it to the `Parent` of the script. 
+
+- Create a variable for the speed of the spin (`spinSpeed`). 
+
+### Step 2 - Create the Functions
+
+- Define a function named `rotatePart` that spins the part. 
+
+- Inside the function, update the part's rotation using `CFrame` and the `spinSpeed`. 
+
+- Define a function named `onPartTouched` that checks if something touching the part is a player. 
+
+- Inside the function, if the part that touched has a "Humanoid" (indicating a player), set the player's health to 0. 
+
+- Use the `RunService.Heartbeat` event to call the `rotatePart` function continuously, making the part spin. 
+
+- Connect the `onPartTouched` function to the part's `Touched` event to detect when it is touched. 
+
+## Putting It All Together 🔧🔩
+
+- Start by setting up your spinning part and spin speed. 
+
+- Define a function named `rotatePart` to make the part spin. 
+
+- Define a function named `onPartTouched` to handle when the part is touched. 
+
+- Use the `RunService.Heartbeat` event to call the `rotatePart` function continuously. 
+
+- Connect the `onPartTouched` function to the part's `Touched` event. 
+
+<details>
+    <summary>**Medium: Kill bricks that remove body parts when they touch!**</summary>
+
+  <div dangerouslySetInnerHTML={{
+    __html: `
+      <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+        <iframe src="https://player.vimeo.com/video/952507578?h=e8bd7f92d4" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 8 (Medium)"></iframe>
+      </div>
+      <script src="https://player.vimeo.com/api/player.js"></script>
+    `
+  }} />
+
+    <br  />
+    
+    **Description 📖🪶** 
+
+    We are going to create a script that makes a part in Roblox spin continuously. The spin direction and speed will change randomly, and the part will reduce the health of any player who touches it and destroy the touched part. Here's what we want to accomplish: 
+
+    *1. Spin the Part:*
+    
+    The part will spin around smoothly. 
+
+    *2. Change Spin Properties:*
+    
+    The direction and speed of the spin will change randomly. 
+
+    *3. Detect Touch:*
+    
+    If a player touches the part, their health will be reduced, and the touched part will be destroyed. 
+
+    *By doing this, we will create a dynamic and interactive spinning part in the game.* 
+
+    <br  />
+
+    **Instructions and Code Logic 📝📚**
+
+    Step 1 - Set Up the Starting Variables
+
+    - Create a variable for the spinning part by setting it to the `Parent` of the script. 
+
+    - Get the `RunService` from the game to connect to the Heartbeat event. 
+
+    - Set the initial direction of the spin (1 for clockwise, -1 for counterclockwise). 
+
+    - Set the initial speed of the spin in degrees per frame. 
+
+    Step 2 - Create a Function
+
+    - Define a function named `rotatePart`. 
+
+    - Inside the function, rotate the part around the Y-axis by the spin speed. 
+
+    - Define a function named `onPartTouched` that takes a part (`hit`) as an argument. 
+
+    - Inside the function, check if the part that touched has a humanoid (indicating a player). 
+
+    - If it does, reduce the player's health by 10 and destroy the touched part. 
+
+    - Define a function named `changeSpinProperties`. 
+
+    - Inside the function, randomly set the direction to 1 (clockwise) or -1 (counterclockwise). 
+
+    - Randomly set the spin speed between 1 and 10 degrees per frame. 
+
+    - Connect the `rotatePart` function to the Heartbeat event so it runs every frame. 
+
+    - Connect the `onPartTouched` function to the `Touched` event for the spinning part.
+
+    Step 3 - Create an Infinite Loop
+
+    - Create a loop that runs forever using `while true do`. 
+
+    - Inside the loop, call the `changeSpinProperties` function to update the spin properties. 
+
+    - Use the `wait` function to pause the loop for a random time between 1 and 4 seconds.  
+
+    - The loop will automatically start running and changing the spin properties. 
+
+    <br  />
+
+    **Putting It All Together 🔧🔩**
+
+    - Start by setting up your spinning part and initial properties. 
+
+    - Define functions to handle rotation, player collisions, and changing spin properties. 
+
+    - Connect the functions to the appropriate events. 
+
+    - Create an infinite loop to change the spin properties periodically. 
+</details>
+
+<details>
+    <summary>**Hard: Kill bricks that randomly change speed and direction!**</summary>
+
+  <div dangerouslySetInnerHTML={{
+    __html: `
+      <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+        <iframe src="https://player.vimeo.com/video/952507570?h=9367339fee" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 8 (Hard)"></iframe>
+      </div>
+      <script src="https://player.vimeo.com/api/player.js"></script>
+    `
+  }} />
+
+    <br  />
+
+    **Description 📖🪶** 
+
+    We are going to create a script that makes a part in Roblox spin continuously. The spin direction and speed will change randomly, and the part will reduce the health of any player who touches it. Here's what we want to accomplish: 
+
+    *1. Spin the Part:*
+    
+    The part will spin around smoothly. 
+
+    *2. Change Spin Properties:*
+    
+    The direction and speed of the spin will change randomly every few seconds. 
+
+    *3. Detect Touch:*
+    
+    If a player touches the spinning part, their health will be reduced. 
+
+    *By doing this, we will create a dynamic and interactive spinning part in the game.* 
+
+    <br  />
+
+    **Instructions and Code Logic 📝📚** 
+
+    Step 1 - Set Up the Starting Variables
+
+    - Create a variable for the spinning part by setting it to the `Parent` of the script. 
+
+    - Get the `RunService` from the game to connect to the Heartbeat event. 
+
+    - Set the initial direction of the spin (1 for clockwise, -1 for counterclockwise). 
+
+    - Set the initial speed of the spin in degrees per frame. 
+
+    Step 2- Create a Function
+
+    - Define a function named `rotatePart`. 
+
+    - Inside the function, rotate the part around the Y-axis by the spin speed. 
+
+    - Define a function named `onPartTouched` that takes a part (`hit`) as an argument. 
+
+    - Inside the function, check if the part that touched has a humanoid (indicating a player). 
+
+    - If it does, reduce the player's health by 50. 
+
+    - Define a function named `changeSpinProperties`. 
+
+    - Inside the function, randomly set the direction to 1 (clockwise) or -1 (counterclockwise). 
+
+    - Randomly set the spin speed between 1 and 10 degrees per frame. 
+
+    - Connect the `rotatePart` function to the Heartbeat event so it runs every frame. 
+
+    - Connect the `onPartTouched` function to the `Touched` event for the spinning part. 
+
+    Step 3 - Create an Infinite Loop
+
+    - Create a loop that runs forever using `while true do`. 
+
+    - Inside the loop, call the `changeSpinProperties` function to update the spin properties. 
+
+    - Use the `wait` function to pause the loop for a random time between 1 and 4 seconds. 
+
+    <br  />
+
+    **Putting It All Together 🔧🔩**
+
+    - Start by setting up your spinning part and initial properties. 
+
+    - Define functions to handle rotation, player collisions, and changing spin properties. 
+
+    - Connect the functions to the appropriate events. 
+
+    - Create an infinite loop to change the spin properties periodically. 
+</details>
+
+<br  />
+
+**Kudos, fearless adventurers! You've triumphed over the whirlwind of challenges in Stage 8! Now, brace yourselves as we journey onward to conquer even greater heights in Stage 9! 🌟**
+
+<div align='center'>
+    <iframe width="70%" height="400" src="https://www.youtube.com/embed/MCB_A8N1DNU" title="LeBron James, scream if you love Roblox" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
