@@ -1,1 +1,293 @@
-insert content
+---
+title: "Stage 6: Military Minefield"
+sidebar_position: 8
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+import ReactPlayer from 'react-player'
+import ReactAudioPlayer from 'react-audio-player';
+import audioFile from '../../static/audio/entre1/stage6meme.mp3';
+
+# Stage 6: Military Minefield
+
+:::info
+<details style={{border:'none'}}>
+    <summary>**Prerequisites: Before You Dive In!**</summary>
+
+    Ready for the next adventure? Before diving into Stage 6: Military Minefield, make sure you've conquered the following challenges:
+
+    **1. Intro**
+
+    Get acquainted with the world of coding and gaming!
+
+    **2. Setup**
+
+    Set the stage for your coding journey.
+
+    **3. Stage 1: Ascending Walls**
+
+    Master the art of climbing to new heights.
+
+    **4. Stage 2: Sphere Stairs**
+
+    Build staircases with spheres and step up your game.
+
+    **5. Stage 3: Plank Walkway**
+
+    Navigate tricky pathways with precision.
+
+    **6. Stage 4: KillBrick Path**
+
+    Dodge obstacles and pave your way to victory.
+
+    **7. Stage 5: Fireball Footpath**
+
+    Brave the heat and maneuver through fiery obstacles.
+
+    **Once you've completed these challenges, you'll be primed and ready to tackle the thrilling world of Stage 6: Military Minefield! 💣💥**
+</details>
+:::
+
+<br  />
+
+<div dangerouslySetInnerHTML={{
+  __html: `
+    <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+      <iframe src="https://player.vimeo.com/video/952507766?h=ba0b2bacdb" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 6 (Easy)"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  `
+}} />
+
+## Objective 🧐🗿
+
+Welcome to the explosive adventure of Stage 6! Get ready to navigate the treacherous terrain of the Military Minefield. Gear up and brace yourselves for a thrilling journey through hidden dangers and mysterious traps!
+
+## Description 📖🪶
+
+Welcome, brave adventurers, to the heart-pounding challenge of Stage 6 - where mysterious mines lie hidden, waiting to reveal themselves with a bang! Are you ready to test your wits and courage in this perilous terrain?
+
+We are going to create a script that makes a part in Roblox explode when it gets touched. Here's what we want to accomplish: 
+
+**1. Detect Touch:**
+
+The script will detect when the part is touched. 
+
+**2. Create an Explosion:**
+
+When the part is touched, it will create an explosion at the part's position. 
+
+**3. Change Part Appearance:**
+
+The part will become fully visible when it explodes. 
+
+**By doing this, we will create an exciting effect where the part explodes and becomes visible when touched.** 
+
+## Instructions and Code Logic 📝📚
+
+### Step 1 - Set Up the Starting Variables
+
+- Create a variable to hold the part by setting it to the `Parent` of the script. 
+
+### Step 2 - Create a Function
+
+- Connect a function to the part's `Touched` event to detect when the part is touched. 
+
+- Inside the function, create a new explosion. 
+
+- Set the explosion's parent to `workspace` so it appears in the game. 
+
+- Set the explosion's position to the part's position. 
+
+- Set the explosion's blast radius to 50. 
+
+- Make the part fully visible by setting its `Transparency` to 0. 
+
+## Putting It All Together 🔧🔩
+
+- Start by setting up your part variable. 
+
+- Connect a function to the part's `Touched` event to detect touches. 
+
+- Inside the function, create a new explosion and set its properties. 
+
+- Make the part fully visible when it is touched.
+
+<details>
+    <summary>**Medium: Mines that blink on and off randomly!**</summary>
+    
+    <div dangerouslySetInnerHTML={{
+    __html: `
+        <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+        <iframe src="https://player.vimeo.com/video/952507777?h=359274efe2" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 6 (Medium)"></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+    `
+    }} />
+
+    <br  />
+    
+
+    **Description 📖🪶** 
+
+    We are going to create a script that makes a part in Roblox explode when touched and reset its transparency periodically. Here's what we want to accomplish: 
+
+    *1. Create an Explosion:*
+    
+    The part will create an explosion at its position when touched. 
+
+    *2. Reset Transparency:*
+    
+    The part's transparency will be reset periodically. 
+
+    *By doing this, the part will explode when touched and keep becoming visible again after a short time.* 
+
+    <br  />
+
+    **Instructions and Code Logic 📝📚**
+
+    Step 1 - Set Up the Starting Variables 
+
+    - Create a variable for the part by setting it to the `Parent` of the script. 
+
+    Step 2 - Create a Function
+
+    - Define a function named `Explode`. 
+
+    - Inside the function, create a new explosion. 
+
+    - Set the part's transparency to 0 (fully opaque). 
+
+    - Set the parent of the explosion to `workspace`. 
+
+    - Set the position of the explosion to the part's position. 
+
+    - Set the blast radius of the explosion. 
+
+    - Connect the `Explode` function to the part's `Touched` event to detect when it is touched. 
+
+    Step 3 - Create an Infinite Loop
+
+    - Create a loop that runs forever using `while true do`. 
+
+    - Inside the loop, set the part's transparency to 0 (fully opaque). 
+
+    - Wait for a random time between 1 and 4 seconds. 
+
+    - Set the part's transparency to 1 (fully invisible). 
+
+    - Wait for a random time between 1 and 4 seconds. 
+
+    - The loop will automatically start running and resetting the part's transparency. 
+
+    <br  />
+
+    **Putting It All Together 🔧🔩**
+
+    - Start by setting up your part variable. 
+
+    - Define a function named `Explode` to handle creating the explosion. 
+
+    - Connect the `Explode` function to the part's `Touched` event. 
+
+    - Create an infinite loop to keep resetting the part's transparency. 
+
+    - Use the `wait` function to pause the loop for a random time. 
+</details>
+
+<details>
+    <summary>**Hard: Randomly spawn the mines on your minefield!**</summary>
+
+    <div dangerouslySetInnerHTML={{
+    __html: `
+        <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+        <iframe src="https://player.vimeo.com/video/952507770?h=f3f0cc36b5" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 6 (Hard)"></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+    `
+    }} />
+
+    <br  />
+    
+    **Description 📖🪶**
+
+    We are going to create a script that spawns multiple instances of "ExplodingSand" within the bounds of a parent part in Roblox. Here's what we want to accomplish: 
+
+    *1. Spawn ExplodingSand:*
+    
+    The script will create a specified number of ExplodingSand parts at random positions within the parent part. 
+
+    *2. Set Positions Randomly:*
+    
+    The ExplodingSand parts will be placed randomly within the boundaries of the parent part. 
+
+    *By doing this, we will create a dynamic environment with ExplodingSand parts spawning in random positions.* 
+
+    <br  />
+
+    **Instructions and Code Logic 📝📚**
+
+    Step 1 - Set up the Starting Variables
+
+    - Get the `ServerStorage` service from the game. 
+
+    - Create a variable for the parent part by setting it to the `Parent` of the script. 
+
+    - Create a variable for the ExplodingSand template stored in `ServerStorage`. 
+
+    - Create a variable for the number of ExplodingSand parts to spawn (`sandAmount`). 
+
+    Step 2 - Create a Function
+
+    - Define a function named `spawnExplodingSand`. 
+
+    - Inside the function, get the size and position of the parent part. 
+
+    - Calculate the minimum and maximum X and Z boundaries for spawning within the parent part. 
+
+    - Calculate the Y position for spawning on top of the parent part. 
+
+    - Randomly determine the X and Z positions within the boundaries. 
+
+    - Clone the ExplodingSand template. 
+
+    - Set the parent of the cloned ExplodingSand to `Workspace`. 
+
+    - Set the position of the cloned ExplodingSand to the calculated random position. 
+
+    Step 3 - Create an Infinite Loop
+
+    - Create a loop that runs for the specified number of times (`sandAmount`). 
+
+    - Inside the loop, call the `spawnExplodingSand` function to create each ExplodingSand part. 
+
+    <br  />
+
+    **Putting It All Together 🔧🔩**
+
+    - Start by getting the `ServerStorage` service and setting up the parent part and ExplodingSand template. 
+
+    - Define the number of ExplodingSand parts to spawn. 
+
+    - Create a function named `spawnExplodingSand` to handle the spawning logic. 
+
+    - Inside the function, calculate the random positions and clone the ExplodingSand template. 
+
+    - Use a loop to call the function and spawn the specified number of ExplodingSand parts. 
+</details>
+
+<br  />
+
+**Hooray! By conquering Stage 6, you've proven your mettle amidst the challenges of the military minefield! Onward to Stage 7, where new adventures await! 🌟**
+
+<div align='center'>
+    ![happyCat](../../static/img/entre1/stage6meme.gif)
+</div>
+
+<div align='center'>
+    <ReactAudioPlayer
+        src={audioFile}
+        controls
+    />
+</div>
