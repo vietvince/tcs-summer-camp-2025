@@ -30,6 +30,37 @@ Functions help you reuse code without having to write it over and over again. Yo
 </details>
 :::
 
+:::info
+<details style={{border:'none'}}>
+    <summary><strong>Coach Note!</strong></summary>
+
+Here's what you'll be learning in this section, based on your current level:
+<details style={{border:'none'}}>
+
+<summary>**Standard**</summary>
+<ul>
+- Explore the Turtle documentation, understanding how technical guides are laid out and how to use them to your advantage!
+- Discover how functions act like little helpers in your code, taking in information (parameters) and performing tasks. You'll learn to use Turtle functions to draw basic shapes and control the screen.
+- Start by creating simple geometric shapes. You'll draw your first square and see how changing commands can turn it into a rectangle. This is your first step in turning code into art!
+- Learn how to change the background color of the Turtle screen to make your drawings stand out. It’s a simple way to add flair to your projects!
+- The basic commands for lifting the pen (`penup()`) and placing it back down (`pendown()`).
+
+</ul>
+</details>
+
+<details style={{border:'none'}}>
+
+<summary>**Advanced**</summary>
+
+- Dive deeper by designing your own functions to draw more complex shapes. You’ll learn how to use loops and conditions to automate repetitive tasks and create intricate designs.
+- Expand your drawing skills beyond basic shapes. You’ll tackle circles, polygons, and even fun challenges like drawing a smiley face using advanced Turtle commands.
+- Take control of the Turtle canvas by learning to dynamically change screen features in response to user actions. Discover how to make your programs interactive and responsive.
+- Pure functions versus side effects with respect to Turtle environment.
+
+</details>
+
+</details>
+:::
 ## Objective 🧐🗿
 Get ready to turn code into art as we explore how to use functions and parameters to draw shapes and spice up our screen with vibrant colors!
 
@@ -37,14 +68,6 @@ Get ready to turn code into art as we explore how to use functions and parameter
 Now that we know the movements of the turtle, we can move on to making actual shapes! 
 
 Let's start by drawing polygons since they all consist of straight lines connected at certain angles. 
-
-Open up your "My Turtle" Trinket and clear any code except for:
-``` python
-import turtle
-
-t = turtle.Turtle()
-s = t.getscreen()
-```
 ### Drawing a Square
 To draw a square, we need to move forward and turn right four times. Here's how you can do it:
 
@@ -143,8 +166,8 @@ s.bgcolor("blue")
 ```
 
 From the [turtle documentation](https://docs.python.org/3/library/turtle.html#turtle.bgcolor), we can see that the `bgcolor()` function will take in a **color string** or a **color’s hex code number**.
-<div className='image-wrapper2'>
-    ![py1bgc](../../static/img/py1/py1bgc.png)
+<div align="center">
+    ![nerdEmoji](./../../static/img/py1/py1bgc.png)
 </div>
 
 **Screen Color Practice**
@@ -174,8 +197,8 @@ s.bgcolor((255, 0, 0))
 ## Pen Width 🖋️ 📐
 
 Sometimes we may need to increase or decrease the thickness of the pen. Turtle gives us the ability to do so. Check it out below!
-<div className='image-wrapper2'>
-    ![py1ps](../../static/img/py1/py1ps.gif)
+<div align="center">
+    ![nerdEmoji](./../../static/img/py1/py1ps.gif)
 </div>
 <div align="center">
     <ReactAudioPlayer
@@ -200,8 +223,8 @@ t.forward(100)
  </figcaption>
 </figure>
 
-<div className='image-wrapper2'>
-    ![py1w](../../static/img/py1/py1w.jpg)
+<div align="center">
+    ![nerdEmoji](./../../static/img/py1/py1w.jpg)
 </div>
 
 Go ahead and adjust our pen using `width()` and show your coach once complete!
@@ -221,13 +244,6 @@ Now try it on your own, with your lucky number as the new width!
 </details>
 
 ## Picking the Pen Up and Down ⬆️ ⬇️
-Open up your "My Turtle" Trinket and clear any code except for:
-``` python
-import turtle
-
-t = turtle.Turtle()
-s = t.getscreen()
-```
 
 Sometimes, you may want to move your turtle to another point on the screen without drawing anything on the screen itself. 
 
