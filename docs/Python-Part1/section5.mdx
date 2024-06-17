@@ -1,20 +1,43 @@
 ---
-title: "Lesson 5"
+title: "Lesson 6"
 sidebar_position: 3
 toc_min_heading_level: 2
 toc_max_heading_level: 3
 ---
 
 
-# Lesson 5: The Thrilling Python Turtle Race
+# Lesson 6: The Thrilling Python Turtle Race
 
+:::info
+<details style={{border:'none'}}>
+    <summary><strong>Coach Note!</strong></summary>
+
+Here's what you'll be learning in this section, based on your current level:
+<details style={{border:'none'}}>
+
+<summary>**Standard**</summary>
+
+- Personalize the appearance of your turtle by changing its shape and color. This will help you grasp the basics of using functions and parameters within the Turtle module.
+
+</details>
+
+<details style={{border:'none'}}>
+
+<summary>**Advanced**</summary>
+
+- To continue on learning about functions and parameters, your coach will further explain the different data types for parameters. 
+- If the code examples aren't quite clicking for you, don't worry! Your coach will outline specific Turtle methods relevant to the lesson. Your challenge is to find these methods in the Turtle documentation and implement them on your own. Continue this throughout the tutorial if needed.
+
+</details>
+
+</details>
+:::
 
 So far, you’ve learned how to customize your turtle environment, program your turtle to move around the screen, and use loops and conditional statements to improve your code. 
 
 Now it’s time for the most important part of your programming journey. In this section, you’ll be implementing all that you’ve learned into a single program by creating a fun game that you can play with your friends.
 
-:::info
-<details style={{border:'none'}}>
+<details>
     <summary>**Prerequisites: Before You Dive In!**</summary>
 
 Before you begin, here’s what you need to know about the game:
@@ -36,116 +59,60 @@ The player whose turtle reaches its home first wins the game.
 
     Now that you’ve understood the logic of the game, you can go ahead and begin creating it! First, you’ll need to set up the environment.
 </details>
-:::
 
 ## Set Up the Environment 🌐
 Start by importing the Python turtle library. 
 
 After this, import the built-in random library, which you’ll use randomly select an item from a list:
 
-```python
-import turtle
-import random
-```
-
 ## Setting Up the Turtles and Homes 🐢 🏠
 You now have to create the two turtles that will represent the players. 
 
 Each turtle will be a different color, corresponding to the different players. Here, player one is <span style={{ color: 'green' }}>green</span> and player two is <span style={{ color: 'blue' }}>blue</span>:
 
-Try these steps on your own:
-1. **Create player one turtle**
-2. **Change the turtle's color to green**
-3. **Change the turtle's shape to turtle**
-4. **Move the turtle's pen up**
-5. **Make the turtle move to coordinates (-200,100)**
-
-
-<details>
-    <summary>**Need some help? 👀**</summary>
-
-Take a peek at the code below, grab what you need, and continue trying the rest!
-```python
-player_one = turtle.Turtle()
-player_one.color("green")
-player_one.shape("turtle")
-player_one.penup()
-player_one.goto(-200,100)
+``` python
+Try these steps on your own!
+1. Create player one turtle
+2. Change the turtle's color to green
+3. Change the turtle's shape to turtle
+4. Move the turtle's pen up
+5. Make the turtle move to coordinates (-200,100)
 ```
-</details>
 
 We will make player two's turtle by clone player one's and changing its color. 
-
-Try these steps on your own:
-1. **Create player two turtle**
-2. **Change the turtle's color to blue**
-3. **Change the turtle's shape to turtle**
-4. **Move the turtle's pen up**
-5. **Make the turtle move to coordinates (-200,100)**
-
-
-<details>
-    <summary>**Need some help? 👀**</summary>
-
-Take a peek at the code below, grab what you need, and continue trying the rest!
 ``` python
-player_two = player_one.clone()
-player_two.color("blue")
-player_two.penup()
-player_two.goto(-200,-100)
+Try these steps on your own!
+1. Create player two turtle
+2. Change the turtle's color to bluie
+3. Change the turtle's shape to turtle
+4. Move the turtle's pen up
+5. Make the turtle move to coordinates (-200,100)
 ```
-</details>
-
 
 Now, set up homes for the turtles, represented by circles. These are their finishing points. Make sure both homes are the same distance from the starting point. 
 
 
+``` python
 Try these steps on your own! This will be working on the player one's turtle.
-1. **Make the player one turtle move to  (200,60)**
-2. **Move the turtle's pen down**
-3. **Draw a circle with a radius of 40**
-4. **Move the turtle's pen up**
-5. **Make the turtle move to coordinates (-200,100)**
-
-
-<details>
-    <summary>**Need some help? 👀**</summary>
-
-Take a peek at the code below, grab what you need, and continue trying the rest!
-``` python
-player_one.goto(200,60)
-player_one.pendown()
-player_one.circle(40)
-player_one.penup()
-player_one.goto(-200,100)
+1. Make the player one turtle move to  (200,60)
+2. Move the turtle's pen down
+3. Draw a circle with a radius of 40
+4. Move the turtle's pen up
+5. Make the turtle move to coordinates (-200,100)
 ```
-</details>
 
+``` python
 Try these steps on your own! This will be working on the player two's turtle.
-1. **Make the player two turtle move to (200,-140)**
-2. **Move the turtle's pen down**
-3. **Draw a circle with a radius of 40**
-4. **Move the turtle's pen up**
-5. **Make the turtle move to coordinates (-200,100)**
-
-
-<details>
-    <summary>**Need some help? 👀**</summary>
-
-Take a peek at the code below, grab what you need, and continue trying the rest!
-``` python
-player_two.goto(200,-140)
-player_two.pendown()
-player_two.circle(40)
-player_two.penup()
-player_two.goto(-200,-100)
+1. Make the player two turtle move to (200,-140)
+2. Move the turtle's pen down
+3. Draw a circle with a radius of 40
+4. Move the turtle's pen up
+5. Make the turtle move to coordinates (-200,100)
 ```
-
-</details>
 
 After drawing the respective homes, you send the turtles back to their starting positions:
-<div className="image-wrapper2">
-    ![py16](../../static/img/py1/py16.gif)
+<div align="center">
+    ![nerdEmoji](./../../static/img/py1/py16.gif)
 </div>
 
 Awesome! The visual aspects of your game are complete. You can now create the die that you’ll be using to play the game.
@@ -157,123 +124,39 @@ You can create a virtual die for your game with a list, which is an ordered sequ
  
 First, you define your list of numbers in ascending order from 1 to 6. You can define a list by giving it a name and then enclosing its items within square brackets, like this:
 
-```python
-die = [1,2,3,4,5,6]
-```
-
 This list has now become your die. To roll the dice, all you have to do is program your system to randomly select a number from it. 
 The number that is selected will be considered as the output of the die.
 
 ## Developing the Game 🕹️ ⌨️ 
 It’s time to develop the code for the rest of the game. You’ll be using loops and conditional statements here, so you need to be careful with the indentations and spaces! 
 
-To start, take a look at the steps your program will need to take to run the game. Try coding this out yourself, keeping your peeks at a minimum!
+To start, take a look at the steps your program will need to take to run the game:
 
-### Step-by-Step Pseudocode
-
-1. **Initialize loop**:
-   - Start a loop that runs 20 times:
-     ```pseudo
-     FOR i FROM 0 TO 19
-     ```
-
-2. **Check player one's position**:
-   - If player one's position meets the winning condition:
-     ```pseudo
-     IF player_one's position >= (200, 100)
-       PRINT "Player One Wins!"
-       BREAK
-     ```
-
-3. **Check player two's position**:
-   - If player two's position meets the winning condition:
-     ```pseudo
-     ELSE IF player_two's position >= (200, -100)
-       PRINT "Player Two Wins!"
-       BREAK
-     ```
-
-4. **Player One's turn**:
-   - If neither player has won yet, proceed with player one's turn:
-     ```pseudo
-     ELSE
-       DISPLAY "PLAYER ONE: Press 'Enter' to roll the die"
-       CAPTURE player_one's input
-       SELECT RANDOMLY a die value
-       PRINT "The result of the die roll is: " + die_outcome
-       PRINT "The number of steps will be: " + (20 * die_outcome)
-       MOVE player_one forward by (20 * die_outcome)
-     ```
-
-5. **Player Two's turn**:
-   - Continue with player two's turn:
-     ```pseudo
-     DISPLAY "PLAYER TWO: Press 'Enter' to roll the die"
-     CAPTURE player_two's input
-     SELECT RANDOMLY a die value
-     PRINT "The result of the die roll is: " + die_outcome
-     PRINT "The number of steps will be: " + (20 * die_outcome)
-     MOVE player_two forward by (20 * die_outcome)
-     ```
-
-6. **End of loop**:
-   - The loop will either break if a player wins or continue until all 20 iterations are completed.
-
-<details>
-    <summary>**Need some help? 👀**</summary>
-
-Take a peek at the code below, grab what you need, and continue trying the rest!
-``` python
-for i in range(20):
-    if player_one.pos() >= (200,100):
-        print("Player One Wins!")
-        break
-    elif player_two.pos() >= (200,-100):
-        print("Player Two Wins!")
-        break
-    else:
-        player_one_turn = input("PLAYER ONE: Press 'Enter' to roll the die ")
-        die_outcome = random.choice(die)
-        print("The result of the die roll is: ")
-        print(die_outcome)
-        print("The number of steps will be: ")
-        print(20*die_outcome)
-        player_one.fd(20*die_outcome)
-
-        player_two_turn = input("PLAYER TWO: Press 'Enter' to roll the die ")
-        die_outcome = random.choice(die)
-        print("The result of the die roll is: ")
-        print(die_outcome)
-        print("The number of steps will be: ")
-        print(20*die_outcome)
-        player_two.fd(20*die_outcome)
 ```
-</details>
+Set up a loop that repeats 20 times:
+    Check if Player One's position is at or beyond (200, 100):
+        If true, print "Player One Wins!" and stop the game.
+    Check if Player Two's position is at or beyond (200, -100):
+        If true, print "Player Two Wins!" and stop the game.
+    
+    If neither player has won yet:
+        Ask Player One to press 'Enter' to roll the die.
+        Randomly choose a number from the die options.
+        Print the result of the die roll.
+        Calculate the number of steps by multiplying the die result by 20.
+        Print the number of steps.
+        Move Player One forward by the calculated number of steps.
+        
+        Ask Player Two to press 'Enter' to roll the die.
+        Randomly choose a number from the die options, just like for Player One.
+        Print the result of the die roll for Player Two.
+        Calculate the number of steps for Player Two, just like for Player One.
+        Print the number of steps for Player Two.
+        Move Player Two forward by the calculated number of steps.
+        
+Repeat until the loop finishes or a player wins by reaching or passing their target position.
 
-### Code Summary
-- **Line 1** sets up a for loop with a range from 1 to 20.
-
-- **Lines 2 through 7** check if either player has reached their goal. If one of them has, then the program prints out the corresponding statement and breaks the loop.
-
-- **Line 8** moves the program on to the next set of steps if neither player has won.
-
-- **Line 9** prints out a statement asking player one to press the Enter key to roll the die.
-
-- **Line 10** takes a random value from the list die and stores it in die_outcome.
-
-- **Line 11** prints a statement prior to displaying the outcome of the dice roll.
-
-- **Line 12** prints the dice outcome.
-
-- **Line 14** multiplies this value by 20 to reduce the overall number of steps required to complete the game.
-
-- **Line 15** moves player one’s turtle forward by this number of steps.
-
-- **Lines 16 to 22** repeat these steps for player two.
-
-The entire for loop is repeated until one of the player’s turtles reaches the final position.
-
-
+```
 ## Conclusion 🏁 🏁
 
 Wow, we've finally made it to the end! Over these past sections, we really dived into the turtle library and became comfortable with the basics as well as some advanced features. 
@@ -283,6 +166,6 @@ You've learned how to create various shapes, control the speed and color of your
 
 Take this, you deserve it! 
 
-<div className="image-wrapper2">
-    ![turtledab](../../static/img/py1/turtledab.jpeg)
+<div align="center">
+    ![nerdEmoji](./../../static/img/py1/turtledab.jpeg)
 </div>

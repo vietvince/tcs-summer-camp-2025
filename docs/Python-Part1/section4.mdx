@@ -1,22 +1,42 @@
 ---
-title: "Lesson 4"
+title: "Lesson 5"
 sidebar_position: 3
 toc_min_heading_level: 2
 toc_max_heading_level: 3
 ---
 
 
-# Lesson 4: Mastering Loops and Conditional Logic
+# Lesson 5: Mastering Loops and Conditional Logic
 
 :::info
 <details style={{border:'none'}}>
-    <summary>**Prerequisites: Before You Dive In!**</summary>
+    <summary><strong>Coach Note!</strong></summary>
 
-## A Brief Intro 🏃 📝
+Here's what you'll be learning in this section, based on your current level:
+<details style={{border:'none'}}>
 
-- **Loops** are a set of instructions that are continuously repeated until a particular condition is satisfied.
-- **Conditional statements** carry out a certain task based on a condition that’s satisfied.
-- **Indentations** are used to define blocks of code, especially when using loops and conditional statements. In general, you create an indentation by tapping the Tab key on the keyboard.
+<summary>**Standard**</summary>
+
+- Walk through a loop and how they are used to repeat actions until a condition is met.
+- How conditional statements execute tasks based on the requirements.
+- Recongize how Python uses indentation to define blocks of code.
+- How to use `undo()` to reverse actions and `clear()` to clean the drawing screen.
+
+</details>
+
+<details style={{border:'none'}}>
+
+<summary>**Advanced**</summary>
+
+- Iterable objects: the concept, example with `enumerate()`.
+- List comphresions and integrating them with conditional logic.
+- Varying implementions of `while` loops, such as `while True` with a `break` statement versus using a control variable versus using a condition statement.
+- Multiple conditions with logical operators (`and`, `or`, `not`).
+- Error handling with statements such as `try`, `except`, and `finally`.
+- Stateful programming versus stateless programming.
+- A basic overview of data structures like stacks that are commonly used to keep track of past states and actions for undo operations.
+
+</details>
 
 </details>
 :::
@@ -27,14 +47,13 @@ When you get into higher-level programming, you’ll find yourself using loops a
 
 That’s why, in this section, you’ll be going through a couple of turtle programs that make use of these types of commands.
 
-## For Loops 4️⃣ 🔁
-Open up your "My Turtle" Trinket and clear any code except for:
-``` python
-import turtle
+## A Brief Intro 🏃 📝
 
-t = turtle.Turtle()
-s = t.getscreen()
-```
+- **Loops** are a set of instructions that are continuously repeated until a particular condition is satisfied.
+- **Conditional statements** carry out a certain task based on a condition that’s satisfied.
+- **Indentations** are used to define blocks of code, especially when using loops and conditional statements. In general, you create an indentation by tapping the Tab key on the keyboard.
+
+## For Loops 4️⃣ 🔁
 
 Do you remember the program that you used to create a square? You had to repeat the same line of code four times, like this:
 ```python
@@ -76,8 +95,8 @@ Take a note at the whitespace after our `for i in range(4):` line. This is the *
 
 This indicates that all 3 lines form a single block of code. 
 
-<div className="image-wrapper2">
-    ![py1i](../../static/img/py1/py1i.png)
+<div align="center">
+    ![nerdEmoji](./../../static/img/py1/py1i.png)
 </div>
 
 ## While Loops ⏳ 🔂
@@ -96,8 +115,8 @@ When you run this code, you’ll see the circles appearing one after the other, 
  </figcaption>
 </figure>
 
-<div className="image-wrapper2">
-    ![py1w](../../static/img/py1/py1w.gif)
+<div align="center">
+    ![nerdEmoji](./../../static/img/py1/py1w.gif)
 </div>
 
 Here, n is used as a counter. You’ll need to specify by how much you want the value of n to increase in each loop. Take a look at this mini walk-through to see how the program works:
@@ -126,15 +145,13 @@ If it’s "yes", then your program draws a circle.
 
 If the user types in anything else, then the program won’t do anything.
 
-:::info
-<details style={{border:'none'}}>
-    <summary>**NOTE: Comparison Operator**</summary>
+<details>
+    <summary>**Note: Comparsion Operator**</summary>
 
 The comparison operator == indicates a comparison. It’s used to check if the value of something is equal to something else. 
 
 The assignment operator = is used to assign a value to something.
 </details>
-:::
 
 ### Using `else` 
 
@@ -152,15 +169,11 @@ else:
 
 Here, you tell the program to display a particular output even when the user does not say "yes". You use `print()` to display some pre-defined characters on the screen.
 
-:::info
-<details style={{border:'none'}}>
-    <summary>**NOTE: User Input**</summary>
+**NOTE: User Input**
 
 The user doesn’t need to type "no". They can type anything else, in which case, the result will always be "Okay", because you’re not explicitly telling the program that the user needs to type "no". 
 
 Not to worry, however, as that can be fixed. You can add an `elif` clause to provide the program with several conditions and their respective outputs, as you can observe next.
-</details>
-:::
 
 ### Using `elif` 
 ```python
@@ -188,6 +201,7 @@ t.undo()
 
 This undoes the last command that you ran. For example, you want to undo your last three commands, then you would type t.undo() three times.
 
+
 ### Clearing the Screen
 Right now, you probably have a lot on your screen since you’ve started this tutorial. To make room for more, just type in the following command:
 
@@ -206,8 +220,6 @@ t.reset()
 
 This clears the screen and takes the turtle back to its home position. Your default settings, like the turtle’s size, shape, color, and other features, will also be restored.
 
-
 <br  />
 - [x] **You've done a spectacular job! Alright, we've covered some key Python concepts using Turtle graphics! Now, it's time to put our newfound skills to the test with our final project. Head over to the next section get started!**
 <br  />
-

@@ -25,10 +25,9 @@ In programming, a library is similar, but instead of physical tools, it gives us
 
 You can use it to draw all sorts of shapes and images. Here's an example of what you can do with the turtle:
 
-<div className='image-wrapper'>
-    ![py1sus](../../static/img/py1/py1sus.gif)
+<div align="center">
+    ![nerdEmoji](../../static/img/py1/py1sus.gif)
 </div>
-
 <div align="center">
     <ReactAudioPlayer
         src={audioFile}
@@ -42,10 +41,41 @@ Pretty neat, isn't it? This is just one example of the many things you can creat
 ## Objective 🧐🗿
 
 Dive into the world of Python programming by learning about libraries, variables, and basic turtle commands to start moving and positioning your turtle creatively!
-
-## Getting Started with Turtle 🎬 🐢
+## Getting Started with Turtle 🚩🐢
 
 ### Step 1. Import Turtle
+
+:::info
+<details style={{border:'none'}}>
+<summary>**Coach Note!**</summary>    
+
+Here, your coach will speak a bit about the Python import system. 
+<details>
+<summary> **Standard** </summary>
+
+You'll learn how to use Python's import system, including:
+        <ul>
+            <li>Basic usage of the <code>import</code> statement.</li>
+            <li>How to import specific functions, classes, and variables from modules.</li>
+            <li>Understanding the role of Python's built-in modules in everyday programming tasks.</li>
+        </ul>
+</details>
+
+<details>
+<summary> **Advanced** </summary>
+
+If you've gone over the content in the Standard section above and still need a bit more of a challenge, have no fear for your coach is here! 
+
+You'll learn how a library is used in Python from start to finish, covering:
+        <ul>
+            <li>An overview of PyPi (Python Package Index), the repository for Python packages.</li>
+            <li>The process of downloading and installing packages using pip.</li>
+            <li>Understanding what "creating an instance" means in terms of import</li>
+        </ul>
+</details>
+</details>
+:::
+
 Open up our "My Turtle" file we made in our Setup section.
 
 To use the Python Turtle library, we first need to import it into our environment. Type this command in:
@@ -59,29 +89,64 @@ Now that we have Turtle in our Python environment, we can begin programming with
 
 ### Step 2. Making Our Own Turtle
 
-First, we need to set up the screen where your turtle will draw. Think of it like setting up a canvas for painting. Here’s how you do it:
+Let's talk about our Turtle and the screen! 
 
-```python
-s = turtle.getscreen()
-```
-
-We use a short and sweet name s for the screen. Easy to type and easy to remember, right?
-
-**On Coordinates**
-
-Imagine the screen as a giant graph paper, divided into four quadrants. The center, where your turtle starts, is called Home and is at coordinates (0,0). 
-
-<div className='image-wrapper'>
-    ![py1coords](../../static/img/py1/py1coords.png)
+**Our Turtle and Screen**
+<div align="center">
+    ![](./../../static/img/py1/py1ts.png)
 </div>
-
 <figure align="center">
   <figcaption>
-Understanding the coordinates helps move our turtle to any point on the screen using its x and y coordinates.
- </figcaption>
+    The box highlighted in <span style={{ color: 'red' }}>red</span>
+    is called the screen. It’s where you can view the output of your code. The circle highlighted in <span style={{ color: 'green' }}>green</span> is called our turtle.
+  </figcaption>
 </figure>
 
-Next, let’s bring in our turtle. This turtle is going to be your artist, drawing cool stuff on the screen!
+To do make some cool artwork, we'll need a variable to access our turtle. 
+
+:::info
+<details style={{border:'none'}}>
+<summary>**Coach Note!**</summary>
+
+Here your coach will speak a bit on variables.
+<details>
+<summary>**Standard**</summary>
+<ul>
+Understanding Variables:
+        <ul>
+            <li>What a variable is and how it's used to store data.</li>
+            <li>How to create and initialize variables in Python, with examples using Turtle graphics.</li>
+        </ul>
+        
+Variable Naming:
+        <ul>
+            <li>Importance of choosing clear and descriptive names for better readability and maintainability of code.</li>
+            <li>Examples of good vs. bad variable names in the context of Turtle graphics.</li>
+        </ul>
+</ul>
+</details>
+
+<details>
+<summary>**Advanced**</summary>
+<ul>
+    Advanced Variable Management:
+        <ul>
+            <li>Discussing variable scope (local vs global variables) and its implications in larger Python scripts.</li>
+            <li>Using variables effectively to manage the state and properties of Turtle objects and the Turtle screen.</li>
+        </ul>
+    Dynamic Typing in Python:
+        <ul>
+            <li>Explanation of Python's dynamic typing system and how it affects variable assignment and function arguments.</li>
+            <li>Practical example of creating a Turtle instance with custom parameters</li>
+            <li>Case studies: Modifying the properties of Turtle objects (like color, shape, and speed) dynamically based on user input or other conditions.</li>
+        </ul>
+</ul>
+</details>
+
+</details>
+:::
+
+First, let’s bring in our turtle. This turtle is going to be your artist, drawing cool stuff on the screen!
 
 ``` python
 t = turtle.Turtle()
@@ -91,40 +156,73 @@ The turtle has changeable characteristics, like size, color, and speed. It alway
 - When it’s up, it means that no line will be drawn when it moves.
 - When it’s down, it means that a line will be drawn when it moves.
 
-We now have a screen and our turtle. The screen acts as a canvas, while the turtle acts like a pen. We can program the turtle to move around the screen. 
+Now, we need to set up the screen where your turtle will draw. Think of it like setting up a canvas for painting. This screen also works off a coordinate system.
 
-:::info
-<details style={{border:'none'}}>
-<summary>**🗒️ What's a Variable?**</summary>
+**On Coordinates**
 
-A variable is like a box where you can store information to use later in your program. When you first put something in the box, that's called initializing the variable. 
+Imagine the screen as a giant graph paper, divided into four quadrants. The center, where your turtle starts, is called Home and is at coordinates (0,0). 
 
-The cool thing about variables is that what's inside the box can change as your program runs. You can put new information in the box whenever you need to.
-
-    <summary>**🗒️  EXTRA CREDIT: Naming Variables!**</summary>
-
-When you're naming a variable in your code, think of a name that’s easy for anyone to understand just by looking at it.
-
-For example, a super long name like `my_turtle_screen_name` can be a pain to type over and over, and something like `Bob` might just confuse people because it’s too random.
-
-A better idea? Use a short and simple name like `s`. It’s quick to type, easy to remember, and if you tell your friends that `s` stands for the screen, everyone will get it right away!
-</details>
-:::
-**Our Turtle and Screen**
-<div className='image-wrapper2'>
-    ![](../../static/img/py1/py1ts.png)
+<div align="center">
+    ![nerdEmoji](./../../static/img/py1/py1coords.png)
 </div>
+
 <figure align="center">
   <figcaption>
-    The box highlighted in <span style={{ color: 'red' }}>red</span>
-    is called the screen. It’s where you can view the output of your code. The circle highlighted in <span style={{ color: 'green' }}>green</span> is called our turtle.
-  </figcaption>
+Understanding the coordinates helps move our turtle to any point on the screen using its x and y coordinates.
+ </figcaption>
 </figure>
 
 
+We'll have to make a variable for our screen, just like we did for our turtle. Here's one way to do it:
 
+```python
+s = turtle.getscreen()
+```
+
+We use a short and sweet name s for the screen. Easy to type and easy to remember, right?
+
+We now have a screen and our turtle. The screen acts as a canvas, while the turtle acts like a pen. We can program the turtle to move around the screen. 
 
 ## Programming with Turtle ⌨️💚
+
+:::info
+<details style={{border:'none'}}>
+<summary><strong>Coach Note!</strong></summary>
+
+In these next two sections, your coach will be going over Turtle Movement and Positioning. Here is what you can expect to learn!
+
+<details>
+<summary><strong>Standard</strong></summary>
+<ul>
+Basic Turtle Movements:
+    <ul>
+        <li>Introduction to moving the turtle using basic commands like <code>t.forward(100)</code> and <code>t.right(90)</code>.</li>
+        <li>Understanding how these commands affect the turtle’s position and orientation on the screen.</li>
+        <li>Practical exercises: Commands to move the turtle in a square or triangle pattern.</li>
+    </ul>
+</ul>
+</details>
+
+<details>
+<summary><strong>Advanced</strong></summary>
+<ul>
+Complex Movements and Patterns:
+    <ul>
+        <li>Using loops and conditions to create complex geometric patterns and designs.</li>
+        <li>Examples include creating spirals, fractals, and other intricate designs with the Turtle module.</li>
+    </ul>
+
+Precise Positioning Techniques:
+    <ul>
+        <li>Detailed explanation of the coordinate system used in Turtle graphics.</li>
+        <li>How to use <code>t.goto(x, y)</code> for absolute positioning, and the implications of using absolute vs. relative movements.</li>
+        <li>Case study: Using mathematical functions to calculate exact positions for more dynamic and responsive Turtle graphics.</li>
+    </ul>
+</ul>
+</details>
+
+</details>
+:::
 
 ### Turtle Movement
     There are four directions that a turtle can move in:
@@ -133,8 +231,8 @@ A better idea? Use a short and simple name like `s`. It’s quick to type, easy 
 - Left
 - Right
 
-<div className='image-wrapper2'>
-    ![py1direction](../../static/img/py1/py1direction.gif)
+<div align="center">
+    ![nerdEmoji](./../../static/img/py1/py1direction.gif)
 </div>
 
 <figure align="center">
@@ -228,8 +326,8 @@ Have your turtle draw a line towards its original position, to quadrant one, to 
 
 Check out the diagram below for some guidance:
 
-<div className='image-wrapper2'>
-    ![py1coords](../../static/img/py1/py1coords2.png)
+<div align="center">
+    ![nerdEmoji](./../../static/img/py1/py1coords2.png)
 </div>
 
 
