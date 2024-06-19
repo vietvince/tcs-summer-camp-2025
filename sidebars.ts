@@ -80,4 +80,10 @@ export const roboticsSidebar1 = [
   },
 ];
 
+export const unitySidebar1 = [
+  {
+    'Unity Part 1: 2D Game Design': ['unity-part1/intro', 'unity-part1/setup', 'unity-part1/section1', 'unity-part1/section2', 'unity-part1/section3', 'unity-part1/section4', 'unity-part1/section5']
+  },
+];
+
 export default sidebars;
