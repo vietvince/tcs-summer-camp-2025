@@ -5,7 +5,7 @@ const tutorials = [
     desc: "Launch your Own Obby Game",
     img: "https://firebasestorage.googleapis.com/v0/b/academy-content-hub.appspot.com/o/roblox-banner-300-150.webp?alt=media&token=8526712d-59a6-4710-bb39-66be5db50db7",
     votes: 0,
-    href: "/docs/Roblox-Part1/intro",
+    href: "/docs/roblox-part1/intro",
     alt: "Roblox Part 1",
   },
   {
@@ -14,7 +14,7 @@ const tutorials = [
     desc: "Python 101",
     img: "https://firebasestorage.googleapis.com/v0/b/academy-content-hub.appspot.com/o/roblox-banner-300-150.webp?alt=media&token=8526712d-59a6-4710-bb39-66be5db50db7",
     votes: 0,
-    href: "/docs/Python-Part1/intro",
+    href: "/docs/python-part1/intro",
     alt: "Python Part 1",
   },
   {
@@ -23,7 +23,7 @@ const tutorials = [
     desc: "Robotics with Scratch and mBot",
     img: "https://firebasestorage.googleapis.com/v0/b/academy-content-hub.appspot.com/o/roblox-banner-300-150.webp?alt=media&token=8526712d-59a6-4710-bb39-66be5db50db7",
     votes: 0,
-    href: "/docs/Robotics-Part1/intro",
+    href: "/docs/robotics-part1/intro",
     alt: "Robotics Part 1",
   },
   {
@@ -32,7 +32,7 @@ const tutorials = [
     desc: "Launch your Own Obby Game",
     img: "https://firebasestorage.googleapis.com/v0/b/academy-content-hub.appspot.com/o/roblox-banner-300-150.webp?alt=media&token=8526712d-59a6-4710-bb39-66be5db50db7",
     votes: 0,
-    href: "/docs/Roblox-Part1/intro",
+    href: "/docs/roblox-part1/intro",
     alt: "Roblox Part 1",
   },
   {
@@ -41,7 +41,7 @@ const tutorials = [
     desc: "Python 101",
     img: "https://firebasestorage.googleapis.com/v0/b/academy-content-hub.appspot.com/o/roblox-banner-300-150.webp?alt=media&token=8526712d-59a6-4710-bb39-66be5db50db7",
     votes: 0,
-    href: "/docs/Python-Part1/intro",
+    href: "/docs/python-part1/intro",
     alt: "Python Part 1",
   },
   {
@@ -50,7 +50,7 @@ const tutorials = [
     desc: "Robotics with Scratch and mBot",
     img: "https://firebasestorage.googleapis.com/v0/b/academy-content-hub.appspot.com/o/roblox-banner-300-150.webp?alt=media&token=8526712d-59a6-4710-bb39-66be5db50db7",
     votes: 0,
-    href: "/docs/Robotics-Part1/intro",
+    href: "/docs/robotics-part1/intro",
     alt: "Robotics Part 1",
   },
 ];
