@@ -32,30 +32,57 @@ const sidebars: SidebarsConfig = {
   // ],
 };
 
-export const robloxSidebar = [
+export const robloxSidebar1 = [
   {
-    'Roblox Part 1: Launch Your Own Obby Game': ['Roblox-Part1/intro', 'Roblox-Part1/setup', 'Roblox-Part1/stage1', 'Roblox-Part1/stage2', 'Roblox-Part1/stage3', 'Roblox-Part1/stage4', 'Roblox-Part1/stage5', 'Roblox-Part1/stage6', 'Roblox-Part1/stage7', 'Roblox-Part1/stage8', 'Roblox-Part1/stage9', 'Roblox-Part1/stage10', ],
-  },
-  {
-    'Roblox Part 2: Launch Your Own Obby Game in VR': ['Roblox-Part2/intro', 'Roblox-Part2/setup', 'Roblox-Part2/stage1', 'Roblox-Part2/stage2', 'Roblox-Part2/stage3', 'Roblox-Part2/stage4', 'Roblox-Part2/stage5', 'Roblox-Part2/stage6', 'Roblox-Part2/stage7', 'Roblox-Part2/stage8', 'Roblox-Part2/stage9', 'Roblox-Part2/stage10', ],
-  },
-  {
-    'Roblox Entrepreneur Part 1: Lua Coding and Game Scripting': ['Roblox-Entre1/intro', 'Roblox-Entre1/setup', 'Roblox-Entre1/stage1', 'Roblox-Entre1/stage2', 'Roblox-Entre1/stage3', 'Roblox-Entre1/stage4', 'Roblox-Entre1/stage5', 'Roblox-Entre1/stage6', 'Roblox-Entre1/stage7', 'Roblox-Entre1/stage8', 'Roblox-Entre1/stage9', 'Roblox-Entre1/stage10', ]
-  },
-  {
-    'Roblox Entrepreneur Part 2: Imaginative Game Design': ['Roblox-Entre2/intro', 'Roblox-Entre2/setup', 'Roblox-Entre2/stage1', 'Roblox-Entre2/stage2', 'Roblox-Entre2/stage3', 'Roblox-Entre2/stage4', 'Roblox-Entre2/stage5', 'Roblox-Entre2/stage6', 'Roblox-Entre2/stage7', 'Roblox-Entre2/stage8', 'Roblox-Entre2/stage9', 'Roblox-Entre2/stage10', ]
+    'Roblox Part 1: Launch Your Own Obby Game': ['roblox-part1/intro', 'roblox-part1/setup', 'roblox-part1/stage1', 'roblox-part1/stage2', 'roblox-part1/stage3', 'roblox-part1/stage4', 'roblox-part1/stage5', 'roblox-part1/stage6', 'roblox-part1/stage7', 'roblox-part1/stage8', 'roblox-part1/stage9', 'roblox-part1/stage10', ],
   },
 ];
 
-export const pythonSidebar = [
+export const robloxSidebar2 = [
   {
-    'Python Part 1: Python 101':  ['Python-Part1/intro', 'Python-Part1/setup', 'Python-Part1/section1', 'Python-Part1/section2', 'Python-Part1/section3', 'Python-Part1/section4', 'Python-Part1/section5']
+    'Roblox Part 2: Virtual Reality, Launch Your Own Obby Game in VR': ['roblox-part2/intro', 'roblox-part2/setup', 'roblox-part2/stage1', 'roblox-part2/stage2', 'roblox-part2/stage3', 'roblox-part2/stage4', 'roblox-part2/stage5', 'roblox-part2/stage6', 'roblox-part2/stage7', 'roblox-part2/stage8', 'roblox-part2/stage9', 'roblox-part2/stage10', ],
   },
 ];
 
-export const roboticsSidebar = [
+export const robloxSidebar3 = [
   {
-    'Robotics Part 1: With Scratch and mBot': ['Robotics-Part1/intro']
+    'Roblox Entrepreneur Part 1: Lua Coding and Game Scripting': ['roblox-entre1/intro', 'roblox-entre1/setup', 'roblox-entre1/stage1', 'roblox-entre1/stage2', 'roblox-entre1/stage3', 'roblox-entre1/stage4', 'roblox-entre1/stage5', 'roblox-entre1/stage6', 'roblox-entre1/stage7', 'roblox-entre1/stage8', 'roblox-entre1/stage9', 'roblox-entre1/stage10', ]
+  },
+];
+
+export const robloxSidebar4 = [
+  {
+    'Roblox Entrepreneur Part 2: Imaginative Game Design': ['roblox-entre2/intro', 'roblox-entre2/setup', 'roblox-entre2/stage1', 'roblox-entre2/stage2', 'roblox-entre2/stage3', 'roblox-entre2/stage4', 'roblox-entre2/stage5', 'roblox-entre2/stage6', 'roblox-entre2/stage7', 'roblox-entre2/stage8', 'roblox-entre2/stage9', 'roblox-entre2/stage10', ]
+  },
+];
+
+export const robloxSidebar5 = [
+  {
+    'Roblox Entrepreneur Part 3: Virtual Reality, Launch Your Own Obby Game in VR': ['roblox-entre3/intro', 'roblox-entre3/setup', 'roblox-entre3/stage1', 'roblox-entre3/stage2', 'roblox-entre3/stage3', 'roblox-entre3/stage4', 'roblox-entre3/stage5', 'roblox-entre3/stage6', 'roblox-entre3/stage7', 'roblox-entre3/stage8', 'roblox-entre3/stage9', 'roblox-entre3/stage10', ]
+  },
+];
+
+export const pythonSidebar1 = [
+  {
+    'Python Part 1: Python 101':  ['python-part1/intro', 'python-part1/setup', 'python-part1/section1', 'python-part1/section2', 'python-part1/section3', 'python-part1/section4', 'python-part1/section5']
+  },
+];
+
+export const pythonSidebar2 = [
+  {
+    'Python Part 2: Space Invaders':  ['python-part2/intro', 'python-part2/setup', 'python-part2/section1', 'python-part2/section2', 'python-part2/section3', 'python-part2/section4', 'python-part2/section5']
+  },
+];
+
+export const roboticsSidebar1 = [
+  {
+    'Robotics Part 1: With Scratch and mBot': ['robotics-part1/intro']
+  },
+];
+
+export const unitySidebar1 = [
+  {
+    'Unity Part 1: 2D Game Design': ['unity-part1/intro', 'unity-part1/setup', 'unity-part1/section1', 'unity-part1/section2', 'unity-part1/section3', 'unity-part1/section4', 'unity-part1/section5']
   },
 ];
 

@@ -1,0 +1,67 @@
+---
+title: "Lesson 5: Zombie Agression"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Session 5: Zombie Aggression
+
+## Objective 🧐🗿
+
+It is not fair that only plants get to do damage to zombies. The zombies will now fight back and eat the plants as well if they get too close! (muhahahahaha)
+
+## Zombie Attacks and Danger 🧟‍♂️⚠️
+
+### Editing Original Zombie Script
+
+We are now gonna give our zombie a lot more features including damage and range etc. Open up the zombie script inside the zombie object and lets get to coding! 
+    
+This will be a big chunk of code, so if you ever need to double check and slow down don't be disencouraged to do so. 
+
+``` csharp
+Declare variables:
+  - bullet: a GameObject reference for the bullet to be shot
+  - shootPosition: a Transform where bullets will be instantiated from
+  - cooldown: a float representing the time between shots
+  - canShoot: a boolean to control when the shooter can fire next
+  - range: a float defining how far the shooter can detect targets
+  - shootMask: a LayerMask determining which layers the raycast can hit
+  - target: a GameObject that will store the currently detected target
+
+Start method:
+  - Invoke the ResetCooldown method after a delay equal to 'cooldown' to allow shooting
+
+Update method:
+  - Perform a raycast starting from the current position going right, up to 'range', and only hitting objects on the 'shootMask' layer
+  - If the raycast hits a collider:
+      - Set 'target' to the GameObject hit by the raycast
+      - Call the Fire method
+
+ResetCooldown method:
+  - Set 'canShoot' to true to enable shooting
+
+Fire method:
+  - If 'canShoot' is false, exit the method to prevent firing
+  - Set 'canShoot' to false to enforce cooldown
+  - Invoke the ResetCooldown method after 'cooldown' seconds to reset the shooting ability
+  - Instantiate a bullet at 'shootPosition' with default orientation (no rotation)
+```
+
+Test it out by placing a plant right next to a zombie and see if the plant dies.
+- The plant should die in a few seconds (unless the plant has 9999999 hp).
+
+### Next steps
+
+Now we have a basic combat system between plants and zombies! Now it is up to you to make your game cool with:
+- More UIs,
+- plants,
+- and zombies.
+
+Don't forget to revisit your scripts if you want certain properties to be changed.
+
+For example: "The zombie does too much damage, it is too OP!!!". You can easily change the data number by visiting the zombie object and giving it a new value. 
+
+### Final touches
+
+For the final touches, well, there is not much to say other than make your game fun and colorful! 

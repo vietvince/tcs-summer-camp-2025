@@ -7,7 +7,7 @@ toc_max_heading_level: 3
 
 import ReactPlayer from 'react-player'
 
-Welcome to Roblox Part 1: Launch Your Own Obby Game! Are you ready to embark on an incredible coding adventure? Let's dive in and create something truly awesome together!
+Welcome to Roblox Entrepreneur Part 3: Virtual Reality, Launch Your Own Obby Game in VR! Are you ready to embark on an incredible coding adventure? Let's dive in and create something truly awesome together!
 
 <div dangerouslySetInnerHTML={{
     __html: `
@@ -17,7 +17,6 @@ Welcome to Roblox Part 1: Launch Your Own Obby Game! Are you ready to embark on 
         <script src="https://player.vimeo.com/api/player.js"></script>
     `
 }} />
-
 
 ## How this Tutorial is Designed
 
@@ -41,9 +40,9 @@ Now, let's unleash your creativity as we craft an epic course step by step. Here
 **Objective:** Learn how to create ascending walls as obstacles.
 
 **Difficulty:**
-- Easy: Climb up with the help of your friendly Code Coach!
-- Medium: Paint your walls with your favorite colors and patterns.
-- Hard: Brace yourself for moving platforms that will test your skills.
+- Easy: Brace yourself for moving platforms that will test your skills.
+- Medium: Ride the walls up and down using cool functions!
+- Hard: Smoothly animate the movement with a Roblox Service!
 
 <br  />
 
@@ -52,9 +51,9 @@ Now, let's unleash your creativity as we craft an epic course step by step. Here
 **Objective:** Construct a set of stairs using spheres as steps.
 
 **Difficulty:**
-- Easy: Roll some spheres together to build stairs with your Code Coach!
-- Medium: Get creative with different sizes and placements for your steps.
-- Hard: Hold on tight as we add strafing platforms to up the challenge!
+- Easy: Hold on tight as we add strafing platforms to up the challenge!
+- Medium: Make the spheres go up and down!
+- Hard: Spin the spheres in a circle!
 
 <br  />
 
@@ -63,9 +62,9 @@ Now, let's unleash your creativity as we craft an epic course step by step. Here
 **Objective:** Design a plank walkway for Players to navigate.
 
 **Difficulty:**
-- Easy: Lay down the planks with ease alongside your Code Coach!
-- Medium: Keep players guessing by tweaking the collision on your path.
-- Hard: Get ready for some chaos as we swap planks around for an extra twist!
+- Easy: Get ready for some chaos as we swap planks around for an extra twist!
+- Medium: Swap out the wrong planks with sneaky kill bricks!
+- Hard: Animate the planks to swap positions! 
 
 <br  />
 
@@ -74,9 +73,9 @@ Now, let's unleash your creativity as we craft an epic course step by step. Here
 **Objective:** Implement a path with obstacles using kill bricks.
 
 **Difficulty:**
-- Easy: Work together to place those kill bricks strategically.
-- Medium: Let your imagination run wild as you design your own killer path!
-- Hard: Make things interesting by setting those kill bricks in motion!
+- Easy: Make things interesting by setting those kill bricks in motion!
+- Medium: A moving kill brick that bounces up and down, taking body parts with it!
+- Hard: A swinging pendulum kill brick for extra thrills!
 
 <br  />
 
@@ -85,9 +84,9 @@ Now, let's unleash your creativity as we craft an epic course step by step. Here
 **Objective:** Construct a path with moving fireball obstacles.
 
 **Difficulty:**
-- Easy: Line up those fireballs along a simple path.
-- Medium: Add some twists and turns to keep things exciting!
-- Hard: Feel the heat as we crank up the fireball frequency and size!
+- Easy: Feel the heat as we crank up the fireball frequency and size!
+- Medium: Fireball cannons that flash up and down!
+- Hard: Smoothly animate those fireball cannons!
 
 <br  />
 
@@ -96,9 +95,9 @@ Now, let's unleash your creativity as we craft an epic course step by step. Here
 **Objective:** Design a minefield obstacle course with hidden traps.
 
 **Difficulty:**
-- Easy: Mark out safe paths to navigate through the minefield.
-- Medium: Keep players on edge with some sneaky hidden mines.
-- Hard: Mysterious mines that reveal their presence with a bang!
+- Easy: Mysterious mines that reveal their presence with a bang!
+- Medium: Mines that blink on and off randomly!
+- Hard: Randomly spawn the mines on your minefield!
 
 <br  />
 
@@ -107,9 +106,9 @@ Now, let's unleash your creativity as we craft an epic course step by step. Here
 **Objective:** Create a ramp obstacle with falling boulders.
 
 **Difficulty:**
-- Easy: Strategically place boulders along with your Code Coach!
-- Medium: Let's roll! Create a challenging path with some cover!
-- Hard: Hold onto your hats as we add moving cover for extra chaos!
+- Easy: Hold onto your hats as we add moving cover for extra chaos!
+- Medium: Randomly change the size of the boulders as they spawn!
+- Hard: Boulders that morph in size as they thunder down the path!
 
 <br  />
 
@@ -118,9 +117,9 @@ Now, let's unleash your creativity as we craft an epic course step by step. Here
 **Objective:** Construct spinning obstacles using kill bricks.
 
 **Difficulty:**
-- Easy: Place a spinning kill brick and watch it go!
-- Medium: Spin things up with an array of spinning blocks.
-- Hard: Ready for the ultimate challenge? Experiment with different speeds and directions!
+- Easy: Experiment with different speeds and directions!
+- Medium: Kill bricks that remove body parts when they touch!
+- Hard: Kill bricks that randomly change speed and direction!
 
 <br  />
 
@@ -129,9 +128,9 @@ Now, let's unleash your creativity as we craft an epic course step by step. Here
 **Objective:** Implement a moving wall obstacle that players must avoid.
 
 **Difficulty:**
-- Easy: Construct a hallway with a secret hideout room for some sneaky adventures!
-- Medium: Construct a fun-filled walkway with lots of rooms to explore and keep you on the move!
-- Hard: Make the doorways flicker on and off to add an exciting twist!
+- Easy: Make the doorways flicker on and off to add an exciting twist!
+- Medium: A moving kill wall that changes speed randomly!
+- Hard: Add in some unpredictability with random pauses!
 
 <br  />
 
@@ -140,6 +139,6 @@ Now, let's unleash your creativity as we craft an epic course step by step. Here
 **Objective:** Design a puzzle room with brain-teasing challenges.
 
 **Difficulty:**
-- Easy: Let's start with a puzzle with some hints!
-- Medium: Give the puzzle some extra steps to tease the Player!
-- Hard: Get rid of the hints and make the Player's brain more wrinkly!
+- Easy: Get rid of the hints and make the Player's brain more wrinkly!
+- Medium: Have the buttons react to your presses in the chat!
+- Hard: Make the buttons move in and out like real buttons!

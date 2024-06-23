@@ -10,9 +10,14 @@ import MyVideoUrl from './video/Intro.mp4'; -->
 
 Welcome to Roblox Entrepreneur Part 2: Imaginative Game Design! Are you ready to embark on an incredible coding adventure? Let's dive in and create something truly awesome together!
 
-<!-- <div align='center'>
-  <ReactPlayer controls url={MyVideoUrl}/>
-</div> -->
+<div dangerouslySetInnerHTML={{
+    __html: `
+        <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+        <iframe src="https://player.vimeo.com/video/952911944?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Intro"></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+    `
+}} />
 
 ## How this Tutorial is Designed
 

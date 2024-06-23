@@ -61,21 +61,57 @@ const config: Config = {
       items: [
         {
           type: "docSidebar",
-          sidebarId: "robloxSidebar",
+          sidebarId: "robloxSidebar1",
           position: "left",
-          label: "Roblox",
+          label: "Rblx-1",
         },
         {
           type: "docSidebar",
-          sidebarId: "pythonSidebar",
+          sidebarId: "robloxSidebar2",
           position: "left",
-          label: "Python",
+          label: "Rblx-2",
         },
         {
           type: "docSidebar",
-          sidebarId: "roboticsSidebar",
+          sidebarId: "robloxSidebar3",
           position: "left",
-          label: "Robotics",
+          label: "RblxEntre-1",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "robloxSidebar4",
+          position: "left",
+          label: "RblxEntre-2",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "robloxSidebar5",
+          position: "left",
+          label: "RblxEntre-3",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "pythonSidebar1",
+          position: "left",
+          label: "Py-1",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "pythonSidebar2",
+          position: "left",
+          label: "Py-2",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "unitySidebar1",
+          position: "left",
+          label: "Un-1",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "roboticsSidebar1",
+          position: "left",
+          label: "mBot-1",
         },
         {
           href: "https://github.com/vietvince/TCS-Website",

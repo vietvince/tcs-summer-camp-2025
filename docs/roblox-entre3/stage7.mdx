@@ -1,0 +1,342 @@
+---
+title: "Stage 7: Rolling Rocks"
+sidebar_position: 9
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+import ReactPlayer from 'react-player'
+import ReactAudioPlayer from 'react-audio-player';
+import audioFile from '../../static/audio/entre1/stage7meme.mp3';
+
+# Stage 7: Rolling Rocks
+
+:::info
+<details style={{border:'none'}}>
+    <summary>**Prerequisites: Before You Dive In!**</summary>
+
+    Welcome, adventurers, to the prerequisites for Stage 7: Rolling Rocks! Prepare yourselves for an exhilarating journey through coding challenges that will sharpen your skills and ignite your creativity. To unlock the thrill of Stage 7, you must first conquer the following stages:
+
+    **1. Intro**
+
+    Lay the foundation for your coding adventure and embark on a quest filled with excitement and discovery.
+
+    **2. Setup**
+
+    Equip yourself with the tools and knowledge needed to tackle the challenges that lie ahead.
+
+    **3. Stage 1: Ascending Walls**
+
+    Climb to new heights as you learn to overcome obstacles with determination and perseverance.
+
+    **4. Stage 2: Sphere Stairs**
+
+    Ascend the stairway to coding success with confidence and precision.
+
+    **5. Stage 3: Plank Walkway**
+
+    Navigate the path of innovation as you build bridges to your coding dreams.
+
+    **6. Stage 4: KillBrick Path**
+
+    Blaze a trail through challenges as you learn to overcome obstacles with skill and strategy.
+
+    **7. Stage 5: Fireball Footpath**
+
+    Embrace the heat of coding creativity and forge your path to victory amidst fiery challenges.
+
+    **8. Stage 6: Military Minefield**
+
+    Navigate through the dangers of coding complexity with agility and resilience.
+
+    **With each challenge you conquer, you edge closer to the thrill and excitement of Stage 7: Rolling Rocks. So, gather your courage, sharpen your skills, and prepare to rock the coding world like never before! 🚀🌟**
+</details>
+:::
+
+<br  />
+
+<div dangerouslySetInnerHTML={{
+  __html: `
+    <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+      <iframe src="https://player.vimeo.com/video/952507783?h=7534987f89" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 7 (Easy)"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  `
+}} />
+
+## Objective 🧐🗿
+
+Welcome to the electrifying challenge of Stage 7: Rolling Rocks! Prepare to conquer the rocky terrain as you navigate through a maze of boulders and obstacles. Get ready to dodge, duck, and dive as you face the relentless onslaught of falling rocks.
+
+## Description 📖🪶
+
+For those seeking an extra challenge in Stage 7's rolling rocks chaos, get ready to up the ante with some moving cover madness! Here's how to take it to the next stage:
+ 
+We are going to create a script that makes a part in Roblox move back and forth smoothly using tweens. Here's what we want to accomplish: 
+
+**1. Set Up Movement:**
+
+The part will start at its initial position and move to a new position 10 studs away. 
+
+**2. Smooth Movement:**
+
+The part will move smoothly using a tween, taking 2 seconds for each movement. 
+
+**3. Repeat Movement:**
+
+The part will keep moving back and forth forever. 
+
+**By doing this, the part will continuously move back and forth, creating a smooth animation effect.** 
+
+## Instructions and Code Logic 📝📚
+
+### Step 1 - Set Up the Starting Variables
+
+- Create a variable for the part by setting it to the `Parent` of the script. 
+
+- Get the `TweenService` from the game. 
+
+- Create a variable for the starting position of the part (`startPos`). 
+
+- Create a variable for the ending position 10 studs away from the starting position (`endPos`). 
+
+- Create a `TweenInfo` object that defines how the tween will behave: 
+
+    - Duration: 2 seconds. 
+
+    - Easing style: Linear (smooth and consistent speed). 
+
+    - Easing direction: Out (slows down at the end). 
+
+    - Repeat count: -1 (infinite repeats). 
+
+    - Reverses: true (moves back and forth). 
+
+    - Delay time: 0 seconds (no delay). 
+
+### Step 2 - Create a Function
+
+- Define a function named `startTween`. 
+
+- Inside the function, create a tween that moves the part from `startPos` to `endPos`. 
+
+- Connect a function to the tween's `Completed` event to swap `startPos` and `endPos` when the tween finishes, and then restart the tween. 
+
+- Start the tween by calling the `Play` method. 
+
+- Call the `startTween` function to begin the movement. 
+
+## Putting It All Together 🔧🔩
+
+- Start by setting up your part, tween service, and positions. 
+
+- Create a `TweenInfo` object to define the tween behavior. 
+
+- Define a function named `startTween` to create and manage the tween. 
+
+- Inside the function, create a tween to move the part and handle the completion event. 
+
+- Start the tween to begin the movement. 
+
+- Call the `startTween` function to kick off the process.
+
+<details>
+    <summary>**Medium: Randomly change the size of the boulders as they spawn!**</summary>
+
+    <div dangerouslySetInnerHTML={{
+    __html: `
+        <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+        <iframe src="https://player.vimeo.com/video/952507557?h=fdd4fc8e7a" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 7 (Medium)"></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+    `
+    }} />
+
+    <br  />
+    
+    **Description 📖🪶** 
+
+    We are going to create a script that spawns boulders continuously in Roblox. The boulders will deal damage to any player they touch. Here's what we want to accomplish: 
+
+    *1. Spawn Boulders:*
+    
+    The script will create boulders at regular intervals. 
+
+    *2. Set Boulder Properties:*
+    
+    The boulders will have a specific size, material, and color. 
+
+    *3. Deal Damage on Touch:*
+    
+    When a boulder touches a player, it will deal damage to them. 
+
+    *By doing this, we will create a dynamic and challenging environment with boulders appearing and dealing damage.* 
+
+    <br  />
+
+    **Instructions and Code Logic 📝📚**
+    
+    Step 1 - Set Up the Starting Variables
+
+    - Create a variable for the part that will spawn the boulders by setting it to the `Parent` of the script. 
+
+    - Set the time interval between boulder spawns (`spawnTime`). 
+
+    - Set the damage dealt by the boulder on touch (`damage`). 
+
+    - Set the size, material, and color of the boulders. 
+
+    Step 2 - Create a Function
+
+    - Define a function named `DealDamage` that takes a part (`partThatGotTouched`) as an argument. 
+
+    - Inside the function, get the parent of the touched part (which should be a character model). 
+
+    - Find the Humanoid component in the character model. 
+
+    - If a Humanoid component is found, deal damage to it. 
+
+    - Define a function named `spawnBoulder` that takes a part (`part`) as an argument. 
+
+    - Inside the function, calculate the spawn location based on the part's position and forward direction. 
+
+    - Create a new part to serve as the boulder. 
+
+    - Set the shape, material, color, and size of the boulder. 
+
+    - Set the position and orientation of the boulder. 
+
+    - Connect the `DealDamage` function to the Touched event of the boulder. 
+
+    - Set the parent of the boulder to the workspace to make it appear in the game world.  
+
+    Step 3 - Create an Infinite Loop
+
+    - Create a loop that runs forever using `while true do`. 
+
+    - Inside the loop, call the `spawnBoulder` function to spawn a boulder at the specified part's location. 
+
+    - Use the `wait` function to pause the loop for the specified spawn time interval before spawning the next boulder. 
+
+    <br  />
+
+    **Putting It All Together 🔧🔩**
+
+    - Start by setting up your part and boulder properties. 
+
+    - Define functions to handle damage dealing and boulder spawning. 
+
+    - Create an infinite loop to keep spawning boulders at regular intervals. 
+</details>
+
+<details>
+    <summary>**Hard: Boulders that morph in size as they thunder down the path!**</summary>
+    
+    <div dangerouslySetInnerHTML={{
+    __html: `
+        <div style="padding:56.25% 0 0 0;position:relative;border:3px solid #47c621;">
+        <iframe src="https://player.vimeo.com/video/952507544?h=14dcdd2fcb" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Roblox Entrepreneur Part 1 - Stage 7 (Hard)"></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+    `
+    }} />
+
+    <br  />
+
+    **Description 📖🪶** 
+
+    We are going to create a script that continuously spawns boulders in Roblox. These boulders will appear at regular intervals, deal damage to players they touch, and have a random size that changes using a tween animation. Here's what we want to accomplish: 
+
+    *1. Spawn Boulders:*
+    
+    Boulders will spawn at regular intervals. 
+
+    *2. Deal Damage:*
+    
+    When a boulder touches a player, it will deal damage. 
+
+    *3. Tween Animation:*
+    
+    The boulders will change size using a tween animation. 
+
+    *By doing this, we will create a dynamic and interactive environment with boulders spawning and affecting players.* 
+
+    <br  />
+
+    **Instructions and Code Logic 📝📚**
+
+    Step 1 - Set Up the Starting Variables
+
+    - Create a variable for the part that will spawn the boulders by setting it to the `Parent` of the script. 
+
+    - Set the time interval between boulder spawns (`spawnTime`). 
+
+    - Set the damage dealt by the boulder on touch (`damage`). 
+
+    - Set the material and color of the boulders. 
+
+    - Get the `TweenService` from the game. 
+
+    Step 2 - Create a Function
+
+    - Define a function named `DealDamage` that takes a part (`partThatGotTouched`) as an argument. 
+
+    - Inside the function, get the parent of the touched part (which should be a character model). 
+
+    - Find the Humanoid component in the character model. 
+
+    - If a Humanoid component is found, deal damage to it. 
+
+    - Define a function named `getRandomSize` that returns a random size using `Vector3`. 
+
+    - Define a function named `spawnBoulder` that takes a part (`part`) as an argument. 
+
+    - Inside the function, calculate the spawn location based on the part's position and forward direction. 
+
+    - Create a new part to serve as the boulder. 
+
+    - Set the shape, material, color, and initial size of the boulder. 
+
+    - Set the position and orientation of the boulder. 
+
+    - Connect the `DealDamage` function to the Touched event of the boulder. 
+
+    - Set the parent of the boulder to the workspace to make it appear in the game world. 
+
+    - Create a random target size for the boulder. 
+
+    - Create a tween animation to change the size of the boulder and play the tween. 
+
+    Step 3 - Create an Infinite Loop
+
+    - Create a loop that runs forever using `while true do`. 
+
+    - Inside the loop, call the `spawnBoulder` function to spawn a boulder at the specified part's location. 
+
+    - Use the `wait` function to pause the loop for the specified spawn time interval before spawning the next boulder. 
+
+    <br  />
+
+    **Putting It All Together 🔧🔩**
+
+    - Start by setting up your part and boulder properties. 
+
+    - Define functions to handle damage dealing, size generation, and boulder spawning. 
+
+    - Create an infinite loop to keep spawning boulders at regular intervals. 
+</details>
+
+<br  />
+
+**Hooray! By navigating through Stage 7's rolling rocks and rocky terrain, you've shown incredible courage and skill! Onward to Stage 8, where new adventures await! 🌟**
+
+<div align='center'>
+    ![mondayLeftMeBroken](../../static/img/entre1/stage7meme.gif)
+</div>
+
+<div align='center'>
+    <ReactAudioPlayer
+        src={audioFile}
+        controls
+    />
+</div>
