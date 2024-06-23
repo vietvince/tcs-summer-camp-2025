@@ -1,1 +1,108 @@
-insert content
+---
+title: "Lesson 1: Basic Zombies"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Lesson 1: Basic Zombies
+
+## Objective 🧐🗿
+
+Creating the background and obtain zombie sprites, then make the zombies move toward your house!
+
+## Set Up the Environment and Objects 🌳📦
+
+### Unity Interface and Camera Movement
+
+Create a 2D game and once you are in your scene, click on Edit, go to project settings, editor, turn on enter play mode options.  
+
+Start by familiarizing yourself with the Unity Editor. 
+
+The interface includes several panels like:
+- the Scene view where you build and edit your game visually,
+- the Game view to preview the game,
+- and the Inspector to modify the properties of your game elements.
+
+Practice navigating the Scene using the mouse for:
+- rotating,
+- panning,
+- and zooming. 
+
+Adjust the Camera to ensure it captures the play area effectively—your garden where the action will happen.
+
+###  Background and Zombie Images
+
+**Background:** Look for a vibrant and visually appealing garden image that can serve as the backdrop for your game. 
+
+You can create your own in a graphic design tool or find royalty-free images online that fit the theme.
+
+In this tutorial, we will be using the default PvZ front yard. 
+
+**Zombie Sprite:** Acquire a zombie sprite.
+
+You can either: 
+1. Draw these yourself
+2. Use a sprite creation tool
+3. Download them from a free online resource
+
+If possible, you should have multiple frames to animate the zombie later.
+
+###  Create Basic Zombie Object 
+
+Setup: In Unity, create a new sprite object in your scene and name it 'Zombie'.
+
+Sprite Renderer: Attach the zombie sprites to your object using the Sprite Renderer component. This will allow you to render the sprites in the game.
+
+Transforms: Adjust the position, rotation, and scale to ensure the zombie fits well within your game's environment.
+
+###  Script Basic Zombie Object
+
+Create a script to control zombie movements and behaviors:
+
+Below is the very barebones version of the zombie script, we are going to add more features to it but for now this will do. 
+
+```csharp
+using UnityEngine;
+
+public class ZombieMovement : MonoBehaviour
+{
+    public float speed = 1.0f;
+
+    void Update()
+    {
+        transform.position += Vector3.left * speed * Time.deltaTime;
+    }
+}
+```
+This will make the zombie move toward the left side, make sure you know every aspect of the code. If you need help you can always ask your coach for clarification. 
+
+###  Create Zombie Spawners 
+
+Spawner Object: Create an empty GameObject named 'ZombieSpawner' at the edge of your game screen.
+
+Spawner Script: Write a script to spawn zombies at intervals. 
+
+To write the script, follow the pseudocode instructions below:
+
+1. Define the ZombieSpawner class that inherits from MonoBehaviour.
+2. Declare an array of Transform objects named spawnpoints.
+3. Declare a GameObject named zombie.
+4. Define the Start method:
+   - Repeatedly call the SpawnZombie method every 2 seconds.
+5. Define the SpawnZombie method:
+   - Generate a random index based on the length of spawnpoints array.
+   - Instantiate a zombie at the position of the selected spawnpoint with default rotation.
+
+Try coding it yourself! Remember you can always ask for help. 
+
+<span style={{ fontSize: '30px' }}>**BEFORE CONTINUING**</span>
+
+If you are not getting anything or not used to Unity's environment, spend more time mess around. Add some new objects and place them around in the scene and see what happens in the game. It is very important
+that you are not lost as the more we advance the more tricky it will get. 
+
+You got this! がんばって！
+
+<br  />
+
+- [x] **You've just embarked on an amazing Unity journey, mastering the basics of game objects in Unity, setting the stage for more creative adventures in game development! 🚀**

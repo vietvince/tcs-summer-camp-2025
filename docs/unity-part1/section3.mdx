@@ -1,1 +1,102 @@
-insert content
+---
+title: "Lesson 3: Shooting Bullets"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Lesson 3: Shooting Bullets
+
+## Objective 🧐🗿
+
+We are now going to make our peashooter shoot! Before we start here, make sure you are able to plant the peashooters on your grids from last session. 
+
+## Introducing Shooting Mechanics 👾🔫
+
+### Create the Bullet
+
+We will need to create a new object that is going to represent our bullet.
+
+It will have three components:
+1. Rigidbody2D
+2. Box collider2D
+3. Bullet Script (NOOOOO NOT SCRIPTING AGAIN)
+
+Make sure to change some of the properties to your likings, remember to turn gravity scale to 0. 
+
+### Create the Bullet Origin 
+
+Since our peashooter does not have the bullets with it, we need to:
+- Add a new empty object in the peashooter as the bullet origin, or where the bullet will come out from. 
+
+We can do this by:
+1. Going inside of the peashooter object,
+2. Move the empty object inside it so it becomes a child of the peashooter,
+3. Adjust the position of the bullet origin and put it near his mouth (or somewhere else).
+
+**Now we are ready to script.**
+
+### Create the Bullet Script
+
+```csharp
+public class Shoot : MonoBehaviour
+
+   Declare variables:
+     - damage: an integer for the damage the bullet will cause
+     - speed: a float for the bullet's movement speed
+
+   Start method:
+     - Destroy the bullet after 10 seconds
+
+   Update method:
+     - Every frame, move the bullet forward along the x-axis by "speed * Time.deltaTime"
+
+   OnTriggerEnter2D method:
+     - This method is triggered when the bullet collides with another object
+     - Check if the object the bullet collided with is a Zombie (ZombieScript attached)
+
+     If the collided object is a Zombie:
+       - Call the 'hit' method on the ZombieScript, passing 'damage' and 'freeze' as arguments
+       - Destroy the bullet to simulate it hitting the target
+```
+    
+### Create the Shoot Script
+
+Now we have a bullet script, we also need a shoot script that we put inside our peashooter so it can shoot out the bullets.
+
+We will have to make a new script component inside the peashooter and we will begin scripting! (YAY)
+
+This will be a big chunk of code, so if you ever need to double check and slow down don't be disencouraged to do so. 
+    
+Here is the pseudocode instructions:
+
+```csharp
+   Declare variables:
+     - bullet: a GameObject reference for the bullet to be shot
+     - shootPosition: a Transform where bullets will be instantiated from
+     - cooldown: a float representing the time between shots
+     - canShoot: a boolean to control when the shooter can fire next
+     - range: a float defining how far the shooter can detect targets
+     - shootMask: a LayerMask determining which layers the raycast can hit
+     - target: a GameObject that will store the currently detected target
+
+    Start method:
+     - Invoke the ResetCooldown method after a delay equal to 'cooldown' to allow shooting
+
+   Update method:
+     - Perform a raycast starting from the current position going right, up to 'range', and only hitting objects on the 'shootMask' layer
+     - If the raycast hits a collider:
+         - Set 'target' to the GameObject hit by the raycast
+         - Call the Fire method
+
+   ResetCooldown method:
+     - Set 'canShoot' to true to enable shooting
+
+   Fire method:
+     - If 'canShoot' is false, exit the method to prevent firing
+     - Set 'canShoot' to false to enforce cooldown
+     - Invoke the ResetCooldown method after 'cooldown' seconds to reset the shooting ability
+     - Instantiate a bullet at 'shootPosition' with default orientation (no rotation)
+```
+
+<span style={{ fontSize: '30px' }}>**If the peashooter is now shooting at the zombies, you are done! Next chapter we will be making the sun and sunflowers to get more peashooters!**</span>
