@@ -11,45 +11,58 @@ toc_max_heading_level: 3
 
 We are now going to make our peashooter shoot! Before we start here, make sure you are able to plant the peashooters on your grids from last session. 
 
-## Introducing Shooting Mechanics 👾🔫
+## Step 1 - Creating the Bullet Object 👾🔫
 
-### Create the Bullet
+### 1.1 Create the Bullet
 
 We will need to create a new object that is going to represent our bullet.
 
 It will have three components:
-1. Rigidbody2D
-2. Box collider2D
-3. Bullet Script (NOOOOO NOT SCRIPTING AGAIN)
+- Rigidbody2D
+- Box collider2D
+- Bullet Script (NOOOOO NOT SCRIPTING AGAIN)
 
 Make sure to change some of the properties to your likings, remember to turn gravity scale to 0. 
 
-### Create the Bullet Origin 
+### 1.2 Create the Bullet Origin 
 
 Since our peashooter does not have the bullets with it, we need to:
 - Add a new empty object in the peashooter as the bullet origin, or where the bullet will come out from. 
 
 We can do this by:
-1. Going inside of the peashooter object,
-2. Move the empty object inside it so it becomes a child of the peashooter,
-3. Adjust the position of the bullet origin and put it near his mouth (or somewhere else).
+- Going inside of the peashooter object,
+- Move the empty object inside it so it becomes a child of the peashooter,
+- Adjust the position of the bullet origin and put it near his mouth.
 
 **Now we are ready to script.**
 
-### Create the Bullet Script
+## Step 2 - Create the Bullet Script 🫛📜
+
+### 2.1 Initializing Variables
 
 ```csharp
-public class Shoot : MonoBehaviour
+public class Bullet : MonoBehaviour
 
    Declare variables:
      - damage: an integer for the damage the bullet will cause
      - speed: a float for the bullet's movement speed
+```
+### 2.2 Start and Update Methhods 
 
-   Start method:
+```csharp
+//...
+
+Start method:
      - Destroy the bullet after 10 seconds
 
    Update method:
      - Every frame, move the bullet forward along the x-axis by "speed * Time.deltaTime"
+```
+
+### 2.3 Collision Method
+
+```csharp
+//...
 
    OnTriggerEnter2D method:
      - This method is triggered when the bullet collides with another object
@@ -59,18 +72,18 @@ public class Shoot : MonoBehaviour
        - Call the 'hit' method on the ZombieScript, passing 'damage' and 'freeze' as arguments
        - Destroy the bullet to simulate it hitting the target
 ```
-    
-### Create the Shoot Script
+
+## Step 3 - Create the Shoot Script 🔫📜
 
 Now we have a bullet script, we also need a shoot script that we put inside our peashooter so it can shoot out the bullets.
 
-We will have to make a new script component inside the peashooter and we will begin scripting! (YAY)
-
-This will be a big chunk of code, so if you ever need to double check and slow down don't be disencouraged to do so. 
+We will have to make a new script component inside the peashooter and we will begin scripting!
     
-Here is the pseudocode instructions:
+### 3.1 Initializing Variables
 
 ```csharp
+public class Shoot : MonoBehaviour
+
    Declare variables:
      - bullet: a GameObject reference for the bullet to be shot
      - shootPosition: a Transform where bullets will be instantiated from
@@ -79,7 +92,11 @@ Here is the pseudocode instructions:
      - range: a float defining how far the shooter can detect targets
      - shootMask: a LayerMask determining which layers the raycast can hit
      - target: a GameObject that will store the currently detected target
+```
 
+### 3.2 Start and Update Methhods
+
+```csharp
     Start method:
      - Invoke the ResetCooldown method after a delay equal to 'cooldown' to allow shooting
 
@@ -88,7 +105,11 @@ Here is the pseudocode instructions:
      - If the raycast hits a collider:
          - Set 'target' to the GameObject hit by the raycast
          - Call the Fire method
+```
 
+### 3.3 ResetCooldown and Fire Methhods
+
+```csharp
    ResetCooldown method:
      - Set 'canShoot' to true to enable shooting
 
@@ -99,4 +120,79 @@ Here is the pseudocode instructions:
      - Instantiate a bullet at 'shootPosition' with default orientation (no rotation)
 ```
 
-<span style={{ fontSize: '30px' }}>**If the peashooter is now shooting at the zombies, you are done! Next chapter we will be making the sun and sunflowers to get more peashooters!**</span>
+<details>
+    <summary>**Medium: Add animations for bullets**</summary>
+
+    <div className='image-wrapper'>
+        ![stage1Medium](../../static/img/un1/Peashooter.gif)
+    </div>
+
+    <br  />
+
+    **3.4 Gather your assets**
+
+    Search online for peashooter assets to animate!
+
+    **3.5 Animate**
+
+    Use the animation editor to create an animation!
+
+    **3.6 Tie it together using the animator!**
+
+    Use the animator to connect your animation transitions using parameters. You will want to make a trigger parameter.
+
+    **3.7 Add it to the script!**
+
+    In your script do the following:
+
+    ```csharp
+    public Animator anim;
+    public GameObject Peashooter;
+
+    void Start()
+    {
+        //...
+
+        anim = Peashooter.GetComponent<Animator>();
+    }
+
+    //...
+
+    void Fire()
+    {
+        if (!canShoot)
+            return;
+
+        anim.SetTrigger("Name of your animation");
+
+        source.PlayOneShot(shootClips[Random.Range(0, shootClips.Length)]);
+        canShoot = false;
+        Invoke("ResetCooldown", cooldown);
+
+        GameObject myBullet = Instantiate(bullet, shootPosition.position, Quaternion.identity);
+    }
+    ```
+</details>
+
+<details>
+  <summary>**Hard: Create bullets for each of the new plants you made**</summary>
+
+  <div className='image-wrapper'>
+        ![stage1Medium](../../static/img/un1/MegaPeashooter.gif)
+  </div>
+
+  **4.1 Gather your assets**
+
+  Search online or create your own assets for your enemy
+
+  **4.2 Script your mechanics**
+
+  Modify the shoot and bullet script to fit the needs of your newly designed plant.
+
+  **4.3 Animate**
+
+  Follow the same animation steps from medium
+
+</details>
+
+- [x] **If the peashooter is now shooting at the zombies, you are done! Next chapter we will be making the sun and sunflowers to get more peashooters!**
