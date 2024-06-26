@@ -9,47 +9,68 @@ Welcome to Unity 2D Part 1: Launch Your Own Tower Defense Game! Gear up, young d
 
 Prepare for an exciting coding journey in 2D game development! With your Code Coach guiding you, you'll design and build a tower defense game inspired by Plants vs. Zombies that's both strategic and engaging!
 
-<div dangerouslySetInnerHTML={{
-    __html: `
-        <div style="padding:64.74% 0 0 0;position:relative;">
-        <iframe src="https://player.vimeo.com/video/966024287?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Unity 2D"></iframe>
-        </div>
-        <script src="https://player.vimeo.com/api/player.js"></script>
-    `
-}} />
+<iframe style={{}} width="917" height="516" src="https://player.vimeo.com/video/966024287?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" title="Unity 2D" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-## What You're Signing Up For ✍️✅
+## How this Tutorial is Designed
 
-- **Design a Classic**:  Step into the shoes of a game designer and layout your own Plants vs. Zombies-style tower defense game.
-- **Interact and React**: Make your game respond to your every command, balancing the challenge to keep it fun and engaging.
-- **Control the Game**: Dive into creating a game loop that keeps your game running smoothly, ensuring every plant action and zombie movement is seamless.
-- **Function like a Pro**: Use Unity's powerful tools to enable your plants to defend and zombies to attack — each piece of your code will control a different aspect of the game.
+Get ready for an awesome recreation of Plant vs. Zombies with your own twist! Each stage offers three difficulty options and you get to choose which challenge you think you can conquer!
 
-If you are new to Unity, don't worry you will be just fine, I promise. Once you get your feet in the door everything will make sense. Don't be disencouraged if you need to take each step slow to understand it. 
+- **Easy:** Make a fully functional Plants vs. Zombies game of your own!
+- **Medium (Recommended):** Polish your game to make an even cooler version!
+- **Hard:** Try the challenge alone, using your skills try creating your own twist to the game!
 
-**Slow is smooth and smooth is fast. 🎮💻**
+## What is Plants vs. Zombies?
 
-## Session Design 🎨📋  
-    There wil be a total of five sessions, however some sessions will be harder than others and may take more time.
+Plants vs. Zombies is a timeless classic that has over 200 million downloads! In Plants vs. Zombies, players place different types of plants and fungi, each with their own unique offensive or defensive capabilities, around a house, in order to stop a horde of zombies from reaching their house!
+
+## Stage Design 🎨📋  
+    There wil be a total of five stages, however some stages will be harder than others and may take more time.
     
-    The first few sessions will be the most challenging if you are new to Unity. Don't be afraid to take things slow.
+    The first few stages will be the most challenging if you are new to Unity. Don't be afraid to take things slow.
 
 >Session 1
 
 **Objective:** Setting up and creating basic zombies
 
+**Difficulty:**
+
+- Easy: Set up the zombies and the zombie spawner.
+- Medium: Add walking animations to zombies.
+- Hard: Create diffe
+rent types of zombies!
+
 >Session 2
 
 **Objective:** Setting up plants and game manager component
+
+**Difficulty:**
+
+- Easy: Set up the grid and the peashooters.
+- Medium: Add animations to peashooters.
+- Hard: Create different types of plants!
 
 >Session 3:
 
 **Objective:** Creating bullets and shooting scripts
 
+**Difficulty:**
+
+- Easy: Set up bullets to shoot the zombies!
+- Medium: Add animations for bullets.
+- Hard: Create bullets for each of the new plants you made.
+
 >Session 4:
 
 **Objective:** Creating suns and sunflowers
 
+- Easy: Set up sunflowers.
+- Medium: Add animations to sunflowers.
+- Hard: Create advanced sunflower mechanics.
+
 >Session 5:
 
 **Objective:** Making zombies aggressive and dangerous
+
+- Easy: Set up zombie damage mechanics.
+- Medium: Add attack animations to zombies.
+- Hard: Create the damage mechanics for your new zombies.
