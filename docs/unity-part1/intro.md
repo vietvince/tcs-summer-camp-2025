@@ -11,7 +11,7 @@ Prepare for an exciting coding journey in 2D game development! With your Code Co
 
 <iframe style={{}} width="917" height="516" src="https://player.vimeo.com/video/966024287?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" title="Unity 2D" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-## How this Tutorial is Designed
+## How this Tutorial is Designed 📚✏️
 
 Get ready for an awesome recreation of Plant vs. Zombies with your own twist! Each stage offers three difficulty options and you get to choose which challenge you think you can conquer!
 
@@ -19,7 +19,7 @@ Get ready for an awesome recreation of Plant vs. Zombies with your own twist! Ea
 - **Medium (Recommended):** Polish your game to make an even cooler version!
 - **Hard:** Try the challenge alone, using your skills try creating your own twist to the game!
 
-## What is Plants vs. Zombies?
+## What is Plants vs. Zombies? 🧟🪴
 
 Plants vs. Zombies is a timeless classic that has over 200 million downloads! In Plants vs. Zombies, players place different types of plants and fungi, each with their own unique offensive or defensive capabilities, around a house, in order to stop a horde of zombies from reaching their house!
 
