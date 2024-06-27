@@ -7,42 +7,44 @@ toc_max_heading_level: 3
 
 # Stage 4: Sun and Sunflowers
 
-
 ## Objective 🧐🗿
 
-We are gonna make the whole lawn shine bright with all the suns both from the sky and sunflowers! 
+In this lesson, we're going to illuminate our game world by making suns drop from the sky and sunflowers generate suns. Before we start, let's create a plant script for both the peashooter and the upcoming sunflower.
 
-<span style={{ fontSize: '30px' }}>**BEFORE WE START**</span>
+## Step 1 - Set Up the Plant Script 🌳📜
 
-Lets make a plant script that we are going to give to the peashooter and the incoming sunflower object.
+### 1.1 Implement the Code
 
-Here is your favorite part, the pseudocode:
+**📝 Pseudocode for Plant Script:**
 
-``` csharp
-public class Plant : MonoBehaviour
+```csharp
+Plant Class:
+   Declare variables:
+     - health: an integer to store the health of the plant
+     - tile: a Transform indicating the tile where the plant is placed
 
-Declare variables:
-    - health: an integer to store the health of the plant
-    - tile: a Transform indicating the tile where the plant is placed
+   Start method:
+     - Set the layer of the gameObject to 9 (or another specified layer for interaction within Unity)
 
-Start method:
-    - Set the layer of the gameObject to 9 (commonly used for a specific interaction layer in Unity)
 ```
 
-Thats it for now, we are going to be adding a hit function to the plant script in Session 5 so the zombies can eat them.
+Ensure each plant in Unity has an assigned health value.
 
-Now go back to Unity and give each plant a hp number. 
+## Step 2 - Sun Drops and Sunflowers 🌞🌻
 
-## Sun Drops and Sunflowers 🌞🌻
+### 2.1 Implement the Code
 
-### Create Sun Object
+Create a new object for the sun:
 
-The sun will be another object in our game with a sprite renderer with a sprite image of your choice and a box collider 2D as its components, oh and of course the sun script. 
+- Components: Sprite Renderer, Box Collider 2D, Sun Script
 
-``` csharp
-public class sunScript : MonoBehaviour
+- Sprite: Choose an image that looks sunny!
 
-  Declare variables:
+**📝 Sun Script Pseudocode:**
+
+```csharp
+SunScript Class:
+   Declare variables:
      - dropDownPosition: a float indicating the y-coordinate to which the sun should drop
      - speed: a float set to 1.4f to control the movement speed of the sun
      - targetPosition: a Vector3 to store the target position where the sun should stop
@@ -57,89 +59,101 @@ public class sunScript : MonoBehaviour
          - Move the sun towards the target position at a rate of 'speed * Time.deltaTime'
          - Check if the distance between the current position and target position is less than 0.01
              - If true, set 'hasReachedTarget' to true indicating the sun has stopped moving
+
+```
+## Step 3 - Create the SunSpawner 🌞📦
+
+### 3.1 Implement the Code
+
+Place a SunSpawner object above the lawn:
+
+**📝 Sun Spawner Pseudocode:**
+
+```csharp
+SunSpawner Class:
+   Declare variables:
+     - sunObject: a GameObject reference for the sun object to be spawned
+
+   Start method:
+     - Schedule the SpawnSun method to be called after a random delay between 3 and 9 seconds
+
+   SpawnSun method:
+     - Instantiate a new sunObject at a random x-coordinate between -4.71 and 6.9, y-coordinate fixed at 6, and z-coordinate fixed at 0 with no rotation (Quaternion.identity)
+     - Set the dropDownPosition of the instantiated sun to a random y-coordinate between 2 and -3
+     - Schedule the SpawnSun method to be called again after a random delay between 3 and 9 seconds
+
 ```
 
-### Create SunSpawner Object
+## Step 4 - Edit the GameManager 🎮👨‍💼
 
-Now instead of a zombie spawner, we will make a sunspawner object, you can put it above the lawn in our scene, it will only have the default transform component and the upcoming Sun Spawner script component. 
+### 4.1 Implement the Code
 
-### Sun Drops (Sun Spawner)
+Modify the GameManager to collect suns using a raycast and mouse interaction.
 
-Remember how we made random zombie spawns from our first session? We will do almost the same thing here:
+**📝 GameManager Pseudocode:**
 
-- We are gonna make the sun drop randomly in an area in a random position and a random time frame between drops.
+Modify the GameManager to collect suns using a raycast and mouse interaction.
 
-Here is the pseudocode:
+```csharp
 
-``` csharp
-public class SunSpawner : MonoBehaviour
-
-Declare variables:
-
-    sunObject: a GameObject reference for the sun object to be spawned
-
-Start method:
-
-    Call the SpawnSun method to initiate sun spawning
-
-SpawnSun method:
-
-    Instantiate a new sunObject at a random x-coordinate between -4.71 and 6.9, y-coordinate fixed at 6, and z-coordinate fixed at 0 with no rotation (Quaternion.identity)
-    Set the dropDownPosition of the instantiated sun to a random y-coordinate between 2 and -3
-    Schedule the SpawnSun method to be called again after a random delay between 3 and 9 seconds
+Update method:
+   - Check if the left mouse button is pressed
+   - Create a ray from the camera through the mouse position
+   - Perform a raycast in 2D to detect if any object with a specific mask (sunMask) is hit
+   - If an object is hit by the raycast:
+       - Increase the suns counter by 25 (presumably, suns act as a resource or score)
+       - Destroy the object that was hit (removing the sun from the scene)
 ```
 
-Now we should have suns dropping from the skies, however we are not quite done yet. 
+## Step 5 - Create the Sunflower 🌻📦
 
-### Edit the Game Manager
+### 5.1 Implement the Code
 
-We are gonna edit the GameManager script so it will give us sun when we pick them up.
+Duplicate the peashooter object, replace its sprite with a sunflower, and modify the script for sun production.
 
-- Add a a new variable called sunHit and an if statement in our existing Update function. 
+**📝 Sun Script Pseudocode:**
 
-Here is the pseudocode instructions:
+```csharp
+SunFlower Class:
+   Declare variables:
+     - sunObject: a GameObject reference for the sun object to be spawned
+     - cooldown: a float representing the time between spawns
 
-``` csharp
-Define variables:
+   Start method:
+     - Schedule the SpawnSun method to be called repeatedly every 'cooldown' seconds starting after the first 'cooldown' period
 
-sunHit: Store the result of a raycast starting from the mouse position, directed towards an infinite distance, only intersecting with objects on the sunMask layer
+   SpawnSun method:
+     - Calculate the drop position to be half a unit below the current y-coordinate of the SunFlower
+     - Instantiate a new sunObject at the calculated position with no rotation (Quaternion.identity)
 
-Check if the raycast hit a collider:
 
-If there is a collider detected by the raycast
-Check if the left mouse button (button 0) is pressed
-
-If true:
-Increase a suns counter by 25 (assumed to be a resource or score variable)
-
-Destroy the GameObject that the raycast hit
 ```
 
-### Sunflower
+<details>
+    <summary><strong>Medium: Add Sunflower Animation</strong></summary>
 
-Now we are ready to make our sunflower! First duplicate the peashooter object and change the sprite image to a sunflower. We are going to remove the bullet origin and change the shoot script to a sunflower script. 
-The original peashooter stays the same. Don't forget to add a box collider 2D to this sunflower! 
+**Goal: Implement interactive behaviors for the sun and sunflower.**
 
-Inside the sunflower script, we are going to do this :
+    **6.1 Gather your assets**
 
-``` csharp
-public class sunFlower : MonoBehaviour
+    Search online for sunflower assets to animate! Preferably a sunflower sheet with a different image for each frame. 
 
-    Declare variables:
+    **6.2 Editing the sheet**
 
-    sunObject: a GameObject reference for the sun object to be spawned
-    cooldown: a float representing the time between spawns
+    Use the sprite editor and slice the sheet file, then replace the existing sunflower object's sprite with the sunflower sheet. 
 
-    Start method:
+    **6.3 Animate**
 
-    Schedule the SpawnSun method to be called repeatedly starting after 'cooldown' seconds and repeating every 'cooldown' seconds
+    Use the animation editor to create an animation! Simply drag the images onto the editor and click play until the animation looks right. 
+</details>
 
-    SpawnSun method:
+<details>
+    <summary><strong>Hard: Dynamic Sunflower Behaviors</strong></summary>
 
-    Instantiate a new sunObject at the current position of the SunFlower with no rotation (Quaternion.identity)
-    Set the dropDownPosition of the instantiated sun to be half a unit below the current y-coordinate of the SunFlower
-```
+**Goal: Enhance sunflower mechanics for advanced gameplay.**
 
-Now you should be able to plant the sunflower and watch it produce more and more sun! 
+- **Variable Sun Production**: Make sun production rates vary based on the time of day in-game. Sunflowers produce more frequently when it is first planted and gradually the production speed decreases or increases.
+- **Sunflower Limitations**: Set the maximum number of sunflowers that are allowed to be planted to make the user think twice before spam buying sunflowers.
+</details>
 
-<span style={{ fontSize: '30px' }}>**Moving on, make sure the sunflower and the peashooter both function correctly, and then we are gonna finish off by making the zombies able to attack our plants once they get in range.**</span>
+- [x] **Ensure both the sunflower and the peashooter are functioning correctly before moving on. In the next session, we'll focus on enabling zombies to attack our plants.**

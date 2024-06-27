@@ -9,59 +9,83 @@ toc_max_heading_level: 3
 
 ## Objective 🧐🗿
 
+In this session, we're adding a twist to our game by allowing zombies to attack and potentially destroy the plants if they get too close. Prepare for a battle where plants must defend against the undead!
+
 It is not fair that only plants get to do damage to zombies. The zombies will now fight back and eat the plants as well if they get too close! (muhahahahaha)
 
-## Zombie Attacks and Danger 🧟‍♂️⚠️
+## Step 1 - Zombie Attacks and Danger 🧟‍♂️⚠️
 
-### Editing Original Zombie Script
+### 1.1 - Edit the Original Zombie Script
 
-We are now gonna give our zombie a lot more features including damage and range etc. Open up the zombie script inside the zombie object and lets get to coding! 
-    
-This will be a big chunk of code, so if you ever need to double check and slow down don't be disencouraged to do so. 
+We're enhancing our zombies with new capabilities including attack damage and range. Let’s dive into the zombie script and start coding!
 
-``` csharp
-Declare variables:
-  - bullet: a GameObject reference for the bullet to be shot
-  - shootPosition: a Transform where bullets will be instantiated from
-  - cooldown: a float representing the time between shots
-  - canShoot: a boolean to control when the shooter can fire next
-  - range: a float defining how far the shooter can detect targets
-  - shootMask: a LayerMask determining which layers the raycast can hit
-  - target: a GameObject that will store the currently detected target
+**📝 Zombie Script Pseudocode:**
 
-Start method:
-  - Invoke the ResetCooldown method after a delay equal to 'cooldown' to allow shooting
+```csharp
+Zombie Class:
+   Declare variables:
+     - attackDamage: an integer for the damage the zombie will cause
+     - health: an integer for the health of the zombie
+     - range: a float defining how far the zombie can detect plants
+     - target: a GameObject that will store the currently detected plant
 
-Update method:
-  - Perform a raycast starting from the current position going right, up to 'range', and only hitting objects on the 'shootMask' layer
-  - If the raycast hits a collider:
-      - Set 'target' to the GameObject hit by the raycast
-      - Call the Fire method
+   Start method:
+     - Set 'target' to null initially
 
-ResetCooldown method:
-  - Set 'canShoot' to true to enable shooting
+   Update method:
+     - Perform a raycast within 'range' to detect plants
+     - If a plant is within range, set 'target' to the plant
 
-Fire method:
-  - If 'canShoot' is false, exit the method to prevent firing
-  - Set 'canShoot' to false to enforce cooldown
-  - Invoke the ResetCooldown method after 'cooldown' seconds to reset the shooting ability
-  - Instantiate a bullet at 'shootPosition' with default orientation (no rotation)
+   OnTriggerStay2D method:
+     - Check if the target is a plant
+     - If true, reduce the plant's health by 'attackDamage' every second
+
 ```
+### 1.2 - Testing Zombie Interactions:
 
-Test it out by placing a plant right next to a zombie and see if the plant dies.
-- The plant should die in a few seconds (unless the plant has 9999999 hp).
+Place a plant next to a zombie and observe:
 
-### Next steps
+  - The plant should lose health and potentially die, demonstrating the zombie's attack capabilities.
+
+
+### 1.3 - Next steps
 
 Now we have a basic combat system between plants and zombies! Now it is up to you to make your game cool with:
-- More UIs,
-- plants,
-- and zombies.
+- UIs
+- Plants
+- Zombies.
 
 Don't forget to revisit your scripts if you want certain properties to be changed.
 
 For example: "The zombie does too much damage, it is too OP!!!". You can easily change the data number by visiting the zombie object and giving it a new value. 
 
-### Final touches
+<details>
+    <summary><strong>Medium: Add Zombie Animation</strong></summary>
 
-For the final touches, well, there is not much to say other than make your game fun and colorful! 
+**Goal: Implement interactive behaviors for the sun and sunflower.**
+
+    **2.1 Gather your assets**
+
+    Search online for zombie animation sprites. Choose a sprite sheet with various frames that depict different stages of movement or attack.
+
+    **2.2 Editing the sheet**
+
+    Open the sprite editor in Unity and slice the sprite sheet to separate each frame. Ensure each frame is isolated for individual animations.
+
+    **2.3 Animate**
+
+    Utilize Unity's animation editor to compile the frames into a coherent animation. Drag the frames into the animation timeline and adjust the sequence and timing until the zombie's movements look natural and engaging.
+</details>
+
+<details>
+    <summary><strong>Hard: Dynamic Zombie Behaviors and Types</strong></summary>
+
+**Goal: Enhance zombie mechanics for advanced gameplay.**
+- **Zombie Health Randomizer**: Make the zombie health random between different zombies to confuse the plants! 
+
+- **Zombie Limitations**: Set the maximum number of zombies that are in the game. 
+
+- **Multiple types of zombies**: Add conehead, buckethead, or whichever zombie type you like into your game! 
+</details>
+
+- [x] **Once your zombie is eating the plants and dying to the plants as well, congradulations you have just made Plants vs Zombies in a nutshell!**
