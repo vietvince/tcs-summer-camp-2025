@@ -9,123 +9,125 @@ toc_max_heading_level: 3
 
 ## Objective 🧐🗿
 
-We are going to make plants behave, well, like plants! We are also going to tackle the overall GameManager system in this script. This will be a big scripting day, lets do this. 
+In this session, we will implement the behavior and management of plants in our game, including the integration with the GameManager to control game dynamics. This session focuses heavily on scripting to make our plants functional and interactive.
 
-Also, when we are making the scripts, we need to make sure we are also putting these scripts in the corresponding plant objects in Unity! Scripts are just part of an object's component. 
+## Step 1 - Set Up the Game Interface 🖋️💻
 
-## Writing the Scripts 🖋️💻
+### 1.1 Create the UI
 
-### Create the UI
-    
-There are many ways you can design your UI, but you can use our setup if you like. 
+Design your User Interface (UI) to interact with plants:
 
-- First, make a frame that will capture everything of this UI. 
+- **Main Frame**: Create a main frame in Unity's Canvas to contain all UI elements.
+- **Background**: Add an image component that serves as the backdrop for your UI.
+- **Plant Card Frame**: Construct another frame within the main frame to house plant cards.
+- **Plant Cards**: Each card should have:
+  - An Image component for the background.
+  - Another Image component for the plant's depiction.
+  - A Text component displaying the cost of the plant.
 
-- Insert a background as a Image object.
+Customize your UI to reflect the theme and aesthetics of your game.
 
-- Create another frame that will capture all the plant cards.
+### 1.2 Create the Grid
 
-- Create the plant cards with an image component for the card background, the plant image, and text that will display its cost. 
+Organize your game space:
 
-- Again, there are many ways to design this, make it unique and to your liking. 
+- **Grid Container**: Create an empty GameObject named 'Grid' to act as the container for the grid cells.
+- **Grid Cells**: Use Image UI elements to form a grid of 5x9 cells (like the classic setup in plant defense games).
+  - Adjust each cell's transparency to give a glass-like appearance, enhancing the visual integration of plants.
 
-### Create the Grid
-    
-- First, for good organization, let us make a empty object called Grid and just leave it blank. It should only have the transform as its default component. 
+## Step 2 - Create the Plant Scripts 🌱📜
 
-- Now, we will need to create an image UI and make them into the shape of a rectangle.
-    - Make sure it fits in the corresponding background slot.
-    - You should have an approximate 44 white square grid.
+### 2.1 Implementing Plant Behavior Scripts
 
-- We now need to create a layer for the grids so it will appear above the background. 
+**📝 Tile Pseudocode**
 
-- Now, let's make the grid's color barely see through, like glass.
-    - This will make the plants look nicer when placed.
+Create a straightforward script called `Tile`:
 
-### Create the Tile Script
+- **hasPlant**: A boolean to track whether a plant is present on the tile.
 
-This will be the easiest script that has ever been scripted. 
+Attach this script to each grid cell.
 
-- Make a new script called Tile.
-    - Inside this object there should only be one boolean variable called hasPlant (or whatever name you want).
+**📝 Plant Slot Pseudocode**
 
-- **That's it.** Now add the script to each of the grids that you created above. 
-    
-
-### Create the PlantSlot Script
-
-This will be the script to show the plants in the UI. Here is the pseudocode for it:
+Develop a script to manage the plant UI:
 
 ```csharp
-public class PlantSlot : MonoBehaviour
+PlantSlot Class:
+   Declare variables:
+     - plantSprite: a Sprite representing the plant's image
+     - plantObject: a GameObject for the plant itself
+     - price: an integer representing the cost of the plant
+     - icon: an Image component to display the plantSprite
+     - priceText: a TextMeshProUGUI component to display the price of the plant
 
-Declare a public sprite for plantSprite
+   OnValidate method:
+     - Check if the plantSprite is not null:
+         - Enable the icon
+         - Set the icon's sprite to the plantSprite
+         - Set the priceText to display the plant's price
+     - If the plantSprite is null:
+         - Disable the icon
 
-Declare a public GameObject for plantObject
-
-Declare a public integer for price
-
-Declare a public Image for icon
-
-Declare a public TextMeshProUGUI for priceText
-
-Define private method OnValidate
-    If plantSprite exists
-        Enable the icon
-        Set the icon's sprite to plantSprite
-        Set the priceText to the string value of price
-    Else
-        Disable the icon
 ```
+### 2.2 GameManager Script
 
-After creating the script, go back and assign the values to the Unity object back in Unity. For the text font, you can pick whichever font you like!
+Create a comprehensive script to manage game interactions. This is like the script of saying how does the game work.
 
-Remember the code above is just a pseudocode version that represents the idea, you will have to implement it through correct syntax!
-
-### GameManager Script
-
-Now we will need a script that will control how the game will work, for example we need to plant a plant on a grid. 
-
-Below will be the pseudocode for the GameManager:
+A large wave of code is approaching: 
 
 ```csharp
-Define the GameManager Class:
-This class inherits from Unity's MonoBehaviour, allowing it to function as a component in Unity.
+GameManager Class:
+   Declare variables:
+     - currentPlant: a GameObject representing the currently selected plant
+     - currentPlantSprite: a Sprite representing the currently selected plant's image
+     - tiles: a Transform representing the parent of all tile objects
+     - tileMask: a LayerMask used to filter raycast hits to only include tile objects
 
-Declare Variables:
-currentPlant: Stores the currently selected plant GameObject.
-currentPlantSprite: Stores the sprite of the currently selected plant.
-tiles: Stores the parent transform of all tile objects.
-tileMask: Used to identify tile objects in the scene.
+   BuyPlant method:
+     - Set currentPlant to the plant GameObject passed as an argument
+     - Set currentPlantSprite to the sprite passed as an argument
 
-BuyPlant Method:
-This method is used to set the currently selected plant and its sprite. It takes two parameters: a plant GameObject and a sprite.
-
-Update Method:
-This method is called once per frame.
-
-It performs a raycast from the camera to the mouse position to detect tile objects.
-
-For each tile, it disables its sprite renderer to ensure no tiles are highlighted initially.
-If the raycast hits a tile and a plant is currently selected:
-
-        It gets the sprite renderer of the hit tile.
-        Sets the sprite renderer to display the sprite of the selected plant and enables it.
-        If the left mouse button is clicked and the hit tile does not already have a plant:
-
-            It creates an instance of the selected plant at the position of the hit tile.
-            Marks the tile as having a plant by setting the hasPlant property to true.
-            Clears the selected plant and its sprite to indicate that the plant has been placed.
+   Update method:
+     - Create a ray from the camera to the mouse position
+     - Perform a raycast using the ray, checking up to a distance of 100 units, and only considering objects on the tileMask layer
+     - If a raycast hit occurs:
+       - Retrieve the Tile component from the hit object
+       - If the tile exists, does not already have a plant, and a plant is currently selected:
+         - Check if the left mouse button is pressed
+         - If true, instantiate the currentPlant at the hit position with no rotation
+         - Set the tile's hasPlant property to true to indicate a plant has been placed
+         - Reset currentPlant and currentPlantSprite to null to indicate no plant is currently selected
 
 ```
 
-Remember we will come back to visit the gamemanager script a lot, but for now this will do. 
 
-### One Last Thing
+<details>
+    <summary><strong>Medium: Add peashooter animations</strong></summary>
 
-We need to go back to the PlantSlot script and:
-- Add a new variable called private Gamemanager gms.
-- Then, we will need a new function called BuyPlant() that will use the GameManager we just made to actually by the plant.
-- We will need to pass in the plantObject and the plantSprite as arguments. 
 
-<span style={{ fontSize: '30px' }}>**WOO HOO! Once you are able to plant the peashooter in the grids, you are done!**</span>
+**Goal: Implement interactive behaviors for the peashooooooooter.**
+
+    **3.1 Gather your assets**
+
+    Search online for peashooter assets to animate! Preferably peashooter sheet with a different image for each frame. 
+
+    **3.2 Editing the sheet**
+
+    Use the sprite editor and slice the sheet file, then replace the existing peashooter object's sprite with the peashooter sheet. 
+
+    **3.3 Animate**
+
+    Use the animation editor to create an animation! Simply drag the images onto the editor and click play until the animation looks right. 
+
+</details>
+
+<details>
+    <summary><strong>Hard: Add multiple plants</strong></summary>
+
+**Goal: Implement other plants other than the peashooter.**
+
+    **Suggestions:**
+
+        Walnut, repeater, talnut, potato mine, and my personal favorite cactus. 
+
+</details>

@@ -36,8 +36,7 @@ Plants vs. Zombies is a timeless classic that has over 200 million downloads! In
 
 - Easy: Set up the zombies and the zombie spawner.
 - Medium: Add walking animations to zombies.
-- Hard: Create diffe
-rent types of zombies!
+- Hard: Create different types of zombies!
 
 >Session 2
 

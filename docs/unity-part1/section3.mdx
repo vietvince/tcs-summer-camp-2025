@@ -47,7 +47,7 @@ public class Bullet : MonoBehaviour
      - damage: an integer for the damage the bullet will cause
      - speed: a float for the bullet's movement speed
 ```
-### 2.2 Start and Update Methhods 
+### 2.2 Start and Update Methods 
 
 ```csharp
 //...
@@ -94,20 +94,20 @@ public class Shoot : MonoBehaviour
      - target: a GameObject that will store the currently detected target
 ```
 
-### 3.2 Start and Update Methhods
+### 3.2 Start and Update Methods
 
 ```csharp
     Start method:
      - Invoke the ResetCooldown method after a delay equal to 'cooldown' to allow shooting
 
-   Update method:
+    Update method:
      - Perform a raycast starting from the current position going right, up to 'range', and only hitting objects on the 'shootMask' layer
      - If the raycast hits a collider:
          - Set 'target' to the GameObject hit by the raycast
          - Call the Fire method
 ```
 
-### 3.3 ResetCooldown and Fire Methhods
+### 3.3 ResetCooldown and Fire Methods
 
 ```csharp
    ResetCooldown method:
@@ -129,19 +129,19 @@ public class Shoot : MonoBehaviour
 
     <br  />
 
-    **3.4 Gather your assets**
+    **4.1 Gather your assets**
 
     Search online for peashooter assets to animate!
 
-    **3.5 Animate**
+    **4.2 Animate**
 
     Use the animation editor to create an animation!
 
-    **3.6 Tie it together using the animator!**
+    **4.3 Tie it together using the animator!**
 
     Use the animator to connect your animation transitions using parameters. You will want to make a trigger parameter.
 
-    **3.7 Add it to the script!**
+    **4.4 Add it to the script!**
 
     In your script do the following:
 
@@ -181,15 +181,15 @@ public class Shoot : MonoBehaviour
         ![stage1Medium](../../static/img/un1/MegaPeashooter.gif)
   </div>
 
-  **4.1 Gather your assets**
+  **5.1 Gather your assets**
 
   Search online or create your own assets for your enemy
 
-  **4.2 Script your mechanics**
+  **5.2 Script your mechanics**
 
   Modify the shoot and bullet script to fit the needs of your newly designed plant.
 
-  **4.3 Animate**
+  **5.3 Animate**
 
   Follow the same animation steps from medium
 
