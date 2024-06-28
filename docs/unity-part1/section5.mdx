@@ -13,9 +13,9 @@ In this session, we're adding a twist to our game by allowing zombies to attack 
 
 It is not fair that only plants get to do damage to zombies. The zombies will now fight back and eat the plants as well if they get too close! (muhahahahaha)
 
-## Step 1 - Zombie Attacks and Danger 🧟‍♂️⚠️
+## Step 1 - Scripting Zombie Attacks 🧟‍♂️⚠️
 
-### 1.1 - Edit the Original Zombie Script
+### 1.1 Edit the Original Zombie Script Variables
 
 We're enhancing our zombies with new capabilities including attack damage and range. Let’s dive into the zombie script and start coding!
 
@@ -28,51 +28,142 @@ Zombie Class:
      - health: an integer for the health of the zombie
      - range: a float defining how far the zombie can detect plants
      - target: a GameObject that will store the currently detected plant
+```
+### 1.2 Edit the Start and Update Methods
 
-   Start method:
+```csharp
+     Start method:
      - Set 'target' to null initially
 
    Update method:
      - Perform a raycast within 'range' to detect plants
      - If a plant is within range, set 'target' to the plant
+```
+### 1.3 Edit the Collision Method
 
+```csharp
    OnTriggerStay2D method:
      - Check if the target is a plant
      - If true, reduce the plant's health by 'attackDamage' every second
-
 ```
-### 1.2 - Testing Zombie Interactions:
+
+## Step 2 - Testing Zombie Interactions 🧟‍♂️
+
+### 2.1 Adjusting Zombie Values
 
 Place a plant next to a zombie and observe:
 
   - The plant should lose health and potentially die, demonstrating the zombie's attack capabilities.
+  - The zombie should have limited range, ensure the zombie's range is realistic.
 
-
-### 1.3 - Next steps
+## Step 3 - Next steps 🤔 💭
 
 Now we have a basic combat system between plants and zombies! Now it is up to you to make your game cool with:
-- UIs
+
 - Plants
-- Zombies.
+- Zombies
+- UIs
 
-Don't forget to revisit your scripts if you want certain properties to be changed.
+### 3.1 Plants
 
-For example: "The zombie does too much damage, it is too OP!!!". You can easily change the data number by visiting the zombie object and giving it a new value. 
+- **Wall-nut:**
+  - Design a robust, 3D model of a walnut with a hard shell.
+  - Implement a health system to absorb damage from incoming enemies.
+  - Create animations for cracking and breaking when health is depleted.
+
+- **Snow Pea:**
+  - Model a Peashooter variant with icy textures and effects.
+  - Implement a slowing effect on enemies hit by its peas.
+  - Adjust projectile behavior to decrease enemy movement speed upon impact.
+
+- **Potato Mine:**
+  - Design a mine model with a simple, round shape.
+  - Implement an arming time mechanic before it becomes active.
+  - Create explosion effects and damage calculations for nearby enemies.
+
+- **Cactus:**
+  - Model a cactus with thorny textures and desert-themed appearance.
+  - Implement a long-range shooting mechanic with piercing projectiles.
+  - Create animations for shooting spikes and reloading.
+
+- **Chomper:**
+  - Model a carnivorous plant with a large mouth and teeth.
+  - Implement a close-range attack that devours enemies.
+  - Create animations for biting and chewing enemies.
+
+You can always design your own plants these are just suggestions.
+
+### 3.2 Zombies
+
+- **Conehead Zombie:**
+  - Model a basic zombie with a traffic cone on its head for extra protection.
+  - Implement a health system where the cone absorbs a certain amount of damage before being destroyed.
+  - Create animations for the cone being knocked off and the zombie continuing to advance.
+
+- **Pole Vaulting Zombie:**
+  - Model a zombie carrying a pole for vaulting over obstacles.
+  - Implement a vaulting mechanic where the zombie can jump over one plant.
+  - Create animations for the vaulting action and transitioning back to normal movement.
+
+- **Football Zombie:**
+  - Design a zombie in football gear with high durability and speed.
+  - Implement higher health and faster movement compared to regular zombies.
+  - Create animations for tackling plants and running.
+
+- **Digger Zombie:**
+  - Design a zombie with a shovel for digging underground.
+  - Implement a tunneling mechanic where the zombie can move under plants and emerge in the back rows.
+  - Create animations for digging, underground movement, and emerging from the ground.
+
+- **Gargantuar:**
+  - Model a large, hulking zombie with a high damage output.
+  - Implement very high health and a powerful attack that can smash multiple plants at once.
+  - Create animations for smashing, throwing smaller zombies, and taking damage.
+
+You can always design your own Zombies these are just suggestions.
+
+### 3.3 UI
+
+- **Health Bars:**
+  - Display health bars above plants and zombies to show their current health status.
+  - Use different colors (green, yellow, red) to indicate health levels.
+  - Implement animations for health bar changes to visually indicate damage or healing.
+
+- **Plant Selection Bar:**
+  - Design a horizontal or vertical bar with icons of available plants for selection.
+  - Implement tooltips or descriptions when hovering over plant icons.
+  - Add cooldown indicators to show when a plant is ready to be placed again.
+
+- **Wave Progress Indicator:**
+  - Create a progress bar or icon that shows the player's current position in the level relative to the total number of waves.
+  - Use visual cues (e.g., markers, flashing lights) to indicate upcoming waves or special events.
+  - Add animations to the progress indicator for dynamic feedback.
+
+- **Pause Menu:**
+  - Implement a pause menu that allows players to pause the game and access options such as resume, restart, settings, and exit.
+  - Design a clean and intuitive layout with easily recognizable buttons.
+  - Include settings options for adjusting volume, graphics quality, and control configurations.
+
+- **Plant Cooldown Timer:**
+  - Design a visual indicator for each plant icon in the selection bar that shows the remaining cooldown time before the plant can be used again.
+  - Use a circular or linear progress bar overlaying the plant icon to represent the cooldown period.
+  - Implement color changes and/or animations (e.g., fading, pulsing) to highlight when a plant is ready for use.
+  - Include tooltips or small text indicators that show the exact remaining cooldown time when hovering over the plant icon.
 
 <details>
     <summary><strong>Medium: Add Zombie Animation</strong></summary>
 
 **Goal: Implement interactive behaviors for the sun and sunflower.**
 
-    **2.1 Gather your assets**
+    **4.1 Gather your assets**
 
     Search online for zombie animation sprites. Choose a sprite sheet with various frames that depict different stages of movement or attack.
 
-    **2.2 Editing the sheet**
+    **4.2 Editing the sheet**
 
     Open the sprite editor in Unity and slice the sprite sheet to separate each frame. Ensure each frame is isolated for individual animations.
 
-    **2.3 Animate**
+    **4.3 Animate**
 
     Utilize Unity's animation editor to compile the frames into a coherent animation. Drag the frames into the animation timeline and adjust the sequence and timing until the zombie's movements look natural and engaging.
 </details>
@@ -84,8 +175,6 @@ For example: "The zombie does too much damage, it is too OP!!!". You can easily 
 - **Zombie Health Randomizer**: Make the zombie health random between different zombies to confuse the plants! 
 
 - **Zombie Limitations**: Set the maximum number of zombies that are in the game. 
-
-- **Multiple types of zombies**: Add conehead, buckethead, or whichever zombie type you like into your game! 
 </details>
 
 - [x] **Once your zombie is eating the plants and dying to the plants as well, congradulations you have just made Plants vs Zombies in a nutshell!**
