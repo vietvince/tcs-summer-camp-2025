@@ -7,15 +7,35 @@ toc_max_heading_level: 3
 
 # Stage 4: Sun and Sunflowers
 
-<iframe style={{}} width="917" height="516" src="https://player.vimeo.com/video/970271464?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" title="Unity 2D - Stage 4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
 ## Objective 🧐🗿
 
 In this lesson, we're going to illuminate our game world by making suns drop from the sky and sunflowers generate suns. Before we start, let's create a plant script for both the peashooter and the upcoming sunflower.
 
+<details>
+    <summary><strong>Coach Note!</strong></summary>
+
+  These are the topics you will be going over for this stage.
+
+  <details>
+    <summary><strong>Standard</strong></summary>
+
+    - Health and Damage Mechanics: Implementing and managing health variables for game objects and handling damage through methods.
+    - Layer Management in Unity: Understanding and utilizing layers to manage interactions and collisions in Unity.
+    - Object Pooling for Efficient Resource Management: Techniques for creating and managing a pool of reusable objects to optimize performance.
+  </details>
+
+  <details>
+    <summary><strong>Advanced</strong></summary>
+
+    - Raycasting for Object Interaction: Using raycasts to detect and interact with objects in a 2D space based on player input.
+    - Coroutine Usage for Timing and Delays: Implementing coroutines to manage timed actions and delays within Unity scripts.
+    - Dynamic Object Spawning and Management: Creating and controlling the behavior of dynamically spawned objects, including positioning and destruction based on conditions.
+  </details>
+</details>
+
 ## Step 1 - Set Up the Plant Script 🌳📜
 
-### 1.1 Initialize Variables
+### 1.1 Intialize Variables
 
 **📝 Pseudocode for Plant Script:**
 
@@ -59,7 +79,7 @@ Create a new object for the sun:
 
 - Sprite: Choose an image that looks sunny! 
 
-### 2.2 Initialize Variables
+### 2.2 Intialize Variables
 
 **📝 Sun Script Pseudocode:**
 
@@ -170,7 +190,7 @@ SunFlower Class:
 ```
 
 <details>
-    <summary><strong>Medium: Add Sunflower Animation</strong></summary>
+    <summary><strong>Medium: Add Sunflower Animation!</strong></summary>
 
 **Goal: Implement interactive behaviors for the sun and sunflower.**
 

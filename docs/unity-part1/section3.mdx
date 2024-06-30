@@ -7,11 +7,31 @@ toc_max_heading_level: 3
 
 # Stage 3: Shooting Bullets
 
-<iframe style={{}} width="917" height="516" src="https://player.vimeo.com/video/970270724?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" title="Unity 2D - Stage 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
 ## Objective 🧐🗿
 
 We are now going to make our peashooter shoot! Before we start here, make sure you are able to plant the peashooters on your grids from last session. 
+
+<details>
+    <summary><strong>Coach Note!</strong></summary>
+
+  These are the topics you will be going over for this stage.
+
+  <details>
+    <summary><strong>Standard</strong></summary>
+
+    - Different Variable Types in Unity Scripts: Explanation of common variable types (int, float, bool, GameObject, Transform) used in Unity scripting.
+    - Creating and Configuring GameObjects: Steps to create and configure GameObjects with components like Rigidbody2D and Box Collider2D.
+    - Using Transform Component for Positioning: Understanding how to use the Transform component to position and move GameObjects in the scene.
+  </details>
+
+  <details>
+    <summary><strong>Advanced</strong></summary>
+
+    - Collision Detection with OnTriggerEnter2D: How to use the OnTriggerEnter2D method to handle collision events and interact with other scripts.
+    - Implementing Cooldown Mechanisms: Explanation of how to implement cooldowns using boolean flags and Invoke methods in Unity scripts.
+    - Animating GameObjects with Animator Component: Using the Animator component to create and trigger animations in response to events in scripts.
+  </details>
+</details>
 
 ## Step 1 - Creating the Bullet Object 👾🔫
 
@@ -119,7 +139,7 @@ public class Shoot : MonoBehaviour
 ```
 
 <details>
-    <summary>**Medium: Add animations for bullets**</summary>
+    <summary>**Medium: Add animations for bullets!**</summary>
 
     <div className='image-wrapper'>
         ![stage1Medium](../../static/img/un1/Peashooter.gif)
@@ -129,7 +149,7 @@ public class Shoot : MonoBehaviour
 
     **4.1 Gather your assets**
 
-    Search online for peashooter assets to animate!
+    Search online for peashooter peas assets to animate!
 
     **4.2 Animate**
 
@@ -138,42 +158,10 @@ public class Shoot : MonoBehaviour
     **4.3 Tie it together using the animator!**
 
     Use the animator to connect your animation transitions using parameters. You will want to make a trigger parameter.
-
-    **4.4 Add it to the script!**
-
-    In your script do the following:
-
-    ```csharp
-    public Animator anim;
-    public GameObject Peashooter;
-
-    void Start()
-    {
-        //...
-
-        anim = Peashooter.GetComponent<Animator>();
-    }
-
-    //...
-
-    void Fire()
-    {
-        if (!canShoot)
-            return;
-
-        anim.SetTrigger("Name of your animation");
-
-        source.PlayOneShot(shootClips[Random.Range(0, shootClips.Length)]);
-        canShoot = false;
-        Invoke("ResetCooldown", cooldown);
-
-        GameObject myBullet = Instantiate(bullet, shootPosition.position, Quaternion.identity);
-    }
-    ```
 </details>
 
 <details>
-  <summary>**Hard: Create bullets for each of the new plants you made**</summary>
+  <summary>**Hard: Create bullets for each of the new plants you made!**</summary>
 
   <div className='image-wrapper'>
         ![stage1Medium](../../static/img/un1/MegaPeashooter.gif)
