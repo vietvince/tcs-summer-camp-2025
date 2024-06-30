@@ -9,9 +9,9 @@ Welcome to Unity 2D Part 1: Launch Your Own Tower Defense Game! Gear up, young d
 
 Prepare for an exciting coding journey in 2D game development! With your Code Coach guiding you, you'll design and build a tower defense game inspired by Plants vs. Zombies that's both strategic and engaging!
 
-<iframe style={{}} width="917" height="516" src="https://player.vimeo.com/video/966024287?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" title="Unity 2D" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe style={{}} width="917" height="516" src="https://player.vimeo.com/video/966024287?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" title="Unity 2D - Intro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-## How this Tutorial is Designed
+## How this Tutorial is Designed 📚✏️
 
 Get ready for an awesome recreation of Plant vs. Zombies with your own twist! Each stage offers three difficulty options and you get to choose which challenge you think you can conquer!
 
