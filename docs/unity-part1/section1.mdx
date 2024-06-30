@@ -13,6 +13,28 @@ toc_max_heading_level: 3
 
 Learn to set up the game environment and introduce basic zombie mechanics, creating a foundation for further development in Unity.
 
+<details>
+    <summary><strong>Coach Note!</strong></summary>
+
+  These are the topics you will be going over for the basics of unity
+
+  <details>
+    <summary><strong>Standard</strong></summary>
+
+    - Introduction to Unity Interface: Overview of the Unity Editor layout, main windows (Scene view, Game view, Hierarchy, Inspector, Project), and navigation tips.
+    - Classes, Variables, and Methods: Understanding MonoBehaviour classes, different variable types (int, float, bool, etc.), and common methods like Start() and Update().
+    - Components and Their Usage: Explanation of Unity components (Transform, Rigidbody, Collider), adding/removing/configuring components, and example interactions.
+    - Understanding X and Y Coordinates: Explanation of Unity's coordinate system (2D: X, Y), positioning objects, and using the Transform component.
+  </details>
+
+  <details>
+    <summary><strong>Advanced</strong></summary>
+
+    - In-depth Start and Update Methods: Detailed use of Start() for initialization and Update() for frame-based actions, including FixedUpdate() for physics.
+    - Frame Rate and Delta Time: Explanation of frame rate, Delta Time's role in movement/animations, and practical usage in Unity scripts.
+    - Interactions of Objects and Properties: How objects interact through collisions/triggers/physics, using public/private variables, properties, and methods in scripts.
+  </details>
+</details>
 
 ## Step 1 - Set Up the Environment 🌍🌱
 
@@ -102,32 +124,36 @@ Tip:
 If you find the interface unfamiliar or challenging, take extra time to experiment. Add various objects, explore different settings, and observe their effects in the Game View. Familiarity now will make advanced lessons more accessible.
 
 <details>
-    <summary><strong>Medium: Add reverse zombies.</strong></summary>
+    <summary><strong>Medium: Add walking animations for zombies!</strong></summary>
 
-**Goal: Add reverse zombies that go from right to left.**
+**Goal: Implement interactive animations for zombies.**
 
-    **4.1 Duplicate Your Existing Zombie**
+  **4.1 Gather your assets**
 
-        Copy your existing zombie GameObjects in Unity to create counterparts that will move in the opposite direction.
+    Search online for zombie assets to animate! Preferably a zombie sheet with a different image for each frame.
 
-    **4.2 Modify the move script**
+  **4.2 Editing the sheet**
 
-        Make it go on the other direction. (HMMMMMM)
+    Use the sprite editor and slice the sheet file, then replace the existing zombie object's sprite with the zombie sheet.
+
+  **4.3 Animate**
+
+    Use the animation editor to create an animation! Simply drag the images onto the editor and click play until the animation looks right.
 
 </details>
 
 <details>
-    <summary><strong>Hard: Add sound effect to zombie</strong></summary>
+    <summary><strong>Hard: Create your own zombies!</strong></summary>
 
-**Goal: Add sound effects when a zombie is on the lawn.**
+**Goal: Create different types of zombies!**
 
-    **5.1 Add sound to the zombie object**
+    **5.1 Gather your assets**
 
-        As a pro Unity developer, we must add some sounds to our zombies, our ears need to know when there is a zombie apocalypse. 
+       Search online for zombie assets to animate! Preferably a zombie sheet with a different image for each frame. 
 
-    **5.2 Add sound events**
+    **5.2 Create new behaviors**
 
-        Make sounds play when a certain event happens, like when a zombie spawns. 
+        Script your zombie to be unique by giving cool functionalities. 
 </details>
 
 - [x] **You're doing great! Stay curious and proactive in your learning. がんばって (Do your best)!**
