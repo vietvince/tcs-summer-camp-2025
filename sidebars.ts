@@ -86,4 +86,10 @@ export const unitySidebar1 = [
   },
 ];
 
+export const unitySidebar2 = [
+  {
+    'Unity Part 2: 2D Game Design': ['unity-part2/intro', 'unity-part2/setup', 'unity-part2/section1', 'unity-part2/section2', 'unity-part2/section3', 'unity-part2/section4', 'unity-part2/section5']
+  },
+];
+
 export default sidebars;

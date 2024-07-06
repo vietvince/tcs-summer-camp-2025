@@ -109,6 +109,12 @@ const config: Config = {
         },
         {
           type: "docSidebar",
+          sidebarId: "unitySidebar2",
+          position: "left",
+          label: "Un-2",
+        },
+        {
+          type: "docSidebar",
           sidebarId: "roboticsSidebar1",
           position: "left",
           label: "mBot-1",
