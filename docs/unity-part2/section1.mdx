@@ -1,6 +1,122 @@
 ---
-title: "Stage 1: "
+title: "Stage 1: Lawnmowers"
 sidebar_position: 3
 toc_min_heading_level: 2
 toc_max_heading_level: 3
 ---
+
+# Stage 1: LawnMowers
+
+## Objective 🧐🗿
+
+We are going to help out the players that are not good at video games. To do this, we will add a last line of defense to our game: LawnMowers. Instead of grass they will be cutting
+down zombies.
+
+## Step 1 - Set up the Environment 🌍🌱
+
+### 1.1 Unity Interface and Camera Movement Recap
+
+First, ensure you are operating in a 2D game environment. Go to **Edit > Project Settings > Editor** and enable **Enter Play Mode Options** for efficient testing.
+
+Familiarize yourself with key areas of the Unity Editor:
+
+- **Scene View**: Build and modify your game space.
+- **Game View**: Preview the game as you develop.
+- **Inspector**: Adjust settings and properties of selected game elements.
+
+**Navigation Tips**:
+- Rotate the scene with the right mouse button.
+- Pan using the middle mouse button or holding `Alt` + left mouse button.
+- Zoom in and out with the scroll wheel.
+
+Adjust the camera to cover the main gameplay area. This setting is crucial as it determines what the player sees.
+
+## Step 2 - Set up the Objects 📦🔧
+
+### 2.1 Finding a LawnMower
+
+**LawnMower Sprite**:
+- Create or find a lawnmower sprite to use for our game. (Or you can use a lambo)
+- If you are really good at drawing, bonus points for drawing one yourself. Just make sure the image will have a transparent background!
+
+### 2.2 Create Basic LawnMower Object
+
+**Setup**:
+- In Unity, create a new Sprite object in your scene and name it 'LawnMower'.
+- It will have a box collider 2D with onTrigger checked. 
+- It will always have  Rigidbody 2D with gravity scale equals to 0 and collision detection to continuous. 
+
+**Sprite Renderer**:
+- Attach your lawnmower sprite using the Sprite Renderer component to visualize the lawnmower in your game.
+
+**Transforms**:
+- Position the lawnmower to fit the scene appropriately. Adjust scale and rotation if necessary.
+
+## Step 3 - Set up the Lawnmower Script 🌿🚜
+
+### 3.1 Script Basic Lawnmower Movement
+
+Create a script named `LawnmowerMovement` to define basic behaviors:
+
+```csharp
+LawnMower Class:
+   Declare variables:
+      - isMoving: a boolean to track if the lawnmower is moving.
+      - speed: a float to define the speed of the lawnmower.
+      - sound: an audio clip for the sound effect.
+      - source: a private audio source to play the sound.
+
+   Start method:
+      - Add an audio source component to the game object.
+      - Assign the added audio source to the private variable source.
+
+   OnTriggerEnter2D method:
+      - Check if the collided object's layer is 7.
+      - If isMoving is false:
+      - Play the sound using the audio source.
+      - Call the hit method on the ZombieScript component of the collided object with parameters 100 and false.
+      - Set isMoving to true.
+      - Schedule the destruction of the game object after 8 seconds.
+
+    Update method:
+      - If isMoving is true, then update the position of the game object by adding (speed * Time.deltaTime, 0, 0) to its current position.
+```
+
+## Step 4 - Duplicate Lawnmowers 🔁🚜
+
+### 4.1 Create 5 Lawnmowers
+
+Lawnmower Object:
+- Create an empty object to store all five (or how ever many) lawnmowers for good organization. 
+
+**Tip:**
+If you find the interface unfamiliar or challenging:
+- Take extra time to experiment.
+- Add various objects, explore different settings, and observe their effects in the Game View. 
+- Familiarity now will make advanced lessons more accessible.
+
+<details>
+    <summary><strong>Medium: Add sounds to the lawnmower.</strong></summary>
+
+**Goal: Add sound effects when the lawnmower triggers.**
+
+    **5.1 Create an audio component**
+
+        After adding the component, assign a sound clip to the component. 
+
+    **5.2 Modify the script**
+
+        Make the sound play when the lawnmower triggers in the lawnmower script. 
+</details>
+
+<details>
+    <summary><strong>Hard: Make the lawnmower respawn after some time</strong></summary>
+
+**Goal: Create a way for the lawnmovers to respawn after used. **
+
+    **6.1 Add respawn script to lawnmower**
+
+        As a pro gamer, we will have to add a respawn time to our lawnmower script. Hint: Time. 
+</details>
+
+- [x] **You're doing great! Stay curious and proactive in your learning!**

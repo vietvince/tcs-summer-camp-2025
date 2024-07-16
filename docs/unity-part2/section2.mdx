@@ -1,6 +1,65 @@
 ---
-title: "Stage 2: "
+title: "Stage 2: Defensive Plants"
 sidebar_position: 3
 toc_min_heading_level: 2
 toc_max_heading_level: 3
 ---
+
+# Lesson 2: Defensive Plants
+
+## Objective 🧐🗿
+
+In this session, we will implement the behavior and management of some defensive plants, particularly Wall-nut. If you already implemented Wall-nut, well time for Tallnut! 
+
+
+## Step 1 - Creating the Wall-nut Object 🥜📦
+
+### 1.1 Creating the Wall-nut 
+
+You should already have a peashooter and the plant script inside the peashooter object (not the one in plant slots) working before this lesson. 
+
+- **Wall-nut sprite**: Find asset sprite transparent images to use in our Unity game. We will be looking for the Wall-nut.
+- **Creating our Wall-nut object**: Duplicate our existing peashooter object. It should already and change the sprite and sprite object.
+- **Wall-nut Doesn't attack**: The Wall-nut's job is not attacking, so we will be removing the shoot script from it. 
+
+## Step 2 - Designing the Wall-nut 🥜🔧
+
+### 2.1 Tweaking our Wall-nut Values
+
+Organize your game space:
+
+- **Properties assigning**: Give the Wall-nut a good chunk of health!
+- **Create the box collider**: Make the hit collider fit with the Wall-nut sprite. 
+
+### 2.2 Final Touches
+  Make sure the Wall-nut is able to be planted down and tank a bunch of hits from the zombie. Double check the plant script if Wall-nut doesn't act, well like a Wall-nut.
+
+
+<details>
+    <summary><strong>Medium: Add Wall-nut animations</strong></summary>
+
+
+**Goal: Implement interactive behaviors for the Wall-nut.**
+
+    **2.1 Gather your assets**
+
+    Search online for peashooter assets to animate! Preferably a Wall-nut sheet with a different image for each frame. 
+
+    **2.2 Editing the sheet**
+
+    Use the sprite editor and slice the sheet file, then replace the existing peashooter object's sprite with the peashooter sheet. 
+
+    **2.3 Animate**
+
+    Use the animation editor to create an animation! Simply drag the images onto the editor and click play until the animation looks right. 
+
+</details>
+
+<details>
+    <summary><strong>Hard: Add multiple sprite images for the Wall-nut when it is at different health points</strong></summary>
+
+**Goal: Implement a Wall-nut with 3 phases.**
+
+    The Wall-nut should have three different phases base on how much health he have. You will need to make a script inside the Wall-nut object, you got this!
+
+</details>
