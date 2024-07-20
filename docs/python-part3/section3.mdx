@@ -1,0 +1,159 @@
+---
+title: "Lesson 3"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+
+# Lesson 3: Building the Model
+
+## Objective 🧐🗿
+In this lesson, you’ll become a tech wizard and build your very own Super Smart Robot using TensorFlow and Keras! 
+
+Your mission is to create a basic Convolutional Neural Network (CNN) that can look at pictures and figure out what’s in them. Think of it like giving your robot eyes and a brain to recognize objects in images. 
+
+## Understanding CNN Models
+
+### What is a CNN?
+Imagine you have a super cool robot that can look at pictures and figure out what’s in them, like recognizing cats, dogs, or even different kinds of fruits. To do this, the robot needs a special way of looking at images, and that’s where CNNs come in.
+
+### How CNNs Work
+
+**1. Looking at Small Pieces:**
+
+Imagine you’re trying to solve a big jigsaw puzzle. You wouldn’t try to look at the whole puzzle at once; instead, you’d look at small pieces to figure out where they go. CNNs do something similar. They look at small pieces (or patches) of an image one at a time to understand what’s in it.
+
+**2. Finding Patterns:**
+
+Just like you might notice that a piece with blue edges is likely part of the sky, CNNs look for patterns in the small pieces of an image. These patterns could be edges, shapes, or colors. The CNN learns to recognize these patterns and uses them to figure out what’s in the whole picture.
+
+**3. Putting It All Together:**
+
+After looking at all the small pieces and finding patterns, CNNs combine this information to understand the entire image. It’s like putting all the jigsaw puzzle pieces together to see the complete picture.
+
+**4. Layers of Learning:**
+
+CNNs have different “layers” that each do a different job. Think of these layers like different levels of a video game where each level helps the robot get better at recognizing things. The first layer might find simple patterns, the next layer might find more complex shapes, and so on.
+
+
+## Step 1. Build Your CNN Model
+In a new code cell, following along with your coach!
+
+First, we'll need to import the following libraries:
+
+```python
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
+```
+
+Now, let's get to building our model!
+
+**1. Sequential Layers:**
+
+Our model is built in a sequential manner, layer by layer, similar to adding ingredients one after another in a recipe.
+
+`model = Sequential([`
+
+**2. Convolutional Layers:**
+
+`Conv2D(32, (3, 3), activation='relu', input_shape=(32, 32, 3)),`
+
+This is like the first artist's brushstroke! It uses 32 small brushes (filters) to paint over a 3x3 area of the picture. 
+
+The 'relu' activation function helps our model learn faster and better from the pictures. 
+
+It's like a magic ingredient that makes our model more accurate in recognizing patterns and shapes.
+
+**3. Pooling Layers:**
+
+`MaxPooling2D((2, 2)),`
+
+After painting detailed strokes, our model takes a step back and looks at the bigger picture. It pools the most important information from each 2x2 area of the picture. 
+
+It's like zooming out to see the whole forest instead of just one tree!
+
+**4. Adding Depth:**
+
+`Conv2D(64, (3, 3), activation='relu'),`
+
+Now our model adds more layers to its artwork, using 64 brushes to find even more intricate details in the picture.
+
+**5. More Perspective:**
+
+`MaxPooling2D((2, 2)),`
+
+Another step back to see the bigger picture again, pooling the highlights from each 2x2 area.
+
+**6. Flattening the Learning:**
+
+`Flatten(),`
+
+Time to flatten out everything our model has learned into a neat list. It's like organizing all our art findings into a clear report.
+
+**7. Thinking Deeply:**
+
+`Dense(64, activation='relu'),`
+
+Now, our model thinks deeply about what it's learned and adds 64 smart neurons to analyze the flattened information.
+
+**8. Making a Guess:**
+
+`Dense(10, activation='softmax')`
+
+Finally, our model makes its best guess! It uses 10 neurons (one for each category, like cat or dog) and the 'softmax' activation to decide which category best matches the picture.
+
+
+## Step 2. Compiling the Model
+Okay, now let's compile all our knowledge into a powerful model:
+
+The optimizer is like our model's energy drink! It helps our model learn faster and smarter. 'adam' is a popular optimizer that adjusts how our model learns based on its performance.
+🚀 
+
+`model.compile(optimizer='adam', `
+
+The loss function tells our model how wrong it is when it guesses. 'categorical_crossentropy' is a way to measure this loss when dealing with multiple categories. 
+
+Our goal is to minimize this loss so our model gets better at guessing!
+📉 
+
+`loss='categorical_crossentropy', `
+
+The metrics are like our model's report card. 'accuracy' tells us how often our model makes correct guesses. 
+
+We want this number to be as high as possible!
+🎯 
+
+`metrics=['accuracy'])`
+
+## Step 3. Display the Model Summary
+
+Imagine our model is like a puzzle made of different pieces (layers). Each piece has a specific job, like recognizing shapes or making guesses. 
+
+Here's what the summary tells us:
+
+**Type of Layer:** 
+
+It shows what each puzzle piece does, whether it's looking at pictures (Conv2D), zooming out to see the big picture (MaxPooling2D), organizing information (Flatten), or making decisions (Dense).
+
+**Output Shape:** 
+
+This tells us the size of the information that comes out of each piece. For example, if it says (None, 30, 30, 32), it means the piece sees a picture that's 30x30 pixels with 32 different details it's checking.
+
+**Number of Parameters:** 
+
+These are like the tiny bits that our model adjusts and learns while practicing. The more parameters, the more detailed and accurate our model can be!
+
+**Activation Function:** 
+
+This is like the special ability each piece has to process information. relu helps our model learn patterns faster, like when you find a shortcut in a maze.
+
+**Connected to:** 
+
+It shows which pieces are talking to each other. Just like teamwork, these connections help our model put everything together to make smart decisions.
+
+The whole summary ends by showing us the total number of pieces (parameters) our model has and how many it can adjust while it learns.
+
+Follow along with your coach:
+
+`model.summary()`

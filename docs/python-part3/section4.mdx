@@ -1,0 +1,100 @@
+---
+title: "Lesson 4"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+
+# Lesson 4: Training the Model
+
+## Objective 🧐🗿
+By the end of this lesson, you'll have a trained model that's smarter and better at recognizing pictures! How cool is that?
+
+## Quick, Draw!
+As a quick exercise, let's help train a model to recognize doodling!
+
+Head to this website and follow along with your coach:
+[Quick Draw with Google](https://quickdraw.withgoogle.com/)
+
+## What Does Training a Model Mean?
+
+Training a model is like teaching a new pet tricks. You show it examples (pictures of cats, dogs, etc.), and it tries to learn what each picture represents. Here’s how it works:
+
+- **Epochs:** This is like how many times you practice the "sit" trick with your dog. If you do it 10 times, that's 10 epochs. More epochs mean more practice.
+- **Loss:** Think of this as how often your dog gets the trick wrong. Lower loss means your dog is getting the trick right more often.
+- **Accuracy:** This is like counting how many times your dog sits correctly. Higher accuracy means your dog is doing great!
+- **Validation Data**: This is like giving your dog a new trick to see if it can do it right without any practice. It helps us know if our dog (model) has learned the trick well.
+
+## Step 1. Fitting 
+
+Now, let’s look at the code that trains our model and makes it smarter!
+
+```python
+history = model.fit(x_train, y_train, epochs=10, validation_data=(x_val, y_val))
+```
+
+**What's happening here?**
+- **model.fit()**: This is where the magic happens. We’re telling our model to practice with the training data (x_train and y_train).
+- **epochs=10**: We’re making the model practice 10 times.
+- **validation_data=(x_val, y_val)**: While practicing, our model will also check its skills with new pictures it hasn’t seen before.
+
+## Step 2. Plotting Accuracy
+
+After training, we want to see how well our model did. We can use some cool graphs to visualize this.
+
+**Plotting Accuracy**
+
+```python
+# Plot training & validation accuracy values
+plt.plot(history.history['accuracy'])
+plt.plot(history.history['val_accuracy'])
+plt.title('Model accuracy')
+plt.ylabel('Accuracy')
+plt.xlabel('Epoch')
+plt.legend(['Train', 'Validation'], loc='upper left')
+plt.show()
+```
+**What's happening here?**
+
+- **history.history['accuracy']**: Shows how well our model did with the training pictures.
+- **history.history['val_accuracy']**: Shows how well our model did with the new pictures it hasn’t seen before.
+- **plt.plot()**: Draws lines on the graph to show our model’s performance.
+- **plt.title('Model accuracy')**: Gives a title to our graph.
+- **plt.ylabel('Accuracy')**: This labels the y-axis (vertical) with "Accuracy."
+- **plt.xlabel('Epoch')**: Labels the vertical axis with "Accuracy."
+- **plt.legend()**: Adds a legend to show which line is for training and which is for validation.
+
+## Step 3. Plotting Loss
+
+```python
+# Plot training & validation loss values
+plt.plot(history.history['loss'])
+plt.plot(history.history['val_loss'])
+plt.title('Model loss')
+plt.ylabel('Loss')
+plt.xlabel('Epoch')
+plt.legend(['Train', 'Validation'], loc='upper left')
+plt.show()
+```
+
+**What's happening here?**
+
+- **history.history['loss']**: Shows how often our model made mistakes with the training pictures.
+- **history.history['val_loss']**: Shows how often our model made mistakes with the new pictures.
+- **plt.plot()**: Draws lines on the graph to show the mistakes our model made.
+- **plt.title('Model loss')**: Gives a title to our loss graph.
+- **plt.ylabel('Loss')**: Labels the vertical axis with "Loss."
+- **plt.xlabel('Epoch')**: Labels the horizontal axis with "Epoch."
+- **plt.legend()**: Adds a legend to show which line is for training and which is for validation.
+
+**Putting It All Together**
+
+When you run this code, your model will practice recognizing the pictures over 10 epochs. After each practice session, it will check how well it’s doing with new pictures. The graphs will show you how your model’s accuracy and loss change over time.
+
+
+## Time for Fun!
+
+Join your coach and head over to [Impromptu](https://impromptu.fun/). It’s like playing charades, but with AI-generated images! 🌟🖼️
+
+- [x] **Keep up the awesome work, and let’s keep coding! 🚀**
