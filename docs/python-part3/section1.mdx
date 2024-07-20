@@ -1,0 +1,268 @@
+---
+title: "Lesson 1"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Lesson 1: Introduction to Image Classification 🌟
+
+## Objective 🧐🗿
+Hey there, young adventurers! Today, we're going to dive deep into a cool technology called image classification. Are you ready to learn about it?
+
+## What is AI?
+Imagine AI as a super-smart computer program that can learn from experience and do things that normally require human intelligence. Throughout time, we've broken down how our brains work down to the smallest point, and recreated that back up into intelligence.
+
+## What is a Model?
+A model in AI is like a set of rules or instructions that the AI uses to make decisions. Think of it as a recipe.
+
+Just like you need a recipe to bake cookies (which tells you what ingredients to use and how to mix them), a model helps the AI figure out what to do based on the information it gets.
+
+To build this model, we first teach it using lots of examples, just like practicing a new skill until you get really good at it.
+
+## What is Image Classification?
+
+Image classification is a way of teaching a model to recognize and label different things in pictures. 
+
+Imagine you have a bunch of photos of cats, dogs, and birds. With image classification, the AI looks at these photos and learns what features make a cat a cat, a dog a dog, and a bird a bird. 
+
+After learning, if you give it a new photo, it can figure out if it's a cat, dog, or bird based on what it learned!
+
+### The Process
+
+**Step 1: Gathering Clues - Labeled Data**
+
+First, we'll need to gather our clues, which are pictures of different animals. These pictures are called labeled data because each picture has a label telling us what animal it is. For example, we have pictures of cats, dogs, and frogs, and each picture is labeled with the correct animal name.
+
+Think of it like sorting your photo album where you put all pictures of cats in one folder, dogs in another, and so on.
+
+**Step 2: Training the Computer - Model Training**
+
+Next, we train our computer detective to recognize these animals. This process is called model training. We show the computer lots and lots of labeled pictures so it can learn the patterns and features that make each animal unique. It’s like teaching a friend to recognize your pets by showing them lots of photos and telling them which one is which.
+
+**Step 3: Testing the Detective - Test Data**
+
+After our computer has learned from the training pictures, it's time to test its skills! We give it some new pictures it hasn’t seen before, called test data, and see if it can correctly identify the animals. This is like giving your friend a test to see if they can recognize your pets in new photos.
+
+**Step 4: Making Predictions - Prediction**
+
+Now, the moment of truth! Our computer detective makes its prediction. It looks at a new picture and decides whether it's a cat, dog, or frog. If it gets it right, our training was successful!
+
+**Step 5: Results**
+
+Finally, we see the results of the prediction. If our computer correctly identifies the animals, it means it's ready to help us sort lots of animal photos quickly and accurately!
+
+### Operation Bob
+
+Imagine this:
+
+It's the year 2078, and the little yellow creatures we once thought were cute (Minions) now rule the world. They've given you an important mission: to create an image classification system that can detect whether something is a Minion or not from a picture.
+
+To help you get started, they've provided a website where you can practice the steps we've discussed. Let's get to work and make sure we can tell what's a Minion and what isn't!
+
+[Machine Learning for Kids](https://machinelearningforkids.co.uk/#!/welcome)
+
+We'll click Get started, and then Try without registering. From there, you'll add a new project.
+
+1. **Project Setup**:
+   - Name your project "Minion Detector."
+   - Project type: Recognize images.
+   - Storage: In our web browser.
+
+2. **Training the Model**:
+   - Click on your new project and select Train.
+   - Step 1: Gather pictures. For simplicity, download the folders for Minion and Not Minion from these Google Drive links: 
+        - [Pictures](https://drive.google.com/drive/folders/1coAGdRW-ykwC6EcFgqpEtsxyKD1nLZnY?usp=sharing)
+
+3. **Labeling**:
+   - Create a label named 'Minion' and import the picture files from the 'Minion' folder.
+   - Create a label named 'Not Minion' and import the picture files from the 'Not Minion' folder.
+
+4. **Learning and Testing**:
+   - Go back to your project and select Learn and Test.
+   - Select Train new machine learning model.
+   - After it's loaded, try these image links to see if your model can detect Minions:
+     - [Cat Image](https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/rockcms/2022-08/220805-domestic-cat-mjf-1540-382ba2.jpg)
+     - [Dog Image](https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg)
+     - [Minion Image](https://www.pluggedin.com/wp-content/uploads/2019/12/minions-large-1024x587.jpg)
+
+You'll get a variety of results here, and thankfully it successfully detects minions. Cool, right?! This is what we'll be building up to by the end of the week, on our own, using Python and TensorFlow.
+
+Good job on spotting those Minions and keeping the world safe. 
+
+## Step 1. Importing the libraries
+:::info
+<details style={{border:'none'}}>
+<summary>**Coach Note!**</summary>    
+
+**Python Libraries**
+
+Before you start coding in Python, let's talk about what a "library" is. 
+
+Think of a library like a toolbox where you can borrow tools you need for a project. 
+In programming, a library is similar, but instead of physical tools, it gives us special functions that you can use to make coding easier and faster.
+</details>
+:::
+
+Before we dive in and start having fun, let's open up the Google Colab notebook from the Setup section. In the real world, scientists use awesome tools like Google Colab to collaborate, sharing their notes along with their code.
+
+We'll be doing the same! As we move through this project, make sure to add comments that explain each code cell.
+
+Let's kick things off by explaining the libraries we'll be using:
+
+- **TensorFlow:** This is is like a big toolbox for building and training machine learning models.
+- **Keras:** This is a part of TensorFlow that holds our dataset.
+- **matplotlib.pyplot:** This is a library for making awesome charts and graphs so we can visualize what's going on with our data.
+
+Ready? Let's get started!
+
+In a new code cell, let's import the following:
+```python
+# When we write import tensorflow as tf, we're telling Python that we want to use TensorFlow's tools and we want to call it tf to make it easier to type.
+import tensorflow as tf
+
+# When we write from tensorflow.keras.datasets import cifar10, we're telling Python to bring in this collection of pictures so we can use it in our project.
+from tensorflow.keras.datasets import cifar10
+
+# When we write from matplotlib import pyplot, we're telling Python to bring in these drawing tools so we can visualize our data.
+from matplotlib import pyplot 
+```
+
+## Step 2. Load CIFAR-10 dataset
+
+Remember the exercise with the minions we just did? Well, CIFAR-10 is like our collection of minion and non-minion pictures, but way cooler. It's a collection of various things like dogs, cats, boats, horses, and a bunch more. Since it has more pictures than we can count (about 10,000!), it's perfect for our project.
+
+Why? Because more pictures mean more fun and better training for our models!
+
+Fortunately, CIFAR-10 comes with a handy function to load the data. We'll store it in a few different variables to get started.
+
+:::info
+<details style={{border:'none'}}>
+<summary>**Coach Note!**</summary>
+
+Here your coach will speak a bit on variables.
+<details>
+<summary>**Standard**</summary>
+<ul>
+Understanding Variables:
+        <ul>
+            <li>What a variable is and how it's used to store data.</li>
+            <li>How to create and initialize variables in Python, with examples using Turtle graphics.</li>
+        </ul>
+        
+Variable Naming:
+        <ul>
+            <li>Importance of choosing clear and descriptive names for better readability and maintainability of code.</li>
+            <li>Examples of good vs. bad variable names</li>
+        </ul>
+</ul>
+</details>
+
+<details>
+<summary>**Advanced**</summary>
+<ul>
+    Advanced Variable Management:
+        <ul>
+            <li>Discussing variable scope (local vs global variables) and its implications in larger Python scripts.</li>
+            <li>Using variables effectively to manage the state and properties of Turtle objects and the Turtle screen.</li>
+        </ul>
+    Dynamic Typing in Python:
+        <ul>
+            <li>Explanation of Python's dynamic typing system and how it affects variable assignment and function arguments.</li>
+            <li>Practical example of creating a Turtle instance with custom parameters</li>
+            <li>Case studies: Modifying the properties of Turtle objects (like color, shape, and speed) dynamically based on user input or other conditions.</li>
+        </ul>
+</ul>
+</details>
+
+</details>
+:::
+
+
+```python
+# In a new code cell,
+(x_train, y_train), (x_test, y_test) = cifar10.load_data()
+```
+
+Here's what's happening:
+
+- **x_train and x_test:** Imagine these as huge photo albums! `x_train` holds 50,000 photos, and `x_test` has 10,000 photos. Each photo is a tiny 32x32 image filled with vibrant colors.
+- **y_train and y_test:** Think of these as the labels on each photo in our albums. They tell us what each photo is about, like a little tag saying "This is a cat" or "This is a dog". These labels are numbers from 0 to 9, and each number represents a different category of object.
+
+So, with this code, we're loading a whole bunch of colorful images and their corresponding labels, ready to start our machine learning adventure!
+
+## Step 3. Explore the dataset
+The print function is like our trusty sidekick that helps us see what's going on with our data. Type the following into a new code cell:
+
+```python
+print(f"Training data shape: {x_train.shape}")
+print(f"Testing data shape: {x_test.shape}")
+```
+
+When you run this, the screen will light up with some cool information: the number of pictures, the width of each image, the height of each image, and the color channels in each image. It's like getting the stats for our massive photo albums!
+
+Now that we've got the stats, let's actually take a look at the pictures and see what kind of colorful adventures await us!
+
+## Step 4. Display a few images from the dataset
+
+Alright, let's dive into the world of `pyplot`! This tool is part of the `matplotlib` library, and it's like having a super cool art kit that helps us create awesome charts, graphs, and plots in Python. Imagine it as your ultimate digital drawing tool for making data look amazing!
+
+We'll use `subplot`, a feature of `pyplot`, to draw some fantastic pictures from CIFAR-10 on the screen!
+
+:::info
+<details style={{border:'none'}}>
+<summary>**Coach Note!**</summary>    
+
+**Understanding figure, axes, and subplots**
+
+- **Figure:** This is like the entire canvas or page where we will draw our plots. When we create a figure, we are setting up the big space where all our charts will go.
+
+- **Axes:** These are the individual plots or charts on the figure. If the figure is the canvas, then each axis is a small drawing on that canvas.
+
+- **subplot Returns:** The `subplot` function helps us arrange multiple plots on the same figure. It returns two things:
+  - **Figure (fig):** The big canvas.
+  - **Axes (axes):** A list of small plots arranged in the way we specified.
+</details>
+:::
+
+First, let's create our canvas and draw a row of 5 plots on it:
+
+```python
+# This creates a figure (fig) and a row of 5 axes (axes) on that figure.
+fig, axes = plt.subplots(1, 5, figsize=(10, 10))
+```
+
+Now, let's use a `for` loop to create a grid of CIFAR-10 images.
+
+Start the `for` loop with the following line and make sure to indent the new lines after the colon:
+
+```python
+for i in range(5):
+```
+
+Here, `i` is like a counter that starts at zero and keeps going up by 1. When you say `in range(5)`, you're telling the program that `i` should be less than 5. It will stop the loop just before `i` reaches 5.
+
+Now, on a new line, let's draw each of our images:
+
+```python
+# Display the i-th image from the training set on the i-th axis.
+    axes[i].imshow(x_train[i])
+    
+    # Set the title of the i-th axis to the label of the i-th image.
+    axes[i].set_title(f"Label: {y_train[i][0]}")
+    
+    # Turn off the axis lines and labels for the i-th axis to make it look cleaner.
+    axes[i].axis('off')
+
+plt.show()
+```
+
+Here's a fun breakdown of how this works:
+
+- At `i = 0`, the first image from `x_train` is shown, and the title is set to the label of the first image.
+- At `i = 1`, the second image from `x_train` is shown, and the title is set to the label of the second image.
+- At `i = 2`, the third image from `x_train` is shown, and the title is set to the label of the third image.
+
+And so on, until we have a row of amazing CIFAR-10 images displayed with their labels. Get ready to see some cool pictures!
+
+- [x] **You've just taken an exciting leap into the world of data visualization, mastering the basics of `pyplot` and CIFAR-10 image display, setting the stage for more data-driven adventures!**

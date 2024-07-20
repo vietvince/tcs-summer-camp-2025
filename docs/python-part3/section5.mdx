@@ -1,0 +1,163 @@
+---
+title: "Lesson 5"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Lesson 5: Evaluating the Model
+
+## Objective 🧐🗿
+
+Hey team! Ready to see how awesome your model really is? Today, we’re going to test how well your model can recognize images and make it even better with some extra tricks. Let’s dive in and have some fun!
+
+## Step 1: Check How Good Your Model Is! 🏆
+
+First, we need to see how well our model is doing with the test data. Think of this like giving your robot a quiz to see how smart it is!
+
+```python
+# New code cell
+loss, accuracy = model.evaluate(x_test, y_test)
+print(f'Test accuracy: {accuracy}')
+```
+
+**What’s Happening?:** 
+
+- `model.evaluate(x_test, y_test)`: This is where your model takes its final exam with the test data. It checks how many pictures it can recognize correctly.
+- `print(f'Test accuracy: {accuracy}')`: This tells us how well your model did. The higher the accuracy, the better your model is at guessing!
+
+## Step 2: Teach Your Model Some Superpowers 🦸‍♂️
+
+Let’s make our model even smarter by using a trick called data augmentation. It’s like giving your robot superpowers to handle more types of pictures.
+
+Here’s what we’ll do:
+
+### Import the Tools We Need
+```python
+# New code cell
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+```
+- `ImageDataGenerator`: This is a special tool from TensorFlow that helps us create new versions of our images. 
+
+###  Create an Image Data Generator
+
+`datagen = ImageDataGenerator(`
+
+`    rotation_range=20,         # Twists the image a bit`
+
+- This allows the images to be rotated slightly (up to 20 degrees). By rotating the images, we help the model learn to recognize objects from different angles.
+
+`    width_shift_range=0.2,     # Moves the image left or right`
+
+- This shifts the image horizontally (left or right) by up to 20% of the image’s width. This helps the model learn to handle objects that might not always be centered in the image.
+
+`    height_shift_range=0.2,    # Moves the image up or down`
+
+- This shifts the image vertically (up or down) by up to 20% of the image’s height. It’s useful for teaching the model to recognize objects that might appear in different positions within the image.
+
+`    horizontal_flip=True       # Flips the image side-to-side)`
+
+- This flips the image horizontally (left to right). It helps the model learn to recognize objects regardless of their orientation.
+
+### Train the Model with Augmented Data
+
+In Lesson 4, we learned how to train our model with the basics. Here we'll take it up a notch by training it with diverse images to make it even smarter. 
+
+```python
+# New code cell
+augmented_model = model
+```
+
+- We’re creating a copy of our original model so we can train it with the new, augmented images without changing the original model.
+
+`augmented_model.compile(optimizer='adam',`
+- This helps the model improve its performance. It adjusts the model’s settings to get better at recognizing images.
+
+`                        loss='categorical_crossentropy',`
+- This measures how well the model is learning. Lower loss means the model is getting better at guessing correctly.
+
+`                        metrics=['accuracy'])`
+- This tracks how often the model gets the right answer. Higher accuracy means the model is performing better.
+
+
+
+`augmented_history = augmented_model.fit(datagen.flow(x_train, y_train, batch_size=32),`
+- This generates new variations of the training images for the model to learn from. It helps the model see different versions of the same images.
+
+`                                        epochs=10,`
+- This tells the model to go through the training data 10 times. This repeated practice helps the model improve its recognition skills.
+
+`                                        validation_data=(x_val, y_val))`
+- This provides new, unseen images for the model to test itself with. It helps us check if the model is learning well and can handle new images.
+
+## Step 3: Test Your Model with Its New Powers! 🚀
+After giving your model extra training, let’s see how well it does with its new powers:
+
+```python
+# New code cell
+augmented_loss, augmented_accuracy = augmented_model.evaluate(x_test, y_test)
+```
+This checks how well your model does now with the test pictures after its superpower training.
+
+```
+print(f'Augmented Test accuracy: {augmented_accuracy}')
+```
+This shows us if the extra training helped your model become even more accurate!
+
+## Step 4. Use Your Model!
+
+Now let's use our model with some of our own pictures!
+
+Take the time to find some pictures you'd like to test your model out with. They must be one of the categories (airplane, automobile, bird, cat, deer, dog, frog, horse, ship, or truck). 
+
+Along with your coach, upload it to your notebook's files. You'll need to copy the file path for the following section.
+
+### Load and Preprocess the Image 📸✨
+In a new code cell, let's start out the following:
+
+`def load_and_preprocess_image(image_path):`
+- This line starts a new function called load_and_preprocess_image. It’s like setting up a special tool that will help us get our image ready for the model to look at.
+
+    `from tensorflow.keras.preprocessing import image`
+- This brings in some cool tools from TensorFlow that help us handle images.
+
+    `import numpy as np`
+- This loads a helper library called NumPy, which helps us with math and numbers.
+
+    `img = image.load_img(image_path, target_size=(32, 32))`
+- This line loads the image from the file we specified (image_path) and changes its size to 32 by 32 pixels. It’s like resizing a photo to make it fit perfectly.
+
+  `img_array = image.img_to_array(img)`
+- This converts the image into a bunch of numbers that the computer can work with. Think of it as turning your image into a grid of colorful numbers.
+
+   `img_array = np.expand_dims(img_array, axis=0)`
+- This adds an extra layer to the grid of numbers to make sure it’s in the right format for the model. It’s like putting your grid of numbers into a new box so it can be processed correctly.
+
+    `img_array = img_array / 255.0`
+- This scales the numbers so they are between 0 and 1 instead of 0 to 255. It’s like adjusting the brightness of your image so everything looks just right.
+
+    `return img_array`
+- This sends the processed image (now a grid of numbers) back so we can use it to make predictions.
+
+### Process a New Image
+
+`new_image_path = 'path_to_your_image.jpg'`
+- Here we set the path to the image file we want to test. It’s like telling the computer where to find the new image.
+
+`new_image = load_and_preprocess_image(new_image_path)`
+- We use our special tool (the function we created) to load and prepare the new image. This makes sure the image is ready for the model to analyze.
+
+`predictions = model.predict(new_image)`
+- This line asks the model to look at the new image and guess what it is. It’s like showing your new image to a friend and asking them what they think it is.
+
+`predicted_class = tf.argmax(predictions, axis=1).numpy()[0]`
+- This picks the most likely guess from the model's predictions and turns it into a number. It’s like taking the answer your friend is most sure about.
+
+`class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']`
+- This list tells us what each number means. For example, if the model says “3,” it might mean “cat” based on this list.
+
+`print(f'The model predicts this image is a: {class_names[predicted_class]}')`
+- This line shows us what the model thinks the image is. It’s like getting the final answer from your friend and seeing what they believe the image is.
+
+- [x] **Awesome job! You’ve just tested your model’s skills and added some super cool tricks to make it even smarter. By evaluating and augmenting, you’ve made your model better at recognizing pictures and ready for any challenge. Keep up the fantastic work and let’s keep making our models super awesome! 🚀🤖🎨**
+
