@@ -103,6 +103,12 @@ const config: Config = {
         },
         {
           type: "docSidebar",
+          sidebarId: "pythonSidebar3",
+          position: "left",
+          label: "Py-3",
+        },
+        {
+          type: "docSidebar",
           sidebarId: "unitySidebar1",
           position: "left",
           label: "Un-1",

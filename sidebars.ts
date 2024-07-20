@@ -74,6 +74,12 @@ export const pythonSidebar2 = [
   },
 ];
 
+export const pythonSidebar3 = [
+  {
+    'Python Part 3: Image Classification':  ['python-part3/intro', 'python-part3/setup', 'python-part3/section1', 'python-part3/section2', 'python-part3/section3', 'python-part3/section4', 'python-part3/section5']
+  },
+];
+
 export const roboticsSidebar1 = [
   {
     'Robotics Part 1: With Scratch and mBot': ['robotics-part1/intro']
