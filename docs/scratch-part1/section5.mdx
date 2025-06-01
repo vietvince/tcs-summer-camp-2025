@@ -1,0 +1,39 @@
+---
+title: "Space Shooter 5: Game Over"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+    <summary>**Prerequisites: Before You Dive In!**</summary>
+
+- You have completed **Setup** through **Space Shooter 4 – Rocks**.  
+- Your **Game Over** sprite is imported and selected.  
+- You know where to find the **Events**, **Looks**, and **Sound** blocks.  
+</details>
+:::
+
+## Objective 🧐
+
+Display the Game Over screen, play a losing sound effect, and stop the entire game when the **Game Over** broadcast is received.
+
+## Code Blocks 🧱
+```scratch
+when green flag clicked
+    hide
+    go to [front v] layer
+
+when I receive [Game Over v]
+    show
+    play sound [Lose v] until done
+    stop [all v]
+```
+- The Game Over sprite is hidden at start and moved to the front so it overlays all other sprites.
+
+- When the Game Over broadcast is received (from a Rock collision or timer end), the sprite appears, the "Lose" sound plays, and all scripts stop.
+
+<br />
+
+- [x] Congratulations! You’ve now built a complete Scratch Space Shooter: from setup and asset import to player controls, firing, enemy spawning, scoring, and game over logic. Feel free to customize or extend your game with new features!

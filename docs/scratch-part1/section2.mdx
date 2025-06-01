@@ -1,0 +1,58 @@
+---
+title: "Space Shooter 2: Rocketship"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+    <summary>**Prerequisites: Before You Dive In!**</summary>
+
+- You have completed **Setup** and **Space Shooter 1 – Importing Assets**.  
+- Your **Rocketship** sprite is imported, visible, and selected.  
+- You know where to find the **Events**, **Motion**, **Control**, and **Variables** blocks.  
+</details>
+:::
+
+## Objective 🧐
+
+Script your Rocketship to track score, move up and down with the arrow keys, implement a countdown timer, and respond to the Game Over broadcast.
+
+## Code Blocks 🧱
+```scratch
+when green flag clicked
+    set [score v] to (0)
+    set size to (50) %
+    go to x: (-178) y: (5)
+    repeat until <touching [Rock v]?>
+        if <key [up arrow v] pressed?> then
+            change y by (10)
+        end
+        if <key [down arrow v] pressed?> then
+            change y by (-10)
+        end
+    end
+
+when green flag clicked
+    set [time v] to (30)
+    repeat (30)
+        wait (1) seconds
+        change [time v] by (-1)
+    end
+    stop [all v]
+
+when I receive [Game Over v]
+    stop [other scripts in sprite v]
+```
+- Score starts at 0 and the ship is sized/positioned for play.
+
+- Movement continues until a collision with a Rock ends the loop.
+
+- A time variable counts down from 30, then stops all scripts when it reaches 0.
+
+- Upon receiving Game Over, the Rocketship halts any remaining scripts.
+
+<br />
+
+- [x] **Great work!** Your Rocketship now moves, tracks score, runs a timer, and listens for the Game Over broadcast. Up next: **Lesson 3 – Laser**!

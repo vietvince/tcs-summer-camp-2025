@@ -1,0 +1,66 @@
+---
+title: "Space Shooter 4: Rocks"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+    <summary>**Prerequisites: Before You Dive In!**</summary>
+
+- You have completed **Setup**, **Space Shooter 1 – Importing Assets**, **Space Shooter 2 – Rocketship**, and **Space Shooter 3 – Laser**.  
+- Your **Rock** sprite is imported, hidden, and selected.  
+- You know where to find the **Events**, **Control**, **Variables**, **Motion**, **Sensing**, and **Sound** blocks.  
+</details>
+:::
+
+## Objective 🧐
+
+Spawn multiple Rock clones that drift across the stage, reset when off-screen or hit by a laser, update the score, and trigger Game Over on collision with the Rocketship.
+
+## Code Blocks 🧱
+```scratch
+when green flag clicked
+    show
+    set size to (50) %
+    repeat (5)
+        create clone of (myself)
+    end
+    hide
+
+when I start as a clone
+    go to x: (240) y: (pick random (-150) to (150))
+    set [speed v] to (pick random (-6) to (-2))
+    repeat until <touching [Rocketship v]?>
+        change x by (speed)
+        if <(x position) < (-220)> then
+            go to x: (240) y: (pick random (-150) to (150))
+        end
+        if <touching [Laser v]?> then
+            change [score v] by (100)
+            go to x: (240) y: (pick random (-150) to (150))
+            start sound [Magic Spell v]
+        end
+    end
+    broadcast [Game Over v]
+
+when I receive [Game Over v]
+    stop [other scripts in sprite v]
+```
+- On green flag, the Rock sprite creates 5 clones, then hides itself.
+
+- Each clone spawns at x=240 with a random y and speed, moves left until it either goes off-screen or collides.
+
+- If a clone’s x position < –220, it resets to the right at a new random y.
+
+- If a clone touches a Laser, the score increases by 100, the clone resets, and plays a sound.
+
+- When a clone eventually touches the Rocketship, it broadcasts Game Over.
+
+- On receiving Game Over, all remaining Rock scripts stop.
+
+<br />
+
+- [x] Nicely done! Your asteroids are now in play. Next up: Space Shooter 5 – Game Over!
+

@@ -1,0 +1,73 @@
+---
+title: "Geometry Dash 6: Adding Spikes & Collision Detection"
+sidebar_position: 8
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+  <summary>**Prerequisites: Before You Dive In!**</summary>
+
+- You have completed **Geometry Dash 1–5** (Drawing the Player, Adding Music & Jumping, Level Design, Scrolling the Level, Infinite Scroll with Clones).  
+- You’re familiar with the Scratch editor: Sprites pane, Costume Editor, and basic scripting blocks like **when green flag clicked**, **forever**, and **stop [all]**.  
+</details>
+:::
+
+## Objective 🧐
+
+Create spike obstacles in your level and detect collisions so the game ends when the player hits a spike.
+
+## Getting Started with Scratch 🚩
+
+### Step 1. Design the Spike Sprite
+
+1. Click **Choose a Sprite** → **Paint**.  
+2. In the Costume Editor, select the **Rectangle** tool, hold **Shift** and draw a black square.  
+3. Switch to the **Select** tool, click one corner and press **Delete** to form a right-angled triangle.  
+4. With the **Select** tool, rotate the triangle while holding **Shift** so it sits at a 45° angle (pointing up).  
+5. Set the **Border** color to white, width **4 px** (or pale yellow outline to ease color-based collision detection).  
+6. Rename this sprite to **Spike**.
+
+:::info
+<details style={{border:'none'}}>
+  <summary>**Coach Note!**</summary>
+  
+  Using a unique outline color (like a very pale yellow) helps Scratch’s **touching color** block detect collisions more reliably.
+</details>
+:::
+
+### Step 2. Position Your Spike
+
+1. In your **Spike** sprite’s **Scripts** area, add:
+```scratch
+   when green flag clicked
+     show
+     go to x: (100) y: (-50)
+```
+
+- Adjust x and y values so the spike rests on the floor at your desired location.
+
+### Step 3. Detect Collision in the Player Sprite
+
+Select the Player sprite.
+
+In the Scripts area, add:
+
+```scratch
+when green flag clicked
+  wait until <touching color [#FFFFE0]>
+  stop [all v]
+```
+
+- Replace #FFFFE0 with the exact outline color of your spike (use the color-picker).
+
+- Click the green flag and run into a spike—everything should stop on contact!
+
+### Step 4. Save Your Progress
+
+Click File → Save now to lock in your spike and collision setup.
+
+<br />
+
+- [x] **Spike added!** Your game now ends when the player collides with a spike. Next up: **Geometry Dash 7 – Smooth Deceleration & “Game Over” Feel**

@@ -1,0 +1,51 @@
+---
+title: "Star Chase 4: Crystal"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+    <summary>**Prerequisites: Before You Dive In!**</summary>
+
+- You have completed **Setup**, **Star Chase 1 – Importing Assets**, **Star Chase 2 – Dot**, and **Star Chase 3 – Star**.  
+- Your **Crystal** sprite is imported, hidden, and selected.  
+- You know where to find the **Events**, **Looks**, **Control**, **Motion**, **Sensing**, and **Variables** blocks.  
+</details>
+:::
+
+## Objective 🧐
+
+Add **Crystal** clones as bonus items that float around, bounce off edges, and award extra points when collected by the Dot.
+
+## Code Blocks 🧱
+```scratch
+when green flag clicked
+    forever
+        show
+        if <touching [Dot v]?> then
+            change [score v] by (3)
+            wait (1) seconds
+            hide
+            wait (3) seconds
+            show
+        end
+    end
+
+when green flag clicked
+    forever
+        move (10) steps
+        if on edge, bounce
+    end
+```
+- The Crystal continuously shows and checks for collision with the Dot.
+
+- On touch, it awards 3 points, hides for 1 second, then stays hidden for 3 more seconds before reappearing.
+
+- Simultaneously, it drifts at 10 steps per frame and bounces off the stage edges.
+
+<br />
+
+- [x] Excellent! Your Crystals now add bonus points. You’ve completed Star Chase—feel free to mix in challenges or customize speeds and scores as you like!
+

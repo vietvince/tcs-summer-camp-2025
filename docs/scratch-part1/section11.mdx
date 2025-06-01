@@ -1,0 +1,60 @@
+---
+title: "Google’s Teachable Machine 2: Build-Your-Own Solar System Tour"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+  <summary>**Prerequisites: Before You Dive In!**</summary>
+
+  - A computer or tablet with a webcam (or ability to upload images).  
+  - An internet connection and a modern browser (Chrome or Firefox recommended).  
+  - A free Google account to save and export your Teachable Machine model.  
+</details>
+:::
+
+## Objective 🧐
+
+Create an **Image Classification** model that recognizes each planet and displays a fun fact when it sees it.
+
+## Getting Started with Image Project 🚩
+
+### Step 1. Create a New Image Project  
+1. Go to [Teachable Machine](https://teachablemachine.withgoogle.com).  
+2. Click **Get Started** → **Image Project** → **Standard Image Model**.
+
+### Step 2. Define Planet Classes  
+1. Rename **Class 1** → **Mercury**  
+2. **Class 2** → **Venus**  
+3. **Class 3** → **Earth**  
+4. **Class 4** → **Mars**  
+*(Optional: add more classes for Jupiter, etc.)*
+
+### Step 3. Upload Training Images  
+1. For each planet, click **Upload** → select 10–20 clear photos or drawings of that planet.  
+2. Use simple, uncluttered backgrounds to help the model learn.
+
+### Step 4. Train Your Model  
+1. Click **Train Model** at the bottom.  
+2. Wait for training to complete (a minute or two).
+
+### Step 5. Prepare Your Fun Facts  
+1. Write a short fun fact for each planet (e.g., “Earth is the only planet with liquid water!”).  
+2. Save them in a text file or spreadsheet.
+
+### Step 6. Test & Tour  
+1. Switch to the **Preview** tab.  
+2. Hold up a printed planet image or toy model to the camera.  
+3. When the model predicts “Mars,” display or read:  
+   > **Mars is red because its soil is full of iron oxide!**
+
+### Step 7. Export & Share  
+1. Click **Export Model** → **Download** (TensorFlow.js).  
+2. Embed your model in a simple web page that shows the predicted planet name and its fun fact.
+
+<br />
+
+- [x] **Congrats!** You’ve built your **Solar System Tour** model—feel free to add more planets or moons for extra discovery.  
+

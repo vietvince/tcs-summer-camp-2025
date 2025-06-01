@@ -1,0 +1,52 @@
+---
+title: "Google’s Teachable Machine 1: Meteor Dodger"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+  <summary>**Prerequisites: Before You Dive In!**</summary>
+
+  - A computer or tablet with a webcam.  
+  - An internet connection and a modern browser (Chrome or Firefox recommended).  
+  - A free Google account to save and export your Teachable Machine model.  
+</details>
+:::
+
+## Objective 🧐
+
+Train a **Pose Classification** model in Teachable Machine that can tell when you “duck” to dodge an incoming meteor image.
+
+## Getting Started with Pose Project 🚩
+
+### Step 1. Create a New Pose Project  
+1. Go to [Teachable Machine](https://teachablemachine.withgoogle.com).  
+2. Click **Get Started** → **Pose Project** → **Standard Pose Model**.
+
+### Step 2. Rename Your Classes  
+1. Click **Class 1** and rename it **Standing**.  
+2. Click **Class 2** and rename it **Ducking**.
+
+### Step 3. Record Training Examples  
+1. Select **Standing**, click **Webcam** → **Start**, and record ~20 examples of you standing tall (arms at sides).  
+2. Select **Ducking**, record ~20 examples of you crouching or covering your head.
+
+### Step 4. Train Your Model  
+1. Click **Train Model** at the bottom.  
+2. Wait for the progress bar to finish—this takes just a minute or two.
+
+### Step 5. Test Your Meteor Dodger  
+1. Switch to the **Preview** tab.  
+2. Hold up a printed meteor image (or a drawing) to the camera while standing—observe the prediction.  
+3. Then duck—check that the model now labels you “Ducking.”
+
+### Step 6. Export & Share  
+1. Click **Export Model** → **Download** (TensorFlow.js).  
+2. Use the exported files in a simple webpage to show a meteor graphic and display “DODGED!” when your pose is detected.
+
+<br />
+
+- [x] **Great job!** You’ve trained your **Meteor Dodger** model.  
+

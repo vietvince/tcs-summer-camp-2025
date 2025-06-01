@@ -1,0 +1,52 @@
+---
+title: "Space Shooter 3: Laser"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+    <summary>**Prerequisites: Before You Dive In!**</summary>
+
+- You have completed **Setup**, **Space Shooter 1 – Importing Assets**, and **Space Shooter 2 – Rocketship**.  
+- Your **Laser** sprite is imported, hidden, and selected.  
+- You know where to find the **Events**, **Motion**, **Control**, and **Looks** blocks.  
+</details>
+:::
+
+## Objective 🧐
+
+Program the Laser sprite so that pressing the spacebar fires a laser clone from the Rocketship’s position, sending it across the stage until it disappears.
+
+## Code Blocks 🧱
+```scratch
+when green flag clicked
+    set size to (10) %
+    hide
+
+when [space v] key pressed
+    create clone of (myself)
+
+when I start as a clone
+    go to x: (-160) y: (y position of [Rocketship v])
+    show
+    repeat until <touching [edge v]?>
+        move (10) steps
+    end
+    delete this clone
+
+when I receive [Game Over v]
+    stop [other scripts in sprite v]
+```
+- The Laser is initially hidden and scaled down to 10% so it’s ready to clone.
+
+- Pressing space creates a clone at x = –160, aligned vertically with the Rocketship.
+
+- Each clone shows, moves 10 steps per frame until it hits the edge, then deletes itself.
+
+- On Game Over, any running Laser scripts halt immediately.
+
+<br />
+
+- [x] Great shot! Your Laser now fires cleanly from the Rocketship. Up next: Lesson 4 – Rocks!

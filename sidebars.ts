@@ -62,6 +62,18 @@ export const robloxSidebar5 = [
   },
 ];
 
+export const scratchSidebar1 = [
+  {
+    'Scratch: Coding 101':  ['scratch-part1/intro', 'scratch-part1/setup', 'scratch-part1/section1', 'scratch-part1/section2', 'scratch-part1/section3', 'scratch-part1/section4', 'scratch-part1/section5', 'scratch-part1/section6', 'scratch-part1/section7', 'scratch-part1/section8', 'scratch-part1/section9', 'scratch-part1/section10', 'scratch-part1/section11']
+  },
+];
+
+export const scratchSidebar2 = [
+  {
+    'Scratch: Game Design 101':  ['scratch-part2/intro', 'scratch-part2/setup', 'scratch-part2/section1', 'scratch-part2/section2', 'scratch-part2/section3', 'scratch-part2/section4', 'scratch-part2/section5', 'scratch-part2/section6', 'scratch-part2/section7', 'scratch-part2/section8', 'scratch-part2/section9']
+  },
+];
+
 export const pythonSidebar1 = [
   {
     'Python Part 1: Python 101':  ['python-part1/intro', 'python-part1/setup', 'python-part1/section1', 'python-part1/section2', 'python-part1/section3', 'python-part1/section4', 'python-part1/section5']

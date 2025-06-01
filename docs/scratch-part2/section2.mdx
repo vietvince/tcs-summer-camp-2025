@@ -1,0 +1,64 @@
+---
+title: "Geometry Dash 2: Adding Music & Jumping"
+sidebar_position: 4
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+    <summary>**Prerequisites: Before You Dive In!**</summary>
+
+- You have completed **Geometry Dash 1 – Drawing the Player** and saved your project.  
+- You’re familiar with the Scratch editor: Stage, Sprites pane, Sounds tab, Blocks palette, and Scripts area.  
+</details>
+:::
+
+## Objective 🧐
+
+Bring your Geometry Dash square to life with a looping soundtrack and smooth jumping mechanics.
+
+## Getting Started with Scratch 🚩
+
+### Step 1. Add & Loop Music
+
+1. Click the **Sounds** tab for the **player** sprite.  
+2. Click **Choose a Sound** → **Loops**, pick a track or import your own.  
+3. Delete any unwanted sounds.  
+4. Switch to the **Code** tab and attach:
+
+```scratch
+   when green flag clicked
+    forever
+        play sound [YourTrack v] until done
+    end
+```
+- Click the green flag to verify your music loops seamlessly.
+
+<details style={{border:'none'}}>
+<summary>**Coach Note!**</summary>
+
+Using **play sound until done** ensures the full clip finishes before restarting, avoiding overlaps.
+
+</details>
+### Step 2. Implement Jumping
+```
+when [space v] key pressed
+    repeat (10)
+        change y by (10)
+    end
+    repeat (10)
+        change y by (-10)
+    end
+```
+- Click the spacebar to test—your square should rise smoothly and then fall back down.
+
+<details style={{border:'none'}}>
+<summary>**Challenge**</summary>
+
+Tweak the repeat counts or change values for higher jumps or longer airtime!
+
+</details>
+<br />
+
+- [x] **Nice work!** Your player now grooves to the beat and jumps on cue. Next up: **Geometry Dash 3 – Level Design**.

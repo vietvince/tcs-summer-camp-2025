@@ -1,0 +1,75 @@
+---
+title: "Geometry Dash 4: Scrolling the Level"
+sidebar_position: 6
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+  <summary>**Prerequisites: Before You Dive In!**</summary>
+
+- You have completed **Geometry Dash 1 – Drawing the Player**,  
+  **Geometry Dash 2 – Adding Music & Jumping**, and  
+  **Geometry Dash 3 – Level Design**.  
+- You’re familiar with the Scratch editor: Sprites pane, Scripts area, and using **when green flag clicked**.  
+</details>
+:::
+
+## Objective 🧐
+
+Make your level scroll left to simulate player movement by changing the X position of the floor sprite continuously.
+
+## Getting Started with Scratch 🚩
+
+### Step 1. Position on Start
+
+1. Select your **floor** (level) sprite.  
+2. In the **Scripts** area, create:
+```scratch
+when green flag clicked
+    go to x: (0) y: (0)
+```
+- This ensures your level begins centered.
+
+### Step 2. Add the Scrolling Loop
+1. Still under when green flag clicked, attach a forever block from Control.
+
+2. Inside the forever, add:
+
+3. change x by (-10)
+
+4. from Motion—negative moves the level left.
+
+5. check if x position reaches a certain point
+
+6. then change the x to the right place
+
+Your complete script should look like:
+```scratch
+when green flag clicked
+    go to x: (0) y: (0)
+    forever
+        change x by (-10)
+        if [(x position) < (-480)] then
+            change x by (960)
+        end
+    end
+```
+- Click the green flag to test: the floor should drift smoothly to the left.
+
+<details style={{border:'none'}}>
+<summary>**Coach Note!**</summary>
+
+The backdrop stays fixed; scrolling is achieved by moving the level sprite.
+
+Adjust the “–10” speed value for faster or slower scroll.
+
+</details>
+Step 3. Save Your Progress
+
+Click File → Save now to lock in your scrolling behavior.
+
+<br />
+
+- [x] **Nice!** Your level now scrolls left infinitely—next: **Geometry Dash 5 – Infinite Scroll with Clones**

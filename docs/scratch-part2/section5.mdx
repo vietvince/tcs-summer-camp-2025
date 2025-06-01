@@ -1,0 +1,82 @@
+---
+title: "Geometry Dash 5: Infinite Scroll with Clones"
+sidebar_position: 7
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+  <summary>**Prerequisites: Before You Dive In!**</summary>
+
+- You have completed **Geometry Dash 1 – Drawing the Player**,  
+  **Geometry Dash 2 – Adding Music & Jumping**,  
+  **Geometry Dash 3 – Level Design**, and  
+  **Geometry Dash 4 – Scrolling the Level**.  
+- You’re familiar with the Scratch editor: Sprites pane, Costumes tab, and using **when green flag clicked**, **forever**, and **create clone of myself** blocks.  
+</details>
+:::
+
+## Objective 🧐
+
+Use two costumes and Scratch clones to create a seamless, infinite scrolling level.
+
+## Getting Started with Scratch 🚩
+
+### Step 1. Separate the Code Blocks
+
+1. Select your **when green flag clicked** into 2 separate blocks and add some additions:
+```scratch
+when green flag clicked
+    go to x: (0) y: (0)
+    create clone of [myself v]
+```
+```scratch
+when green flag clicked
+    forever
+        change x by (-10)
+        if [(x position) < (-480)] then
+            change x by (960)
+        end
+    end
+```
+
+### Step 3. Adding Clones
+
+1. Rename the Backdrop to "level1.1"
+
+2. Duplicate "level1.1" and rename it to "level1.2"
+
+3. In the **Scripts** area, under edit this code:
+```scratch
+when green flag clicked
+    go to x: (0) y: (0)
+    create clone of [myself v]
+```
+to
+
+```scratch
+when green flag clicked
+    hide
+    go to x: (0) y: (0)
+    switch costume to [level1.1 v]
+    create clone of (myself)
+    next costume
+    change x by (480)
+    create clone of (myself)
+```
+This hides the original sprite and spawns two clones:
+
+- Clone 1 uses costume 1.1 at x = 0
+
+- Clone 2 uses costume 1.2 at x = 480
+
+### Step 4. Test Your Infinite Scroll
+
+1. Click the green flag.
+
+2. Observe a continuous, seamless scrolling floor composed of both costumes.
+
+<br />
+
+- [x] **Awesome!** You now have an infinite scrolling level using just two costumes and clones. Next up: **Geometry Dash 6 – Adding Spikes & Collision Detection**.

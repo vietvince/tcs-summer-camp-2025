@@ -1,0 +1,67 @@
+---
+title: "Geometry Dash 8: Collision Sound Effect"
+sidebar_position: 10
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+  <summary>**Prerequisites: Before You Dive In!**</summary>
+
+  - You have completed **Geometry Dash 1–7** (Drawing the Player, Adding Music & Jumping, Level Design, Scrolling the Level, Infinite Scroll with Clones, Adding Spikes & Collision Detection, Smooth Deceleration & Game Over Feel).  
+  - You’re familiar with the Scratch editor’s **Sounds** tab, **Events**, **Control**, and **Looks** blocks.  
+</details>
+:::
+
+## Objective 🧐
+
+Add a satisfying “bonk” sound effect when the player collides with a spike, enhancing the Game Over feedback.
+
+## Getting Started with Scratch 🚩
+
+### Step 1. Import the Bonk Sound
+
+1. Select the **player** sprite in the Sprites pane.  
+2. Click the **Sounds** tab.  
+3. Click **Choose a Sound** → **Effects** → search for **“Bonk”** (or upload your own).  
+4. Delete any unwanted default sounds.
+
+### Step 2. Play the Sound on Collision
+
+1. Switch to the **Code** tab for the **player** sprite.  
+2. Locate your collision script (where you detect `touching color [SpikeOutline]`).  
+3. Inside the collision branch—before the `repeat (10)` deceleration loop—insert:
+
+```scratch
+when green flag clicked
+    go to x: (**PUT YOUR PLAYER'S X**) y: (**PUT YOUR PLAYER'S Y**)
+    set [scrollSpeed v] to (-10)
+    wait until <touching color [#FFFFE0]>
+    stop [other scripts in sprite v]
+
+    start sound (Sound v)
+
+    repeat (10)
+        change [scrollSpeed v] by (1)
+        change x by (scrollSpeed)
+    end
+```
+
+- This ensures the bonk plays fully before the level decelerates.
+
+### Step 3. Test Your Collision Feedback
+
+1. Click the green flag.
+
+2. Guide your player into a spike.
+
+3. Confirm you hear the “bonk” sound immediately upon impact, followed by the smooth slowdown.
+
+### Step 4. Save Your Progress
+
+Click File → Save now to lock in your audio enhancement.
+
+<br />
+
+- [x] **Sound added!** Your Game Over now feels punchier with audio feedback. Next up: **Geometry Dash 9 – Extending Your Level with Costume Switching**.

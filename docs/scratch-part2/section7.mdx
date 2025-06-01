@@ -1,0 +1,96 @@
+---
+title: "Geometry Dash 7: Smooth Deceleration & Game Over Feel"
+sidebar_position: 9
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+  <summary>**Prerequisites: Before You Dive In!**</summary>
+
+  - You have completed **Geometry Dash 1–6** (Drawing the Player, Adding Music & Jumping, Level Design, Scrolling the Level, Infinite Scroll with Clones, Adding Spikes & Collision Detection).  
+  - You’re familiar with the Scratch editor: Variables, Scripts area, and modifying clone behaviors.  
+</details>
+:::
+
+## Objective 🧐
+
+Introduce a `scrollSpeed` variable to control level movement and create a smooth deceleration effect when the player collides with a spike.
+
+## Getting Started with Scratch 🚩
+
+### Step 1. Create the `scrollSpeed` Variable
+
+1. In the **Variables** category, click **Make a Variable**.  
+2. Name it `scrollSpeed` and click **OK**.
+
+### Step 2. Initialize `scrollSpeed`
+
+1. In your Player sprite's script, edit this code:
+```scratch
+when green flag clicked
+    wait until <touching color [#FFFFE0]>
+    stop [all v]
+```
+
+to: 
+
+```scratch
+when green flag clicked
+    go to x: (**PUT YOUR PLAYER'S X**) y: (**PUT YOUR PLAYER'S Y**)
+    set [scrollSpeed v] to (-10)
+    wait until <touching color [#FFFFE0]>
+    stop [all v]
+```
+
+In your clone scrolling script, replace:
+
+```
+change x by (-10)
+```
+
+with:
+
+```
+change x by (scrollSpeed)
+```
+
+### Step 3. Update Clone Scrolling Behavior
+
+Make sure your clones use the scrollSpeed variable:
+
+```
+when I start as a clone
+  show
+  forever
+    change x by (scrollSpeed)
+    if <(x position) < (-480)> then
+      change x by (960)
+    end
+  end
+```
+
+### Step 4. Smooth Deceleration on Collision
+
+In the player sprite’s collision script, locate:
+
+```
+stop [all v]
+```
+
+Replace it with:
+
+```
+stop [other scripts in sprite v]
+repeat (10)
+    change [scrollSpeed v] by (1)
+    change x by (scrollSpeed)
+end
+```
+
+- This will gradually change scrollSpeed from –10 up to 0 over 10 frames, easing the level to a halt.
+
+<br />
+
+- [x] **Excellent!** Your level now slows down smoothly on game over instead of disappearing abruptly. Next up: **Geometry Dash 8 – Collision Sound Effect**.

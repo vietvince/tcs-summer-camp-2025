@@ -1,0 +1,52 @@
+---
+title: "Star Chase 3: Star"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+    <summary>**Prerequisites: Before You Dive In!**</summary>
+
+- You have completed **Setup**, **Star Chase 1 – Importing Assets**, and **Star Chase 2 – Dot**.  
+- Your **Star** sprite is imported, hidden, and selected.  
+- You know where to find the **Events**, **Motion**, **Control**, **Looks**, **Sound**, **Sensing**, and **Variables** blocks.  
+</details>
+:::
+
+## Objective 🧐
+
+Make your **Star** sprite float around the screen, bounce off edges, and award points when collected by the Dot.
+
+## Code Blocks 🧱
+```scratch
+when green flag clicked
+    show
+
+when green flag clicked
+    forever
+        move (10) steps
+        if on edge, bounce
+    end
+
+when green flag clicked
+    forever
+        if <touching [Dot v]?> then
+            change [score v] by (1)
+            play sound [collect v] until done
+            hide
+            wait (1) seconds
+            show
+        end
+    end
+```
+- Show makes the Star appear at the start (it was hidden during setup).
+
+- The first forever loop moves the Star 10 steps continuously and bounces it off the stage edges.
+
+- The second forever loop checks for collisions with the Dot: when touched, it increases score by 1, plays the “collect” sound, hides for 1 second, then reappears.
+
+<br />
+
+- [x] Nice work! Your Stars are now collectible and award points. Up next: Star Chase 4 – Crystal, where we’ll add bonus items for extra points!

@@ -91,6 +91,18 @@ const config: Config = {
         },
         {
           type: "docSidebar",
+          sidebarId: "scratchSidebar1",
+          position: "left",
+          label: "Scr-1",
+        },
+                {
+          type: "docSidebar",
+          sidebarId: "scratchSidebar2",
+          position: "left",
+          label: "Scr-2",
+        },
+        {
+          type: "docSidebar",
           sidebarId: "pythonSidebar1",
           position: "left",
           label: "Py-1",

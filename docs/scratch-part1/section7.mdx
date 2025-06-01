@@ -1,0 +1,69 @@
+---
+title: "Star Chase 2: Dot"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+    <summary>**Prerequisites: Before You Dive In!**</summary>
+
+- You have completed **Setup** and **Star Chase 1 – Importing Assets**.  
+- Your **Dot** sprite is imported, visible, and selected.  
+- You know where to find the **Events**, **Motion**, **Control**, **Looks**, and **Variables** blocks.  
+</details>
+:::
+
+## Objective 🧐
+
+Script your **Dot** sprite to:
+
+- Initialize and display the player’s score.  
+- Animate through its costumes continuously.  
+- Move in response to arrow-key presses.  
+- Bounce off the stage edges to stay in play.
+
+## Code Blocks 🧱
+```scratch
+when green flag clicked
+    set [score v] to (0)
+    say [Help me catch the star!] for (2) seconds
+    forever
+        switch costume to [dot-a v]
+        wait (0.1) seconds
+        switch costume to [dot-b v]
+        wait (0.1) seconds
+        switch costume to [dot-c v]
+        wait (0.1) seconds
+    end
+
+when [right arrow v] key pressed
+    point in direction (90)
+    move (10) steps
+    if on edge, bounce
+
+when [left arrow v] key pressed
+    point in direction (-90)
+    move (10) steps
+    if on edge, bounce
+
+when [up arrow v] key pressed
+    point in direction (0)
+    move (10) steps
+    if on edge, bounce
+
+when [down arrow v] key pressed
+    point in direction (180)
+    move (10) steps
+    if on edge, bounce
+```
+- Score resets to 0 and the Dot prompts the player at the start.
+
+- The Dot continuously cycles through its three costumes for a simple animation.
+
+- Arrow keys move the Dot in all four directions, with bounce logic to keep it on screen.
+
+<br />
+
+- [x] Fantastic! Your Dot is now animated and responsive. Up next: Star Chase 3 – Star, where we’ll script the collectible stars!

@@ -1,0 +1,105 @@
+---
+title: "Geometry Dash 9: Extending Your Level with Costume Switching"
+sidebar_position: 11
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+  <summary>**Prerequisites: Before You Dive In!**</summary>
+
+  - You have completed **Geometry Dash 1–8** (Drawing the Player, Adding Music & Jumping, Level Design, Scrolling the Level, Infinite Scroll with Clones, Adding Spikes & Collision Detection, Smooth Deceleration & Game Over Feel, Collision Sound Effect).  
+  - You’re familiar with the Scratch editor: Costumes tab, clone scripts, and using the `scrollSpeed` variable.  
+</details>
+:::
+
+## Objective 🧐
+
+Modify your level-clone logic to skip ahead through multiple costumes, enabling arbitrary long or varied level designs by cycling more than two segments.
+
+## Getting Started with Scratch 🚩
+
+### Step 1. Prepare Multiple Level Costumes
+
+1. Select your **floor** (level) sprite and open the **Costumes** tab.  
+2. Ensure you have at least two base costumes (`level1.1` and `level1.2`) as from Lesson 5.  
+3. Create additional costumes (e.g., `level2.1`, `level2.2`, “level3.1,” “level3.2,” etc.) that represent distinct segments of your level design.  
+   - Each costume pair (`.1` and `.2`) can contain different spike patterns, gaps, or decorations.  
+   - Number the costumes sequentially so that “level1.1” → “level1.2” → “level2.1” → “level2.2” → “level3.1” … and so on.
+
+### Step 2. Adjust Clone Script to Skip Costumes
+
+1. Open the **Scripts** area for your **floor** sprite.  
+2. Locate the `when I start as a clone` script that handles scrolling:
+
+```scratch
+when I start as a clone
+    show
+    go to x: (x position) y: (0)
+    forever
+        change x by (scrollSpeed)
+        if <(x position) < (-480)> then
+            change x by (960)
+            next costume
+        end
+    end
+```
+
+- Modify the costume‐advancement logic to skip two costumes at once. Replace the single next costume with:
+
+```scratch
+next costume
+next costume
+```
+
+so the script becomes:
+
+```scratch
+when I start as a clone
+    show
+    go to x: (x position) y: (0)
+    forever
+    change x by (scrollSpeed)
+    if <(x position) < (-480)> then
+        change x by (960)
+        next costume
+        next costume
+    end
+    end
+```
+
+- By advancing two costumes each time a sprite scrolls off‐screen (–480 px), you leap from, for example, level1.1 → level1.2 → level2.1 on that same clone, then on its next loop level2.1 → level2.2 → level3.1, and so on—creating a seamless chain of varied segments.
+
+### Step 3. Test Your Extended Level
+
+1. Click the green flag.
+
+2. Watch your floor clones cycle: each clone should scroll left 480 px, teleport right 960 px, and advance two costumes, producing an infinitely long level composed of all your designed segments.
+
+### Step 4. Adding More Complexity (Optional)
+
+- To introduce branching paths or random segment orders, you can use:
+
+```scratch
+if <[randomCondition] = [true]> then
+    next costume
+    next costume
+else
+    next costume
+    next costume
+    next costume
+    next costume
+end
+```
+- so clones might skip more or fewer costumes depending on logic.
+
+- Combine with additional clones (beyond two) to overlap three or more segments at once.
+
+### Step 5. Save Your Progress
+
+Click File → Save now to lock in your extended level design.
+
+<br />
+
+- [x] **Fantastic!** Your level now cycles through multiple distinct costumes, enabling complex, arbitrarily long Geometry Dash–style levels.
