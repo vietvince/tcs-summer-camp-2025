@@ -110,4 +110,10 @@ export const unitySidebar2 = [
   },
 ];
 
+export const unitySidebar3 = [
+  {
+    'VR Game Design with Unity and Meta Quest': ['unity-vr-part1/intro', 'unity-vr-part1/setup', 'unity-vr-part1/section1']
+  },
+];
+
 export default sidebars;
