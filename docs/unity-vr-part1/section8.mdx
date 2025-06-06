@@ -1,0 +1,85 @@
+---
+title: "Part 8: Handle “Out-of-Bounds” Respawns (RespawnItems.cs)"
+sidebar_position: 8
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Part 8: Handle “Out-of-Bounds” Respawns (RespawnItems.cs)
+
+If a ball or the pistol falls off the maze, we want it to teleport back to its start position. We’ll make a big invisible “DeathZone” under the floor that catches anything that falls and moves it back.
+
+## A. Create a “DeathZone” Collider
+
+1. In **Hierarchy → + → Create Empty**, rename it **DeathZone**.
+2. With **DeathZone** selected, click **Add Component → Box Collider**.
+3. In the **Box Collider**, set **Is Trigger = false** (we want real collisions here).
+4. In **Inspector → Transform**, set:
+   - **Position**: (0, –2, 0)  
+   - **Scale**: (10, 1, 10)  
+   - This box sits below the floor at Y = –2. Anything falling past Y ≈ –1.5 will hit this box.
+
+## B. Create the Start-Position “Empty” Transforms
+
+We need one empty object at each ball’s original spot plus one for the pistol.
+
+1. In **Hierarchy → + → Create Empty**, rename it **BBStart1**.  
+   - In **Inspector → Transform**, set **Position** = (−2, 0.5, 3)  
+     _(where Basketball1 sits)_  
+2. **Duplicate** **BBStart1** → rename the copy **BBStart2**, set **Position** = (0, 0.5, 3).  
+3. **Duplicate** **BBStart1** again → rename **BBStart3**, set **Position** = (2, 0.5, 3).  
+4. In **Hierarchy → + → Create Empty**, rename it **PistolStart**.  
+   - We’ll place the pistol later—set **Position** once you’ve created the pistol layout.  
+
+These four empties simply mark where each item should return if it falls.
+
+## C. Write the “RespawnItems” Script
+
+1. In **Assets/Scripts**, right-click → **Create → C# Script**, name it **RespawnItems**.
+2. Double-click **RespawnItems.cs** to open it in your code editor. Delete everything and paste in:
+
+    ```csharp
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+
+    public class RespawnItems : MonoBehaviour
+    {
+        public Transform bbStart1;
+        public Transform bbStart2;
+        public Transform bbStart3;
+        public Transform pistolStart;
+
+        private void OnCollisionEnter(Collision other)
+        {
+            switch (other.gameObject.tag)
+            {
+                case "Basketball1":
+                    other.gameObject.transform.position = bbStart1.position;
+                    other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    break;
+                case "Basketball2":
+                    other.gameObject.transform.position = bbStart2.position;
+                    other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    break;
+                case "Basketball3":
+                    other.gameObject.transform.position = bbStart3.position;
+                    other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    break;
+                case "Pistol":
+                    other.gameObject.transform.position = pistolStart.position;
+                    other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    break;
+            }
+        }
+    }
+    ```
+3. Save **RespawnItems.cs** and switch back to Unity.
+4. Select **DeathZone** in the Hierarchy, click **Add Component → RespawnItems**.
+5. In the Inspector for **RespawnItems** (on **DeathZone**), assign:
+   - **Bb Start1** → drag **BBStart1** from the Hierarchy  
+   - **Bb Start2** → drag **BBStart2**  
+   - **Bb Start3** → drag **BBStart3**  
+   - **Pistol Start** → drag **PistolStart**
+
+**Result:** Whenever a GameObject with Tag = **“Basketball1”**, **“Basketball2”**, **“Basketball3”**, or **“Pistol”** collides with the **DeathZone**, it teleports back to its paired start Transform and its velocity (linear and angular) is reset.  

@@ -1,0 +1,37 @@
+---
+title: "Part 4: Set Up the Basic VR “Player Rig”"
+sidebar_position: 4
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Part 4: Set Up the Basic VR “Player Rig”
+
+## 4. Set Up the Basic VR “Player Rig”
+
+1. In the **Hierarchy** window, delete the default **Main Camera** (select it and press **Delete**).
+
+2. In the top menu, go to **GameObject → XR → XR Origin (Action-based)**.  
+   This creates an **XR Origin** GameObject with the following structure:  
+   ```text
+   XR Origin (Action-based)
+   ├─ Camera Offset
+   │    └─ Main Camera  (tagged MainCamera)
+   ├─ LeftHand Controller
+   └─ RightHand Controller
+    ```
+3. Expand XR Origin → Camera Offset → Main Camera.
+
+- The Main Camera has a Tracked Pose Driver component. This automatically moves the camera to match your VR headset’s position and rotation.
+
+4. Expand XR Origin → LeftHand Controller.
+
+- You should see an XR Controller (Action-based) component and an XR Ray Interactor component. These allow you to point a laser beam for teleporting or interacting with objects.
+
+5. Expand XR Origin → RightHand Controller.
+
+- Similarly, it should have XR Controller (Action-based) and XR Ray Interactor components.
+
+- Tip: If either controller is missing one of these components, select the controller in the Hierarchy, click Add Component, and search for “XR Controller (Action-based)” and “XR Ray Interactor” to add them manually.
+
+You can now press Play ▶ and put on your VR headset. You should see either a blank floor (once you create one) or a black void, but your head movements will be tracked. Press Play ▶ again to stop.

@@ -1,0 +1,49 @@
+---
+title: "Part 5: Build the Floor & Maze Walls"
+sidebar_position: 5
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Part 5: Build the Floor & Maze Walls
+
+We’ll build a simple 10 × 10 m floor and four maze walls using Unity’s built-in primitives.
+
+## A. Create the Floor
+
+1. In the **Hierarchy**, right-click → **3D Object → Plane**.
+2. Rename this object to **Floor**.
+3. With **Floor** selected, go to the **Inspector → Transform** and set:
+   - **Position**: (0, 0, 0)  
+   - **Rotation**: (0, 0, 0)  
+   - **Scale**: (10, 1, 10)  
+     - This makes the plane 10 m wide on both X and Z, giving us a 10 × 10 floor.
+4. In the **Inspector**, verify **Floor** has a **Mesh Collider** (built-in with a Plane).  
+   - If not, click **Add Component → Mesh Collider**.
+
+## B. Create Four Maze Walls
+
+We’ll position four cubes to form a simple “U”-shaped maze.
+
+1. In **Hierarchy**, right-click → **3D Object → Cube**.
+2. Rename it **Wall_1**. In the **Inspector → Transform**, set:
+   - **Position**: (0, 0.5, 3)  
+   - **Scale**: (8, 1, 0.5)  
+   - **Rotation**: (0, 0, 0)  
+   - This wall is 8 m wide (X), 1 m tall (Y), and 0.5 m thick (Z), placed at Z = 3, Y = 0.5.
+3. **Duplicate** **Wall_1** (select → `Ctrl + D`), rename the copy to **Wall_2**, and change its Transform to:
+   - **Position**: (−3.75, 0.5, 0.75)  
+   - **Scale**: (0.5, 1, 4.5)  
+   - This becomes the left inner wall of the maze.
+4. **Duplicate** **Wall_1** again, rename it **Wall_3**, and set:
+   - **Position**: (3.75, 0.5, 0.75)  
+   - **Scale**: (0.5, 1, 4.5)  
+   - This is the right inner wall.
+5. **Duplicate** **Wall_2**, rename it **Wall_4**, and set:
+   - **Position**: (0, 0.5, 0)  
+   - **Scale**: (6, 1, 0.5)  
+   - This runs horizontally in the middle, leaving an open path around it.
+6. Select all four walls (**Wall_1** → **Wall_4**), and in the **Inspector**, change their Material (optional):
+   1. Create a new Material: in the **Project** window, right-click → **Create → Material**, name it **WallMat**.
+   2. In **WallMat → Albedo**, pick a light gray.
+   3. Drag **WallMat** onto each **Wall_#** in the Scene.

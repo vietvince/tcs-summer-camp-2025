@@ -112,7 +112,7 @@ export const unitySidebar2 = [
 
 export const unitySidebar3 = [
   {
-    'VR Game Design with Unity and Meta Quest': ['unity-vr-part1/intro', 'unity-vr-part1/setup', 'unity-vr-part1/section1']
+    'VR Game Design with Unity and Meta Quest': ['unity-vr-part1/intro', 'unity-vr-part1/setup', 'unity-vr-part1/section1', 'unity-vr-part1/section2', 'unity-vr-part1/section3', 'unity-vr-part1/section4', 'unity-vr-part1/section5', 'unity-vr-part1/section6', 'unity-vr-part1/section7', 'unity-vr-part1/section8', 'unity-vr-part1/section9', 'unity-vr-part1/section10', 'unity-vr-part1/section11', 'unity-vr-part1/section12', 'unity-vr-part1/section13', 'unity-vr-part1/section14']
   },
 ];
 

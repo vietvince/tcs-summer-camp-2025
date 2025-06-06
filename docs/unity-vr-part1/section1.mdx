@@ -1,159 +1,22 @@
 ---
-title: "Stage 1: Basic Zombies"
-sidebar_position: 3
+title: "Part 1: Install Unity & Create a New Project"
+sidebar_position: 1
 toc_min_heading_level: 2
 toc_max_heading_level: 3
 ---
 
-# Stage 1: Basic Zombies
+# Part 1: Install Unity & Create a New Project
 
-<iframe style={{}} width="917" height="516" src="https://player.vimeo.com/video/970267162?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" title="Unity 2D - Stage 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+## 1. Install Unity & Create a New Project
 
-## Objective 🧐🗿
+Download Unity Hub (if you haven’t already) from [unity.com/download](https://unity.com/download).
 
-Learn to set up the game environment and introduce basic zombie mechanics, creating a foundation for further development in Unity.
+Use Unity Hub to install **Unity 2020.3 LTS** (or any version 2020.3 or later).
 
-<details>
-    <summary><strong>Coach Note!</strong></summary>
+In Unity Hub, click **New project**:
+- **Select** the **3D (Universal Render Pipeline)** template (makes lighting nicer).
+- **Name** your project **“VR Basketball Maze”**.
+- **Choose** a folder on your computer (e.g., `C:/Users/You/Documents/UnityProjects/VR_Basketball_Maze`).
+- **Click** **Create**.
 
-  These are the topics you will be going over for the basics of Unity:
-
-  <details>
-    <summary><strong>Standard</strong></summary>
-
-    - Introduction to Unity Interface: Overview of the Unity Editor layout, main windows (Scene view, Game view, Hierarchy, Inspector, Project), and navigation tips.
-    - Classes, Variables, and Methods: Understanding MonoBehaviour classes, different variable types (int, float, bool, etc.), and common methods like Start() and Update().
-    - Components and Their Usage: Explanation of Unity components (Transform, Rigidbody, Collider), adding/removing/configuring components, and example interactions.
-    - Understanding X and Y Coordinates: Explanation of Unity's coordinate system (2D: X, Y), positioning objects, and using the Transform component.
-  </details>
-
-  <details>
-    <summary><strong>Advanced</strong></summary>
-
-    - In-depth Start and Update Methods: Detailed use of Start() for initialization and Update() for frame-based actions, including FixedUpdate() for physics.
-    - Frame Rate and Delta Time: Explanation of frame rate, Delta Time's role in movement/animations, and practical usage in Unity scripts.
-    - Interactions of Objects and Properties: How objects interact through collisions/triggers/physics, using public/private variables, properties, and methods in scripts.
-  </details>
-</details>
-
-## Step 1 - Set Up the Environment 🌍🌱
-
-### 1.1 Unity Interface and Camera Movement
-
-First, ensure you are operating in a 2D game environment. Go to **Edit > Project Settings > Editor** and enable **Enter Play Mode Options** for efficient testing.
-
-Familiarize yourself with key areas of the Unity Editor:
-
-- **Scene View**: Build and modify your game space.
-- **Game View**: Preview the game as you develop.
-- **Inspector**: Adjust settings and properties of selected game elements.
-
-**Navigation Tips**:
-- Rotate the scene with the right mouse button.
-- Pan using the middle mouse button or holding `Alt` + left mouse button.
-- Zoom in and out with the scroll wheel.
-
-Adjust the camera to cover the main gameplay area. This setting is crucial as it determines what the player sees.
-
-### 1.2 Background
-
-**Background**: Obtain a vibrant garden image for the game’s backdrop. Consider creating one in a graphic design tool or finding a suitable royalty-free image online. For this tutorial, we’ll use a default garden setting reminiscent of classic defense games.
-
-## Step 2 - Set up the Objects 📦🔧
-
-### 2.1 Create Zombie Images
-
-**Zombie Sprite**:
-- Create or find a zombie sprite. If drawing, use graphic software or a sprite creation tool. Alternatively, download from free resources online.
-- Ensure you have multiple frames for future animation.
-
-### 2.2 Create Basic Zombie Object
-
-**Setup**:
-- In Unity, create a new Sprite object in your scene and name it 'Zombie'.
-
-**Sprite Renderer**:
-- Attach your zombie sprite using the Sprite Renderer component to visualize the zombie in your game.
-
-**Transforms**:
-- Position your zombie to fit the scene appropriately. Adjust scale and rotation if necessary.
-
-## Step 3 - Set up the Zombie Script 🧟‍♂️📜
-
-### 3.1 Script Basic Zombie Movement
-
-Create a script named `ZombieMovement` to define basic behaviors:
-
-```csharp
-ZombieMovement Class:
-   Declare variables:
-     - speed: a float for the movement speed of the zombie
-
-   Update method:
-     - Move the zombie to the left by multiplying 'speed' with Time.deltaTime and subtracting from the current position along the x-axis
-```
-This script moves the zombie leftward across the screen. Ensure you understand the code, if not ask your coach for a cup of water; I mean for help. 
-
-### 3.2 Create Zombie Spawners
-
-Spawner Object:
-
-Place an empty GameObject named 'ZombieSpawner' on the edge of your screen.
-
-Spawner Script:
-Develop a script to spawn zombies at regular intervals. 
-
-Follow this guide:
-
-```csharp
-ZombieSpawner Class:
-   Declare variables:
-     - spawnpoints: an array of Transform objects where zombies can spawn
-     - zombie: a GameObject reference for the zombie prefab
-
-   Start method:
-     - Schedule the SpawnZombie method to be called every 2 seconds starting after a 2-second delay
-
-   SpawnZombie method:
-     - Choose a random index from the spawnpoints array
-     - Instantiate a zombie at the selected spawnpoint's position with no rotation (Quaternion.identity)
-
-```
-
-Tip:
-If you find the interface unfamiliar or challenging, take extra time to experiment. Add various objects, explore different settings, and observe their effects in the Game View. Familiarity now will make advanced lessons more accessible.
-
-<details>
-    <summary><strong>Medium: Add walking animations for zombies!</strong></summary>
-
-**Goal: Implement interactive animations for zombies.**
-
-  **4.1 Gather your assets**
-
-    Search online for zombie assets to animate! Preferably a zombie sheet with a different image for each frame.
-
-  **4.2 Editing the sheet**
-
-    Use the sprite editor and slice the sheet file, then replace the existing zombie object's sprite with the zombie sheet.
-
-  **4.3 Animate**
-
-    Use the animation editor to create an animation! Simply drag the images onto the editor and click play until the animation looks right.
-
-</details>
-
-<details>
-    <summary><strong>Hard: Create your own zombies!</strong></summary>
-
-**Goal: Create different types of zombies!**
-
-    **5.1 Gather your assets**
-
-       Search online for zombie assets to animate! Preferably a zombie sheet with a different image for each frame. 
-
-    **5.2 Create new behaviors**
-
-        Script your zombie to be unique by giving cool functionalities. 
-</details>
-
-- [x] **You're doing great! Stay curious and proactive in your learning. がんばって (Do your best)!**
+Unity will open a blank 3D project. It may take a minute to load.  

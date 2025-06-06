@@ -1,5 +1,5 @@
 ---
-title: "Setup "
+title: "Setup"
 sidebar_position: 2
 toc_min_heading_level: 2
 toc_max_heading_level: 4
@@ -7,29 +7,125 @@ toc_max_heading_level: 4
 
 ## Objective 🧐🗿
 
-Hello there fellow Unity learners! For the setup, spend 30 minutes or so explore the Unity game engine as a whole:
+Welcome, future VR developers! In this setup, you’ll spend some time getting everything ready for VR development in Unity. By the end of this section, you should have:
 
-### Master the Camera System
-    - The camera controls might feel a bit unusual initially, but with a little practice, you'll be navigating like a pro.
-    - Try different angles and movements to find the best views for your game scenes.
+- A working Unity installation compatible with VR (URP template recommended).  
+- The XR Interaction Toolkit and Input System packages installed.  
+- Your Meta Quest (or other headset) connected and configured in Unity.  
+- Confidence navigating the Unity Editor in preparation for VR tasks.
 
-### Update Unity
-    - Ensure you are running the latest version of Unity for the best performance and access to new features.
-    - Check Unity's official website or the Unity Hub for updates.
+### Key Goals
+
+- **Install/Update Unity**  
+  - Use Unity Hub to install the latest LTS version (2020.3 or newer).  
+  - Confirm you’re on a version that supports OpenXR and URP.
+
+- **Familiarize with the Scene View**  
+  - Practice panning, orbiting, and zooming in Scene view so you can position VR cameras and objects easily.  
+  - Try holding the right-mouse button and moving the mouse to orbit, middle-mouse to pan, and scroll wheel to zoom.
+
+- **Connect Your VR Headset**  
+  - Plug in your Meta Quest (via Link/Air Link) or set up your Rift/Vive according to manufacturer instructions.  
+  - Verify in Windows (or macOS, if supported) that the headset is recognized and ready for Unity.
+
+- **Install Required Packages**  
+  - In Unity’s Package Manager, add the Input System and XR Interaction Toolkit—these enable controller input, grabbing, and teleportation features.
+
+---
 
 ## Description 📝🔍
 
-In this course, the skills you learn are applicable beyond just plants and zombies. Unity's versatility allows you to create a wide array of games:
+This course focuses on building a VR basketball-and-shooting maze game, but the setup steps you follow here will apply to virtually any VR project in Unity.
 
-### Experiment with Free Assets
-    - Explore different asset packages available at [Unity's asset store](https://assetstore.unity.com/) to enhance your games without the need for creating every component from scratch.
+### Install Unity via Unity Hub
 
-### Branch Out
-    - While this course focuses on a game inspired by Plants vs. Zombies, why not try your hand at something unique? 
-    - Imagine a game where hamburgers battle pizzas, or cars face off against trucks. The skills you acquire here will help you bring any such creative ideas to life.
+1. **Open Unity Hub** (download from [unity.com/download](https://unity.com/download) if you don’t have it).  
+2. Go to the **Installs** tab and click **Add**.  
+3. Choose **Unity 2020.3 LTS** (or newer).  
+   - Include **Android Build Support** if you plan to build for Meta Quest.  
+   - Include **Windows Build Support (IL2CPP)** for PC-based headsets (Rift, Vive).  
+4. Once installation finishes, confirm Unity Hub shows your new Unity version under **Installs**.
 
-### Stay Updated
-    - Keeping your Unity version up to date ensures you have the latest tools and improvements. 
-    - New updates often include bug fixes, enhanced functionalities, and new assets that can significantly improve your development process.
+### Create a New Project in URP
 
-We are excited to see what innovative and engaging projects you will create with the skills learned in this course. Share your progress and any unique twists you add to your games. Let’s make learning fun and creative!
+1. In Unity Hub’s **Projects** tab, click **New**.  
+2. Select the **3D (Universal Render Pipeline)** template—this gives you better VR performance and up-to-date shaders.  
+3. Name your project **VR Basketball Maze** and choose a folder (e.g., `~/Unity/VR_Basketball_Maze`).  
+4. Click **Create**. Unity will open the Editor with a brand-new URP project.
+
+### Install the Input System & XR Interaction Toolkit
+
+1. In Unity’s top menu, go to **Window → Package Manager**.  
+2. In Package Manager’s dropdown (upper left), select **Unity Registry**.  
+3. Search for **Input System**, click **Install**.  
+   - When prompted to **Restart and enable new Input System**, choose **Yes**. Unity will reload.  
+4. Reopen **Window → Package Manager**.  
+5. Search for **XR Interaction Toolkit**, click **Install**.  
+   - When asked to **Import default input actions**, choose **Yes**.  
+6. Close the Package Manager.
+
+### Enable OpenXR
+
+1. Go to **Edit → Project Settings → XR Plug-in Management**.  
+2. Check **Initialize XR on Startup** at the top.  
+3. Under **Plug-in Providers → PC, Mac & Linux Standalone**, enable **OpenXR**.  
+   - If you plan to build for Quest (Android), also check **OpenXR** under **Android**.  
+4. Click **OpenXR** in the left panel and enable the controller profiles you need (e.g., **Oculus Touch Controller Profile**, **HTC Vive Controller Profile**).  
+5. Close Project Settings.
+
+### Connect and Test Your Headset
+
+1. **Meta Quest / Quest 2** (via Link or Air Link):  
+   - Plug the USB-C cable into your PC or enable Air Link in Quest’s settings.  
+   - In Unity, press **Play**. Put on your Quest—if everything is set up, you should see the empty scene in VR.
+
+2. **Oculus Rift / Rift S**:  
+   - Open the Oculus PC app, put on your headset, and verify it’s in “Passthrough” or “Oculus Home.”  
+   - Press **Play** in Unity—your Rift should display the empty scene.
+
+3. **HTC Vive / Vive Pro**:  
+   - Make sure SteamVR is running and your Vive is tracked in SteamVR Home.  
+   - Press **Play** in Unity; the Vive view should render the scene.
+
+4. **Valve Index**:  
+   - Open SteamVR and confirm your Index is tracking.  
+   - Hit **Play** in Unity to see the VR editor view.
+
+> **Tip:** If you see a warning about “No XR device found,” double-check your headset connection, USB cables, and that OpenXR is enabled in Project Settings.
+
+### Explore the Unity Editor
+
+- **Scene View Controls**  
+  - **Orbit:** Hold right-mouse button + move mouse.  
+  - **Pan:** Hold middle-mouse button (or Alt + left-mouse) + move.  
+  - **Zoom:** Scroll wheel or hold right-mouse + W/S keys.  
+
+- **Play Mode in VR**  
+  - Click **Play ▶** in Unity and watch your headset’s view update in real time.  
+  - Use controller joysticks or touchpads to see if any default teleportation or ray appears (some XR samples include basic teleport).
+
+- **Asset Store Resources**  
+  - Explore free VR assets at [Unity Asset Store → Tags → VR](https://assetstore.unity.com/).  
+  - Import sample hand models or VR toolkits if you want extra references.
+
+---
+
+## Tips for a Smooth VR Setup
+
+- **Keep Unity Updated**  
+  - Regularly check Unity Hub for updates. Newer versions include bug fixes and improved OpenXR support.  
+  - Avoid switching versions mid-tutorial; stick with the same LTS release you installed at the start.
+
+- **Install Matching Oculus/SteamVR Plugins**  
+  - If you plan to target Oculus specifically, you can install the **Oculus XR Plugin** (via Package Manager) in addition to OpenXR.  
+  - For Vive/Index, ensure **Windows XR Plugin** or **SteamVR Plugin** is installed if you run into tracking issues.
+
+- **Check Your USB & Drivers**  
+  - For Quest Link, use a high-quality USB 3.0 cable.  
+  - For Rift/Vive/Index, verify all headset and controller drivers are up to date in Windows Device Manager.
+
+- **Test Early and Often**  
+  - After each major step (project creation, package install, OpenXR enable), press **Play ▶** and confirm your headset displays the scene.  
+  - Fix any errors or missing references before moving on to scripting or level design.
+
+You’re now ready to start building your VR basketball-and-shooting maze game! Proceed to Section 1: **Create a New Unity Project**, and let’s bring your VR vision to life.  

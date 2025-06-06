@@ -1,0 +1,157 @@
+---
+title: "Part 11: Create Three Target Boards & Shooting Score UI"
+sidebar_position: 11
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Part 11: Create Three Target Boards & Shooting Score UI
+
+Players will shoot at three boards worth 1, 5, or 10 points.
+
+## 11.1 Build the Target Boards
+
+1. In **Hierarchy → + → 3D Object → Cube**, rename it **Target_1pt**.  
+   - In **Inspector → Transform**, set:  
+     - **Position**: (−4, 1, 0) _(left side of maze)_  
+     - **Scale**: (0.5, 0.5, 0.1) _(50 cm × 50 cm panel)_  
+   - Assign a red material:  
+     - Create **RedMat** (in **Project** window: right-click → **Create → Material**, name it RedMat, set Albedo = red).  
+     - Drag **RedMat** onto **Target_1pt**.
+
+2. **Duplicate** **Target_1pt** → rename the copy **Target_5pt**.  
+   - In **Inspector → Transform**, set:  
+     - **Position**: (0, 1, −2)  
+   - Assign a blue material:  
+     - Create **BlueMat** (right-click in **Project** → **Create → Material**, name it BlueMat, set Albedo = blue).  
+     - Drag **BlueMat** onto **Target_5pt**.
+
+3. **Duplicate** **Target_1pt** again → rename it **Target_10pt**.  
+   - In **Inspector → Transform**, set:  
+     - **Position**: (4, 1, 0)  
+   - Assign a green material:  
+     - Create **GreenMat** (right-click in **Project** → **Create → Material**, name it GreenMat, set Albedo = green).  
+     - Drag **GreenMat** onto **Target_10pt**.
+
+4. Verify all three targets have a **Box Collider** (Is Trigger = false) by default.
+
+## 11.2 Create Scoring Scripts
+
+In **Assets/Scripts**, create three C# scripts: **ShootingPoint1.cs**, **ShootingPoint5.cs**, and **ShootingPoint10.cs**. Replace each file’s contents as follows:
+
+### ShootingPoint1.cs
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class ShootingPoint1 : MonoBehaviour
+{
+    public TMPro.TMP_Text shootingScoreCounter;
+    static public int shootingScore = 0;
+
+    private void OnCollisionEnter(Collision other) {
+        if (other.gameObject.tag == "bullet") {
+            shootingScore++;
+            shootingScoreCounter.text = "Score: " + shootingScore;
+            Destroy(other.gameObject);
+        }
+    }
+}
+```
+
+Save **ShootingPoint1.cs.**
+
+### ShootingPoint5.cs
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class ShootingPoint5 : MonoBehaviour
+{
+    public TMPro.TMP_Text shootingScoreCounter;
+
+    private void OnCollisionEnter(Collision other) {
+        if (other.gameObject.tag == "bullet") {
+            ShootingPoint1.shootingScore += 5;
+            shootingScoreCounter.text = "Score: " + ShootingPoint1.shootingScore;
+            Destroy(other.gameObject);
+        }
+    }
+}
+```
+
+Save **ShootingPoint5.cs.**
+
+### ShootingPoint10.cs
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class ShootingPoint10 : MonoBehaviour
+{
+    public TMPro.TMP_Text shootingScoreCounter;
+
+    private void OnCollisionEnter(Collision other) {
+        if (other.gameObject.tag == "bullet") {
+            ShootingPoint1.shootingScore += 10;
+            shootingScoreCounter.text = "Score: " + ShootingPoint1.shootingScore;
+            Destroy(other.gameObject);
+        }
+    }
+}
+```
+
+Save **ShootingPoint10.cs.** and return to Unity.
+
+## 11.3 Create a Floating “Shooting Score” UI
+
+- In **Hierarchy → + → UI → Text – TextMeshPro**, rename the new object to **ShootingScoreText**.  
+  - If prompted, import TextMeshPro Essentials.  
+  - In **Inspector → TextMeshPro → Text**, type:
+    ```
+    Score: 0
+    ```  
+  - Set **Font Size** to **48**.
+
+- Under **Rect Transform**, set:
+  - **Pos X** = −0.5  
+  - **Pos Y** = 1.8  
+  - **Pos Z** = 0.5  
+  - **Rotation** = (0, 180, 0) (so it faces you)  
+  - **Scale** = (0.002, 0.002, 0.002)
+
+- If there’s no existing Canvas for this UI:
+  1. In **Hierarchy → + → UI → Canvas**, rename it **ShootingCanvas**.  
+  2. Click **ShootingCanvas**, then in **Inspector → Canvas**, set **Render Mode = World Space**.  
+  3. Under **Rect Transform**, set:
+     - **Position** = (−0.5, 1.8, 0.5)  
+     - **Rotation** = (0, 180, 0)  
+     - **Scale** = (0.002, 0.002, 0.002)  
+  4. Drag **ShootingScoreText** under **ShootingCanvas** (so it becomes a child).
+
+## 11.4 Attach Scoring Scripts to Each Target
+
+- **Target_1pt**  
+  1. Select **Target_1pt** in the Hierarchy.  
+  2. Click **Add Component → ShootingPoint1**.  
+  3. In **Inspector → ShootingPoint1 component**, drag **ShootingScoreText** into the **Shooting Score Counter** slot.
+
+- **Target_5pt**  
+  1. Select **Target_5pt**, click **Add Component → ShootingPoint5**.  
+  2. Drag **ShootingScoreText** into its **Shooting Score Counter** slot.
+
+- **Target_10pt**  
+  1. Select **Target_10pt**, click **Add Component → ShootingPoint10**.  
+  2. Drag **ShootingScoreText** into its **Shooting Score Counter** slot.
+
+**Result:**  
+Any bullet (tagged “bullet”) that collides with **Target_1pt**, **Target_5pt**, or **Target_10pt** will add 1, 5, or 10 points respectively to the shared `shootingScore` counter, and update the **ShootingScoreText** UI in VR.  

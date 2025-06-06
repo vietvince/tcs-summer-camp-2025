@@ -1,0 +1,33 @@
+---
+title: "Part 3: Enable OpenXR (or Your Headset’s XR Plugin)"
+sidebar_position: 3
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Part 3: Enable OpenXR (or Your Headset’s XR Plugin)
+
+The “XR Plugin Management” lets Unity talk to your VR headset. We’ll use OpenXR, which works on most headsets (Quest, Rift, Vive, Index, etc.).
+
+## 3. Enable OpenXR (or Your Headset’s XR Plugin)
+
+1. Go to **Edit → Project Settings…**  
+2. In the left sidebar, select **XR Plug-in Management**.  
+3. At the top, check **Initialize XR on Startup**.  
+4. Under **Plug-in Providers → PC, Mac & Linux Standalone**, check **OpenXR**.  
+   - (If you don’t see OpenXR, you may need to install **OpenXR Plugin** first via Package Manager—search “OpenXR Plugin” and install it.)  
+5. Click **OpenXR** under the XR Plug-in list (just below).  
+   - In the **Features** list, check the controller profiles matching your hardware:  
+     - **Oculus Touch Controller Profile** (for Oculus devices)  
+     - **HTC Vive Controller Profile**  
+     - **Valve Index Controller Profile**  
+     - …or any other profile that corresponds to your controllers.  
+6. *(If you plan to build to Quest/Android)* also check **OpenXR** under the **Android** section.  
+
+Close **Project Settings** when you’re done.
+
+### Why?
+
+- The **XR Plug-in Management** system ensures Unity loads the correct runtime to communicate with your headset.  
+- **OpenXR** is a cross-platform API that covers most major VR headsets, reducing the need for multiple plugins.  
+- Enabling the appropriate controller profiles lets Unity recognize and map button inputs from your VR controllers.  

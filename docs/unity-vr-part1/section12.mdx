@@ -1,0 +1,54 @@
+---
+title: "Part 12: Add Maze-Exit Teleporter (MazeTeleporter.cs)"
+sidebar_position: 12
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Part 12: Add Maze-Exit Teleporter (MazeTeleporter.cs)
+
+When the player reaches the exit of the maze, we’ll reload the scene and reset everything.
+
+## 12.1 Create a “MazeTeleporter” Trigger
+
+1. In **Hierarchy → + → Create Empty**, rename it **MazeTeleporter**.
+2. With **MazeTeleporter** selected, click **Add Component → Box Collider**.
+3. In the **Box Collider**, check **Is Trigger = true**.
+4. In **Inspector → Transform**, set:
+   - **Position** = (0, 1, 6)  
+   - **Scale** = (4, 2, 0.5)  
+   _(Places a thin vertical box just past the hoop, covering the maze exit.)_
+
+## 12.2 Create MazeTeleporter.cs
+
+1. In **Assets/Scripts**, right-click → **Create → C# Script**, name it **MazeTeleporter.cs**.
+2. Double-click **MazeTeleporter.cs** to open it in your code editor. Delete everything and replace with:
+
+    ```csharp
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+    using UnityEngine.SceneManagement;
+
+    public class MazeTeleporter : MonoBehaviour
+    {
+
+        private void OnTriggerEnter(Collider other) {
+            if (other.gameObject.tag == "Player") {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+        }
+    }
+    ```
+
+3. Save **MazeTeleporter.cs** and switch back to Unity.
+4. Select **MazeTeleporter** in the Hierarchy, then click **Add Component → MazeTeleporter**.
+
+## 12.3 Tag the Player’s Camera
+
+1. Expand **XR Origin → Camera Offset → Main Camera**.
+2. Select **Main Camera**, then in **Inspector → Tag**, click **Add Tag → +**, type **Player**, and press **Enter**.
+3. Return to **Main Camera** and set its **Tag** to **Player**.
+
+> **Result:**  
+> When your VR headset (Main Camera, tagged “Player”) touches **MazeTeleporter**, Unity will reload the active scene—resetting all scores and respawning items.  

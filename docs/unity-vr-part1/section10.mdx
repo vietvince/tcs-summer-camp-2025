@@ -1,0 +1,92 @@
+---
+title: "Part 10: Create the Pistol & Bullet Firing (FireBulletOnActivate.cs)"
+sidebar_position: 10
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Part 10: Create the Pistol & Bullet Firing (FireBulletOnActivate.cs)
+
+Players will grab a pistol and shoot bullets at targets.
+
+## 10.1 Build a Simple Pistol
+
+1. In **Hierarchy → + → 3D Object → Cube**, rename it **Pistol**.  
+2. In **Inspector → Transform**, set:  
+   - **Position**: (2, 0.5, -3)  
+   - **Scale**: (0.3, 0.1, 0.6)  
+3. Add Components to **Pistol**:  
+   - **Rigidbody**  
+     - Mass = 1  
+     - Use Gravity = ☑  
+   - **Box Collider** (default settings)  
+   - **XR Grab Interactable** (click **Add Component → XR Grab Interactable**)  
+4. Select **Pistol**, then in **Inspector → Tag**, click **Add Tag → +**, type **Pistol**, press **Enter**.  
+   - Return to **Pistol** and set its **Tag** to **Pistol**.
+
+## 10.2 Create a “SpawnPoint” at the Muzzle
+
+1. Right-click **Pistol → Create Empty**, rename it **SpawnPoint**.  
+2. With **SpawnPoint** selected, in **Inspector → Transform**, set **Position (Local)** = (0, 0, 0.3).  
+   - _(Places it 30 cm out along the pistol’s forward (Z) direction.)_
+
+## 10.3 Make a Bullet Prefab
+
+1. In **Hierarchy → + → 3D Object → Sphere**, rename it **Bullet**.  
+2. In **Inspector → Transform**, set:  
+   - **Scale**: (0.05, 0.05, 0.05)  
+   - **Position**: (0, 0, 0) _(we’ll position it via script)._  
+3. Add Components to **Bullet**:  
+   - **Sphere Collider** (Is Trigger = false)  
+   - **Rigidbody**  
+     - Mass = 0.1  
+     - Use Gravity = ☑  
+4. In **Inspector → Tag**, click **Add Tag → +**, type **bullet**, press **Enter**.  
+   - Return to **Bullet** and set its **Tag** to **bullet**.  
+5. In the **Project** window, create a folder **Assets/Prefabs** (if it doesn’t exist).  
+6. Drag **Bullet** from the Hierarchy into **Assets/Prefabs** to make it a prefab.  
+7. Delete the **Bullet** instance from the Hierarchy (it’s now a prefab).
+
+## 10.4 Create FireBulletOnActivate.cs
+
+1. In **Assets/Scripts**, right-click → **Create → C# Script**, name it **FireBulletOnActivate.cs**.  
+2. Double-click **FireBulletOnActivate.cs** to open it in your code editor. Delete everything and replace with:
+
+    ```csharp
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+    using UnityEngine.XR.Interaction.Toolkit;
+
+    public class FireBulletOnActivate : MonoBehaviour
+    {
+        public GameObject bullet;
+        public Transform spawnPoint;
+        public float fireSpeed = 10;
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
+            grabbable.activated.AddListener(FireBullet);
+        }
+
+        public void FireBullet(ActivateEventArgs arg)
+        {
+            GameObject spawnedBullet = Instantiate(bullet);
+            spawnedBullet.transform.position = spawnPoint.position;
+            spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPoint.forward * fireSpeed;
+            Destroy(spawnedBullet, 5);
+        }
+    }
+    ```
+
+3. Save **FireBulletOnActivate.cs** and switch back to Unity.  
+4. Select **Pistol** in the Hierarchy, then click **Add Component → FireBulletOnActivate**.  
+5. In the **FireBulletOnActivate** component (Inspector), assign:  
+   - **Bullet** → drag **Bullet.prefab** (from **Assets/Prefabs**) into this field.  
+   - **Spawn Point** → drag the **SpawnPoint** child of **Pistol** into this field.  
+   - Leave **Fire Speed** at the default (10 m/s).  
+
+> **Result:**  
+> When you grab the pistol in VR and fully pull (activate) the trigger, **FireBulletOnActivate** will spawn a bullet at **SpawnPoint** and fire it forward at 10 m/s.  

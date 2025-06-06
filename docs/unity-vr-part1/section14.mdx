@@ -1,0 +1,113 @@
+---
+title: "Part 14: Final Checklist & Play-Testing"
+sidebar_position: 14
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Part 14: Final Checklist & Play-Testing
+
+Before hitting Play, verify the following are set up exactly:
+
+- **XR Origin (Action-based)**  
+  - Exists with **Main Camera** tagged **Player**.
+
+- **Floor**  
+  - A Plane scaled to **10 × 10** at **Y = 0**.
+
+- **Maze Walls**  
+  - **Wall_1** through **Wall_4** (Cubes) forming the maze, each with a Box Collider.
+
+- **Backboard**  
+  - Cube at **(0, 2, 5.5)** with a Box Collider.
+
+- **RimVisible**  
+  - Cylinder at **(0, 1.75, 5.4)**, parented to **Backboard**, with an orange/red material.
+
+- **HoopTrigger** (child of Backboard)  
+  - Box Collider (Is Trigger) at approximately **(0, 1.65, 5.4)**  
+  - Size = **(0.4, 0.01, 0.4)**  
+  - **BBScore** component attached, with **BBScoreText** assigned.
+
+- **Basketball Prefabs (Basketball1/2/3)** under **Assets/Prefabs**  
+  For each prefab:
+  - Sphere Collider + Rigidbody (**Mass = 0.6**, Freeze X/Z rotations) + XR Grab Interactable  
+  - Tag = **Basketball1**, **Basketball2**, or **Basketball3**  
+  - Instantiated in the scene at:
+    - **Basketball1**: (−2, 0.5, 3)  
+    - **Basketball2**: (0, 0.5, 3)  
+    - **Basketball3**: (2, 0.5, 3)
+
+- **DeathZone** (Empty)  
+  - Positioned at **(0, −2, 0)** with Box Collider (non-trigger), Scale = **(10, 1, 10)**  
+  - **RespawnItems** component attached, with references assigned:
+    - **BBStart1**, **BBStart2**, **BBStart3**, and **PistolStart**
+
+- **Start-Position Empties**  
+  - **BBStart1** at **(−2, 0.5, 3)**  
+  - **BBStart2** at **(0, 0.5, 3)**  
+  - **BBStart3** at **(2, 0.5, 3)**  
+  - **PistolStart** at **(2, 0.5, −3)**
+
+- **Pistol** (Cube) at **(2, 0.5, −3)**  
+  - Box Collider, Rigidbody (**Mass = 1**), XR Grab Interactable, Tag = **Pistol**  
+  - Child empty **SpawnPoint** at local **(0, 0, 0.3)**  
+  - **FireBulletOnActivate** component attached, with:
+    - **Bullet.prefab** assigned  
+    - **SpawnPoint** assigned
+
+- **Bullet.prefab** under **Assets/Prefabs**  
+  - Sphere Collider, Rigidbody (**Mass = 0.1**), Tag = **bullet**
+
+- **Targets**  
+  - **Target_1pt** at (−4, 1, 0), red material, Box Collider (Is Trigger = false), **ShootingPoint1** attached (with **ShootingScoreText** assigned)  
+  - **Target_5pt** at (0, 1, −2), blue material, Box Collider, **ShootingPoint5** attached (with **ShootingScoreText** assigned)  
+  - **Target_10pt** at (4, 1, 0), green material, Box Collider, **ShootingPoint10** attached (with **ShootingScoreText** assigned)
+
+- **ShootingCanvas** (World Space)  
+  - Positioned at **(−0.5, 1.8, 0.5)**, Rotation = **(0, 180, 0)**, Scale = **(0.002, 0.002, 0.002)**  
+  - Child **ShootingScoreText** (TextMeshPro: “Score: 0”, Font Size = 48)
+
+- **MazeTeleporter** (Empty) at **(0, 1, 6)**  
+  - Box Collider (Is Trigger) scaled to **(4, 2, 0.5)**  
+  - **MazeTeleporter** component attached
+
+- **Hand Animations**  
+  - **XR Origin → LeftHand Controller → Hands-Left → Hand (Animator)** has **AnimateHandOnInput** with:  
+    - **Pinch Animation Action** = **LeftHand Pinch**  
+    - **Grip Animation Action** = **LeftHand Grip**  
+    - **Hand Animator** = the Animator component  
+  - **XR Origin → RightHand Controller → Hands-Right → Hand (Animator)** has **AnimateHandOnInput** with:  
+    - **Pinch Animation Action** = **RightHand Pinch**  
+    - **Grip Animation Action** = **RightHand Grip**  
+    - **Hand Animator** = the Animator component
+
+---
+
+## Play-Testing
+
+Once all of the above are configured correctly, press **Play ▶** and put on your VR headset:
+
+1. **Teleport**  
+   - Hold the controller’s teleport button, aim at the floor, release to teleport anywhere on the floor.
+
+2. **Hand Animation**  
+   - Squeeze your index trigger → your virtual hand pinches.  
+   - Squeeze your grip → your hand closes.
+
+3. **Grab & Throw Basketballs**  
+   - Grip to pick up a ball (Basketball1/2/3), move your hand, and release → the ball flies.  
+   - If it passes through **HoopTrigger**, the **BBScoreText** increments by 1.
+
+4. **Shoot Targets**  
+   - Grip and hold the pistol, point at a 1-point (red), 5-point (blue), or 10-point (green) board, fully pull (activate) the trigger → the pistol spawns a bullet forward.  
+   - When a bullet hits a board, the **ShootingScoreText** updates accordingly (adds 1, 5, or 10 points).
+
+5. **Out-of-Bounds Respawn**  
+   - If a ball or pistol falls through the floor (below Y ≈ –1.5), it collides with **DeathZone** and teleports back to its start position.
+
+6. **Maze Exit**  
+   - Walk or teleport into the **MazeTeleporter** box → the scene reloads.  
+   - Both scores reset to zero, and all items respawn at their start positions.
+
+Now everything is ready—enjoy play-testing your VR Basketball Maze!  

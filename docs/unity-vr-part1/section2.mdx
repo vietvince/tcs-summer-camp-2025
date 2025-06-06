@@ -1,0 +1,34 @@
+---
+title: "Part 2: Add the “New Input System” & “XR Interaction Toolkit” Packages"
+sidebar_position: 2
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Part 2: Add the “New Input System” & “XR Interaction Toolkit” Packages
+
+## 2. Add the “New Input System” & “XR Interaction Toolkit” Packages
+
+We need two packages:
+1. **Input System** (the “new” input method)  
+2. **XR Interaction Toolkit** (for grabbing, teleporting, etc.)
+
+1. In Unity’s top menu bar, go to **Window → Package Manager**.
+2. In Package Manager’s upper-left dropdown, choose **Unity Registry**.  
+   _(This shows all official Unity packages.)_
+3. In the search field, type **Input System**.  
+   - Select **Input System** in the list.  
+   - Click **Install**.  
+   - Unity will ask, “Restart and enable new Input System?” — choose **Yes**.  
+     Unity will recompile and restart the project.
+4. Once Unity reloads, open **Window → Package Manager** again.
+5. In the same Registry view, search for **XR Interaction Toolkit**.  
+   - Select **XR Interaction Toolkit**.  
+   - Click **Install**.  
+   - When you see a popup asking to “Import default input actions?” click **Yes**.
+6. Close the **Package Manager**.
+
+### Why?
+
+- The **Input System** package lets us read button and joystick presses in VR.  
+- The **XR Interaction Toolkit** gives us ready-made components for hand/controllers, grabbing objects, teleporting, and more.  

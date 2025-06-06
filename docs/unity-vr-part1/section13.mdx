@@ -1,0 +1,75 @@
+---
+title: "Part 13: Animate VR Hands (AnimateHandOnInput.cs)"
+sidebar_position: 13
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Part 13: Animate VR Hands (AnimateHandOnInput.cs)
+
+Make your virtual hands close and open when you press trigger or grip.
+
+## 13.1 Import or Use XR Hands Prefabs
+
+- If you have the XR Interaction Toolkit samples imported, locate **Hands-Left** and **Hands-Right** prefabs:
+  1. If not yet imported, go to **Window → Sample Projects → XR Interaction Toolkit Samples**, and import the **Hands** sample.
+  2. In the **Project** window, find **Hands-Left** and **Hands-Right** under the imported samples.
+- In the **Hierarchy**, drag **Hands-Left** under **XR Origin → LeftHand Controller**.
+- Drag **Hands-Right** under **XR Origin → RightHand Controller**.
+- Each hand prefab includes an **Animator** component with two float parameters:  
+  - **“Trigger”** (for index-finger pinch)  
+  - **“Grip”** (for full-hand grip)
+
+## 13.2 Create AnimateHandOnInput.cs
+
+1. In **Assets/Scripts**, right-click → **Create → C# Script**, name it **AnimateHandOnInput.cs**.
+2. Double-click **AnimateHandOnInput.cs** to open it in your code editor. Delete any existing content and replace with:
+
+    ```csharp
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+    using UnityEngine.InputSystem;
+
+    public class AnimateHandOnInput : MonoBehaviour
+    {
+        public InputActionProperty pinchAnimationAction;
+        public InputActionProperty gripAnimationAction;
+        public Animator handAnimator;
+
+        // Update is called once per frame
+        void Update()
+        {
+            float triggerValue = pinchAnimationAction.action.ReadValue<float>();
+            handAnimator.SetFloat("Trigger", triggerValue);
+
+            float gripValue = gripAnimationAction.action.ReadValue<float>();
+            handAnimator.SetFloat("Grip", gripValue);
+        }
+    }
+    ```
+
+3. Save **AnimateHandOnInput.cs** and switch back to Unity.
+
+## 13.3 Assign Input Actions & Animator
+
+1. **Left Hand Setup**  
+   1. Expand **XR Origin → LeftHand Controller → Hands-Left**.  
+   2. Select the child GameObject that has the **Animator** component (often named “HandMesh” or “Hand”).  
+   3. Click **Add Component → AnimateHandOnInput**.  
+   4. In the **AnimateHandOnInput** component (Inspector):  
+      - **Pinch Animation Action** → click the circle icon, type **LeftHand Pinch**, and select the Input Action bound to the left index trigger.  
+      - **Grip Animation Action** → click the circle icon, type **LeftHand Grip**, and select the Input Action bound to the left grip button.  
+      - **Hand Animator** → drag the same GameObject’s **Animator** component into this field.  
+
+2. **Right Hand Setup**  
+   1. Expand **XR Origin → RightHand Controller → Hands-Right**.  
+   2. Select the child GameObject with the **Animator** component.  
+   3. Click **Add Component → AnimateHandOnInput**.  
+   4. In **AnimateHandOnInput** (Inspector):  
+      - **Pinch Animation Action** → click the circle icon, type **RightHand Pinch**, and select the Input Action for the right index trigger.  
+      - **Grip Animation Action** → click the circle icon, type **RightHand Grip**, and select the Input Action for the right grip button.  
+      - **Hand Animator** → drag the right-hand **Animator** into this field.  
+
+> **Result:**  
+> In Play mode, pressing either index trigger updates the “Trigger” float on the corresponding hand Animator (making the hand pinch). Pressing either grip button updates the “Grip” float (making the hand close).  

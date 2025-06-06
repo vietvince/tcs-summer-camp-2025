@@ -5,71 +5,86 @@ toc_min_heading_level: 2
 toc_max_heading_level: 3
 ---
 
-Welcome to Unity 2D Part 1: Launch Your Own Tower Defense Game! Gear up, young developers!
+Welcome to **VR Game Design with Unity and Meta Quest**! Put on your headset and get ready for an immersive VR adventure.
 
-Prepare for an exciting coding journey in 2D game development! With your Code Coach guiding you, you'll design and build a tower defense game inspired by Plants vs. Zombies that's both strategic and engaging!
+In this tutorial, you’ll build a complete VR game from scratch. You’ll learn how to grab and throw basketballs through a hoop, fire bullets at target boards, and navigate a simple maze—all in one cohesive experience. By following each step, you’ll gain hands-on practice with Unity’s XR Interaction Toolkit, physics, scoring systems, and VR hand animations.
 
-<iframe style={{}} width="917" height="516" src="https://player.vimeo.com/video/966024287?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" title="Unity 2D - Intro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+## How This Tutorial Is Structured 🎮
 
-## How this Tutorial is Designed 📚✏️
+Below are the 14 sections you’ll work through in order. Every student follows the same steps to arrive at a fully playable VR scene:
 
-Get ready for an awesome recreation of Plant vs. Zombies with your own twist! Each stage offers three difficulty options and you get to choose which challenge you think you can conquer!
+1. **Create a New Unity Project**  
+   - Open Unity Hub and start a new 3D (URP) project named “VR Playground”  
+   - Ensure you have a clean workspace before adding VR-specific tools.
 
-- **Easy:** Make a fully functional Plants vs. Zombies game of your own!
-- **Medium (Recommended):** Polish your game to make an even cooler version!
-- **Hard:** Try the challenge alone, using your skills try creating your own twist to the game!
+2. **Install “Input System” & “XR Interaction Toolkit” Packages**  
+   - Use Package Manager to install the Input System for VR controller input.  
+   - Install XR Interaction Toolkit to enable grabbing, teleportation, and ray interactions.  
+   - Import default input actions when prompted.
 
-## What is Plants vs. Zombies? 🧟🪴
+3. **Enable OpenXR**  
+   - In Project Settings, activate XR Plug-in Management.  
+   - Check OpenXR under Standalone (and Android if targeting Quest).  
+   - Enable relevant controller profiles (Oculus Touch, Vive, Index) for your headset.
 
-Plants vs. Zombies is a timeless classic that has over 200 million downloads! In Plants vs. Zombies, players place different types of plants and fungi, each with their own unique offensive or defensive capabilities, around a house, in order to stop a horde of zombies from reaching their house!
+4. **Set Up the VR “Player Rig”**  
+   - Delete the default Main Camera and add an “XR Origin (Action-based).”  
+   - Confirm the Main Camera has a Tracked Pose Driver.  
+   - Verify each controller has an XR Controller (Action-based) and XR Ray Interactor.
 
-## Stage Design 🎨📋  
-    There wil be a total of five stages, however some stages will be harder than others and may take more time.
-    
-    The first few stages will be the most challenging if you are new to Unity. Don't be afraid to take things slow.
+5. **Build the Floor & Maze Walls**  
+   - Create a Plane scaled to 10×10 as the floor.  
+   - Place four Cubes (Wall_1 through Wall_4) to form a simple U-shaped maze.  
+   - Apply materials and check that each wall has a Box Collider.
 
->Session 1
+6. **Construct the Basketball Hoop**  
+   - Create a Cube for the Backboard and position it above the floor.  
+   - Add a Cylinder as the visible rim, parented to the Backboard.  
+   - Add an invisible Box Collider (Is Trigger) under the rim to detect baskets.
 
-**Objective:** Setting up and creating basic zombies
+7. **Create Three Basketball Prefabs & Tag Them**  
+   - Make three Sphere GameObjects, scale them to 0.25 m diameter, and add Rigidbody + XR Grab Interactable.  
+   - Freeze X/Z rotations so they roll naturally.  
+   - Tag each prefab “Basketball1,” “Basketball2,” and “Basketball3,” then store them in Assets/Prefabs.
 
-**Difficulty:**
+8. **Handle Out-of-Bounds Respawns (`RespawnItems.cs`)**  
+   - Create a DeathZone collider under the floor (Box Collider at y = –2).  
+   - Place empty Transforms (BBStart1/BBStart2/BBStart3, PistolStart) at each item’s start position.  
+   - Write and attach `RespawnItems.cs` so falling items teleport back and reset velocity.
 
-- Easy: Set up the zombies and the zombie spawner.
-- Medium: Add walking animations to zombies.
-- Hard: Create different types of zombies!
+9. **Add Basketball Scoring (`BBScore.cs`)**  
+   - Create a floating TextMeshPro UI labeled “Score: 0” for basketball points.  
+   - Write `BBScore.cs` to detect when any “Basketball#” enters the HoopTrigger.  
+   - Attach the script to the trigger and assign the UI text reference.
 
->Session 2
+10. **Create the Pistol & Bullet Firing (`FireBulletOnActivate.cs`)**  
+    - Build a simple Cube pistol, add Rigidbody, XR Grab Interactable, and tag it “Pistol.”  
+    - Create a small Sphere bullet prefab with Rigidbody and tag “bullet.”  
+    - Add a child “SpawnPoint” at the muzzle and write `FireBulletOnActivate.cs` to spawn and launch bullets.
 
-**Objective:** Setting up plants and game manager component
+11. **Create Three Target Boards & Shooting Score UI**  
+    - Place three Cube boards with different colors (red, blue, green) and assign positions in the maze.  
+    - Create a second floating TextMeshPro UI for shooting points.  
+    - Write `ShootingPoint1.cs`, `ShootingPoint5.cs`, and `ShootingPoint10.cs` to update score and destroy bullets.
 
-**Difficulty:**
+12. **Add Maze-Exit Teleporter (`MazeTeleporter.cs`)**  
+    - Create a Box Collider trigger at the end of the maze.  
+    - Tag the Main Camera as “Player.”  
+    - Write `MazeTeleporter.cs` so touching the trigger reloads the scene, resetting scores and items.
 
-- Easy: Set up the grid and the peashooters.
-- Medium: Add animations to peashooters.
-- Hard: Create different types of plants!
+13. **Animate VR Hands (`AnimateHandOnInput.cs`)**  
+    - Import or use built-in hand models with Animator components that have “Trigger” and “Grip” floats.  
+    - Write `AnimateHandOnInput.cs` to read controller pinch/grip values and set Animator parameters each frame.  
+    - Assign input actions (LeftHand/RightHand pinch and grip) and Animator reference for both hands.
 
->Session 3:
+14. **Final Checklist & Play-Testing**  
+    - Verify each GameObject, component, tag, and script is configured as described.  
+    - Press Play, put on your VR headset, and test:  
+      - Teleportation around the floor.  
+      - Hand animations when you squeeze trigger/grip.  
+      - Grabbing and throwing basketballs, scoring with hoops.  
+      - Picking up the pistol, shooting targets, and updating shooting score.  
+      - Falling items respawn correctly.  
+      - Reaching the maze exit reloads the scene.
 
-**Objective:** Creating bullets and shooting scripts
-
-**Difficulty:**
-
-- Easy: Set up bullets to shoot the zombies!
-- Medium: Add animations for bullets.
-- Hard: Create bullets for each of the new plants you made.
-
->Session 4:
-
-**Objective:** Creating suns and sunflowers
-
-- Easy: Set up sunflowers.
-- Medium: Add animations to sunflowers.
-- Hard: Create advanced sunflower mechanics.
-
->Session 5:
-
-**Objective:** Making zombies aggressive and dangerous
-
-- Easy: Set up zombie damage mechanics.
-- Medium: Add attack animations to zombies.
-- Hard: Create the damage mechanics for your new zombies.
+See each section’s detailed instructions to complete your VR Basketball & Shooting Maze game. Have fun building and playing!  

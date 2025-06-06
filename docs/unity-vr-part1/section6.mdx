@@ -1,0 +1,72 @@
+---
+title: "Part 6: Build the Basketball Hoop"
+sidebar_position: 6
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Part 6: Build the Basketball Hoop
+
+We’ll construct a backboard (cube), a visible rim made from three block parts, and an invisible “trigger” under the rim to detect when a ball passes through.
+
+## A. Create the Backboard
+
+1. In **Hierarchy → + → 3D Object → Cube**, rename it **Backboard**.  
+2. In **Inspector → Transform**, set:  
+   - **Position**: `(0, 2, 5.5)`  
+   - **Scale**: `(2, 1, 0.1)`  
+   - **Rotation**: `(0, 0, 0)`  
+   - This places a 2 m wide × 1 m tall board at X=0, Y=2, Z=5.5.  
+3. Confirm **Backboard** has a **Box Collider** (built-in). If not, click **Add Component → Box Collider**.
+
+## B. Create the Visible Rim Using Three Blocks
+
+Instead of a cylinder, we’ll use three thin cubes to form a U-shaped rim with a clear opening in the front center.
+
+1. In **Hierarchy → + → 3D Object → Cube**, rename it **Rim_Left**.  
+2. In **Inspector → Transform**, set:  
+   - **Position**: `(-0.18, 1.75, 5.4)`  
+   - **Scale**: `(0.02, 0.05, 0.2)`  
+   - **Rotation**: `(0, 0, 0)`  
+   - This block is the left vertical side of the rim. It is 2 cm thick (X), 5 cm tall (Y), and 20 cm long (Z).
+
+3. Duplicate **Rim_Left** (Ctrl+D), rename the copy **Rim_Right**. In its **Transform**, set:  
+   - **Position**: `(0.18, 1.75, 5.4)`  
+   - **Scale**: `(0.02, 0.05, 0.2)`  
+   - This block is the right vertical side of the rim.
+
+4. Duplicate **Rim_Left** again, rename to **Rim_Back**. In its **Transform**, set:  
+   - **Position**: `(0, 1.75, 5.3)`  
+   - **Scale**: `(0.4, 0.05, 0.02)`  
+   - This block forms the back horizontal segment of the rim, 40 cm wide (X), 5 cm tall (Y), and 2 cm thick (Z).
+
+5. Parent all three rim pieces under **Backboard** (drag **Rim_Left**, **Rim_Right**, and **Rim_Back** onto **Backboard** in the Hierarchy).  
+6. To color them like a real rim:  
+   - Create a new Material (Assets → Create → Material) named **RimMat**, set Albedo to orange or red.  
+   - Select **Rim_Left**, **Rim_Right**, **Rim_Back** one at a time and drag **RimMat** into **Inspector → Mesh Renderer → Element 0**.
+
+Now you have a U-shaped rim with a 40 cm opening in front where balls can pass.
+
+## C. Create an Invisible “HoopTrigger” Under the Rim
+
+We need a trigger collider positioned just under the U-shaped rim so that basketballs passing through count as a successful shot.
+
+1. Right-click **Backboard → Create Empty**, rename it **HoopTrigger**.  
+2. With **HoopTrigger** selected, click **Add Component → Box Collider**.  
+3. In the **Box Collider**, check **Is Trigger = true**.  
+4. Adjust its **Transform** so it sits just below the rim’s opening:  
+   - **Position**: `(0, 1.65, 5.35)`  
+     - (This is 10 cm below the rim’s Y=1.75 and 5 cm in front of the back rim piece at Z=5.3.)  
+   - **Size**: `(0.36, 0.01, 0.18)`  
+     - (36 cm wide across X, 1 cm tall, 18 cm deep along Z.)  
+   - These values ensure that any ball dropping through the U-shaped gap (40 cm wide × 20 cm deep) will enter the trigger area.
+
+5. In Play mode, when a basketball (tagged “Basketball#”) passes into **HoopTrigger**, you can detect that collision and increment the score.
+
+---
+
+Now you have:
+
+- A **Backboard** at (0, 2, 5.5).  
+- A U-shaped rim composed of three orange/red cubes, parented to the Backboard, forming the front opening.  
+- A thin **HoopTrigger** just under the rim’s opening to register baskets.

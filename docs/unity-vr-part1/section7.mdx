@@ -1,0 +1,51 @@
+---
+title: "Part 7: Create Three Basketball Prefabs & Tag Them"
+sidebar_position: 7
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Part 7: Create Three Basketball Prefabs & Tag Them
+
+We want three starting basketballs (Basketball 1, 2, 3) that you can pick up and throw—and we’ll tag each so the scoring script knows which one collided.
+
+## A. Make a “Basketball” Prototype
+
+1. In **Hierarchy → + → 3D Object → Sphere**, rename it **Basketball1**.  
+2. In **Inspector → Transform**, set:  
+   - **Position**: (−2, 0.5, 3)  
+     _(places it in front of the left side of the maze)_  
+   - **Scale**: (0.25, 0.25, 0.25)  
+     _(25 cm diameter, roughly a real basketball size)_  
+3. Add these components to **Basketball1**:  
+   - **Sphere Collider** (built-in, leave **Is Trigger = false**).  
+   - **Rigidbody**:  
+     - **Mass** = 0.6 (kg)  
+     - **Use Gravity** = ☑  
+     - **Constraints** → check **Freeze Rotation X** and **Freeze Rotation Z**  
+       _(so the ball only spins naturally around its vertical axis and doesn’t wobble sideways)_  
+   - **XR Grab Interactable** (click **Add Component → XR Grab Interactable**)  
+     _(allows grabbing with your VR controller)_  
+4. Select **Basketball1**, then in **Inspector → Tag** dropdown, click **Add Tag…**  
+   - In the Tags & Layers window, click “+”, type **Basketball1**, and press **Enter**.  
+   - Return to **Basketball1** and set its **Tag** to **Basketball1**.
+
+## B. Duplicate for Basketball2 and Basketball3
+
+1. **Right-click Basketball1 → Duplicate**, rename the copy **Basketball2**.  
+   - In **Inspector → Transform**, set **Position** = (0, 0.5, 3)  
+     _(places it in the middle)_  
+   - Click **Tag → Add Tag…**, add **Basketball2**, then set **Basketball2**’s Tag to **Basketball2**.  
+2. **Duplicate Basketball1** again, rename to **Basketball3**.  
+   - In **Inspector → Transform**, set **Position** = (2, 0.5, 3)  
+   - Click **Tag → Add Tag…**, add **Basketball3**, then set **Basketball3**’s Tag to **Basketball3**.
+
+## C. Create Prefabs
+
+1. In the **Project** window, create a folder **Assets/Prefabs** (right-click → **Create → Folder**, name it **Prefabs**).  
+2. Drag **Basketball1**, **Basketball2**, and **Basketball3** from the Hierarchy into **Assets/Prefabs**.  
+   - Now each becomes a **Prefab** (you’ll see blue icons).  
+3. Delete all three **Basketball#** instances from the Hierarchy.  
+   - (We’ll either spawn them via script later or place them manually back into the scene.)  
+
+**Result:** You now have three basketball prefabs—tagged **Basketball1**, **Basketball2**, and **Basketball3**—that are grabbable and will fall under physics.  

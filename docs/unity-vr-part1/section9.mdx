@@ -1,0 +1,83 @@
+---
+title: "Part 9: Add the Basketball Scoring Script (BBScore.cs)"
+sidebar_position: 9
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+# Part 9: Add the Basketball Scoring Script (BBScore.cs)
+
+Each time any basketball passes through the rim’s trigger, we want to add one point.
+
+## A. Create the “BBScore” Script
+
+1. In **Assets/Scripts**, right-click → **Create → C# Script**, name it **BBScore**.
+2. Double-click **BBScore.cs** to open it in your code editor. Delete everything and replace with the following:
+
+    ```csharp
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+    using TMPro;
+
+    public class BBScore : MonoBehaviour
+    {
+        public TMPro.TMP_Text bbScoreCounter;
+        private int score = 0;
+
+        private void OnTriggerEnter(Collider other) {
+            if (other.gameObject.tag == "Basketball1" || other.gameObject.tag == "Basketball2" || other.gameObject.tag == "Basketball3") {
+                score++;
+                bbScoreCounter.text = "Score: " + score;
+            }
+        }
+    }
+    ```
+
+3. Save **BBScore.cs** and switch back to Unity.
+
+## B. Attach BBScore to the HoopTrigger
+
+1. In the **Hierarchy**, find **HoopTrigger** (the thin Box Collider under the rim).
+2. Click **HoopTrigger**, then **Add Component → BBScore**.
+
+## C. Create a UI TextMeshPro Text to Display the Score
+
+1. In the **Hierarchy → + → UI → Text – TextMeshPro**.  
+   - If prompted, import **TextMeshPro Essentials**.
+2. Rename this object **BBScoreText**.
+3. Click **BBScoreText**, then in **Inspector → TextMeshPro → Text**, type:
+```
+Score: 0
+```
+4. Set **Font Size** to **48**.
+5. Under **Rect Transform**, set:
+- **Pos X** = 0  
+- **Pos Y** = 1.8  
+- **Pos Z** = 0.5  
+  _(so it floats in front of you at eye level)_  
+- **Rotation** = (0, 180, 0)  
+  _(so it faces you)_  
+- **Scale** = (0.002, 0.002, 0.002)  
+  _(this makes the text small enough to look normal in VR)_
+
+## D. Create a World-Space Canvas (if needed)
+
+1. If you don’t already have a Canvas, in **Hierarchy → + → UI → Canvas**, rename it **BBCanvas**.
+2. Click **BBCanvas**, then in **Inspector → Canvas**, set **Render Mode = World Space**.
+3. Under **Rect Transform**, set:
+- **Position** = (0, 1.8, 0.5)  
+- **Rotation** = (0, 180, 0)  
+- **Scale** = (0.002, 0.002, 0.002)
+4. Drag **BBScoreText** under **BBCanvas** (so it becomes a child of the world-space Canvas).
+
+## E. Wire Up the ScoreText Reference
+
+1. Select **HoopTrigger** in the **Hierarchy**.
+2. In **Inspector**, under the **BBScore** component, you’ll see a slot labeled **Score Text** (or **scoreText**).  
+3. Drag **BBScoreText** (from the Hierarchy) into that **Score Text** slot.
+
+---
+
+**Result:** Whenever any basketball (tagged **Basketball1**, **Basketball2**, or **Basketball3**) enters **HoopTrigger**, the script increments the score by 1 and updates the “Score: X” TextMeshPro display in VR.  
+
