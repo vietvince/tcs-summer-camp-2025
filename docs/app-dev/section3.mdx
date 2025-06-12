@@ -1,0 +1,143 @@
+---
+title: "Saving & Loading Game State"
+sidebar_position: 6
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+  <summary>**Prerequisites: Before You Dive In!**</summary>
+
+  - You have completed **Cookie Clicker 1–3** (setup, styling, click logic).  
+  - Your **index.html** has three buttons inside `<div class="saving">`:  
+    ```html
+    <button class="import">Import</button>
+    <button class="export">Export</button>
+    <button class="wipe">Wipe Save</button>
+    ```  
+  - You have empty **js/base64.js** and **js/game.js** files linked in **index.html**.  
+</details>
+:::
+
+## Objective 🧐
+
+Enable players to **save** their cookie count (and later load it back) using `localStorage` with a Base64‐encoded JSON string.
+
+## Getting Started 🚩
+
+### Step 1. Define the Base64 Utility
+
+1. Open **js/base64.js**.  
+2. Paste this minimal encoder/decoder:
+
+```js
+// js/base64.js
+const Base64 = {
+  encode(str) {
+    return btoa(unescape(encodeURIComponent(str)));
+  },
+  decode(data) {
+    return decodeURIComponent(escape(atob(data)));
+  }
+};
+```
+- This gives us Base64.encode(...) and Base64.decode(...) for UTF-8–safe Base64.
+
+### Step 2. Grab Save/Load Buttons & State
+
+1. Open js/game.js.
+
+2. Below your DOM queries for the cookie, add:
+
+```js
+const importBtn = document.querySelector('.saving .import');
+const exportBtn = document.querySelector('.saving .export');
+const wipeBtn   = document.querySelector('.saving .wipe');
+```
+
+- Also ensure your player state is accessible:
+
+```js
+let player = { cookies: 0, cookiesPerClick: 1 };
+```
+
+### Step 3. Write saveGame()
+
+1. Below, define:
+
+```js
+function saveGame() {
+  const payload = { cookies: player.cookies };
+  const json    = JSON.stringify(payload);
+  const encoded = Base64.encode(json);
+  localStorage.setItem('cookieClickerSave', encoded);
+  alert('Game saved!');
+}
+```
+
+### Step 4. Write loadGame()
+
+1. Next, add:
+
+```js
+function loadGame() {
+  const encoded = localStorage.getItem('cookieClickerSave');
+  if (!encoded) {
+    alert('No save found');
+    return;
+  }
+  try {
+    const json    = Base64.decode(encoded);
+    const data    = JSON.parse(json);
+    player.cookies = data.cookies;
+    // Refresh display immediately
+    document.querySelector('.cookieDisplay').textContent = player.cookies;
+    alert('Game loaded!');
+  } catch {
+    alert('Error loading save data');
+  }
+}
+```
+
+### Step 5. Write wipeGame()
+
+1. Finally, clear the save and reset:
+
+```js
+function wipeGame() {
+  if (!confirm('Wipe all saved progress?')) return;
+  localStorage.removeItem('cookieClickerSave');
+  player.cookies = 0;
+  document.querySelector('.cookieDisplay').textContent = 0;
+  alert('Save wiped!');
+}
+```
+
+### Step 6. Hook Up Event Listeners
+
+1. At the bottom of game.js, wire up the buttons:
+
+```js
+exportBtn.addEventListener('click', saveGame);
+importBtn.addEventListener('click', loadGame);
+wipeBtn.addEventListener('click', wipeGame);
+```
+
+### Step 7. Test Save & Load
+
+1. Reload index.html.
+
+2. Click the cookie a few times → Export → you’ll see “Game saved!” alert.
+
+3. Manually change the count by clicking more → Import → count resets to saved value.
+
+4. Click Wipe Save → count resets to zero and the storage entry is cleared.
+
+5. Confirm in DevTools Application → Local Storage that the key cookieClickerSave appears/disappears.
+
+<br />
+
+Awesome! Your game now persists and restores cookie count across page reloads.
+
+Next up: **Building the Shop & Upgrades**, where we’ll allow players to spend cookies on upgrades!

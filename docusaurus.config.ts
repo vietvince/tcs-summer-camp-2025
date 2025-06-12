@@ -139,6 +139,12 @@ const config: Config = {
         },
         {
           type: "docSidebar",
+          sidebarId: "appDev",
+          position: "left",
+          label: "App-1",
+        },
+        {
+          type: "docSidebar",
           sidebarId: "roboticsSidebar1",
           position: "left",
           label: "mBot-1",

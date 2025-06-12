@@ -1,0 +1,237 @@
+---
+title: "Building the Shop & Upgrades"
+sidebar_position: 7
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+  <summary>**Prerequisites – Before You Dive In!**</summary>
+
+  You have completed **Cookie Clicker 1–4**:
+  1. Project Setup & HTML Structure  
+  2. Styling the Cookie & Containers  
+  3. Implementing Click Logic & Counter Update  
+  4. Saving & Loading Game State  
+
+  Your **js/game.js** currently contains:
+  - `player` object with `cookies` & `cookiesPerClick`  
+  - DOM queries & event listeners for clicking, save, load, and wipe  
+  - `saveGame()`, `loadGame()`, `wipeGame()` functions  
+</details>
+:::
+
+## Objective 🧐
+
+Create the data model (`Building` & `Upgrade`), define your `game.buildings` array, and implement the shop UI so players can spend cookies on “Cursor,” “Grandma,” etc., and see details for each.
+
+## Getting Started 🚩
+
+### Step 1. Define `Upgrade` & `Building` classes
+
+Open **js/game.js**, **above** all your existing code, and paste:
+
+```js
+// 1. Upgrade class
+class Upgrade {
+  constructor(name, cost, desc, requirement, special = false) {
+    this.name        = name;
+    this.cost        = cost;
+    this.desc        = desc;
+    this.requirement = requirement; // min buildings needed
+    this.owned       = false;
+    this.special     = special;
+  }
+  requirementMet(amount) {
+    return amount >= this.requirement;
+  }
+}
+
+// 2. Building class
+class Building {
+  constructor(name, cost, baseEffect, upgrades = [], locked = true) {
+    this.name         = name;
+    this.originalCost = cost;
+    this.cost         = cost;
+    this.baseEffect   = baseEffect;   // CPS per building
+    this.upgrades     = upgrades;     // array of Upgrade
+    this.locked       = locked;
+    this.amount       = 0;
+  }
+
+  // Generate a simple menu button
+  generateMenuButton() {
+    return `<button>${this.name}</button>`;
+  }
+
+  // Generate detailed shop HTML
+  generateShopHTML() {
+    let html = `
+      <h2>${this.name}</h2>
+      <p>You own <strong>${this.amount}</strong> ${this.name}(s).</p>
+      <p>Cost: <strong>${this.cost}</strong> cookies.</p>
+      <button onclick="game.buildings.find(b=>b.name==='${this.name}').buy(1)">
+        Buy 1
+      </button>
+    `;
+    if (this.upgrades.length) {
+      html += '<h3>Upgrades</h3>';
+      this.upgrades.forEach(u => {
+        html += `
+          <button onclick="game.buildings
+            .find(b=>b.name==='${this.name}')
+            .buyUpgrade('${u.name}')">
+            ${u.name} (${u.cost})
+          </button>
+        `;
+      });
+    }
+    return html;
+  }
+
+  // Purchase logic
+  buy(amount) {
+    let totalCost = 0, price = this.cost;
+    for (let i = 0; i < amount; i++) {
+      totalCost += price;
+      price = Math.round(price * 1.15);
+    }
+    if (player.cookies >= totalCost) {
+      player.cookies -= totalCost;
+      this.amount += amount;
+      this.cost = price;
+      // Unlock next building
+      const idx = game.buildings.indexOf(this);
+      if (idx + 1 < game.buildings.length) {
+        game.buildings[idx+1].locked = false;
+        constructShop();
+      }
+      updateDisplays();
+      updateShop(this.name);
+    } else {
+      alert('Not enough cookies!');
+    }
+  }
+
+  // Upgrade logic (doubling click power as example)
+  buyUpgrade(upgradeName) {
+    const up = this.upgrades.find(u => u.name === upgradeName);
+    if (up && !up.owned && player.cookies >= up.cost && this.amount >= up.requirement) {
+      player.cookies           -= up.cost;
+      up.owned                  = true;
+      player.cookiesPerClick   *= 2;
+      updateDisplays();
+      updateShop(this.name);
+    } else {
+      alert('Cannot purchase upgrade');
+    }
+  }
+}
+```
+
+### Step 2. Create the game.buildings array
+
+1. Immediately below those class definitions, add:
+
+```js
+// 3. Main game object
+const game = {
+  buildings: [
+    new Building(
+      'Cursor',
+      15,
+      0.1,
+      [ new Upgrade('Reinforced Index Finger', 100, 'Double click power', 1) ],
+      false  // unlocked at start
+    ),
+    new Building(
+      'Grandma',
+      100,
+      1,
+      [ new Upgrade('Forwards from Grandma', 1000, 'Grandmas are twice as efficient', 1) ],
+      true   // locked until you buy a Cursor
+    ),
+    // add more buildings here…
+  ]
+};
+```
+
+### Step 3. Query Shop Containers
+
+1. Below your existing DOM queries (cookieBtn, importBtn, etc.), add:
+
+```js
+const shopListEl   = document.querySelector('.shopList');
+const shopDetailEl = document.querySelector('.shop');
+```
+
+### Step 4. Implement constructShop() & updateShop(name)
+
+1. Below your wipeGame() function, add:
+
+```js
+// 4. Build left‐menu buttons
+function constructShop() {
+  shopListEl.innerHTML = '';
+  game.buildings.forEach(b => {
+    if (!b.locked) {
+      const btn = document.createElement('button');
+      btn.textContent = b.name;
+      btn.onclick     = () => updateShop(b.name);
+      shopListEl.appendChild(btn);
+    }
+  });
+}
+
+// 5. Render details for a selected building
+function updateShop(name) {
+  const b = game.buildings.find(x => x.name === name);
+  shopDetailEl.innerHTML = b.generateShopHTML();
+}
+```
+
+### Step 5. Add updateDisplays() & Main Loop
+
+1. At the very bottom of js/game.js, append:
+
+```js
+// 6. Keep cookie counts & CPC in sync
+function updateDisplays() {
+  displayTotal.textContent = player.cookies;
+  displayCPC.textContent    = player.cookiesPerClick;
+}
+
+// 7. Simple game loop (refresh every second)
+game.logic = function() {
+  updateDisplays();
+  setTimeout(game.logic, 1000);
+};
+
+// Initialize shop and loop
+constructShop();
+updateShop(game.buildings.find(b=>!b.locked).name);
+game.logic();
+```
+
+### Step 6. Test Your Shop
+
+1. Save game.js, reload index.html.
+
+2. Click the cookie until you have ≥15 cookies.
+
+3. In the left menu, click Cursor → in the detail panel click Buy 1.
+
+    - Cookie count drops by 15.
+
+    - “You own X” increments.
+
+    - Cost updates to ~17.
+
+    - Grandma unlocks in the menu.
+
+<br />
+
+Great! Your shop is fully functional from a fresh Lesson 4 state.
+
+Next up: **Auto-Clickers, Balancing & Polish**, where we’ll add CPS and refine your economy!

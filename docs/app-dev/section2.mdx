@@ -1,0 +1,88 @@
+---
+title: "Implementing Click Logic & Counter Update"
+sidebar_position: 5
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+  <summary>**Prerequisites: Before You Dive In!**</summary>
+
+  - You have completed **Cookie Clicker 1 – Project Setup** and **Cookie Clicker 2 – Styling**.  
+  - Your project folder contains:
+    - **index.html** with:
+      ```html
+      <b class="cookieDisplay">0</b>
+      <b class="cpcDisplay">0</b>
+      <b class="cpsDisplay">0</b>
+      <button class="cookieButton"><img src="images/cookie.png"></button>
+      ```
+    - Empty **js/game.js** linked at the bottom of **index.html**.  
+</details>
+:::
+
+## Objective 🧐
+
+Write the JavaScript in **js/game.js** so that clicking the cookie:
+
+1. Increases your total cookie count by “cookies-per-click.”  
+2. Updates the on-screen **cookieDisplay** and **cpcDisplay** accordingly.  
+
+## Getting Started 🚩
+
+### Step 1. Define Your Player State
+
+1. Open **js/game.js**.  
+2. At the top, create a simple player object to track cookies and click power:
+
+```js
+// js/game.js
+const player = {
+  cookies: 0,       // total cookies earned
+  cookiesPerClick: 1 // cookies gained each click
+};
+```
+
+### Step 2. Grab DOM Elements
+
+1. Still in game.js, grab references to the display elements and cookie button:
+
+```js
+const displayTotal = document.querySelector('.cookieDisplay');
+const displayCPC   = document.querySelector('.cpcDisplay');
+const cookieBtn    = document.querySelector('.cookieButton');
+```
+
+### Step 3. Write the Click Handler
+
+Below those lines, add a click listener to the cookie button:
+
+```js
+cookieBtn.addEventListener('click', () => {
+  // 1. Increase the player's cookie count
+  player.cookies += player.cookiesPerClick;
+
+  // 2. Update the on-screen displays
+  displayTotal.textContent = player.cookies;
+  displayCPC.textContent   = player.cookiesPerClick;
+});
+```
+
+## Step 4. Test in the Browser
+
+1. Save game.js and reload index.html in your browser.
+
+2. Click the cookie image:
+
+- cookieDisplay should increment by 1 each click.
+
+- cpcDisplay should show “1.”
+
+3 .Open your developer console (F12) to confirm there are no errors.
+
+<br />
+
+Great job! Your cookie now counts each click and updates the display.
+
+Next up: **Saving & Loading Game State**, where we’ll persist your progress between sessions!

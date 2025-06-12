@@ -1,0 +1,89 @@
+---
+title: "Auto-Clickers & Balancing"
+sidebar_position: 9
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+  <summary>**Prerequisites – Before You Dive In!**</summary>
+
+  You have completed **Cookie Clicker 1–6**:
+  1. Project Setup & HTML  
+  2. Styling  
+  3. Click Logic  
+  4. Saving/Loading  
+  5. Shop UI & Upgrades  
+  6. Shop Purchase Logic & Game Loop  
+
+  Your **js/game.js** now contains:
+  - `Upgrade` & `Building` classes  
+  - `game.buildings` array with `baseEffect` defined  
+  - `constructShop()`, `updateShop()`  
+  - `updateDisplays()` (shows cookies & CPC)  
+  - `game.logic()` (loops every second)  
+</details>
+:::
+
+## Objective 🧐
+
+Extend your game loop so that each building generates cookies automatically (“cookies per second”) and display that rate in the UI.
+
+## Step 1. Query the CPS Display
+
+Open **js/game.js**, scroll to the top where you select your DOM elements, and add:
+
+```js
+const displayCPS = document.querySelector('.cpsDisplay');
+```
+- Now you have displayCPS to show cookies-per-second.
+
+### Step 2. Compute & Add Auto-Cookies
+
+1. Replace your existing game.logic with this:
+
+```js
+game.logic = function() {
+  // 1. Calculate total cookies per second (CPS)
+  let totalCPS = 0;
+  game.buildings.forEach(b => {
+    totalCPS += b.baseEffect * b.amount;
+  });
+
+  // 2. Add auto-cookies to player
+  player.cookies += totalCPS;
+
+  // 3. Refresh all displays
+  updateDisplays();
+  displayCPS.textContent = totalCPS.toFixed(1);
+
+  // 4. Repeat in 1 second
+  setTimeout(game.logic, 1000);
+};
+```
+
+- baseEffect × amount yields each building’s CPS.
+
+- We add that to player.cookies every second.
+
+- displayCPS shows the summed CPS (rounded to one decimal).
+
+### Step 3. Update updateDisplays()
+
+1. If your updateDisplays() currently only updates cookies and CPC, modify it to clear the CPS display before the loop runs:
+
+```js
+function updateDisplays() {
+  displayTotal.textContent = player.cookies;
+  displayCPC.textContent   = player.cookiesPerClick;
+  // leave displayCPS to the game.loop code
+}
+```
+(The CPS line stays in game.logic so it updates after each calculation.)
+
+
+
+<br />
+
+Awesome! You’ve added automatic cookie generation and a live CPS display. Your Cookie Clicker is now fully playable and polished!

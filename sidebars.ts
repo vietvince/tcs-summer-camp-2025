@@ -116,4 +116,10 @@ export const unitySidebar3 = [
   },
 ];
 
+export const appDev = [
+  {
+    'App Development': ['app-dev/intro', 'app-dev/setup', 'app-dev/section1', 'app-dev/section2', 'app-dev/section3', 'app-dev/section4', 'app-dev/section5']
+  },
+];
+
 export default sidebars;

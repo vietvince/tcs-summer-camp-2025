@@ -1,0 +1,117 @@
+---
+title: "Project Setup & HTML Structure"
+sidebar_position: 2
+toc_min_heading_level: 2
+toc_max_heading_level: 3
+---
+
+:::info
+<details style={{border:'none'}}>
+  <summary>**Prerequisites: Before You Dive In!**</summary>
+
+  - A code editor (e.g., VS Code, Sublime, Atom).  
+  - A modern browser (Chrome, Firefox, Edge).  
+  - A blank project folder where you’ll build your Cookie Clicker from scratch.  
+  - A cookie image file saved as `images/cookie.png`.  
+</details>
+:::
+
+## Objective 🧐
+
+Set up your project folder and scaffold the **index.html** file to link your CSS and JavaScript, matching the structure of the supplied template.
+
+## Getting Started 🚩
+
+### Step 1. Create Your Folder Structure
+
+In your blank project folder, create these subfolders:
+
+```
+cookie-clicker/
+├── css/
+├── js/
+└── images/
+```
+
+- Copy your `cookie.png` into the `images/` folder.
+
+### Step 2. Scaffold `index.html`
+
+1. In the root of `cookie-clicker`, create **index.html**.  
+2. Paste in this structure (citing the provided template):
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css"/>
+    <title>Cookie Clicker | 0</title>
+  </head>
+  <body>
+    <div class="saving">
+      <button class="import" onclick="game.saving.openBox('import')">Import</button>
+      <button class="export" onclick="game.saving.openBox('export')">Export</button>
+      <button class="export wipe" onclick="game.saving.wipeSave()">Wipe Save</button>
+    </div>
+    <div class="importExportBox">
+      <div>
+        <textarea id="saveBox" maxlength="5000"></textarea>
+        <button onclick="game.saving.closeBox()">Close</button>
+      </div>
+    </div>
+    <div class="cookieContainer">
+      <b class="cookieDisplay">0</b><br/>
+      cps : <b class="cpsDisplay">0</b> | cpc : <b class="cpcDisplay">0</b>
+      <button class="cookieButton"><img src="images/cookie.png"/></button>
+    </div>
+    <div class="shopContainer">
+      <div class="shopList"></div>
+      <div class="shop"></div>
+    </div>
+    <script src="js/base64.js"></script>
+    <script src="js/game.js"></script>
+  </body>
+</html>
+```
+
+### Step 3. Create & Link Your CSS
+
+1. In css/, create style.css.
+
+2. At minimum, add a reset and body font:
+
+```css
+/* css/style.css */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+```
+- Save and reload index.html in your browser—there should be no 404 errors in the console.
+
+### Step 4. Create Empty JavaScript Files
+
+1. In js/, create two files:
+
+- base64.js
+
+- game.js
+
+Leave them empty for now; we’ll fill them in upcoming lessons.
+
+### Step 5. Verify the Scaffold
+
+1. Open index.html in your browser.
+
+2. You should see the page structure (buttons, empty containers, cookie image), styled minimally by your CSS.
+
+3. Confirm no missing‐file errors appear in the developer console.
+
+<br />
+
+Done! Your project scaffold is complete.
+
+Next up: **Styling the Cookie & Containers**, where we’ll apply the full CSS from style.css
+to make your game look polished!
